@@ -6,7 +6,14 @@ _Please see the [Web of Trust Info website](http://www.weboftrust.info/) for mor
 
 ##  Topics & Advance Readings
 
-_This area will soon fill with your advanced readings!_
+In advance of the design workshop, all participants produced a one-or-two page topic paper to be shared with the other attendees on either:
+
+* A specific problem that they wanted to solve with a web-of-trust solution, and why current solutions (PGP or CA-based PKI) can't address the problem?
+* A specific solution related to the web-of-trust that you'd like others to use or contribute to?
+
+This should be uploaded to [Topics & Advance Readings directory](topics-and-advance-readings).
+
+_This area will soon fill with links to your advanced readings!_
 
 ## Other Readings of Interest
 
