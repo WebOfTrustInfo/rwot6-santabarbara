@@ -1,6 +1,6 @@
 If you will be attending Rebooting the Web of Trust Spring 2018 in Santa Barbara, California, please upload your topic papers and advanced readings to this directory with a pull request (or, if you don't know how, post an issue).
 
-_Please see the [Web of Trust Info website](http://www.weboftrust.info/) for more information about our community. Go to EVENTBRITE to register for this event._
+_Please see the [Web of Trust Info website](http://www.weboftrust.info/) for more information about our community. Go to [Eventbrite](http://rwot6.eventbrite.com) to register for this event._
 
 ##  Topics & Advance Readings
 
