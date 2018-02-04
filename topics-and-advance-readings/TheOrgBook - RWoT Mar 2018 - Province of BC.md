@@ -24,7 +24,7 @@ We are using TheOrgBook to learn about distributed ledger technology in support 
 
 Our approach to this learning is open and agile. The Province of BC, in partnership with the Office of Small and Medium Enterprises and Strategic Engagement (Public Services and Procurement Canada), is building on the Linux Foundation’s Open Source Hyperledger Indy Distributed Ledger (Blockchain).  Everything we are building in open, including the code (Open Source and published on GitHub), and our Sprint plans (published on Trello). For more information see:
 
-About TheOrgBook Powerpoint: https://goo.gl/LSZWaE
-GitHub introduction page: https://bcgov.github.io/TheOrgBook
-GitHub Repository: https://github.com/bcgov/TheOrgBook
-Trello Board: https://trello.com/b/fHox971V/von
+* About TheOrgBook Powerpoint: https://goo.gl/LSZWaE
+* GitHub introduction page: https://bcgov.github.io/TheOrgBook
+* GitHub Repository: https://github.com/bcgov/TheOrgBook
+* Trello Board: https://trello.com/b/fHox971V/von
