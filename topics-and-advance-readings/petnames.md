@@ -102,7 +102,7 @@ decides to reify the name `Dr. Tree-Arch` as her own manually set
 local petname for the professor, and the display of the name updates
 accordingly with a friendly golden star.
 (Her Petnames database might potentially also provide her the
-opportunity to write a note or so about Dr. Tree-Arch in case Eva
+opportunity to write a note or such about Dr. Tree-Arch in case Eva
 would find adding such context to be helpful.)
 When she receives communication from or about Dr. Tree-Arch in the
 future, she will be aware that it is this particular Dr. Tree-Arch
