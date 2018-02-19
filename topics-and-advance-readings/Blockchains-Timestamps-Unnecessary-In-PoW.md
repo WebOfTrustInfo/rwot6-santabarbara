@@ -34,4 +34,4 @@ The most straightforward risk comes from the potential increase in total transac
 Two equally straightforward mitigations exist to address this if we are given the liberty of modifying the protocol as we wish:
 
 1. Introducing state checkpoints into the chain itself could make it possible for full nodes to skip verification of large sections of historical data when booting up.
-2. A sharded protocol, where each shard uses a "sufficiently different" PoW algorithm, would create an exist for users should the primary blockchain become captured by a cartel providing poor quality-of-service.
+2. A sharded protocol, where each shard uses a "sufficiently different" PoW algorithm, would create an exit for users should the primary blockchain become captured by a cartel providing poor quality-of-service.
