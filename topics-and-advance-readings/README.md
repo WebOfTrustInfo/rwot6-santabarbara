@@ -8,3 +8,6 @@ In advance of the design workshop, all participants produced a one-or-two page t
 
 * A specific problem that they wanted to solve with a web-of-trust solution, and why current solutions (PGP or CA-based PKI) can't address the problem?
 * A specific solution related to the web-of-trust that you'd like others to use or contribute to?
+
+
+Documentation of a extensive Twitter conversation about the question [Is putting hashed PII on any immutable ledger (blockchain) a bad idea?](https://identitywoman.net/putting-hashed-pii-immutable-ledgerblockchain-bad-idea/) Sparked by Kaliya "Identity Woman" Young and captured on her [blog.](http://www.identitywoman.net) 
