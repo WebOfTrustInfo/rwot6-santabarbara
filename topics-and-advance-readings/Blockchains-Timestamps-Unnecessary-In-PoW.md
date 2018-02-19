@@ -11,7 +11,7 @@ I assert, or rather, pose the hypothesis, that the use of timestamps in Bitcoin'
 The alternative difficulty adjustment algorithm would work according to the following principles:
 
 - The incentive for miners is and always has been to maximize profit.
-- The block reward algorithm is now modified to issue a coins into perpetuity (no maximum). Any given block can issue _up to_ `X` number of coins per block.
+- The block reward algorithm is now modified to issue coins into perpetuity (no maximum). Any given block can issue _up to_ `X` number of coins per block.
 - The number of coins issued per block is now tied directly to the difficulty of the block, and the concept of "epocs" or "block reward halving" is removed.
 - The chain selection rule remains "chain with most proof of work"
 - The difficulty can be modified by miners in an arbitrary direction (up or down), but is limited in magnitude by some maximum percentage (e.g. no more than 20% deviation from the previous block), we call this `Y%`.
