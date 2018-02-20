@@ -7,7 +7,7 @@ Authored by Kyle Den Hartog
 # protocol:
 ##### 1. Client sets up primitives:
 * Client DID ( The DID the client wishes to be associated with)
-* Client generates a nonce (3<sup>15</sup>)mod 17 = 6 (nonce = 6, g = 3, p = 17, 15 is secret key)
+* Client generates a nonce 3<sup>15</sup>mod 17 = 6 (nonce = 6, g = 3, p = 17, 15 is secret key)
 
 ##### 2. Client packages Message
 { plaintext [Client DID, g, p, nonce], signature signed by private key associated with DID document public key }
@@ -22,7 +22,7 @@ Authored by Kyle Den Hartog
 3. If valid server generates request A else server generates request B
     * **Request A (valid):**
         Server DID ( The DID the server wishes to be associated with )
-        Server generates a nonce (3<sup>13</sup>)mod 17 = 12 (nonce = 12, g = 3, p = 17, 13 = secret key)
+        Server generates a nonce 3<sup>13</sup>mod 17 = 12 (nonce = 12, g = 3, p = 17, 13 = secret key)
 
     * **Request B (invalid):**
         A standard 401 HTTP response
