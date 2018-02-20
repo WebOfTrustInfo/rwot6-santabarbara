@@ -11,9 +11,9 @@ persistent, decentralized storage that validate attestations before
 storing them. We are using IPFS for our current implementation but
 providing layers of validation and replication highlights the need for
 storage network that can provide these features in a generic manner
-such that various Dapps can use the same network. In this document
+such that various Dapps can use the same network. In this document we
 motivate the need for such a network by highlighting the challenges we
-are facing while implementing such a storage on top of IPFS.
+are facing during our implementation effort.
 
 ## Introduction
 
@@ -44,7 +44,7 @@ Signatures
 specifications](https://w3c-dvcg.github.io/ld-signatures/). Finally,
 we point out changes we would like to discuss around [Decentralized
 Identity Hubs
-Specifications](https://github.com/decentralized-identity/hubs/blob/master/explainer.md)
+Specifications](https://github.com/decentralized-identity/hubs/blob/master/explainer.md).
 
 ## Chlu Protocol Overview
 
