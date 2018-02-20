@@ -5,7 +5,7 @@ Authored by Kyle Den Hartog
  this is nearly an implementation of [TLS 1.3](https://tools.ietf.org/html/draft-ietf-tls-tls13-24) using public keys associated with a DID rooted on a blockchain rather than X.509 Certificates. It allows two DID owners to be able to mutually authenticate with a high degree of certainty (as long as the private key haven't been cracked, stolen, intercepted, etc) and can establish an ephemeral, secure, communication channel. The main concerns with TLS at this point is that established libraries such as OpenSSL, GnuTLS, and wolfSSL need slight modifications in order to run DID-TLS. In the intermediary, we could utilize this protocol to get Authentication through DIDs working, and then when the modifications in [Open-TLS](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/OpenTLS.md) are accepted into the libraries, DID-Authentication could migrate to these libraries.
 
 # protocol:
-#####1. Client sets up primitives:
+##### 1. Client sets up primitives:
 * Client DID ( The DID the client wishes to be associated with)
 * Client generates a nonce (3<sup>15</sup>)mod 17 = 6 (nonce = 6, g = 3, p = 17, 15 is secret key)
 
