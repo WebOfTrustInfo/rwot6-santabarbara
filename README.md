@@ -20,6 +20,7 @@ Here are the advanced readings to date:
 * [Decentralized Attestations Storage - Current Challenges](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/decentralised-attestations-storage-network-challenges.md) by Kulpreet Singh
 * [Decentralized Identities for the Cannabis Industry](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/cannabis-kyc.md) by Matthew Nguyen & Nicholas Shook
 * [DID-Auth Protocol](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md) by Kyle Den Hartog
+* [DID-Method erc725](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Method-erc725.md) by Markus Sabadello, Fabian Vogelsteller, Peter Kolarov
 * [Distributed Reputation Systems Using Blockchain Records](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/distributed-reputation-systems-kate-sills.md) by Kate Sills
 * [Identity System for Immersive and Ambient Computing](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/identy_immersive_ambient_computing.md) by Alberto Elias
 * [Open TLS](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/OpenTLS.md) by Sam Curren
