@@ -1,4 +1,4 @@
-# DID Primer
+# DID Primer Spring 2018
 
 *This is a community document maintained by co-editors Drummond Reed and
 Manu Sporny and other contributors and implementers of the*
