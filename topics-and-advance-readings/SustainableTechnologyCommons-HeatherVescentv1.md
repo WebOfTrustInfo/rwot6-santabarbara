@@ -4,7 +4,7 @@
 
 ### Heather Vescent (<puissant@heathervescent.com>, @heathervescent)
 
-###Topic Paper for Rebooting Web of Trust
+### Topic Paper for Rebooting Web of Trust
 
 ### Santa Barbara, March 2018
 
