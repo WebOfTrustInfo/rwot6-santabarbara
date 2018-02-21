@@ -1,6 +1,6 @@
 # Towards a Sustainable Technology Commons
 
-#### Revisiting economic models that support decentralized R&D in a commons based environment using Appreciative Inquiry**
+#### Revisiting economic models that support decentralized R&D in a commons based environment using Appreciative Inquiry
 
 ### Heather Vescent (<puissant@heathervescent.com>, @heathervescent)
 
