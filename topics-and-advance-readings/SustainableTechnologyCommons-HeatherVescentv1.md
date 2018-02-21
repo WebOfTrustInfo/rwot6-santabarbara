@@ -1,20 +1,14 @@
-**Towards a Sustainable Technology Commons:**
+# Towards a Sustainable Technology Commons
 
-**Revisiting economic models that support decentralized R&D**
+#### Revisiting economic models that support decentralized R&D in a commons based environment using Appreciative Inquiry**
 
-**in a commons based environment using Appreciative Inquiry**
+### Heather Vescent (<puissant@heathervescent.com>, @heathervescent)
 
-Heather Vescent
+###Topic Paper for Rebooting Web of Trust
 
-<puissant@heathervescent.com>
+### Santa Barbara, March 2018
 
-@heathervescent
-
-Topic Paper for Rebooting Web of Trust
-
-Santa Barbara, March 2018
-
-Version 1.0
+### Version 1.0
 
 ![](./media/image1.png)In today’s interconnected world, technology
 is increasingly developed in common by competing businesses. This common
