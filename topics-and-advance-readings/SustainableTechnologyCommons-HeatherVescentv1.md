@@ -1,6 +1,6 @@
 **Towards a Sustainable Technology Commons:**
 
-**Revisiting economic models that support decentralized R&D **
+**Revisiting economic models that support decentralized R&D**
 
 **in a commons based environment using Appreciative Inquiry**
 
@@ -16,7 +16,7 @@ Santa Barbara, March 2018
 
 Version 1.0
 
-![](./media/media/image1.png)In today’s interconnected world, technology
+![](./media/image1.png)In today’s interconnected world, technology
 is increasingly developed in common by competing businesses. This common
 technology is at the foundation layer, with companies utilizing,
 extending and customizing it as they develop their own product offerings
@@ -124,7 +124,7 @@ suggested model splits attribution three ways between:
 We identify three examples of technology commons within a capitalist
 economy: Open Source, Corporate Non-Profit, Ad-hoc Technology R&D.
 
-**Open Source **
+**Open Source**
 
 The open source model has been used with much technology success, but
 more limited economic success. These often use licensing fees to pay
@@ -144,7 +144,7 @@ resources and limited in their ability to explore new technology
 solutions. They tend to be late adopters of new technology. Political
 goals of stakeholder companies may drive where resources are allocated.
 
-**Ad-hoc Technology R&D **
+**Ad-hoc Technology R&D**
 
 Like-minded people start communities to explore new technology. These
 communities often start inside another community or due to the death of
