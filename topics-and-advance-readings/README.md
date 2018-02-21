@@ -17,9 +17,18 @@ Here are the advanced readings to date:
 * [Decentralized Identities for the Cannabis Industry](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/cannabis-kyc.md) by Matthew Nguyen & Nicholas Shook
 * [DID-Auth Protocol](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md) by Kyle Den Hartog
 * [Distributed Reputation Systems Using Blockchain Records](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/distributed-reputation-systems-kate-sills.md) by Kate Sills
+* [The Horcrux Protocol: A Method for Decentralized Biometric-based Self-sovereign Identity](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/HorcruxProtocol.pdf) by Asem Othman & John Callahan
 * [Identity System for Immersive and Ambient Computing](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/identy_immersive_ambient_computing.md) by Alberto Elias
 * [Open TLS](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/OpenTLS.md) by Sam Curren
 * [Open Verifiable Data to Drive the Digital Economy](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/TheOrgBook%20-%20RWoT%20Mar%202018%20-%20Province%20of%20BC.md) by John Jordan
 * [Petnames for Self Sovereign and Human Readable Identifiers](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/petnames.md) by Christopher Lemmer Webber
+* [Self-sovereign Compliance](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/self-sovereign-compliance.md) by Moses Ma
 * [Towards a Sustainable Technology Commons](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/SustainableTechnologyCommons-HeatherVescentv1.md) by Heather Vescent
 * [Web of Pragmatics: A Comment on Methodology](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Web-of-Pragmatics.md) by D. Crocker
+
+### Primers
+
+These primers overview major topics which are likely to be discussed at the design workshop. If you read nothing else, read these. (But really, read as much as you can!)
+
+* [DID Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/did-primer-spring-2018.md) — Decentralized Identifiers
+* [Veres One Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/veres-one-primer.md) — An Identity-focused Blockchain
