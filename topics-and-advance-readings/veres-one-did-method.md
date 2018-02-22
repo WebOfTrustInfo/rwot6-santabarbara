@@ -78,13 +78,14 @@ data center is less than 50ms.
 
 The Veres One Blockchain uses a leaderless, non-blocking, byzantine fault
 tolerant consensus algorithm called Continuity. The algorithm reaches
-consensus with probability 1 as long as there are at least 2f+1 nodes in
-the system where f is the number of byzantine failures. Since the algorithm
+consensus with probability 1. There are 3f+1 nodes in
+the system where f is the number of byzantine failures the network can
+tolerate. Since the algorithm
 is non-blocking and nodes can progress at their own pace, the limiting factor
 is how quickly events can be gossiped around the network. This approach
 results in very high throughputs. Transactions are limited by two factors:
 1) the fastest 2/3rds of elector's database write speeds and 2) the time
-it takes to distribute 12f + 1 merge events to every elector in the
+it takes to distribute at least 12f + 6 merge events to every elector in the
 network, the rate of which is an exponential function.
 
 **Warning: Benchmarks are not reflective of real world performance**
