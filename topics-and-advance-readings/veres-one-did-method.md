@@ -169,7 +169,7 @@ Creating new DID on Veres One [test]...
 DID registration successful!
 ```
 
-## Learning More
+## Diving Deeper
 
 The specifics on developing software like the DID Client shown above,
 including the ability to create, update, and retrieve DID Documents on the
