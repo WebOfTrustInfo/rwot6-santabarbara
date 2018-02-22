@@ -108,44 +108,44 @@ performed on the reference Veres One implementation that is able to achieve
 the following performance characteristics.
 
 <table class="simple">
-      <thead>
-        <tr>
-          <th>Metric</th>
-          <th>Capability</th>
-          <th>Description</th>
-        </tr>
-      </thead>
+<thead>
+  <tr>
+  <th>Metric</th>
+  <th>Capability</th>
+  <th>Description</th>
+  </tr>
+</thead>
 
-      <tbody>
-        <tr>
-          <td>
+<tbody>
+  <tr>
+  <td>
 Throughput
-          </td>
-          <td>
+  </td>
+  <td>
 ~???K/sec (???M / day)
-          </td>
-          <td>
+  </td>
+  <td>
 The throughput is a function of how quickly 12f+1 events can be transmitted to
 each elector. Limiting factors include database write speed,
 communication speed, and digital signature verification speed.
-          </td>
-        </tr>
+  </td>
+</tr>
 
-        <tr>
-          <td>
+<tr>
+  <td>
 Consensus Latency
-          </td>
-          <td>
+    </td>
+    <td>
 ~30 seconds
-          </td>
-          <td>
+    </td>
+    <td>
 The latency is a function of how many electors there are in the system. How
 many electors there are in the system is a function of the risk tolerance of
 the network.
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## The DID Client
 
