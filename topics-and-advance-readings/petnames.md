@@ -42,15 +42,12 @@ coordination with programs' user interfaces, as we shall see.
 
 # An example
 
-Alyssa P. Hacker checks her inbox and sees an interesting message from
+Alyssa checks her inbox and sees an interesting message from
 `did:example:74cbe1a1774445ee8c18660033b06723` announcing a special
 lecture on mathematics that the sender is presenting and asking if
 Alyssa has any friends who may be interested in attending it.
-The message is from Dr. May Tree-Arch, who is both a professor at
-Alyssa's university and also, as it turns out, her mother.
-(Never mind that their last names are different... many life events
-can lead to family members having different last names over time, and
-that's none of our business anyhow.)
+The message is from Dr. Nym, who is both a professor at Alyssa's
+university and also, as it turns out, her mother.
 But the program that Alyssa is reading her messages from does not
 display `did:example:74cbe1a1774445ee8c18660033b06723`, it says
 `Mom`.
@@ -68,80 +65,79 @@ suggest a name that they refer to her by.
 It wouldn't make sense for others to refer to Alyssa's mother as "Mom"
 since they probably have their own mothers.
 Instead, Alyssa has set her Petnames database so that when she
-introduces her mother to others, she suggests the name "Dr. May Tree-Arch".
+introduces her mother to others, she suggests the name "Dr. Nym".
 
-Alyssa thinks her friends Ben Bitdiddle and Eva Lu Ator may like to
+Alyssa thinks her friends Ben and Eva may like to
 attend the lecture and forwards the message to them.
 Ben has known Alyssa's mother for a long time and already has a local
 Petname for her which says `Alyssa's Mom`, also rendering as a locally
 set name with a golden star.
 
 However, Eva has never met Alyssa's mother before.
-The incoming message suggests the name "Dr. May Tree-Arch" (email
-similarly allows senders to suggest names for participants) and is
+The incoming message suggests the name "Dr. Nym" (email similarly
+allows senders to suggest names for participants) and is
 added to Eva's Petnames database.
 However, Eva's petname database does a couple of things: it marks that
 this name was given "by introduction" and adds a small amount of
 random identifier information alongside it.
 When it renders in Eva's mail reader, she sees
-`Dr. May Tree-Arch::ccadf77b` with a blue icon that shows two people
+`Dr. Nym::ccadf77b` with a blue icon that shows two people
 with an arrow drawn between them.
 This is important because Eva can tell that this name was given to her
 by introduction (hovering over it might even tell her additional
 context, such as that it was Alyssa who made the introduction) and the
 `ccadf77b` extra bit of random information prevents conflicts.
-Eva is grateful for this because, while this is the first Dr. May
-Tree-Arch she has been introduced to, she previously was introduced to
-several Bob Smiths and was glad that the world did not have to agree on
-only one Bob Smith in order for those Bob Smiths to exist (the Bob
-Smiths were grateful that they did not have to settle on one Bob Smith
-either).
+Eva is grateful for this because, while this is the first Dr. Nym she
+has been introduced to, she previously was introduced to several Bob
+Smiths and was glad that the world did not have to agree on only one
+Bob Smith in order for those Bob Smiths to exist (the Bob Smiths were
+grateful that they did not have to settle on one Bob Smith either).
 Eva decides to attend the lecture and trusts that a name that Alyssa
 would have suggested would be a correct name for this person, and
-decides to reify the name `Dr. Tree-Arch` as her own manually set
+decides to reify the name `Dr. Nym` as her own manually set
 local petname for the professor, and the display of the name updates
 accordingly with a friendly golden star.
 (Her Petnames database might potentially also provide her the
-opportunity to write a note or such about Dr. Tree-Arch in case Eva
+opportunity to write a note or such about Dr. Nym in case Eva
 would find adding such context to be helpful.)
-When she receives communication from or about Dr. Tree-Arch in the
-future, she will be aware that it is this particular Dr. Tree-Arch
+When she receives communication from or about Dr. Nym in the
+future, she will be aware that it is this particular Dr. Nym
 within the network of people she knows, and not some other
-Dr. Tree-Arch.
+Dr. Nym.
 Eva also sets this name to be the same external name by which she
-introduces Dr. Tree-Arch to others.
+introduces Dr. Nym to others.
 
-Meanwhile Cy D. Fect encounters a note about the upcoming lecture on a
+Meanwhile Carlos encounters a note about the upcoming lecture on a
 local bulletin board.
-Cy isn't particularly close friends with Alyssa, though he does know
-Eva, and for whatever reason whoever posted this message to the board
-merely left Dr. Tree-Arch's DID of
+Carlos isn't particularly close friends with Alyssa, though he does
+know Eva, and for whatever reason whoever posted this message to the
+board merely left Dr. Nym's DID of
 `did:example:74cbe1a1774445ee8c18660033b06723`
 without any additional context.
-Cy wonders who this lecturer may be, so he asks his local web of trust
-(or one may say "Cy's social network") for suggestions.
-Eva's computer responds by suggesting that the name "Dr. Tree-Arch"
-may be appropriate and so Cy's petname database adds this, also recording
-that this was a suggestion through the web of trust and adding a bit
-of random identifier information.
-This renders as `Dr. Tree-Arch::5af7a60b` with a purple web, reminding
-Cy that this came from his web of trust.
-Cy also queries the campus directory (an oracle, and many oracles
+Carlos wonders who this lecturer may be, so he asks his local web of
+trust (or one may say "Carlos's social network") for suggestions.
+Eva's computer responds by suggesting that the name "Dr. Nym"
+may be appropriate and so Carlos's petname database adds this, also
+recording that this was a suggestion through the web of trust and
+adding a bit of random identifier information.
+This renders as `Dr. Nym::5af7a60b` with a purple web, reminding
+Carlos that this came from his web of trust.
+Carlos also queries the campus directory (an oracle, and many oracles
 could be queried or added to one's web of trust) to find out whether
-Dr. Tree-Arch is a member of the faculty (she is) and reads more about
+Dr. Nym is a member of the faculty (she is) and reads more about
 her local biography there.
-Since the directory responds with information about Dr. Tree-Arch,
-Cy's petname database could add a record by introduction from the
-directory, or depending on how it is configured, Cy's petname database
-may decide that since it already has a suggested name for this DID
-that it doesn't need to keep accruing names.
+Since the directory responds with information about Dr. Nym,
+Carlos's petname database could add a record by introduction from the
+directory, or depending on how it is configured, Carlos's petname
+database may decide that since it already has a suggested name for
+this DID that it doesn't need to keep accruing names.
 
 # Petnames for safe user experiences
 
 It's important that Petnames-using applications render different kinds
 of Petnames in different ways.
 If Mallet sends a message to Alyssa asking her to pay for a birthday
-gift for a relative and suggests the name "Mom" or "Dr. Tree-Arch",
+gift for a relative and suggests the name "Mom" or "Dr. Nym",
 this suggested name will render differently than if Alyssa had set
 this name herself or if one of her friends suggested it.
 
