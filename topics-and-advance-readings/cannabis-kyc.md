@@ -1,10 +1,10 @@
 # Decentralized Identities for the Cannabis Industry
-Authors:
-Matthew Nguyen
-Github: @MattNguyen
 
-Nicholas Shook
-Github: @Shicholas
+Authors
+* Matthew Nguyen
+  * Github: @MattNguyen
+* Nicholas Shook
+  * Github: @Shicholas
 
 ## Background
 
@@ -70,12 +70,12 @@ recreational marijuana.
 
 The diagram below outlines the claims verification tree:
 
-[[https://gist.github.com/MattNguyen/38242a0a70fff97e9dd500dcac65cf29/raw/1b6159b26fa4c07892116f85c5629e7333359d71/graph.png]]
+![Claims Verification](https://gist.github.com/MattNguyen/38242a0a70fff97e9dd500dcac65cf29/raw/1b6159b26fa4c07892116f85c5629e7333359d71/graph.png)
 
 The following table describes the types of verifications each entity will
 perform on its child:
 
-[[https://gist.github.com/MattNguyen/38242a0a70fff97e9dd500dcac65cf29/raw/1b6159b26fa4c07892116f85c5629e7333359d71/table.png]]
+![Verifications Table](https://gist.github.com/MattNguyen/38242a0a70fff97e9dd500dcac65cf29/raw/1b6159b26fa4c07892116f85c5629e7333359d71/table.png)
 
 Claims data will be recorded to the blockchain, and the type of data stored
 depends on the subject of the claims. For instance, when the Foundation
