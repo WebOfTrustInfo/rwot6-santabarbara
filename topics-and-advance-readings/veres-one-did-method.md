@@ -167,15 +167,30 @@ $ ./did create
 Executing "create" using ledger "veres"...
 Creating new DID on Veres One [test]...
   Generating RSA keypair... (5-15 seconds)
-  DID: did:v1:test:nym:5PVoRlIiK7u74ZY1cbGZ9fmdXMw9m6N_DjudTOvBD6c
+  DID: did:v1:test:nym:AiTSXFbpRt2UbaXSB9YEmc7xtk5f5GdHi2hNNMF3qy4Z
   Storing DID Document on disk...
-  DID Document stored in: /home/msporny/.did/did-v1-test-nym-5PVoRlIiK7u74ZY1cbGZ9fmdXMw9m6N_DjudTOvBD6c
+  DID Document stored in: /home/$USERNAME/...
   Preparing to register DID Document on Veres One...
   Attaching LD-OCAP invocation proof... (~1 second)
   Generating Equihash proof of work... (60-120 seconds)
   Registering DID Document on Veres One...
 DID registration successful!
 ```
+
+To retrieve the DID Document from any node on the network, run this command:
+
+
+```
+$ ./did get did:v1:test:nym:AiTSXFbpRt2UbaXSB9YEmc7xtk5f5GdHi2hNNMF3qy4Z
+Executing "get" using ledger "veres"...
+Retrieving DID Document from Veres One [test]...
+{
+  "@context": "https://w3id.org/veres-one/v1",
+  "id": "did:v1:test:nym:AiTSXFbpRt2UbaXSB9YEmc7xtk5f5GdHi2hNNMF3qy4Z",
+  ... rest of DID Document will be displayed here ...
+```
+
+It may take up to 15 seconds for the network to come to consensus.
 
 ## Diving Deeper
 
