@@ -123,7 +123,7 @@ the following performance characteristics.
 Throughput
   </td>
   <td>
-~???K/sec (???M / day)
+209/sec, 18M/day, 6.6B/year
   </td>
   <td>
 The throughput is a function of how quickly 12f+1 events can be transmitted to
@@ -137,7 +137,7 @@ communication speed, and digital signature verification speed.
 Consensus Latency
     </td>
     <td>
-~30 seconds
+~15-30 seconds
     </td>
     <td>
 The latency is a function of how many electors there are in the system. How
@@ -147,6 +147,13 @@ the network.
     </tr>
   </tbody>
 </table>
+
+The image below shows a testnet operating at a constant rate of 209 operations
+per second for a 14 hour period. A total of 617,810 events were processed
+containing roughly 10.5M operations (e.g. DID Documents). Network consensus
+times averaged around 12 seconds.
+
+![Veres One Testnet Performance](media/veres-one-performance.png "Veres One Testnet Performance")
 
 ## The DID Client
 
@@ -176,3 +183,21 @@ The specifics on developing software like the DID Client shown above,
 including the ability to create, update, and retrieve DID Documents on the
 Veres One Ledger is detailed in the
 [Veres One DID Method Specification](https://w3c-ccg.github.io/didm-veres-one/).
+
+## Acknowledgements
+
+Thanks to Anil John for his guidance and funding from the United States
+Department of Homeland Security's Science and Technology Directorate under
+contract HSHQDC-17-C-00019. The content of this document does not necessarily
+reflect the position or the policy of the U.S. Government and no official
+endorsement should be inferred.
+
+Thanks also to the Rebooting the Web of Trust group facilitated by
+Christopher Allen, Shannon Appelcline, Kiara Robles, Kaliya Young,
+Brian Weller, Betty Dhamers, and Joe Andrieu. The Internet Identity
+Workshop community, co-founded by Phil Windley, Kaliya Young, and
+Doc Searls, also helped shape much of what we've implemented in Veres One.
+We are also indebted to all of the good people in the W3C Verifiable
+Credentials WG as well as the W3C Credentials Community Group. The
+difficult and length debates in each of these comunities has only helped
+to strengthen Veres One.
