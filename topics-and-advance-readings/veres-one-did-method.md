@@ -190,7 +190,10 @@ Retrieving DID Document from Veres One [test]...
   ... rest of DID Document will be displayed here ...
 ```
 
-It may take up to 15 seconds for the network to come to consensus.
+It may take up to 15 seconds for the network to come to consensus, so the
+retrieval may fail if you try to do it too soon. If it fails, just try again.
+Once you get a document back, the network guarantees that all nodes on the
+network will eventually have the document if they do not already have it.
 
 ## Diving Deeper
 
