@@ -18,8 +18,12 @@ Identifiers like this look like gobbledygook to you and me, so how can
 we use them?
 
 [Petnames](http://www.skyhunter.com/marcs/petnames/IntroPetNames.html)
-offer a solution to squaring Zooko's Triangle by mapping local names
-to global identifiers and vice versa.
+offers a way forward by mapping local names to global identifiers and
+vice versa.
+By adding petnames as an additional layer to a globally unique and
+decentralized system, we are able to have names with all three
+properties.
+
 At its simplest, petnames are not unlike the physical telephone books
 individuals and families would manage in days past.
 These books were useful and important even if one had a "Yellow Pages"
