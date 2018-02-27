@@ -40,8 +40,7 @@ separately and unambiguously as `Bob Smith (neighbor)` and
 
 But Petnames go further: participants may introduce other participants
 to each other or ask about one another (including asking
-semi-centralized "oracles" or directories of information...  the
-"Yellow Book" is always something you can consult, if you want to).
+semi-centralized "oracles" or directories of information).
 These names may be recognized and recorded, but Petnames systems
 remember history about how names come to be known.
 Critically, petname-using systems do (and even must) display names
