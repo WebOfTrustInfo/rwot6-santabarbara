@@ -24,14 +24,19 @@ By adding petnames as an additional layer to a globally unique and
 decentralized system, we are able to have names with all three
 properties.
 
-At its simplest, petnames are not unlike the physical telephone books
-individuals and families would manage in days past.
-These books were useful and important even if one had a "Yellow Pages"
-style directory; there may be hundreds of Bob Smiths in your city's
-telephone book, but only one of them is your next door neighbor Bob
-Smith.
-(Even if you know multiple Bob Smiths, you could always write down
-`Bob Smith (neighbor)` and `Bob Smith (accountant)`.)
+At its simplest, petnames are not unlike smartphone contact lists
+which map human readable names to less human readable telephone
+numbers and vice versa.
+A user can look up a user's phone number by a name they know and
+are familiar with, and even an incoming call from a telephone number
+can be displayed as coming from a familiar name.
+Such a contact list is useful even if one has an external "Yellow
+Pages" style telephone directory; there may be hundreds of Bob Smiths
+in your city's telephone book, but only one of them is your next door
+neighbor Bob Smith.
+(Even if you know multiple Bob Smiths, you could always record them
+separately and unambiguously as `Bob Smith (neighbor)` and
+`Bob Smith (accountant)`.)
 
 But Petnames go further: participants may introduce other participants
 to each other or ask about one another (including asking
