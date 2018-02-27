@@ -25,7 +25,14 @@ Here are the advanced readings to date:
 * [Open TLS](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/OpenTLS.md) by Sam Curren
 * [Open Verifiable Data to Drive the Digital Economy](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/TheOrgBook%20-%20RWoT%20Mar%202018%20-%20Province%20of%20BC.md) by John Jordan
 * [Petnames for Self Sovereign and Human Readable Identifiers](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/petnames.md) by Christopher Lemmer Webber
+* [Veres One Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/veres-one-primer.md) by Manu Sporny, etal.
 * [Web of Pragmatics: A Comment on Methodology](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Web-of-Pragmatics.md) by D. Crocker
+
+### Primers
+
+These primers overview major topics which are likely to be discussed at the design workshop. If you read nothing else, read these. (But really, read as much as you can!)
+
+* [DID Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/did-primer-spring-2018.md) — Decentralized Identifiers
 
 ## Other Readings of Interest
 
