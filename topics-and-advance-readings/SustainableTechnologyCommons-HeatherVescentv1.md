@@ -10,7 +10,7 @@
 
 ### Version 1.0
 
-![](./media/image1.png)In today’s interconnected world, technology
+![](./media/market.png)In today’s interconnected world, technology
 is increasingly developed in common by competing businesses. This common
 technology is at the foundation layer, with companies utilizing,
 extending and customizing it as they develop their own product offerings
