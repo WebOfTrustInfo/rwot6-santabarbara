@@ -61,7 +61,7 @@ display `did:example:74cbe1a1774445ee8c18660033b06723`, it says
 `Mom`.
 "Mom" is distinctly rendered in a way that helps Alyssa remember that
 she set the name `Mom`... perhaps the whole name is rendered in a
-box with a yellow star next to it.
+box with a star next to it.
 (Alyssa has only one `Mom` in her address book.
 Were her family situation different, she may have multiple Moms, but
 they would have distinct names in her Petnames database like
@@ -81,7 +81,7 @@ Ben has known Alyssa's mother for a long time and already has a local
 Petname for her which says `Susan` (which is Dr. Nym's first name, and
 Ben's longstanding friendship with Alyssa means he knows Alyssa's
 mother on a first-name basis), also rendering as a locally set name
-with a golden star.
+with a star.
 
 However, Eva has never met Alyssa's mother before.
 The incoming message suggests the name "Dr. Nym" (email similarly
@@ -91,7 +91,7 @@ However, Eva's petname database does a couple of things: it marks that
 this name was given "by introduction" and adds a small amount of
 random identifier information alongside it.
 When it renders in Eva's mail reader, she sees
-`Dr. Nym::from Alyssa` with a blue icon that shows two people
+`Dr. Nym::from Alyssa` with an icon that shows two people
 with an arrow drawn between them.
 This is important because Eva can tell that this name was given to her
 by introduction (hovering over it might even tell her additional
@@ -110,7 +110,7 @@ Eva decides to attend the lecture and trusts that a name that Alyssa
 would have suggested would be a correct name for this person, and
 decides to reify the name `Dr. Nym` as her own manually set
 local petname for the professor, and the display of the name updates
-accordingly with a friendly golden star.
+accordingly with a friendly star.
 When she receives communication from or about Dr. Nym in the
 future, she will be aware that it is this particular Dr. Nym
 within the network of people she knows, and not some other
@@ -131,7 +131,7 @@ Eva's computer responds by suggesting that the name "Dr. Nym"
 may be appropriate and so Carlos's petname database adds this, also
 recording that this was a suggestion through the web of trust and
 adding a bit of random identifier information.
-This renders as `Dr. Nym::from Eva` with a purple web, reminding
+This renders as `Dr. Nym::from Eva` with an icon of a web, reminding
 Carlos that this came from his web of trust.
 Carlos also queries the campus directory (an oracle, and many oracles
 could be queried or added to one's web of trust) to find out whether
