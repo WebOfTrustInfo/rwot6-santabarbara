@@ -122,9 +122,8 @@ Meanwhile Carlos encounters a note about the upcoming lecture on a
 local bulletin board.
 Carlos isn't particularly close friends with Alyssa, though he does
 know Eva, and for whatever reason whoever posted this message to the
-board merely left Dr. Nym's DID of
-`did:example:74cbe1a1774445ee8c18660033b06723`
-without any additional context.
+board merely left a QR code for Dr. Nym's DID without any additional
+context.
 Carlos wonders who this lecturer may be, so he asks his local web of
 trust (or one may say "Carlos's social network") for suggestions.
 Eva's computer responds by suggesting that the name "Dr. Nym"
