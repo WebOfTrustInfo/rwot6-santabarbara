@@ -79,8 +79,10 @@ introduces her mother to others, she suggests the name "Dr. Nym".
 Alyssa thinks her friends Ben and Eva may like to
 attend the lecture and forwards the message to them.
 Ben has known Alyssa's mother for a long time and already has a local
-Petname for her which says `Alyssa's Mom`, also rendering as a locally
-set name with a golden star.
+Petname for her which says `Susan` (which is Dr. Nym's first name, and
+Ben's longstanding friendship with Alyssa means he knows Alyssa's
+mother on a first-name basis), also rendering as a locally set name
+with a golden star.
 
 However, Eva has never met Alyssa's mother before.
 The incoming message suggests the name "Dr. Nym" (email similarly
