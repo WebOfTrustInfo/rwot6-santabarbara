@@ -24,6 +24,8 @@ Here are the advanced readings to date:
 * [Petnames for Self Sovereign and Human Readable Identifiers](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/petnames.md) by Christopher Lemmer Webber
 * [Self-sovereign Compliance](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/self-sovereign-compliance.md) by Moses Ma
 * [Towards a Sustainable Technology Commons](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/SustainableTechnologyCommons-HeatherVescentv1.md) by Heather Vescent
+* [The Veres One DID Method](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/veres-one-did-method.md) by Manu Sporny, David Longley, and Chris Webber
+* [Veres One Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/veres-one-primer.md) by Manu Sporny, etal.
 * [Web of Pragmatics: A Comment on Methodology](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Web-of-Pragmatics.md) by D. Crocker
 
 ### Primers
@@ -31,4 +33,3 @@ Here are the advanced readings to date:
 These primers overview major topics which are likely to be discussed at the design workshop. If you read nothing else, read these. (But really, read as much as you can!)
 
 * [DID Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/did-primer-spring-2018.md) — Decentralized Identifiers
-* [Veres One Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/veres-one-primer.md) — An Identity-focused Blockchain
