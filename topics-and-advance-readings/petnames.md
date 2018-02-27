@@ -112,9 +112,6 @@ would have suggested would be a correct name for this person, and
 decides to reify the name `Dr. Nym` as her own manually set
 local petname for the professor, and the display of the name updates
 accordingly with a friendly golden star.
-(Her Petnames database might potentially also provide her the
-opportunity to write a note or such about Dr. Nym in case Eva
-would find adding such context to be helpful.)
 When she receives communication from or about Dr. Nym in the
 future, she will be aware that it is this particular Dr. Nym
 within the network of people she knows, and not some other
