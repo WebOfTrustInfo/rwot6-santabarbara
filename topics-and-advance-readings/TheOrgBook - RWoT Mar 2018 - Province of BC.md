@@ -3,10 +3,11 @@
 The stock-in-trade of governments is the provision of trust. For businesses, the traditional representation of that trust is paper. Paper in the form of permits, licenses, certifications and the like. These permissions, given to and hung on the walls of businesses, tell the world - “We adhere to the applicable laws and regulations to operate, and we’re ready to serve you!”.
 
 To help power growth in the Digital Economy, we as a Government would like to provide businesses with a version of those permissions in a modern, digital form that they can use online to enable commerce and demonstrate these trusted permissions locally and abroad. An emerging W3C standard which could enable is this is Verifiable Claims. A Verifiable Claim is a piece of data stamped with strong cryptographic properties, guaranteeing:
-The true source of the data is the Issuer - e.g. a BC Government service (e.g. BC Registry)
-The data has not been altered since issuance
-The permission has not been revoked (a real time verification)
-The data was issued to a specific holder (e.g. a business)
+
+* The true source of the data is the Issuer - e.g. a BC Government service (e.g. BC Registry)
+* The data has not been altered since issuance
+* The permission has not been revoked (a real time verification)
+* The data was issued to a specific holder (e.g. a business)
 
 An example of Verifiable Claim might be the Incorporation Certificate for a new legal entity issued by BC Registries. This Verifiable Claim could containing the date of incorporation, the Legal Name of the entity, it’s BC Registries ID, it’s official mailing address and so on.  It can be Open Data, but it would be Open Data which is “stamped” such that it cannot be altered - and hence, can be trusted. The mechanisms for stamping (the cryptographic signing) and sharing of the data is made possible by the current advancements in Distributed Ledger Technologies - Blockchain.
 
@@ -27,6 +28,6 @@ Our approach to this learning is open and agile. The Province of BC, in partners
 For more information see:
 
 * About TheOrgBook Powerpoint: https://goo.gl/LSZWaE
-* GitHub introduction page: https://bcgov.github.io/TheOrgBook
+* GitHub introduction page: https://von.pathfinder.gov.bc.ca/aboutvon/
 * GitHub Repository: https://github.com/bcgov/TheOrgBook
 * Trello Board: https://trello.com/b/fHox971V/von
