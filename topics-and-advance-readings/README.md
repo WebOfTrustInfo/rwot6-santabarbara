@@ -23,7 +23,7 @@ Here are the advanced readings to date:
 * [Open Verifiable Data to Drive the Digital Economy](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/TheOrgBook%20-%20RWoT%20Mar%202018%20-%20Province%20of%20BC.md) by John Jordan
 * [Petnames for Self Sovereign and Human Readable Identifiers](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/petnames.md) by Christopher Lemmer Webber
 * [Self-sovereign Compliance](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/self-sovereign-compliance.md) by Moses Ma
-* [Towards a Sustainable Technology Commons](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/SustainableTechnologyCommons-HeatherVescentv1.md) by Heather Vescent
+* [Towards a Sustainable Technology Commons](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/SustainableTechnologyCommons-HeatherVescentv3.md) by Heather Vescent
 * [The Veres One DID Method](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/veres-one-did-method.md) by Manu Sporny, David Longley, and Chris Webber
 * [Veres One Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/veres-one-primer.md) by Manu Sporny, etal.
 * [Web of Pragmatics: A Comment on Methodology](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Web-of-Pragmatics.md) by D. Crocker
