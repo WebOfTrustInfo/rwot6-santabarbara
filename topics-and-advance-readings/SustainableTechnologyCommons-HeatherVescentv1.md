@@ -8,7 +8,7 @@
 
 ### Santa Barbara, March 2018
 
-### Version 1.1
+### Version 1.2
 
 ![](./media/market.png)In today’s interconnected world, technology
 is increasingly developed in common by competing businesses. This common
@@ -26,7 +26,10 @@ Open source technology is one model. A top-down model is for-profit
 companies join together to fund a non-profit to develop technology for
 use by by partner companies (e.g. SWIFT). A bottom-up model emerges from
 ad-hoc technology communities where bleeding edge and disruptive
-technology is explored as it is developed, mainly by technologists.
+technology is explored as it is developed, mainly by technologists. 
+Governments pursue their own R&D investment strategy that in effect, 
+invest in technology commons with the end goal of encouraging diverse 
+marketplace. 
 
 Rebooting Web of Trust (RWoT), along with other events, is one of these
 bottom-up, ad-hoc technology commons. Participants build relationships
@@ -163,6 +166,15 @@ Participants tend to be early adopters and exploring the bleeding edge
 of new technology. The participants may come from company technology
 divisions however they are not always empowered to return significant
 financial support.
+
+**Government R&D Investment**
+
+The U.S. government has a history of investing in new technology 
+standards to support a diverse and competitive marketplace. One goal 
+of these investments is to support the development of interoperable 
+technology and technology standards, that otherwise would not be 
+developed from the market. 
+
 
 **Discussion Proposal for RWOT Santa Barbara**
 
