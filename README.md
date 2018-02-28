@@ -17,7 +17,7 @@ Here are the advanced readings to date:
 
 * [Attribute Based Credentials and Variable Length Data Graphs](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/AttributeBasedCredentials_and_VariableLengthDataGraphs.md) by nage
 * [Blockchain Timestamps Unnecessary In Proof-of-Work?](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Blockchains-Timestamps-Unnecessary-In-PoW.md) by Greg Slepak
-* [Collegial Certifcation Works for Truly Collegial Communities](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Collegial%20Certification%20Works%20for%20Truly%20Collegial%20Communities.pdf) by Wes Kussmaul
+* [Collegial Certification Works for Truly Collegial Communities](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Collegial%20Certification%20Works%20for%20Truly%20Collegial%20Communities.pdf) by Wes Kussmaul
 * [Decentralized Attestations Storage - Current Challenges](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/decentralised-attestations-storage-network-challenges.md) by Kulpreet Singh
 * [Decentralized Identities for the Cannabis Industry](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/cannabis-kyc.md) by Matthew Nguyen & Nicholas Shook
 * [Decentralized Self-certifying Self-Identifing Data](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Self_ID_Data_KeyMgmt.md) by Samuel M. Smith 
