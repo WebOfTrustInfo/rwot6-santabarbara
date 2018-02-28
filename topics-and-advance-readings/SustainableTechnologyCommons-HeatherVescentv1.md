@@ -8,7 +8,7 @@
 
 ### Santa Barbara, March 2018
 
-### Version 1.0
+### Version 1.1
 
 ![](./media/market.png)In today’s interconnected world, technology
 is increasingly developed in common by competing businesses. This common
@@ -45,6 +45,9 @@ This topic paper asks the community:
 
 -   Can technology inherently enable an economic model that supports
     technology commons?
+    
+    -   What is the role of Government R&D in enabling and supporting 
+    technology commons?
 
 Without resolving these problems, we invoke the tragedy of the commons,
 where the commons may collapse due to individuals gaining short-term
@@ -57,7 +60,7 @@ no longer have the commons as a resource.
 
 It doesn’t feel good when a company comes to a technology commons,
 learns about ideas and technology and then to implement it for their own
-corporate benefit without giving returning anything to the technology
+corporate benefit without returning anything to the technology
 commons. This is the biggest problem with commons – the free rider.
 
 There should be a contribution to the commons from successful
@@ -102,6 +105,15 @@ important to assert. There are recent examples of companies failing to
 mention the commons when presenting corporate innovations to the
 marketplace. This is taking credit for value that others have
 contributed through the commons.
+
+Several technology commons projects discussed at RWoT are supported by 
+government funding. Government agencies do not, cannot and should not 
+receive any direct upsides to the success of the commons and as need to 
+leverage the success in other ways to ensure that the commons thrive. 
+Additionally, these Government R&D programs if not provided attribution 
+and associated visibility to their higher ups (i.e. Congressional 
+committees that determine Agency funding lines) result in a reduction 
+of funding available in the future. 
 
 Individual attribution within the commons is more easily solved. One
 suggested model splits attribution three ways between:
@@ -171,7 +183,11 @@ Appreciative Inquiry principles to explore these questions.
 
 -   Are the new governance models that can be enforced by the technology
     itself?
-
+    
+-   How does government funding support the development of Technology 
+    Commons? How can commons appropriate attribute government funding, 
+    especially when that funding is done through corporate entities?
+    
 **Appreciative Inquiry Principles**
 
 -   **The Constructivist Principle** is the rule that we see the world
