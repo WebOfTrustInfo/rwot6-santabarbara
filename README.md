@@ -41,16 +41,16 @@ Here are the advanced readings to date:
 
 These primers overview major topics which are likely to be discussed at the design workshop. If you read nothing else, read these. (But really, read as much as you can!)
 
-* [DID Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/did-primer-spring-2018.md) — Decentralized Identifiers
 * [Functional Identity Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/functional-identity-primer.md) — A different way to look at identity
-
+* [DID Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/did-primer-spring-2018.md) — Decentralized Identifiers
 
 ### Primers
 
 These primers overview major topics which are likely to be discussed at the design workshop. If you read nothing else, read these. (But really, read as much as you can!)
 
-* [DID Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/did-primer-spring-2018.md) — Decentralized Identifiers
 * [Functional Identity Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/functional-identity-primer.md) — A different way to look at identity
+* [DID Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/did-primer-spring-2018.md) — Decentralized Identifiers
+* [Verifiable Credentials Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/verifiable-credentials-primer.md) — Verifiable Credentials
 
 ## Other Readings of Interest
 
@@ -72,7 +72,7 @@ You may also wish to read Christopher Allen's core article on self-sovereign ide
 A different repository is available for each of the Rebooting the Web of Trust design workshops:
 
 * [Rebooting the Web of Trust I: San Francisco (November 2015)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust)
-* [Rebooting the Web of Trust II: ID2020 (May 2016)](https://github.com/WebOfTrustInfo/ID2020DesignWorkshop)
+* [Rebooting the Web of Trust II: ID2020 - New York City (May 2016)](https://github.com/WebOfTrustInfo/ID2020DesignWorkshop)
 * [Rebooting the Web of Trust III: San Francisco (October 2016)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2016)
 * [Rebooting the Web of Trust IV: Paris (April 2017)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2017)
 * [Rebooting the Web of Trust V: Boston (October 2017)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017)
