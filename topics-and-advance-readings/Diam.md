@@ -1,4 +1,4 @@
-# Integrating Identity Silos via address book
+# Integrating Identity silos via address book
 
 Today there are too many fragmented identity silos starting from a simple contact database, social networks, user directories, wallets, password managers, CRM /CIAM systems, HRMs, social and various cloud services. This adds immense friction in user experiences, adoption and security.
 
@@ -12,7 +12,7 @@ Further cybercrime is going to hit $6 trillion annually by 2021.
 ## The real question are
 * Are we willing to give up anonymity and embrace privacy while we accept universal persistent identifiers that hold the world accountable? 
 * How far can the self-sovereign identities save privacy, stop external correlation without removing accountability?
-* Interoperatibility across platforms and entities must have multiple DIDs or a unqiue contact ID per relatinship is better?
+* Interoperatibility across platforms and entities must have multiple DIDs or just a unqiue contact ID per relatinship is better?
 
 ### The top use cases for identities begin with
 1.	Contacts
