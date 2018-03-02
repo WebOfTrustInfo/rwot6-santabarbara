@@ -1,4 +1,4 @@
-# Integrating Identity silos via address book
+# Integrating Identity silos via address books
 
 Today there are too many fragmented identity silos starting from a simple contact database, social networks, user directories, wallets, password managers, CRM /CIAM systems, HRMs, social and various cloud services. This adds immense friction in user experiences, adoption and security.
 
