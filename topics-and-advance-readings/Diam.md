@@ -5,14 +5,12 @@ Today there are too many fragmented identity silos starting from a simple contac
 Further, having Sybil-resistant Identities mapped to real people is near impossible.
 
 ## Digital Identities is now a full-fledged Global War Front
-With Blockchain now becoming the web of transactions requires everyone to have a private key. Allowing anonymous private keys basically sets us back a few decades of what the global Financial Action Task Force (FATF) was able to accomplish in its fight against Money laundering. Bill Gates has put it that crypto is killing people in a "fairly direct way". 
-
-Further cybercrime is going to hit $6 trillion annually by 2021. 
+With Blockchain now becoming the web of transactions requires everyone to have a private key. Allowing anonymous private keys basically sets us back a few decades of what the global Financial Action Task Force (FATF) was able to accomplish in its fight against Money laundering. Bill Gates has put it that crypto is killing people in a "fairly direct way". Further cybercrime is going to hit $6 trillion annually by 2021. Integrating and securing the silos has therefore become critical.
 
 ## The real question are
 * How far can the self-sovereign identities save privacy, stop external correlation without removing accountability?
-* Are we open to a backdoor and aid FATF in its effort to counter money laundering? 
-* Interoperatibility across platforms and entities must have multiple DIDs or just a unqiue contact ID per relatinship is better?
+* Is cryptography and 1000s of DIDs going to cripple the FATF effort and make everything go dark?
+* Interoperatibility across platforms and entities must have multiple DIDs or just a unqiue contact ID per relatinship is better than mangaging 1000s of keys?
 
 ### The top use cases for identities 
 1.	Contacts
