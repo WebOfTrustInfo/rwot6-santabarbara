@@ -29,7 +29,7 @@ Here are the advanced readings to date:
 * [Hashed PII Question](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/hashed-PII-Question.md) by Identity Woman
 * [The Horcrux Protocol: A Method for Decentralized Biometric-based Self-sovereign Identity](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/HorcruxProtocol.pdf) by Asem Othman & John Callahan
 * [Identity System for Immersive and Ambient Computing](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/identy_immersive_ambient_computing.md) by Alberto Elias
-* [Integrating Identity silos via address books](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/diam.md) by Vishal Gupta
+* [Integrating Identity silos via address books](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Diam.md) by Vishal Gupta
 * [Open TLS](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/OpenTLS.md) by Sam Curren
 * [Open Verifiable Data to Drive the Digital Economy](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/TheOrgBook%20-%20RWoT%20Mar%202018%20-%20Province%20of%20BC.md) by John Jordan
 * [Petnames for Self Sovereign and Human Readable Identifiers](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/petnames.md) by Christopher Lemmer Webber
