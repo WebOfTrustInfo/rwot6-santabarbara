@@ -14,6 +14,7 @@ Here are the advanced readings to date:
 * [Attribute Based Credentials and Variable Length Data Graphs](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/AttributeBasedCredentials_and_VariableLengthDataGraphs.md) by nage
 * [Blockchain Timestamps Unnecessary In Proof-of-Work?](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Blockchains-Timestamps-Unnecessary-In-PoW.md) by Greg Slepak
 * [Collegial Certifcation Works for Truly Collegial Communities](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Collegial%20Certification%20Works%20for%20Truly%20Collegial%20Communities.pdf) by Wes Kussmaul
+* [Credential Providers for Signing Application Requests](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/CredentialProvider_App_Integration.md) by Cedric Franz
 * [DClaims News - A Fake News Mitigation Platform](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DClaims.md) by João Santos
 * [Decentralized Attestations Storage - Current Challenges](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/decentralised-attestations-storage-network-challenges.md) by Kulpreet Singh
 * [Decentralized Identities for the Cannabis Industry](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/cannabis-kyc.md) by Matthew Nguyen & Nicholas Shook
@@ -27,6 +28,7 @@ Here are the advanced readings to date:
 * [Open TLS](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/OpenTLS.md) by Sam Curren
 * [Open Verifiable Data to Drive the Digital Economy](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/TheOrgBook%20-%20RWoT%20Mar%202018%20-%20Province%20of%20BC.md) by John Jordan
 * [Petnames for Self Sovereign and Human Readable Identifiers](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/petnames.md) by Christopher Lemmer Webber
+* [Recent Happenings with Linked Data Capabilities](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/ld-ocap-recent-happenings.md) by Christopher Lemmer Webber
 * [Self-sovereign Compliance](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/self-sovereign-compliance.md) by Moses Ma
 * [Towards a Sustainable Technology Commons](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/SustainableTechnologyCommons-HeatherVescentv3.md) by Heather Vescent
 * [Using Blockchain to Store Academic Accreditations](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/documentorum.md) by Luiz Gustavo Ferraz Aoqui and Andrei Moskalev
@@ -40,3 +42,4 @@ These primers overview major topics which are likely to be discussed at the desi
 
 * [DID Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/did-primer-spring-2018.md) — Decentralized Identifiers
 * [Functional Identity Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/functional-identity-primer.md) — A different way to look at identity
+* [Verifiable Credentials Primer](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/verifiable-credentials-primer.md) — the project formerly known as Verifiable Claims
