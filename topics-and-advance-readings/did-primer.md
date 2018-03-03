@@ -108,9 +108,9 @@ specification. This includes six components (all optional):
 
 1.  **The DID itself**, so the DID document is fully self-describing.
 
-2.  **A set of public keys or other proofs** that can be used for authentication or interaction with DID subject.
+2.  **A set of cryptographic material**, such as public keys, that can be used for authentication or interaction with the DID subject.
 
-3.  **A set of authentication protocols** for authenticating the DID subject.
+3.  **A set of cryptographic protocols** for interacting with the DID subject, such as authentication and capability delegation.
 
 4.  **A set of service endpoints** that describe where and how to interact with the DID subject.
 
@@ -135,26 +135,8 @@ generic DID specification as URN namespace specifications (UUID, ISBN,
 OID, LSID, etc.) are to the generic IETF URN specification ([*RFC
 8141*](https://tools.ietf.org/html/rfc8141)).
 
-A DID method specification must define the following:
-
-1.  The DID method name.
-
-2.  The ABNF structure of the method-specific identifier.
-
-3.  How the method-specific identifier is generated or derived.
-
-4.  How the [*CRUD operations*](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) are performed on a DID and DID document:
-
-    a.  **Creating** a new DID.
-
-    b.  **Reading** (resolving) a DID document.
-
-    c.  **Updating** a DID document.
-
-    d.  **Deleting** (revoking) a DID.
-
-It is these CRUD operations that may vary the most across different DID
-methods. For example:
+DID method specifications typically define at least the following operations
+for a particular target system:
 
 1.  **Create.** Some DID methods may generate a DID directly from a cryptographic key pair. Others may use the address of a transaction or a smart contract on the blockchain itself.
 
@@ -163,6 +145,9 @@ methods. For example:
 3.  **Update.** The update operation is the most critical from a security standpoint because control of a DID document represents control of the public keys or proofs necessary to authenticate an entity (and therefore for an attacker to impersonate the entity). Since verification of DID document update permissions can only be enforced by the target blockchain, the DID method specification must define precisely how authentication and authorization are performed for any update operation.
 
 4.  **Delete.** DID entries on a blockchain are by definition immutable, so they can never be “deleted” in the conventional database sense. However they can be **revoked** in the cryptographic sense. A DID method specification must define how this termination is performed, e.g., by writing a null DID document.
+
+See the [DID Method Registry](https://w3c-ccg.github.io/did-method-registry/)
+for a complete list of all known DID Method specifications.
 
 ## DIDs and Privacy by Design
 
@@ -193,7 +178,8 @@ DIDs can be used to identify various entities in the Verifiable Credentials
 ecosystem such as issuers, holders, subjects, and verifiers. More generally,
 DIDs can be used as identifiers for people, devices, and organizations.
 
-For a complete introduction, please see the [*Verifiable Credentials Primer*](verifiable-credentials-primer.md).
+See the [*Verifiable Credentials Primer*](verifiable-credentials-primer.md)
+for a brief introduction to the topic.
 
 ## Appendix A: DID Community Resources
 
