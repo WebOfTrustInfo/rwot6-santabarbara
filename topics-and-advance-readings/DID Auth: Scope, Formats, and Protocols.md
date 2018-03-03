@@ -1,6 +1,6 @@
 DID Auth: Scope, Formats, and Protocols
 =======================================
-Markus Sabadello, Danube Tech (https://danubetech.com), Vienna, March 3nd 2018
+Markus Sabadello, Danube Tech (https://danubetech.com), Vienna, March 3rd 2018
 
 Now as certain base technologies for decentralized identity are becoming more mature (e.g. DIDs), this seems to be a good time to work on some of the most basic uses of these building blocks – such as using DIDs for authentication. There is broad interest from many individuals and organizations around the world in this topic.
 
