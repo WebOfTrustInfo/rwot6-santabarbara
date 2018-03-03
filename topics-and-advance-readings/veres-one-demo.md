@@ -1,6 +1,6 @@
 # A Demonstration of the Veres One Blockchain
 
-Contributors: Manu Sporny, David I. Lehn, David Longley, Matt Collier, and
+Contributors: David I. Lehn, Manu Sporny, David Longley, Matt Collier, and
 Chris Webber
 
 ## Introduction
