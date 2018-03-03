@@ -14,7 +14,7 @@ Further cybercrime is going to hit $6 trillion annually by 2021.
 * Are we open to a backdoor and aid FATF in its effort to counter money laundering? 
 * Interoperatibility across platforms and entities must have multiple DIDs or just a unqiue contact ID per relatinship is better?
 
-### The top use cases for identities begin with
+### The top use cases for identities 
 1.	Contacts
 2.	Social networks
 3.	Access management (IAM industry)
@@ -25,7 +25,7 @@ Further cybercrime is going to hit $6 trillion annually by 2021.
 # Proposal for seamless interoperatibility & usability via phone address book
 The proposal draws upon a lot of work already accomplished in previous workshops of RWOT and proposes SPKI partly based on MSISDNs.
 
-1.	**Contacts platform** - A network of self-sovereign identities including directories with SPKI. The identities use the globally unique mobile numbers as handles like a domain name system for easy reference.
+1.	**Contacts platform** - A network of self-sovereign identities including directories with SPKI. The identities use  globally unique mobile numbers as handles **like a domain name system** for easy reference.
 2.	**DPKI and ERC725** for managing the asymmetric keys and recovery.
 3.	**Proof-of-life** - Using Social graphs and live human conversations with cryptographic signing. Similar to live human validation used during kidnappings.
 4.	**Shared contact directories** exposed as LDAP for authentication, authorization and context.
