@@ -50,7 +50,7 @@ The output of the command above should look something like this:
 [Veres One][test] To register the DID globally, use the `register` command.
 ```
 
-Why is this important: Veres One DIDs can be used as pairwise pseudonymous
+Why this is important: Veres One DIDs can be used as pairwise pseudonymous
 identifiers and may exist entirely off chain.
 
 ### Registering a Veres One DID
@@ -80,7 +80,7 @@ The output for the command above should look something like this:
 [Veres One][test] You may use the `info` command to monitor the registration of your DID.
 ```
 
-Why is this important: Veres One DIDs are useful when others can look them
+Why this is important: Veres One DIDs are useful when others can look them
 up and get important cryptographic information from the DID Document associated
 with the DID.
 
@@ -93,14 +93,14 @@ Veres One Network:
 ./did get YOUR_DID
 ```
 
-For exmaple:
+For example:
 
 ```
 ./did get did:v1:test:nym:2xQn7AKZpGo8no3zvUGsyrM5dv8ZXsaM9gAB8BKhYZou
 
 ```
 
-Why is this important: Retrieving a DID Document from the Veres One Network
+Why this is important: Retrieving a DID Document from the Veres One Network
 verifies that what you think you wrote to the network was actually written
 to the network.
 
@@ -135,7 +135,7 @@ The output from the command above will look something like this:
 [Veres One][test] You may use the `info` command to monitor the registration of your DID.
 ```
 
-Why is this important: Adding authentication keys allows you to provide
+Why this is important: Adding authentication keys allows you to provide
 access for additional devices (e.g. mobile phone, desktop, laptop). It also
 enables you to rotate cryptographic material.
 
@@ -169,14 +169,64 @@ The output from the command above will look something like this:
 [Veres One][test] You may use the `info` command to monitor the registration of your DID.
 ```
 
-Why is this important: Removing authentication material enables you to
+Why this is important: Removing authentication material enables you to
 rotate keys and remove keys from compromised devices.
 
-### Using an Accelerator to Perform Actions
+### Using an Accelerator to Perform Operations
 
-COMING SOON
+Performing operations on the Veres One Network requires you to prove that you
+are not attacking the network. You can prove this in one of two ways: 1)
+perform a proof of work, or 2) get an Accelerator to vouch for you. All
+examples previous to this one used the first approach.
+
+This demonstration uses an accelerator to register a DID. To do this,
+you must register a DID with the Accelerator and typically pay them a
+fee to perform accelerated operations before issuing this command:
+
+```
+./did generate --register
+  --auth YOUR_ACCELERATOR_REGISTERED_DID
+  --accelerator HOSTNAME
+```
+
+For example:
+
+```
+./did generate --register
+  --auth did:v1:test:nym:2xQn7AKZpGo8no3zvUGsyrM5dv8ZXsaM9gAB8BKhYZou
+  --accelerator genesis.testnet.veres.one
+```
+
+The output from the command above will look something like this:
+
+```
+[Veres One][test] Generating a new Veres One DID...
+[Veres One][test] Generating keypair... (5-15 seconds)
+[Veres One][test] DID: did:v1:test:nym:syrM5dv8ZXsaM9gAB8BKhYZou2xQn7AKZpGo8no3zvUG
+[Veres One][test] Storing DID Document on disk...
+[Veres One][test] DID Document stored in: /home/YOURNAME/.testdid/did-v1-test-nym-2xQn7AKZpGo8no3zvUGsyrM5dv8ZXsaM9gAB8BKhYZou.jsonld
+[Veres One][test] Local DID generation successful.
+[Veres One][test] Attaching LD-OCAP invocation proof...
+[Veres One][test] Attaching Accelerator update proof...
+[Veres One][test] Registering DID on Veres One...
+[Veres One][test] DID registration send to ledger.
+[Veres One][test] Please wait ~15-30 seconds for ledger consensus.
+[Veres One][test] You may use the `info` command to monitor the registration of your DID.
+```
+
+Why this is important: Proof of work on the production network takes a
+very long time to perform (multiple hours). Accelerators bypass the proof of
+work in exchange for a monetary contribution, which is then used to fund
+network operations. This demo also demonstrates the use of Linked Data
+Capabilities in a network that is nearing production.
 
 # Learning More
+
+This demonstration overview showed how one can use the Veres One Network to
+generate, register, and get Veres One DIDs. It also showed authentication
+key addition and removal as well as the use of Accelerators and Linked Data
+Capabilities to perform fast modifications to the ledger and delegation of
+responsibilities.
 
 Readers that would like to dive into the technical details should read the
 [Veres One DID Method](veres-one-did-method.md) paper.
