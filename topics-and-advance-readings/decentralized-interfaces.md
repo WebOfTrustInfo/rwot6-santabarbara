@@ -1,6 +1,6 @@
 # Decentralized Interfaces and the Request-Responsive World
 
-Vlad Kahoun, <vlad@beconomy.live>, [Butterfly economy](https://beconomy.live)
+Vlad Kahoun, <vlad@beconomy.live>, [Butterfly economy](http://beconomy.live)
 
 We want a world where all our needs are solved in the best possible way. The world we are looking for is request-responsive. This means that for any of our requests (expressed both directly or indirectly) we can simultaneously get multiple solutions (responses) from theoretically any existing entity on this planet.
 
