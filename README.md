@@ -22,6 +22,7 @@ Here are the advanced readings to date:
 * [DClaims News - A Fake News Mitigation Platform](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DClaims.md) by João Santos
 * [Decentralized Attestations Storage - Current Challenges](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/decentralised-attestations-storage-network-challenges.md) by Kulpreet Singh
 * [Decentralized Identities for the Cannabis Industry](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/cannabis-kyc.md) by Matthew Nguyen & Nicholas Shook
+* [Decentralized Interfaces and the Request-Responsive World](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/decentralized-interfaces.md) by Vlad Kahoun
 * [Decentralized Self-certifying Self-Identifing Data](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Self_ID_Data_KeyMgmt.md) by Samuel M. Smith 
 * [A Demonstration of the Veres One Blockchain](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/veres-one-demo.md) by David I. Lehn, Manu Sporny, David Longley, Matt Collier, and Chris Webber
 * [DID-Auth Protocol](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md) by Kyle Den Hartog
