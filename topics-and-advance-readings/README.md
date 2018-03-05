@@ -20,6 +20,7 @@ Here are the advanced readings to date:
 * [Decentralized Identities for the Cannabis Industry](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/cannabis-kyc.md) by Matthew Nguyen & Nicholas Shook
 * [Decentralized Self-certifying Self-Identifing Data](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Self_ID_Data_KeyMgmt.md) by Samuel M. Smith 
 * [DID-Auth Protocol](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md) by Kyle Den Hartog
+* [DID Auth: Scope, Formats, and Protocols](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID%20Auth:%20Scope%2C%20Formats%2C%20and%20Protocols.md) by Markus Sabadello
 * [did:erc725 method](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Method-erc725.md) by Markus Sabadello, Fabian Vogelsteller, and Peter Kolarov <pkolarov@finid.me>
 * [Distributed Reputation Systems Using Blockchain Records](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/distributed-reputation-systems-kate-sills.md) by Kate Sills
 * [Hashed PII Question](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/hashed-PII-Question.md) by Identity Woman
