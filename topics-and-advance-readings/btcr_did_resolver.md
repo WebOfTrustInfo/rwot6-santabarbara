@@ -123,7 +123,7 @@ Returns final constructed JSON-LD DID Document to caller, which can use the keys
       "service": [
         {
         "type": "BTCREndpoint",
-        "serviceEndpoint": "https://github.com/myopreturnpointer"     
+        "serviceEndpoint": "https://github.com/myopreturnpointer",  
         "timestamp": "XXXX"
         }
       ],
@@ -177,7 +177,10 @@ Returns final constructed JSON-LD DID Document to caller, which can use the keys
 
 * How to represent updates?
     * Ryan claims that proofs about update are not proper for the DID document, other than to require methods to provide a way to do updates. Why should a client app need to know about updates? The DID spec should not try to provide a signed DID Document that is JSON-LD self-complete.  Instead, trust in the method resolver is needed. 
-This also means we can remove the following:
+    * Should this be part of the audit trail?  (Ryan thinks yes.  Any objections?)
+    * At which layer is this happening? is it a requirement of the universal resolver? or is this simply returning info from which this can be determined? 
+    * This also means we can remove the following:
+
 ```
       "update": {[
         // update is implicit 
@@ -186,10 +189,9 @@ This also means we can remove the following:
         "serviceEndpoint": "bitcoinaddress"
       ]},
 ```
-    * Should this be part of the audit trail?  (Ryan thinks yes.  Any objections?)
-    * At which layer is this happening? is it a requirement of the universal resolver? or is this simply returning info from which this can be determined? 
+
 * How to represent timestamp?
-    * Some of the values (the DID ID itself, the bitcoin key, the BTREndpoint, and any immutable content hash items) are effectively timestamped by the Bitcoin transaction
-    * However, mutable values from the DID Document construction process may have been updated later. 
+  * Some of the values (the DID ID itself, the bitcoin key, the BTREndpoint, and any immutable content hash items) are effectively timestamped by the Bitcoin transaction
+  * However, mutable values from the DID Document construction process may have been updated later. 
 * Should the BTCR spec demand that compliant method resolvers sign the returned DID Document (diddo), using a standard envelope?  (This, even though it's out of scope for the DID spec.)
 
