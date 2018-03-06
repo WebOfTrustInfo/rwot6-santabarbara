@@ -2,7 +2,9 @@
 
 By: Kim Hamilton Duffy, Christopher Allen, Ryan Grant
 
-This describes the process of resolving a BTCR DID into a DID Document
+This describes the process of resolving a BTCR DID into a DID Document. The draft reference implementation is available at https://github.com/WebOfTrustInfo/btcr-did-tools-js (see didFormatter.js). Note not all steps described in this document are implemented yet.
+
+[See the BTCR playground](https://weboftrustinfo.github.io/btcr-tx-playground.github.io/) for a live demonstration. The BTCR playground uses the draft reference implementation BTCR DID resolver.
 
 ## Input: BTCR DID
 
