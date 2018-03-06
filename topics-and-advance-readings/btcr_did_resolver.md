@@ -36,17 +36,18 @@ This phase constructs the "implicit" DID Document from Bitcoin transactioh data
 3. Look up transaction by height and position. Is the transaction output spent?
     * no: this is the latest version of the DID. From this we can construct the DID Document
     * yes: keep following transaction chain until the latest with an unspent output is found
-4. Extract the following transaction data and update the DID document
-    a. The hex-encoded public key that signed the Bitcoin transaction
-        * Populate the first entry of the `publicKey` array in the DID document. This uses the [Koblitz Elliptic Curve Signature 2016](https://w3c-dvcg.github.io/lds-koblitz2016/) signature suite
-        * Populate the first entry of the `authentication` array in the DID document. This references the key above
-        * Note: It is a BTCR method convention that `#keys-1` corresponds to the transaction signing key. We'll see in the next spec that overriding this path in the supplementary DID document data is not allowed
-    b. If the transaction contains an `OP_RETURN` field, it is assumed to reference supplementary DID document data. If this field exists, add an entry to the `service` section of the DID document
+4. Extract the hex-encoded public key that signed the transaction and update the DID document with default authentication capability
+    * Populate the first entry of the `publicKey` array in the DID document. This uses the [Koblitz Elliptic Curve Signature 2016](https://w3c-dvcg.github.io/lds-koblitz2016/) signature suite
+    * Populate the first entry of the `authentication` array in the DID document, referencing the key above. 
+    * Note: It is a BTCR method convention that `#keys-1` corresponds to the transaction signing key. We'll see in the next spec that overriding this path in the supplementary DID document data is not allowed
+5. If the transaction contains an `OP_RETURN` field, populate the `serviceEndpoint` in the DID document. This is assumed to reference supplementary DID document data
+    * Add an entry to the `service` section of the DID document
         * `type` is `BTCREndpoint`
         * `serviceEndpoint` is the value in the OP_RETURN field, e.g. "https://github.com/myopreturnpointer"
         * `timestamp` is XXX?
-    * `SatoshiAuditTrail` is additional metadata available from the Bitcoin transaction. 
-5.  If the transaction contained no OP_RETURN data (and therefore no serviceEndpoint), the resolution process is done. Otherwise, proceed to the next phase.
+6. Add `SatoshiAuditTrail`, which contains additional metadata available from the Bitcoin transaction. Note: needs details
+
+If the transaction contained no OP_RETURN data (and therefore no serviceEndpoint was added), the resolution process is done. Otherwise, proceed to the next phase.
     
     
 ### Output of Phase 1
@@ -94,9 +95,9 @@ If the transaction has no OP_RETURN data, then the `service` array would have no
 
 ### Steps
 
-6. Retrieve the jsonld document from `serviceEndpoint.BTCREndpoint`, get first JSON type "DID Document". TODO
+7. Retrieve the jsonld document from `serviceEndpoint.BTCREndpoint`, get first JSON type "DID Document". TODO
     * If URL doesn't exist, ERROR
-7. Authenticates this JSON-LD fragment as valid
+8. Authenticate this JSON-LD fragment as valid
     * Note: The DID `id` value is *not* required to be in this JSON-LD.
         * If this patch data is an immutable file named by content hash (if stored in IPFS, for example) then it was committed before any blockchain confirmations occurred. 
         * The DID `id` value for an immutable DID document patch must be implicitly constructed by the method resolver presenting the valid DID document.
@@ -105,19 +106,19 @@ If the transaction has no OP_RETURN data, then the `service` array would have no
     * Otherwise, the JSON-LD at the BTCREndpoint must have signature matching Bitcoin transaction signing key
         * If not, ERROR
     * Question: does this mean BTCR resolvers must know in advance a registry of immutable stores?
-8. Merges in known JSON-LD values (additional keys, authorizations, etc) as appropriate into DID document. Additive only!
+9. Merges in known JSON-LD values (additional keys, authorizations, etc) as appropriate into DID document. Additive only!
     * Any fields that are part of the DID specification (`publicKey`, `authentication`, `service`) will be merged into the DID document by appending their entries to the arrays of the appropriate field
     * If continuation overwrites the Bitcoin key value, ERROR
     * Unknown JSON-LD values (in type "DID Document") are appended to the constructed DID Document
     * Non-DID JSON-LD data types that may also be at BTCEndpoint (such as Verifiable Claims) are ignored by resolver
-9. Loop for secondary (patch) DID Documents
+10. Loop for secondary (patch) DID Documents
     * Get secondary (patch) DID Documents and merge according to step 8
     * Parse for secondary BTCREndpoint URL(s) TODO: what does this mean?
     * Questions: 
         * should we specify order? Depth first? 
         * what to do with path collisions? i.e. 2 different DID patches use the path `#keys-2`?
         * Consider DoS limits of this loop
-10. Proposed: wrap the DID document in resolver envelope with additional metadata
+11. Proposed: wrap the DID document in resolver envelope with additional metadata
 
 ### Output of Phase 2
 
