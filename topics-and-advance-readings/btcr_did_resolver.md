@@ -138,7 +138,7 @@ Returns final constructed JSON-LD DID Document to caller, which can use the keys
         "timereceived": 1499501000,
         "burn-fee": -0.05
         }
-      ],
+      ]
 
       // fields found in BTCREndpoint marked using JSON type "DID Document"
       "future DID-spec term_a" : {
