@@ -1,7 +1,5 @@
 # BTCR DID Resolver Specification
 
-TODO: public key format updates pending
-
 By: Kim Hamilton Duffy, Christopher Allen, Ryan Grant
 
 This describes the process of resolving a BTCR DID into a DID Document
@@ -38,8 +36,12 @@ This phase constructs the "implicit" DID Document from Bitcoin transactioh data
 3. Look up transaction by height and position. Is the transaction output spent?
     * no: this is the latest version of the DID. From this we can construct the DID Document
     * yes: keep following transaction chain until the latest with an unspent output is found
-4. Extract the following information from the transaction:
-    * If the transaction contains an `OP_RETURN` field, it is assumed to reference supplementary DID document data. If this field exists, add an entry to the `service` section of the DID document
+4. Extract the following transaction data and update the DID document
+    a. The hex-encoded public key that signed the Bitcoin transaction
+        * Populate the first entry of the `publicKey` array in the DID document. This uses the [Koblitz Elliptic Curve Signature 2016](https://w3c-dvcg.github.io/lds-koblitz2016/) signature suite
+        * Populate the first entry of the `authentication` array in the DID document. This references the key above
+        * Note: It is a BTCR method convention that `#keys-1` corresponds to the transaction signing key. We'll see in the next spec that overriding this path in the supplementary DID document data is not allowed
+    b. If the transaction contains an `OP_RETURN` field, it is assumed to reference supplementary DID document data. If this field exists, add an entry to the `service` section of the DID document
         * `type` is `BTCREndpoint`
         * `serviceEndpoint` is the value in the OP_RETURN field, e.g. "https://github.com/myopreturnpointer"
         * `timestamp` is XXX?
@@ -47,21 +49,33 @@ This phase constructs the "implicit" DID Document from Bitcoin transactioh data
 5.  If the transaction contained no OP_RETURN data (and therefore no serviceEndpoint), the resolution process is done. Otherwise, proceed to the next phase.
     
     
-### Output
+### Output of Phase 1
 
 The output of this resolution phase is referred to as the "implicit" DID Document; it is derived exclusively from Bitcoin transaction data.
+
+If the transaction has no OP_RETURN data, then the `service` array would have no entries. The only default capabilities would be to authenticate with the transaction signing key.
 
 ```
 
 {
   "@context": "https://w3id.org/btcr/v1",
   "id": "did:btcr:<specific-idstring>",
-  "service": {[
+  "publicKey": [{
+      "id": "did:btcr:<specific-idstring>#keys-1",
+      "owner": "did:btcr:<specific-idstring>",
+      "type": "EdDsaSAPublicKeySecp256k1",
+      "publicKeyHex": "02b97c30de767f084ce3080168ee293053ba33b235d7116a3263d29f1450936b71"
+  }],
+  "authentication": [{
+      "type": "EdDsaSAPublicKeySecp256k1Authentication",
+      "publicKey": "#keys-1"
+  }],
+  "service": [{
     "type": "BTCREndpoint",
     "serviceEndpoint": "https://github.com/myopreturnpointer.jsonld"     
     "timestamp": "XXXX"
   ]},
-  "SatoshiAuditTrail": {[
+  "SatoshiAuditTrail": [{
     "chain": "testnet3",
     "blockhash": "00000000b3487880b2814da8c0a6b545453d88945dc29a7b700f653cd7e9cdc7",
     "blockindex": 1,
@@ -70,13 +84,17 @@ The output of this resolution phase is referred to as the "implicit" DID Documen
     "time": 1499501000,
     "timereceived": 1499501000,
     "burn-fee": -0.05
-  ]}
+  }]
 }
 ```
 
 ## Resolution Phase 2: Populate DID document with supplementary DID document data
 
-6. Retrieve the jsonld document from `serviceEndpoint.BTCREndpoint`, get first JSON type "DID Document".
+### Goal
+
+### Steps
+
+6. Retrieve the jsonld document from `serviceEndpoint.BTCREndpoint`, get first JSON type "DID Document". TODO
     * If URL doesn't exist, ERROR
 7. Authenticates this JSON-LD fragment as valid
     * Note: The DID `id` value is *not* required to be in this JSON-LD.
@@ -96,39 +114,71 @@ The output of this resolution phase is referred to as the "implicit" DID Documen
     * Get secondary (patch) DID Documents and merge according to step 8
     * Parse for secondary BTCREndpoint URL(s) TODO: what does this mean?
     * Questions: 
-        * should we specify order? Depth first? What if order matters?
+        * should we specify order? Depth first? 
+        * what to do with path collisions? i.e. 2 different DID patches use the path `#keys-2`?
         * Consider DoS limits of this loop
+10. Proposed: wrap the DID document in resolver envelope with additional metadata
+
+### Output of Phase 2
 
 Returns final constructed JSON-LD DID Document to caller, which can use the keys to authenticate data such the signature on a verifiable claim, or perform other application tasks.
 
+Let's assume the supplementary DID document (from the OP_RETURN data) is stored in an immutable store and contains the following `didDocument`. 
 
-```json
+```
 {
-    "resolver-specific envelope": "blahblah", 
+  ...
+  "didDocument": {
+      "@context": "https://w3id.org/did/v1",
+      "publicKey": [{
+        "id": "#keys-2",
+        "type": "RsaVerificationKey2018",
+        "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
+      }],
+      "authentication": [{
+        // this key can be used to authenticate as DID ...fghi
+        "type": "RsaSignatureAuthentication2018",
+        "publicKey": "#keys-2"
+      }],
+  ...
+}
+```
+
+Note that the `id` is not known yet, because the transaction referencing this supplementary document has not occurred. 
+
+Then the final DID document would be:
+
+```
+{
+    "resolver-specific envelope": "some-did-resolver-v1", 
     "doesn't matter to DID spec": true,
     "resultDid": {
       "@context": "https://w3id.org/did/v1",
-      "id": "did:btcr:mytxid",
-      "publicKey": [ {
-        "id": "did:btcr:mytxid#key-1",
+      "id": "did:btcr:<specific-idstring>",
+      "publicKey": [{
+        "id": "did:btcr:<specific-idstring>#key-1",
         "owner": "did:btcr:mytxid",
         "type": "EdDsaSAPublicKeySecp256k1",
-        "publicKeyHex": "02b97c30de767f084ce3080168ee293053ba33b235d7116a3263d29f1450936b71",
-        "timestamp": "XXXX"
-      }],
+        "publicKeyHex": "02b97c30de767f084ce3080168ee293053ba33b235d7116a3263d29f1450936b71"
+      }, {
+        "id": "did:btcr:<specific-idstring>#keys-2",
+        "type": "RsaVerificationKey2018",
+        "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
+      }
+      ],
       "authentication": [{
         "type": "EdDsaSAPublicKeySecp256k1Authentication",
         "publicKey": "#keys-1"
+      }, {
+        "type": "RsaSignatureAuthentication2018",
+        "publicKey": "#keys-2"
       }],
-      "service": [
-        {
+      "service": [{
         "type": "BTCREndpoint",
         "serviceEndpoint": "https://github.com/myopreturnpointer",  
         "timestamp": "XXXX"
-        }
-      ],
-      "SatoshiAuditTrail": [
-        {
+      }],
+      "SatoshiAuditTrail": [{
         "chain": "testnet3",
         "blockhash": "00000000b3487880b2814da8c0a6b545453d88945dc29a7b700f653cd7e9cdc7",
         "blockindex": 1,
@@ -137,8 +187,7 @@ Returns final constructed JSON-LD DID Document to caller, which can use the keys
         "time": 1499501000,
         "timereceived": 1499501000,
         "burn-fee": -0.05
-        }
-      ]
+      }]
 
       // fields found in BTCREndpoint marked using JSON type "DID Document"
       "future DID-spec term_a" : {
