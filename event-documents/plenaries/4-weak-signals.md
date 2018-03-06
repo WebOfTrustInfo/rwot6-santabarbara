@@ -76,6 +76,9 @@ Can you build a proof-of-person consensus system within a
 decentralized system?
 
 There are _biometric_ solutions and _consensus_ solutions!
+And possibly _implantable device_ solutions!
+
+   * But there was a strangely strong reaction about embedding chips in our bodies
 
 Once you have this guarantee, _what can you do with it?_
 
