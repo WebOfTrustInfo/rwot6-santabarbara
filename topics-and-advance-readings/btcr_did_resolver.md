@@ -111,7 +111,7 @@ Returns final constructed JSON-LD DID Document to caller, which can use the keys
       "id": "did:btcr:mytxid",
       "publicKey": [ {
         "id": "did:btcr:mytxid#key-1",
-        "owner": "did:btcr:mytxid"
+        "owner": "did:btcr:mytxid",
         "type": "EdDsaSAPublicKeySecp256k1",
         "publicKeyHex": "02b97c30de767f084ce3080168ee293053ba33b235d7116a3263d29f1450936b71",
         "timestamp": "XXXX"
@@ -120,12 +120,15 @@ Returns final constructed JSON-LD DID Document to caller, which can use the keys
         "type": "EdDsaSAPublicKeySecp256k1Authentication",
         "publicKey": "#keys-1"
       }],
-      "service": {[
+      "service": [
+        {
         "type": "BTCREndpoint",
         "serviceEndpoint": "https://github.com/myopreturnpointer"     
         "timestamp": "XXXX"
-      ]},
-      "SatoshiAuditTrail": {[
+        }
+      ],
+      "SatoshiAuditTrail": [
+        {
         "chain": "testnet3",
         "blockhash": "00000000b3487880b2814da8c0a6b545453d88945dc29a7b700f653cd7e9cdc7",
         "blockindex": 1,
@@ -134,7 +137,8 @@ Returns final constructed JSON-LD DID Document to caller, which can use the keys
         "time": 1499501000,
         "timereceived": 1499501000,
         "burn-fee": -0.05
-      ]},
+        }
+      ],
 
       // fields found in BTCREndpoint marked using JSON type "DID Document"
       "future DID-spec term_a" : {
