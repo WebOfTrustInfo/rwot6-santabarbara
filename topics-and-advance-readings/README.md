@@ -13,6 +13,7 @@ Here are the advanced readings to date:
 
 * [Attribute Based Credentials and Variable Length Data Graphs](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/AttributeBasedCredentials_and_VariableLengthDataGraphs.md) by nage
 * [Blockchain Timestamps Unnecessary In Proof-of-Work?](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Blockchains-Timestamps-Unnecessary-In-PoW.md) by Greg Slepak
+* [BTCR DID Resolver](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/btcr_did_resolver.md) by Kim Hamilton Duffy, Christopher Allen, Ryan Grant
 * [Collegial Certifcation Works for Truly Collegial Communities](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/Collegial%20Certification%20Works%20for%20Truly%20Collegial%20Communities.pdf) by Wes Kussmaul
 * [Credential Providers for Signing Application Requests](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/CredentialProvider_App_Integration.md) by Cedric Franz
 * [DClaims News - A Fake News Mitigation Platform](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DClaims.md) by João Santos
