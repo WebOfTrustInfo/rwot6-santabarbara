@@ -30,7 +30,7 @@
       * Eliminate certificate burden for TLS.
 
    9. "Attribute Based Credentials and Variable Length Data Graphs" (nage)
-   10. "Decentralized Automnic Data, Dad" (Sam S.)
+   9. "Decentralized Automnic Data, Dad" (Sam S.)
 
       * Maintain trust of data over transformations, for decentralized data.
 
