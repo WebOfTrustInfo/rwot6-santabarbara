@@ -36,7 +36,7 @@
 
    9. "Dr. Strangehands, or How I Stopped Worrying and Learned to Love the Biometrics" (John C.)
 
-      * Six ways to use biometrics right.
+      * **Abstract:** Biometrics are already here, and they will be used on the internet, whether we like it or not. They are already are; a lot of the current practices are bad and the centralized hosts know it. We know that centralized repositories of sensitive information are highly vulnerable and present irresistible targets, but better solutions are not available to current practitioners; they’re not even being considered. Fortunately, there are other fields that are already solving these problems, such as self-sovereign identity. We need to adapt their best practices to make biometrics safe and secure.
 
    9. DID v1.0 (Manu)
    9. "Web of Trust: End to End" (Kim H.)
