@@ -34,11 +34,11 @@
 
       * Maintain trust of data over transformations, for decentralized data.
 
-   11. "Dr. Strangehands, or How I Stopped Worrying and Learned to Love the Biometrics" (John C.)
+   9. "Dr. Strangehands, or How I Stopped Worrying and Learned to Love the Biometrics" (John C.)
 
       * Six ways to use biometrics right.
 
-   12. DID v1.0 (Manu)
-   13. "Web of Trust: End to End" (Kim H.)
+   9. DID v1.0 (Manu)
+   9. "Web of Trust: End to End" (Kim H.)
 
       * Show end-to-end use of a Web of Trust
