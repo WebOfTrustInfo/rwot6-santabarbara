@@ -1,10 +1,10 @@
 # Decentralized Autonomic Data (DAD)
 
-Samuel M. Smith Ph.D.  
-sam@samuelsmith.org
-2018/03/06
+Samuel M. Smith Ph.D. (sam@samuelsmith.org)  and Vishal Gupta (vishal@diro.io)
 
-This paper proposes a new class of data, that is, decentralized autonomic data (DAD). The term decentralized means that the governance of all the data may not reside with a single party. A related concept is that the trust in the data provenance is diffuse in nature. Central to the approach is leveraging the emerging DID (Decentralized Identifier) standard. The term autonomic means self-managing or self-regulating. In the context of data we crystalize the meaning of self-managing to include cryptographic techniques for maintaining data provenance that make the data  self-identifying, self-certifying, and self-securing. Implied thereby is the use of cryptographic keys and signatures to provide a root of trust for data integrity and maintain that trust over transformation of that data, e.g. provenance. Thus key management must be a first order property of DADs. This includes key reproduction, rotation, revocation, and recovery.
+2018/03/07
+
+This paper proposes a new class of data called *decentralized autonomic data* (DAD). The term *decentralized* means that the governance of the data may not reside with a single party. A related concept is that the trust in the data provenance is diffuse in nature. Central to the approach is leveraging the emerging [*DID*](https://w3c-ccg.github.io/did-spec/) (decentralized identifier) standard. The term *autonomic* means self-managing or self-regulating. In the context of data we crystalize the meaning of self-managing to include cryptographic techniques for maintaining data provenance that make the data self-identifying, self-certifying, and self-securing. Implied thereby is the use of cryptographic keys and signatures to provide a root of trust for data integrity and maintain that trust over transformation of that data, e.g. provenance. Thus key management must be a first order property of DADs. This includes key reproduction, rotation, revocation, and recovery.
 
 The motivating use of DAD is to provide provenance for streaming data that is generated and processed in a distributed 
 manner with decentralized governance. Streaming data are typically measurements that are collected and aggregated to form higher level constructs. Applications include analytics and instrumentation of distributed web or internet of things (IoT) applications. Of particular interest is the use of DADs in self-sovereign reputation systems. A DAD seeks to maintain a provenance chain for data undergoing various processing stages that follows diffuse trust security principles including signed at rest and in motion. 
