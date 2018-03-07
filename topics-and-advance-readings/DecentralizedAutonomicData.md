@@ -103,27 +103,32 @@ We call these the four R's of key management.
 
 ### Key Reproduction
 
+Key reproduction is all about managing the creation of new or derived keys. Each new DID requires a new public/private key pair. The private keys must be kept in a secured location. Minimizing the number of private keys that must be kept track off for a given number of public keys simplifies management and reduces expense and risk. This becomes an issue when unique keys are created for each interation between parties as a means for maintaining privacy through pseudonymity. In this context a pseudonynm is a made up alias e.g. identifier that is under the control of its creator and is used to identify a given interaction but is not linkable to other interactions by its owner.
 
 #### Privacy and Confidentiality
 
-One important feature of a DAD is that it be privacy preserving. A simplified definition of privacy in this context is that if two parties are participating in an exchange of data that the parties are not identified. A simplified definition of confidentiality is that the content of the data exchanged is not disclosed to a third party. Confidentiality is usually obtained by encrypting the data.  An exchange can be private but not confidential, confidential but not private, both, or neither. A minimally sufficent approach to privacy is to use a DID as a pseudonomous identifier of each party to the exchange. As long as that DID is not used in any other context then this minimizes the ability of a third party to correlate the identities of the parties. Although, there are more sophisticated methods to preserve privacy such as zero knowledged proofs, the goal here is to use methods that are compatible with the performance demands of streaming data. The problem with using unique pseudonyms/cryptonyms for each exchange or each stream is that a large number of such identifier must be created and maintained. Fortunately hierachically derived keychain provide a way to manage these cryptonyms with minimal effort. This movitates the first of
-
-
+One desirable feature of a DAD is that it be privacy preserving. A simplified definition of privacy is that if two parties are participating in an exchange of data in a given context that the parties are not linked to other interactions with other parties in other contexts. A simplified definition of confidentiality is that the content of the data exchanged is not disclosed to a third party. Confidentiality is usually obtained by encrypting the data.  An exchange can be private but not confidential, confidential but not private, both, or neither. A minimally sufficent approach to privacy is to use a DID as a pseudonomous identifier of each party to the exchange. As long as that DID is not used in any other context then this minimizes the ability of a third party to correlate the parties with other contexts. Although, there are more sophisticated methods to preserve privacy such as zero knowledged proofs, the goal here is to use methods that are compatible with the performance demands of streaming data. The problem with using unique pseudonyms/cryptonyms for each exchange or each stream is that a large number of such identifiers must be created and maintained. Fortunately hierachically derived keychains provide a way to manage these cryptonyms with minimal effort. 
 
 #### Hierachical Deterministic Key Generation
 
-Reproduction has to do with the generation of new keys. One way to reduce the burden of tracking large numbers of public/private key pairs is to use a hierarchical deterministic key generation algorithm (HD Keys). The algorithm needs a master or root key pair and a chain code for each derived key. Then only the master key pair needs to be kept track of and only the master private key needs to be kept securely secret. The other private keys can be reproduced on the fly given the key generation algorithm and the chain code. An extended public key would include the chain code in its representation so that the associated private key can be derived by the holder of the master private key anytime the extended public key is presented. The DID spec does not have syntax or semantics for representing HD keys.
+As previously mentioned, reproduction has to do with the generation of new keys. One way to accomplish this is with a deterministic proceedure for generating new public/private keys pairs where the private keys may be reproduced securely without having to be stored. A hierarchically deterministic key generation algorithm does this by using a master or root private key and then generating new key pairs using a deterministic key derivation algorithm. A specific key that can be expressed as a path of parent and child key/pairs. Thus a tree of key pairs can be created. Each public key includes the path to its location in the tree. The private key for a given public key in the tree can be securely regenerated using the root private key and the key path. Only one private key, (the root) needs to be stored. 
 
-Unlike the DID Fragment identifier which is referencing a field in the DID Document, and HD Key path (chain code) is an operation on the master key itself. While it would be possible to put the chain code (HD Key path) into the DID Document and then reference it via the DID Fragment this adds complexity and unnecessary indirection. It would be cleaner to just have a way of specifying the chain code as a parameter to an HD path algorithm specification. What comes immediately to mind is to use a Query Parameter. This seems a natural fit. Indeed other key management tasks that involve operations on a key directly could be accomodated in the same way. This seems to be a simplifying design solution. Provides flexibility that is a natural semantic extension of existing URL syntax.## Identifier Key Management
+The [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) specification, for example, uses an indexed path representation for its HD *chain* code, such as, "0/1/2/0".
+The BIP-32 algorithm needs a master or root key pair and a chain code for each derived key. Then only the master key pair needs to be saved and only the master private key needs to be kept securely secret. The other private keys can be reproduced on the fly given the key generation algorithm and the chain code. An extended public key would include the chain code in its representation so that the associated private key can be derived by the holder of the master private key anytime the extended public key is presented. 
+
+The query part of the DID syntax may be used to represent an HD chain code or key path for an HD key that is derived from a root DID. This provides an economoical way to specify derived DIDs (DDIDs) used to identify DADS. An example follows:
+
+```bash
+did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=?chain=0\1\2
+```
+
+This expressing above would allow the 
 
 
-Each new DID requires a new public/private key pair. The private keys must be kept in a secured location. Minimizing the number of private keys that must be kept track off for a given number of public keys simplifies management and reduces expense and risk. One way to accomplish this is with a deterministic proceedure for generating new public/private keys pairs where the private keys may be reproduced securely without having to be stored. A hierarchically deterministic key generation algorithm does this by using a master or root private key and then generating new key pairs using a deterministic key derivation that can be expressed as a path of parent and child key/pairs. Thus a tree of key pairs can be created. Each public key includes the path to its location in the tree. The private key for a given public key in the tree can be securely regenerated using the root private key and the key path. Only one private key, (the root) needs to be stored. Reproduceable DIDs are DIDs that explicitly include the key path in their expression. Much like the fragment appendix for key rotation, a key path appendix would extend DIDs to conveniently support hierarchically deterministic key generation and reproduction.
+
 
 An example might be
 
-```bash
-did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=;0\1\2
-```
 
 where ";" semi-colon indicates that what follows is key path and the number represent which
 child at each level.
