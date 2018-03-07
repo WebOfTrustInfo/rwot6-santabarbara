@@ -1,12 +1,12 @@
 # End of Day One: The Papers
 
-   1. "Making DIDs Invisible: Petnames & Their Secure User Interface" (Chris W.)
+1. "Making DIDs Invisible: Petnames & Their Secure User Interface" (Chris W.)
 
->> If we show people a DID, we have failed!
+> If we show people a DID, we have failed!
 
-   2. "DID Auth" (Markus)
+2. "DID Auth" (Markus)
 
-A specification for DID Auths, including formats for challenges and responses.
+> A specification for DID Auths, including formats for challenges and responses.
 
    3. "Identity Hubs" (Daniel)
    4. "Towards a Sustainable Technology Commons" (Heather)
