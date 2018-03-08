@@ -59,7 +59,7 @@ A minimal DAD (decentralized autonomic data) item is a data item that contains a
 
 ```json
 {
-    id: did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=
+    "id": "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148="
 }
 ```
 
@@ -67,7 +67,7 @@ To ensure data integrity, i.e. that the data has not been tampered with. Appende
 
 ```json
 {
-    id: did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=
+    "id": "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148="
 }
 \r\n\r\n
 u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFRzAPnAQ==
@@ -77,11 +77,11 @@ An example DAD with a payload follows:
 
 ```json
 {
-    id: did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=,
-    data:
+    "id": "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+    "data":
     {
-        name: "John Smith",
-        country: "USA"
+        "name": "John Smith",
+        "nation": "USA"
     }
 }
 \r\n\r\n
@@ -103,15 +103,19 @@ We call these the four R's of key management.
 
 ### Key Reproduction
 
-Key reproduction is all about managing the creation of new or derived keys. Each new DID requires a new public/private key pair. The private keys must be kept in a secured location. Minimizing the number of private keys that must be kept track off for a given number of public keys simplifies management and reduces expense and risk. This becomes an issue when unique keys are created for each interation between parties as a means for maintaining privacy through pseudonymity. In this context a pseudonynm is a made up alias e.g. identifier that is under the control of its creator and is used to identify a given interaction but is not linkable to other interactions by its owner.
+Key reproduction is all about managing the creation of new or derived keys. Each new DID requires a new public/private key pair. The private keys must be kept in a secured location. One reason to create unique public private key pairs for each pair-wise relationship is to minimize the risk of exposure to exploit from the repeated use of a given key-pair. Another reason to create unique public/private keys for each interaction between parties is as a means for maintaining privacy through *pseudonymity*. This is discusses in more detail below. Minimizing the number of private keys that must be securely preserved for a given number of public keys simplifies management and reduces both expense and risk of exposure. To reiterate, there are two key storage issues, one is storing public keys and the other is securing storing private keys. An exploit that captures a store of public keys may mean a loss of privacy because the expoiter can now correlate activity associated with those public keys. An exploit that captures a store of private keys means that the exploiter can sign attestations with those private keys and may take control of any associated resources. Consequently, one wants to avoid storing privates as much as possible.
 
 #### Privacy and Confidentiality
 
-One desirable feature of a DAD is that it be privacy preserving. A simplified definition of privacy is that if two parties are participating in an exchange of data in a given context that the parties are not linked to other interactions with other parties in other contexts. A simplified definition of confidentiality is that the content of the data exchanged is not disclosed to a third party. Confidentiality is usually obtained by encrypting the data.  An exchange can be private but not confidential, confidential but not private, both, or neither. A minimally sufficent approach to privacy is to use a DID as a pseudonomous identifier of each party to the exchange. As long as that DID is not used in any other context then this minimizes the ability of a third party to correlate the parties with other contexts. Although, there are more sophisticated methods to preserve privacy such as zero knowledged proofs, the goal here is to use methods that are compatible with the performance demands of streaming data. The problem with using unique pseudonyms/cryptonyms for each exchange or each stream is that a large number of such identifiers must be created and maintained. Fortunately hierachically derived keychains provide a way to manage these cryptonyms with minimal effort. 
+One desirable feature of a DAD is that it be privacy preserving. A simplified definition of privacy is that if two parties are participating in an exchange of data in a given context that the parties are not linked to other interactions with other parties in other contexts. A simplified definition of confidentiality is that the content of the data exchanged is not disclosed to a third party. Confidentiality is usually obtained by encrypting the data. This paper does not specifically cover encryption but in general the mechanisms for managing signing keys and encryption keys are highly similar.
+
+An exchange can be private but not confidential, confidential but not private, both, or neither. A minimally sufficent means to preserving privacy is to use a DID as a pseudonomous identifier of each party to the exchange. A *pseudonynm* is a made up alias e.g. identifier that is under the control of its creator and is used to identify a given interaction but is not linkable to other interactions by its owner. The ability of a third party to correlate and entity's behavior across contexts is reduced when the entity uses a unique DID for each context.  Although, there are more sophisticated methods for preserving privacy such as zero knowledge proofs, the goal here is to use methods that are compatible with the performance demands of streaming data. 
+
+As mentioned above, the problem with using unique pseudonyms/cryptonyms for each exchange is that a large number of such identifiers may need to be maintained. Fortunately hierachically derived keychains provide a way to manage these cryptonyms with minimal effort. 
 
 #### Hierachical Deterministic Key Generation
 
-As previously mentioned, reproduction has to do with the generation of new keys. One way to accomplish this is with a deterministic proceedure for generating new public/private keys pairs where the private keys may be reproduced securely without having to be stored. A hierarchically deterministic key generation algorithm does this by using a master or root private key and then generating new key pairs using a deterministic key derivation algorithm. A specific key that can be expressed as a path of parent and child key/pairs. Thus a tree of key pairs can be created. Each public key includes the path to its location in the tree. The private key for a given public key in the tree can be securely regenerated using the root private key and the key path. Only one private key, (the root) needs to be stored. 
+As previously mentioned, reproduction has to do with the generation of new keys. One way to accomplish this is with a deterministic proceedure for generating new public/private keys pairs where the private keys may be reproduced securely without having to be stored. A hierarchically deterministic key generation algorithm does this by using a master or root private key and then generating new key pairs using a deterministic key derivation algorithm. A derived key is expressed as a branch in a tree of parent/child keys. Each public key includes the path to its location in the tree. The private key for a given public key in the tree can be securely regenerated using the root private key and the key path. Only one private key, (the root) needs to be stored. 
 
 The [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) specification, for example, uses an indexed path representation for its HD *chain* code, such as, "0/1/2/0".
 The BIP-32 algorithm needs a master or root key pair and a chain code for each derived key. Then only the master key pair needs to be saved and only the master private key needs to be kept securely secret. The other private keys can be reproduced on the fly given the key generation algorithm and the chain code. An extended public key would include the chain code in its representation so that the associated private key can be derived by the holder of the master private key anytime the extended public key is presented. 
@@ -121,47 +125,62 @@ The query part of the DID syntax may be used to represent an HD chain code or ke
 ```bash
 did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=?chain=0\1\2
 ```
+This expression above discloses the root public DID as well as the key derivation path or chain via the query part. For the sake of brevity this will be call an extended DID. The actual derived DDID is create by applying the HD algorithm such as:
 
-This expressing above would allow the 
+```bash
+did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=
+```
+Thus a database of DDIDs could be indexed by DDID expressions with each value being the extended DID. Looking up the extended DID allows the holder to recreate on the fly the associated private key for the DDID without ever having to store the private key. 
 
+Some refinements to this approach may be useful. One is the granularity of DDID allocation. A unique DDID could be used for each unique DAD or a unique DID could be used for each unique destination party that is receiving a data stream. In this case each DAD would need an additional identifier to disambiguate on DAD from another that is sent to the same party. This can be provided with an additional field or using the DID path part. The following shows the sequence number provided in the DID path.
 
-
-
-An example might be
-
-
-where ";" semi-colon indicates that what follows is key path and the number represent which
-child at each level.
-
-The following is a data item using a signing key that is a hierachically determined DID.
+```bash
+did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=/10057
+```
+The associated DAD is as follows:
 
 ```json
 {
-   "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=#keys/0",
-   "changed": "2000-01-01T00:00:00+00:00",
-   "keys": 
-   [
+    "id": "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=/10057",
+    "data":
     {
-      "key": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=;0\1\2",
+        "temp": 50,
+        "time": "12:15:35"
     }
-   ],
-   "name": "Jim",
-   "age": 30
 }
-/r/n/r/n
-B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
-
+\r\n\r\n
+u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFRzAPnAQ==
 ```
 
+#### Change Detection
 
-This ignores an important use case where the affiliation between DID data and DID entity is not known at the time of DID creation but is to be claimed later, as would be the case in some services that are processing pseudonomusly identified data. In this case DIDs would be generated on the fly. 
+Using a sequence number or some other identifier could provide change detection. Often stale DAD items must be detectable to prevent replay attacks. A later re-transmission of an old copy of the DAD item not supercede a newer copy. One way to provide change detection is for the DAD item to include a *changed* field whose value is monotonically increasing and changes everytime the data is changed. The souce of the data can enforce that the value is monotonically increasing. Typical  approaches include a monotonically increasing date-time stamp or sequence number. Any older data items will have older date-time stamps or lower sequence numbers and will thus be detectable as stale.
 
-Thus operations on the DID keys such as hierarchical deterministic key generation which is not normally exposed as public may be extremely beneficial when shared amongst the entities in the processing chain as a way to manage the entailed proliferation of keys that may be all claimed later as a hierarchial group. The DIDs and associated generation operations may be shared amongst a group of more-or-less trusted entities that are involved in the processing chain. Following best practices data provenance, such as, signed at rest, requires key management of the DIDs. This key management is shared but private to the entities.
+Below is an example of an non-trivial data item that has a *changed* field for change detection.
 
+```json
+{
+    "id": "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=/10057",
+    "changed" : "2000-01-01T00:00:00+00:00",
+    "data":
+    {
+        "temp": 50,
+        "time": "12:15:35"
+    }
+}
+\r\n\r\n
+u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFRzAPnAQ==
+```
 
+Change detection prevents replay attacks in the following manner. A second party receives DAD updates that are each signed by the associated private key. Each update has a monitonically increasing changed field. The source signer controls the contents of the data wrapped by the signature. Therefore the signer controls any the changed field. A consistent signer will use a monotonically increasing changed value whenever the data wrapped by the signature is changed. Thus a malicious third party cannot replay earlier instances of the DAD wrapped by a valid signature to the orginal second party because the second party knows to discard any receptions that have older changed fields than the latest one they have already received. 
 
+#### On the Fly DDIDS in DADs
 
+One important use case for DDIDS in DADS is to identify data that is received from a source that is not providing identifying information with the data. The receiver then creates an associated DID and DDIDs to identify the data. At some later point in the point the receiver may be able to link this data with some other identifying information or the source may *claim" this data later by supplying identifying information. In this case the DDIDs are private to the receiver but can later be used to credibly provenance the internal use of the data. This may be extremely beneficial when shared amongst the entities in the processing chain as a way to manage the entailed proliferation of keys that may be all claimed later as a hierarchial group. The DIDs and associated derivation operations for DDIDS may be shared amongst a group of more-or-less trusted entities that are involved in the processing chain.
+
+#### Public Derivation
+
+Another important used case for DDIDS in DADS is to avoid storing even the the DDID with its derivation chain. This may be an issue when a client wishes to communicate with a potenially very large number of public services. Each public service would be a new pairing with a unique DDID. If the derivation algorithm for an HD Key DDID could use the public key or public DID of the public service to generate the DDID then the client need not store the actual DDID but can recover the DDID by using the public DID of the server to re-derive the associated DDID.
 
 
 
@@ -255,29 +274,6 @@ Adding support for key management to a self-identifying data item is a good exam
 
 
 
-
-
-### Change Detection
-
-In some cases data items values will change and new versions of the data item will be created. One important consideration is that stale data items be detectable, that is, a later re-transmission of an old copy of the data item not supercede a newer copy. This is an example of a replay attack. One way to provide change detection is for the data item to include a *changed* field whose value is monotonically increasing and changes everytime the data item is changed. . The signer of the data item can enforce that the value is monotonically increasing. Typical  approaches include a monotonically increasing date-time stamp or sequence number. Any older data items will have older date-time stamps or lower sequence numbers and will thus be detectable as stale.
-
-Below is an example of an non-trivial data item that is still trivally self-signed with *changed* field for change detection.
-
-```json
-{
-   "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-   "changed" : "2000-01-01T00:00:00+00:00",
-   "name": "Jim",
-   "age": 30
-}
-/r/n/r/n
-B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
-
-```
-
-I think that there is an underlying purpose for having a timestamp that is not explicitly mentioned here, that is, so that a second party who is receiving information that is signed by a DID private key is not susceptible to a replay attack. The signer controls the contents of the data wrapped by the signature. Therefore the signer controls any timestamps. A consistent signer will use a monotonically increasing timestamp whenever the data wrapped by the signature is changed (I use a field named "changed" for this. Thus a malicious third party cannot replay earlier instances of the data wrapped by a valid signature to the orginal second party because the second party knows to discard any receptions that have older timestamps than what they received. The "updated" field can provide the same purpose but the additional requirement is that it be monotonically increasing. (I like changed because we are doing change detection the first time the document is created it is changed. Created requires a third party as the signer of the document can always created an earlier document and can change the created date and sign it with validity. without the third party the second party has to keep track of the earliest "created" date it has ever seen which is no different than keeping track of the earliest "changed" date it has ever seen. So we only need the one field. We don't need both.
-
 ### Example
 If the signer field value is the same as the did field value then the data item is trivially self-signed. 
 
@@ -356,6 +352,33 @@ Signature: signer="B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2P
 
 ```
 
+
+
+
+
+where ";" semi-colon indicates that what follows is key path and the number represent which
+child at each level.
+
+The following is a data item using a signing key that is a hierachically determined DID.
+
+```json
+{
+   "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=#keys/0",
+   "changed": "2000-01-01T00:00:00+00:00",
+   "keys": 
+   [
+    {
+      "key": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=;0\1\2",
+    }
+   ],
+   "name": "Jim",
+   "age": 30
+}
+/r/n/r/n
+B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
+
+```
 
 ## Relative Expressive Power
 
