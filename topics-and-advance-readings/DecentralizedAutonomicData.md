@@ -1,62 +1,322 @@
-# Decentralized Autonomic Data (DAD)
+# Decentralized Autonomic Data (DAD) and the three R's of Key Management
 
-Samuel M. Smith Ph.D.  
-sam@samuelsmith.org
-2018/03/06
+Samuel M. Smith Ph.D. (sam@samuelsmith.org)  and Vishal Gupta (vishal@diro.io)
 
-This paper proposes a new class of data, that is, decentralized autonomic data (DAD). The term decentralized means that the governance of all the data may not reside with a single party. A related concept is that the trust in the data provenance is diffuse in nature. Central to the approach is leveraging the emerging DID (Decentralized Identifier) standard. The term autonomic means self-managing or self-regulating. In the context of data we crystalize the meaning of self-managing to include cryptographic techniques for maintaining data provenance that make the data  self-identifying, self-certifying, and self-securing. Implied thereby is the use of cryptographic keys and signatures to provide a root of trust for data integrity and maintain that trust over transformation of that data, e.g. provenance. Thus key management must be a first order property of DAD. This includes key reproduction, rotation, revocation, and recovery.
+2018/03/07
+
+## Abstract
+
+This paper proposes a new class of data called *decentralized autonomic data* (DAD). The term *decentralized* means that the governance of the data may not reside with a single party. A related concept is that the trust in the data provenance is diffuse in nature. Central to the approach is leveraging the emerging [*DID*](https://w3c-ccg.github.io/did-spec/) (decentralized identifier) standard. The term *autonomic* means self-managing or self-regulating. In the context of data we crystalize the meaning of self-managing to include cryptographic techniques for maintaining data provenance that make the data self-identifying, self-certifying, and self-securing. Implied thereby is the use of cryptographic keys and signatures to provide a root of trust for data integrity and maintain that trust over transformation of that data, e.g. provenance. Thus key management must be a first order property of DADs. This includes key reproduction, rotation, and recovery.
+
 The motivating use of DAD is to provide provenance for streaming data that is generated and processed in a distributed 
-manner with decentralized governance. Streaming data are typically measurments that are collected and aggregated to form higher level constructs. Applications include analytics and instrumentation of distributed web or internet of things (IoT) applications. Of particular interest is the use of DAD in self-sovereign reputation systems. Streaming data applications may impose significant performance demands on the processing of the associated data. Consequently one major goal is to use efficient mechanisms for providing the autonomic properties. This means finding minimally sufficient means for managing keys and cryptographic integrity and control.
-The main use case for DAD are distributed (but with decentralized control) data intensive processing applications. Because data intensive applications are often limited by network and processing resources, economy of expression is an important consideration in a data representation.  This is a complementary approach to the main DID specificiation which deals with service discovery for identities rooted in a DID. DAD is a different in that it seeks to maintain a provenance chain for data undergoing various processing stages that follows diffuse trust security principles including signed at rest and in motion.
+manner with decentralized governance. Streaming data are typically measurements that are collected and aggregated to form higher level constructs. Applications include analytics and instrumentation of distributed web or internet of things (IoT) applications. Of particular interest is the use of DADs in self-sovereign reputation systems. A DAD seeks to maintain a provenance chain for data undergoing various processing stages that follows diffuse trust security principles including signed at rest and in motion. 
+
+Streaming data applications may impose significant performance demands on the processing of the associated data. Consequently one major goal is to use efficient mechanisms for providing the autonomic properties. This means finding minimally sufficient means for managing keys and cryptographic integrity.
+
+Importantly this paper provides detailed descriptions of the minimally sufficient means for key reproduction, rotation, revocation, and recovery for DID leveraged DADS. 
+
 
 ## Overview
 
-A decentralized autonomic data (DAD) item is identified by a decentralized universally unique self-certifying identifier (DID). Self certifying means that the identifier includes either a public key or a fingerprint of a public key from a cryptographic public/private key pair. The DID is included in the data item itself as the value of a field. The data item also includes a field whose value is the DID for the signer of the data item. This may or may not be the same DID used to identify the data item itself. Attached to the data item is a signature that is verifiable as being generated by the private key associated with the public key in the signer field's DID value. This signature verifies that the data item was created by the holder of the associated private key for the signer.  The whole data item is both self-identifing and self-certifying because all identifiers are included in the signed data and are verifiable against the private keys associated with the public keys in the included DIDs.
+A decentralized autonomic data (DAD) item is associated with a decentralized identifier, ([DID](https://w3c-ccg.github.io/did-spec/)). This paper does not provided a detailed definition of DIDs but does describe how DIDs are used by a DAD. The DID syntax specification is a modification of standard URL syntax per [RFC-3986](https://www.ietf.org/rfc/rfc3986.txt). As such it benefits from familiarity which is a boon to adoption. One of the features of a DID is that it is a self certifying identifier in that a DID includes either a public key or a fingerprint of a public key from a cryptographic public/private key pair. Thereby a signature created with the private key can be verified using the public key provided by the DID. The inclusion of the public part of a cyptographic key pair in the DID give the DID other desirable properties. These include universal uniqueness and pseuodnynmity. Because a cryptographic key pair is generated from a large random number there is an infinitessimal chance that any two DIDs are the same (collision resistance). Another way to describe a DID is that it is a cryptonym, a cryptographically derived pseudonym.
 
+Associated with a DID is a did document (DDO). The DDO provides meta-data about the DID that can be used to manage the DID as well as discover services affiliated with the DID. Typically the DDO is meant to be provided by some service. The DID/DDO model is not a good match for streaming data especially if a new DID/DDO pair would need to be created for each new DAD item. But a DID/DDO is a good match when used as the root or master identifier from which an identifier for the DAD is derived. This derived identifier is called a *derived DID* or *DDID*. Thus only one DID/DDO paring is required to manage a large number of DADs where each DAD may have a unique DDID. The syntax for a DDID is identical for a DID. The difference is that only one DDO with meta-data is needed for the root DID and all the DAD items carry any additional DAD specific meta-data, thus making them self-contained (autonomic).
 
+### DID Syntax
 
-This is detailed proposal for modifying the DID specification. DID specification. Motivations for this proposal include enabling key management as a first order feature of DIDs as well as leveraging existing tooling for URL and UUID identifiers.
+A DID or DDID has the following required syntax:
 
-The current DID specification explicitly states that DIDs include both the unique non-colliding decentralized generation features of URNs (UUIDs) with the locatability features of URLs. What the current DID specification implies but does not explicitly state is that DIDs also include the self-certifying features of public keys. Indeed it is this feature of DIDs, that is, that they are also derived from the public key of the crytographic public/private key pair that make them most attractive as decentralized identifiers. Moreover their nature as keys means that key management should be a first order feature of the DID specification.
+did:*method*:*idstring*
 
-The current DID syntax specification is a minor modification of the existing URL syntax. RFC3986. As such it benefits from familiarity which is a boon to adoption. Too the extent that the DID spec is compatible with existing URL parsing tools with nothing more than trivial modification, then that would be an even further boon to adoption.
+The *method* is some short string that namespaces the did and provides for unique behavior in the associated method specification. In this paper we will use the method *dad*.
 
-This proposal is also motivated and informed by a use case that was not anticipated by the current DID specification. The use case is data intensive applications of self-certifying data (SCD) or self-identifying data (SID), A self-certifying data item is a data structure that is identified by an included DID and its provenance can be verified by cryptographic operations using the associated public/private key pair. The data structure carries both application data and the DID meta-data needed for verifing and proving provenance without perfoming expensive external lookups. Thus a self-certifying data item encapsulates in place the essential portions of meta-data from a DID document and service endpoints. It is an self-contained structure that is compatible with distributed data flow or stream processing such as reputation. Moreover, the current DID specification assumes that DIDs are primarily public identifiers affiliated with known entities and that the affiliated DID Documents and Service Endpoints are also public. This ignores an important use case where the affiliation between DID data and DID entity is not known at the time of DID creation but is to be claimed later, as would be the case in some services that are processing pseudonomusly identified data. In this case DIDs would be generated on the fly. Thus operations on the DID keys such as hierarchical deterministic key generation which is not normally exposed as public may be extremely beneficial when shared amongst the entities in the processing chain as a way to manage the entailed proliferation of keys that may be all claimed later as a hierarchial group. The DIDs and associated generation operations may be shared amongst a group of more-or-less trusted entities that are involved in the processing chain. Following best practices data provenance, such as, signed at rest, requires key management of the DIDs. This key management is shared but private to the entities.
+The  *idstring* is linked to a cryptographic key pair and is defined by the method. In this paper we will use a 44 character Base64 URL-File safe  encoding as per [RFC-4648](https://tools.ietf.org/html/rfc4648) with one trailing pad byte of the 32 byte public verification key for an EdDSA (Ed25519) signing key pair. Unless otherwise specified Base64 in this document refers to the URL-File safe version of Base64. The URL-File safe version of Base64 encoding replaces "+" with “-” and  “\” with  “_”. 
 
-Operations
+As an example a did using this format would be as follows:
 
-Possibles classes of operations that might be worth considering as as follows:
+```bash
+did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=
+```
 
-Operations on the public/private key pair affiliated with a DID
+A DID may have optional parts including a path, query, or fragment. These used the same syntax of a URL, that is, the path is delimited with slashes, */*, the query with a question mark, *?*, and the fragment with a pound sign, *#*. When the path part is provided then the query applies to the resource referenced by the path and the fragment refers to an element in the document referenced by the path. An example follows:
 
-Operations that use the public/private key pair affiliated with a DID
+```bash
+did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=/mom?who=me#blue
+```
 
-Operations on the meta-data affiliated with a DID
+In contrast, when the path part is missing but either the query or fragment part is provided then the query and/or fragment parts have special meaning. A query without a path means the the query is an operation on the either the DID itself or the DID document (DDO). Likewise when a fragment is provided then the fragment is referencing an elemet of the DDO. An example of a DID without a path but with a query follows:
 
-Operations on the data affiliated with a DID based self-certifying data item
+```bash
+did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=?who=me
+```
 
-Operations with data associated with a DID path
+As will be described later, a query part on a DID expression without a path part will enable the generation of *DDIDs* (derived DIDs)
 
-Class 1 may be the most important. It has to do with key management. Class 2 is only important to the extent that it is used to support the other classes. Classes 3 and 4 are very similar, the difference being whether or not the meta-data is self-contained. Class 5 is less important but relevant.
+### Minimal DAD
 
-Key Management
+A minimal DAD (decentralized autonomic data) item is a data item that contains a DID or DDID that helps uniquely identify that data item or affiliated data stream.  In this paper JSON is used to represent serialized DAD items but other formats could be used instead. An example minimal trivial DAD is provided below. Its trivial because there is no data payload.
+
+```json
+{
+    "id": "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148="
+}
+```
+
+To ensure data integrity, i.e. that the data has not been tampered with. Appended to the DAD item is a signature that is verifiable as being generated by the private key associated with the public key in the *id* field value. This signature verifies that the DAD item was created by the holder of the associated private key  The DAD item is both self-identifing and self-certifying because the identifier value given by the *id* field is included in the signed data and is verifiable against the private key associated with the public key obtained from the associated DID in the *id* field. In the example below is a trivial DAD with an appended signature. The signature is separated from the JSON serialization with characters that may not appear in the JSON.
+
+```json
+{
+    "id": "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148="
+}
+\r\n\r\n
+u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFRzAPnAQ==
+```
+
+An example DAD with a payload follows:
+
+```json
+{
+    "id": "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+    "data":
+    {
+        "name": "John Smith",
+        "nation": "USA"
+    }
+}
+\r\n\r\n
+u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFRzAPnAQ==
+```
+
+While, the simple DADs given in the examples above are minimally self-identifying and self-certifying, they do not provide support for other self-management properties such such as privacy. Moreover because each DID (Decentralized Identifer) or DDID references a public signing key with its associated private key, it needs to be managed as a key not just as an identifier. The following sections will introduce the core key management properties and the associated meta-data that a DAD needs in order to support those properties.
+
+## Key Management
 
 The four main key management operations are:
 
-* Reproduction
+* Reproduction 
 * Rotation 
-* Revocation 
 * Recovery 
 
-We call these the four R's of key management.
+We call these the essential three R's of key management.
 
-What is problematic for DIDs is that the key management must be decentralized. The client or the client's proxy, not the server, is reposible for the the key management operations. Given that for each public key there is an affiliated private key that must be kept save and secure. The generation of large numbers of new DIDs (aka public/private key pairs) imposes a significant burden on the client. Indeed, client side key management may be the primary barrier to widespread adoption of DIDs.
+### Key Reproduction
 
-Hierachical Deterministic Key Generation
+Key reproduction is all about managing the creation of new or derived keys. Each new DID requires a new public/private key pair. The private keys must be kept in a secured location. One reason to create unique public private key pairs for each pair-wise relationship is to minimize the risk of exposure to exploit from the repeated use of a given key-pair. Another reason to create unique public/private keys for each interaction between parties is as a means for maintaining privacy through *pseudonymity*. This is discusses in more detail below. Minimizing the number of private keys that must be securely preserved for a given number of public keys simplifies management and reduces both expense and risk of exposure. To reiterate, there are two key storage issues, one is storing public keys and the other is securing storing private keys. An exploit that captures a store of public keys may mean a loss of privacy because the expoiter can now correlate activity associated with those public keys. An exploit that captures a store of private keys means that the exploiter can sign attestations with those private keys and may take control of any associated resources. Consequently, one wants to avoid storing privates as much as possible.
 
-Reproduction has to do with the generation of new keys. One way to reduce the burden of tracking large numbers of public/private key pairs is to use a hierarchical deterministic key generation algorithm (HD Keys). The algorithm needs a master or root key pair and a chain code for each derived key. Then only the master key pair needs to be kept track of and only the master private key needs to be kept securely secret. The other private keys can be reproduced on the fly given the key generation algorithm and the chain code. An extended public key would include the chain code in its representation so that the associated private key can be derived by the holder of the master private key anytime the extended public key is presented. The DID spec does not have syntax or semantics for representing HD keys.
+#### Privacy and Confidentiality
 
-Unlike the DID Fragment identifier which is referencing a field in the DID Document, and HD Key path (chain code) is an operation on the master key itself. While it would be possible to put the chain code (HD Key path) into the DID Document and then reference it via the DID Fragment this adds complexity and unnecessary indirection. It would be cleaner to just have a way of specifying the chain code as a parameter to an HD path algorithm specification. What comes immediately to mind is to use a Query Parameter. This seems a natural fit. Indeed other key management tasks that involve operations on a key directly could be accomodated in the same way. This seems to be a simplifying design solution. Provides flexibility that is a natural semantic extension of existing URL syntax.
+One desirable feature of a DAD is that it be privacy preserving. A simplified definition of privacy is that if two parties are participating in an exchange of data in a given context that the parties are not linked to other interactions with other parties in other contexts. A simplified definition of confidentiality is that the content of the data exchanged is not disclosed to a third party. Confidentiality is usually obtained by encrypting the data. This paper does not specifically cover encryption but in general the mechanisms for managing signing keys and encryption keys are highly similar.
+
+An exchange can be private but not confidential, confidential but not private, both, or neither. A minimally sufficent means to preserving privacy is to use a DID as a pseudonomous identifier of each party to the exchange. A *pseudonynm* is a made up alias e.g. identifier that is under the control of its creator and is used to identify a given interaction but is not linkable to other interactions by its owner. The ability of a third party to correlate and entity's behavior across contexts is reduced when the entity uses a unique DID for each context.  Although, there are more sophisticated methods for preserving privacy such as zero knowledge proofs, the goal here is to use methods that are compatible with the performance demands of streaming data. 
+
+As mentioned above, the problem with using unique pseudonyms/cryptonyms for each exchange is that a large number of such identifiers may need to be maintained. Fortunately hierachically derived keychains provide a way to manage these cryptonyms with minimal effort. 
+
+#### Hierachical Deterministic Key Generation
+
+As previously mentioned, reproduction has to do with the generation of new keys. One way to accomplish this is with a deterministic proceedure for generating new public/private keys pairs where the private keys may be reproduced securely without having to be stored. A hierarchically deterministic key generation algorithm does this by using a master or root private key and then generating new key pairs using a deterministic key derivation algorithm. A derived key is expressed as a branch in a tree of parent/child keys. Each public key includes the path to its location in the tree. The private key for a given public key in the tree can be securely regenerated using the root private key and the key path. Only one private key, (the root) needs to be stored. 
+
+The [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) specification, for example, uses an indexed path representation for its HD *chain* code, such as, "0/1/2/0".
+The BIP-32 algorithm needs a master or root key pair and a chain code for each derived key. Then only the master key pair needs to be saved and only the master private key needs to be kept securely secret. The other private keys can be reproduced on the fly given the key generation algorithm and the chain code. An extended public key would include the chain code in its representation so that the associated private key can be derived by the holder of the master private key anytime the extended public key is presented. 
+
+The query part of the DID syntax may be used to represent an HD chain code or key path for an HD key that is derived from a root DID. This provides an economoical way to specify derived DIDs (DDIDs) used to identify DADS. An example follows:
+
+```bash
+did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=?chain=0\1\2
+```
+This expression above discloses the root public DID as well as the key derivation path or chain via the query part. For the sake of brevity this will be call an extended DID. The actual derived DDID is create by applying the HD algorithm such as:
+
+```bash
+did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=
+```
+Thus a database of DDIDs could be indexed by DDID expressions with each value being the extended DID. Looking up the extended DID allows the holder to recreate on the fly the associated private key for the DDID without ever having to store the private key. This might look like the following:
+
+```json
+{
+    "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=": "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=?chain=0\1\2",
+   ... 
+}
+```
+
+Some refinements to this approach may be useful. One is the granularity of DDID allocation. A unique DDID could be used for each unique DAD or a unique DID could be used for each unique destination party that is receiving a data stream. In this case each DAD would need an additional identifier to disambiguate on DAD from another that is sent to the same party. This can be provided with an additional field or using the DID path part. The following shows the sequence number provided in the DID path.
+
+```bash
+did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=/10057
+```
+The associated DAD is as follows:
+
+```json
+{
+    "id": "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=/10057",
+    "data":
+    {
+        "temp": 50,
+        "time": "12:15:35"
+    }
+}
+\r\n\r\n
+u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFRzAPnAQ==
+```
+
+#### Change Detection
+
+Using a sequence number or some other identifier could provide change detection. Often stale DAD items must be detectable to prevent replay attacks. A later re-transmission of an old copy of the DAD item not supercede a newer copy. One way to provide change detection is for the DAD item to include a *changed* field whose value is monotonically increasing and changes everytime the data is changed. The souce of the data can enforce that the value is monotonically increasing. Typical  approaches include a monotonically increasing date-time stamp or sequence number. Any older data items will have older date-time stamps or lower sequence numbers and will thus be detectable as stale.
+
+Below is an example of an non-trivial data item that has a *changed* field for change detection.
+
+```json
+{
+    "id": "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=/10057",
+    "changed" : "2000-01-01T00:00:00+00:00",
+    "data":
+    {
+        "temp": 50,
+        "time": "12:15:35"
+    }
+}
+\r\n\r\n
+u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFRzAPnAQ==
+```
+
+Change detection prevents replay attacks in the following manner. A second party receives DAD updates that are each signed by the associated private key. Each update has a monitonically increasing changed field. The source signer controls the contents of the data wrapped by the signature. Therefore the signer controls any changed field. A consistent signer will use a monotonically increasing changed value whenever the data wrapped by the signature is changed. Thus a malicious third party cannot replay earlier instances of the DAD wrapped by a valid signature to the orginal second party because the second party knows to discard any receptions that have older changed fields than the latest one they have already received. 
+
+#### On the Fly DDIDS in DADs
+
+One important use case for DDIDS in DADS is to identify data that is received from a source that is not providing identifying information with the data. The receiver then creates an associated DID and DDIDs to identify the data. At some later point in the point the receiver may be able to link this data with some other identifying information or the source may *claim" this data later by supplying identifying information. In this case the DDIDs are private to the receiver but can later be used to credibly provenance the internal use of the data. This may be extremely beneficial when shared amongst the entities in the processing chain as a way to manage the entailed proliferation of keys that may be all claimed later as a hierarchial group. The DIDs and associated derivation operations for DDIDS may be shared amongst a group of more-or-less trusted entities that are involved in the processing chain.
+
+#### Public Derivation
+
+Another important used case for DDIDS in DADS is to avoid storing even the the DDID with its derivation chain. This may be an issue when a client wishes to communicate with a potenially very large number of public services. Each public service would be a new pairing with a unique DDID. If the derivation algorithm for an HD Key DDID could use the public key or public DID of the public service to generate the DDID then the client need not store the actual DDID but can recover the DDID by using the public DID of the server to re-derive the associated DDID. This can be done by creating a hash of the root DID private key and the remote server public DID to create the seed used to generate the DDID for the DAD.
+
+
+### Key Rotation
+
+The simplest approach to key rotation is to revoke and replace the key in one operation. In some cases revocation without replacement is warranted. But this is the same as revoking and then replacing with a null key. Key rotation without revocation usually poses a security risk so it is not needed. Hence we simplify key management to include revocation as a subset of rotation.
+
+Key rotation is necessary because keys used for signing (and/or encryption) may suffer increased risk of becoming compromized due to continued use over time, may be vulnerable to brute force attack merely due to advances in computing technology over time, or may become compromised due to misuse or a specific exploit. Peridically rotating the key bounds the risk of compromise resulting from exposure over time. The more difficult problem to solve is secure rotation after a specific exploit may have already occurred. In this case the receiving party may recieve a valid signed rotation operation from the exploiter prior to the orignal holding entity sending a valid rotation operation. The receiver may erroneously accept a rotation operation that transfers control of the data to the exploiter. A subsequent rotation operation from the original holder would either create a conflict or a race condition for the receiver.
+
+Although there are several ways to solve the early rotation exploit problem described above, the goal is to find the minimally sufficient means for preventing that exploit that is compatible with the demands of streaming data applications for which DADs are well suited. 
+
+The approach presented here is to pre-rotate the DID key and declare the pre-rotation at the inception of the DID. A complication with DADs is that there are two types of keys being used. The keys for the root DIDs and the keys for the derived DIDS (DDIDS). Generating a derived key pair requires using the private root key. The process for pre-rotating the root DID is described first, followed by the additional measures for DDID pre-rotation.
+
+When rotation occurs the rotation operation atomically indicates that the current key is to be replaced with the pre-declared rotation key and also declares the next rotation key. The rotation operation has two signatures. The first signature is created with the current key. The second signature with the rotated key. In addition, the receiver needs to be able to replay the history of rotation operations to verify the provenance of the rotations.
+
+This approach has some useful. For many exploits the likelihood of exploit is a function of exposure to continued monitoring or probing. Narrowly resticting the opportunity for exploit in terms of time, place, and method, especially if the time and place is a one time event makes exploit extremely difficult. The exploiter has to either predict the event or has to have continuous universal monitoring of all events. By declaring the pre-rotation at the inception event of the associated DAD the window for exploit is as narrow as possible. Pre-rotation does not require any additional keys or special purpose keys for rotation. This makes the approach self-contained. Because the rotation operation event requires two signatures, one using the current key and the other using the pre-rotated key, an exploiter would have to exploit both keys. This is extremely difficult because the only time the private side of the pre-rotated key is used is at its creation to make the public key and then at the later signing of the rotation operation event. This minimizes the time and place to a minimally narrow window. The rotation operation event creates the next pre-rotated key thus propogating a new current key and pre-rotated key pair. 
+
+The complication for DDIDs (Derived DIDs) is that each DAD stream for each pairing of sender and receiver has a unique DDID. Rotation requires rotating the the DDIDs as well. The same pre-rotation approach can be used for the DDIDs as well. At the inception event the root key and pre-rotation root keys are created. These keys are then used to created a set of DDIDS and pre-rotated DDIDS using the root key and pre-rotated root key respectively. This does not significantly change the exploit vulnerability as the inception event is still one event. The pre-rotated key is used to create a set of pre-rotated DDIDS but that is not a signicant increase in exposure. Each rotation event then involves rotating the root key and all the DDIDs.  The more important complication is that the  number of DDIDs in the set must be determined in advance in order to perform all the pre-rotations. This can be managed by created extra DDIDs and pre-rotated DDIDS at the inception event. Only the public half of each the key pairs need to be stored. Creating additional DDIDs with pre-rotated keys at a later time requires using the pre-rotated root private key. This increases the exposure of that private to exploit and makes it less secure for pre-rotation. When the set of pre-rotated DDIDs is consumed, a rotation operation event may be triggered thereby rotating the existing DDIDs and then allowing additional DDIDs to be created. Alternatively if the pre-rotated set of DDIDs is consumed an new DDID tree may be created with a unique new pre-rotated root key. Finally, when the re-establishment and re-initialization of a DAD stream is not a high cost or high risk endeavor then instead of pre-rotating the DDIDs, only pre-rotate the root DID and just close down the current DAD stream and re-establish with new DDID created by the pre-rotated key as part of the rotation event.
+
+The constraint on pre-rotation is that the receiving party be able to replay the rotation events to ensure that it did not miss an event. This replay allows the receiver to verify the provenance chain of rotations. The question then is what are minimally sufficient means for enabling this replay capability?
+
+There are two use cases for providing this replay capability. The first case is for online one-to-one or pairwise interactions and the other case is for offline one-to-one or equivalently one-to-many or public interactions.  
+
+In the one-to-one case, there is the sender of a DAD stream and the reciever of the stream. The initiation of the stream would involve exchanging keys for pairwise communication and would also include the establishment of the DDID used for the DAD items sent. The first DAD sent would include the DDID for the DAD as will as the pre-rotated DDID. This is the inception event.  The receiver then merely needs to maintain a running log of DAD items that contain rotation events. As long as reliable communications are used between the sender and receiver, then the receiver can ensure that it has observed all rotation events by keeping its log and no imposter can later send an undetectable forged inception or rotation event. If the reciever loses its history then it must re-establish its communications channel and re-initialize. Alternatively the sender could maintain a copy of the inception and rotation event history and then provide it to the receiver upon request. The receiver would cache this history for speedier lookup. 
+
+In the one-to-many, public, or offline case, the rotation history is maintained by a service. While a decentralized distributed consensus blockchain ledger could provide this service it is not the minimally sufficient means of providing this capability. The minimally sufficient means is a redundant immutable event log of inception and rotation events indexed by the DDID associated with the DAD for the given DAD stream. The constraint is that a sufficient majority of the log hosts must be non-faulty at any point in time. This includes Byzantine faults. Is is also assumed that the sender communicates with the hosts using a reliable end-to-end signed protocol. The sender broadcasts the inception event to all the redundant hosts that provide copies of the log. These hosts are called Replicants. Then either the Replicants respond to the sender with a confirmation that the event is written to their log or the sender reads the log to verify. The event history is indexed by the DDID. The sender can then verify that a sufficient majority of the Replicants have captured the event. Subsequent rotation events are redundantly appended to the DDID indexed log in the same way. The receiver can then broadcast a query to the Replicants and verify via their responses that a sufficient majority of the Replicants have the same DDID indexed event log. This eanbles both offline and one-to-many event streams.  
+
+This approach is more scalable than using a distributed consensus ledger because the Replicants do not need to communicate with each other. The inter-host agreement of the members of a distributed consensus pool is usually the limited factor in scalablity. Morever a given receiver could be completely responsible for providing the immutable log service for its own data stream with the sender. Each receiver could choose to implement a different level of reliability. Loss of the event log means that the sender and receiver have to re-initialize and re-establish the DAD stream. Alternatively the sender could be responsible for providing a set of Replicants and make the event log available to the receiver upon request.
+
+Although key recovery has not been discussed in detail. If it required or desirable that the DAD stream not be reinitialized due to loss of the rotation event history then a key recovery mechanism would also provide recovery of rotation events. Given that rotations typically happen rarely the rotation event history should be small in size and not pose a problem for recovery. Essentially recovery of the root DID or DDID for a stream would recover the original key and any rotations.
+Example of key rotatable self-signed data item.
+
+```json
+{
+   "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=#keys/0",
+   "changed": "2000-01-01T00:00:00+00:00",
+   "keys": 
+   [
+    {
+      "key": "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+    }
+   ],
+   "name": "Jim",
+   "age": 30
+}
+/r/n/r/n
+B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
+
+```
+
+
+
+Example of key rotatable self-signed data item.
+
+```json
+{
+   "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=#keys/0",
+   "changed": "2000-01-01T00:00:00+00:00",
+   "keys": 
+   [
+    {
+      "key": "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+    }
+   ],
+   "name": "Jim",
+   "age": 30
+}
+/r/n/r/n
+B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
+
+```
+
+
+
+ +In circumstances like termination or completeion of interaction the key may just be revoked and not rotated.
+ +
+ +Rovocation may involve informing the counterperties and further in case of highly senetive environments maintaining a time stamped list of revoked keys for reference. 
+ +
+ +The DDIDs usually would just rotate to the next set of keys and have no overhead of a revocation process. However a Master key should never be revoked or rotated.
+ +
+
+
+
+--------------------------------
+
+When the cryptographic suite is not the intelligent default then an optional *kind* field can be included in a given keys list item that provides the cryptographic suite and version.
+
+
+A modified version would allow each key value to be a DID.
+
+```json
+{
+   "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=#keys/0",
+   "changed": "2000-01-01T00:00:00+00:00",
+   "keys": 
+   [
+    {
+      "key": "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+    },
+    {
+      "key": "did:rep:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
+      "kind": "ecdsa:1.0",
+    },
+   ],
+   "name": "Jim",
+   "age": 30
+}
+/r/n/r/n
+B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
+
+```
+
+A pair-wise interaction is reasonably private if a unique key pair is generated for the interaction and not reused else where.  The idea I presented which he helped refine is that for public services, the hd key could be generated from the public service identifier so the
+client would not have to remember anything to recreate the key pair.  For non-public services this would not be true but would require the client remember some information about the interaction. 
+
+
+
+
+### Key Recovery
+
+
+
+
+Adding support for key management to a self-identifying data item is a good example where design choice trade-offs relative to expressive power can be made in the data item representation. 
+
+
+
+
+
 
 ### Example
 If the signer field value is the same as the did field value then the data item is trivially self-signed. 
@@ -88,6 +348,9 @@ B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pj
 ```
 
 The data item is tamper-proof in the sense that any change to any of the fields will invalidate the signature. 
+
+
+
 
 ### HTTP example
 
@@ -133,17 +396,26 @@ Signature: signer="B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2P
 
 ```
 
-### Change Detection
 
-In some cases data items values will change and new versions of the data item will be created. One important consideration is that stale data items be detectable, that is, a later re-transmission of an old copy of the data item not supercede a newer copy. This is an example of a replay attack. One way to provide change detection is for the data item to include a *changed* field whose value is monotonically increasing and changes everytime the data item is changed. . The signer of the data item can enforce that the value is monotonically increasing. Typical  approaches include a monotonically increasing date-time stamp or sequence number. Any older data items will have older date-time stamps or lower sequence numbers and will thus be detectable as stale.
 
-Below is an example of an non-trivial data item that is still trivally self-signed with *changed* field for change detection.
+
+
+where ";" semi-colon indicates that what follows is key path and the number represent which
+child at each level.
+
+The following is a data item using a signing key that is a hierachically determined DID.
 
 ```json
 {
    "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-   "changed" : "2000-01-01T00:00:00+00:00",
+   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=#keys/0",
+   "changed": "2000-01-01T00:00:00+00:00",
+   "keys": 
+   [
+    {
+      "key": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=;0\1\2",
+    }
+   ],
    "name": "Jim",
    "age": 30
 }
@@ -151,8 +423,6 @@ Below is an example of an non-trivial data item that is still trivally self-sign
 B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
 
 ```
-
-I think that there is an underlying purpose for having a timestamp that is not explicitly mentioned here, that is, so that a second party who is receiving information that is signed by a DID private key is not susceptible to a replay attack. The signer controls the contents of the data wrapped by the signature. Therefore the signer controls any timestamps. A consistent signer will use a monotonically increasing timestamp whenever the data wrapped by the signature is changed (I use a field named "changed" for this. Thus a malicious third party cannot replay earlier instances of the data wrapped by a valid signature to the orginal second party because the second party knows to discard any receptions that have older timestamps than what they received. The "updated" field can provide the same purpose but the additional requirement is that it be monotonically increasing. (I like changed because we are doing change detection the first time the document is created it is changed. Created requires a third party as the signer of the document can always created an earlier document and can change the created date and sign it with validity. without the third party the second party has to keep track of the earliest "created" date it has ever seen which is no different than keeping track of the earliest "changed" date it has ever seen. So we only need the one field. We don't need both.
 
 ## Relative Expressive Power
 
@@ -212,87 +482,6 @@ Any key value based schema standard specification may benefit from an intelligen
 
 Another related technique for increasing expressive power is to distinguish between essential and optional elements in a given representation. Any essential elements should be expressed as explicitly as possible (when not defaulted), that is, should not be looked up and should either not be indirected or have minimal indirecton. External lookups are expensive. Moreover, hiding essential elements behind multiple levels of indirection may make it harder to understand the conveyed meaning (adding dependencies and hence complexity). An important meaningful difference has occurred whenever an essential element is not set to a default value. This difference should not be hidden behind indirection.
 
-## Identifier Key Management
-
-Because each DID (Decentralized Identifer) references a public signing key with its associated private key, it needs to be managed as a key not just an identifier.
-
-The four R's of key managment are:
-
-* Rotation
-* Reproduction
-* Recovery
-* Revocation
-
-Adding support for key management to a self-identifying data item is a good example where design choice trade-offs relative to expressive power can be made in the data item representation. 
-
-### Key Rotation
-
-Key rotation is necessary because keys used for signing (and/or encryption) may become compromised as some point or risk becoming compromized if overused. Changing the key that is used to sign a data item to a new key manages the risk of compromise. 
-
-One way to reduce lookups is to include key-rotation support directly in the data item. Key rotation can be expressed directly as part of a data item by adding a keys field. The value of the  keys field is a list of Public keys or DIDs. Rotating a key is accomplished by adding a key to the key list and then changing the signer field value to reference the new key.
-
-If the data is used in an immutable data system the original data item is not changed but a new one created with changed keys. If the data item is used in a mutable data system then the original data item may be replaced with a new one.  
-
-
-When the the signer field DID prefix is the same as the item DID but has a fragment that references one of the keys in the keys field list, then the data item is self-signed in that the signer field key reference is contained in the data item itself. To establish that the signer private key and did private key are held by the same entity, either attach two signatures one by each private key or issue a  challenge to the public key of the data item DID.
-
-If the signer field value of a given data item (DID prefix with fragment) references the keys field of a different data item, the the given data item is not self-signed. 
-
-Example of key rotatable self-signed data item.
-
-```json
-{
-   "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=#keys/0",
-   "changed": "2000-01-01T00:00:00+00:00",
-   "keys": 
-   [
-    {
-      "key": "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-    }
-   ],
-   "name": "Jim",
-   "age": 30
-}
-/r/n/r/n
-B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
-
-```
-
-When the cryptographic suite is not the intelligent default then an optional *kind* field can be included in a given keys list item that provides the cryptographic suite and version.
-
-
-A modified version would allow each key value to be a DID.
-
-```json
-{
-   "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=#keys/0",
-   "changed": "2000-01-01T00:00:00+00:00",
-   "keys": 
-   [
-    {
-      "key": "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-    },
-    {
-      "key": "did:rep:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
-      "kind": "ecdsa:1.0",
-    },
-   ],
-   "name": "Jim",
-   "age": 30
-}
-/r/n/r/n
-B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
-
-```
-
-A pair-wise interaction is reasonably private if a unique key pair is generated for the interaction and not reused else where.  The idea I presented which he helped refine is that for public services, the hd key could be generated from the public service identifier so the
-client would not have to remember anything to recreate the key pair.  For non-public services this would not be true but would require the client remember some information about the interaction. 
-
-The other idea is to pre-rotate each key pair by publishing in the DID document associated with the DID key pair the next key to rotate too. This eliminates an exploit where a key gets compromised and then is used to rotate to a key not in control of the orginal owner. By pre-rotating a comprimized key can at best trigger a rotation to a key that is not compromised at which point the orignal owner uses the rotated key to generate a new pre-rotated key.  The pre-rotated key  is not vulnerable to exploit since it is not used to sign anything.
-
-The client then needs to keep a list of all the rotated keys so that if the client needs to regenerate an hd-key and doesnt remember which master key was used it can try the list of pre-rotated keys. Key recovery would also keep this list. This a couple of orders of magnitude less effort than having to keep all the keys pairs. Only the master keys in sequence.
 
 #### Cryptographic Suite Representation
 
@@ -309,47 +498,6 @@ v1: Ed25519, X25519, XSalsa20poly1305, HMAC-SHA-512-256
 v2: Ed448, X448, XChaCha20Poly1305, keyed BLAKE2b
 v3: SPHINCS-256, SIDH, NORX64-4-1, keyed BLAKE2x
 ```
-
-### Key Reproduction
-
-Each new DID requires a new public/private key pair. The private keys must be kept in a secured location. Minimizing the number of private keys that must be kept track off for a given number of public keys simplifies management and reduces expense and risk. One way to accomplish this is with a deterministic proceedure for generating new public/private keys pairs where the private keys may be reproduced securely without having to be stored. A hierarchically deterministic key generation algorithm does this by using a master or root private key and then generating new key pairs using a deterministic key derivation that can be expressed as a path of parent and child key/pairs. Thus a tree of key pairs can be created. Each public key includes the path to its location in the tree. The private key for a given public key in the tree can be securely regenerated using the root private key and the key path. Only one private key, (the root) needs to be stored. Reproduceable DIDs are DIDs that explicitly include the key path in their expression. Much like the fragment appendix for key rotation, a key path appendix would extend DIDs to conveniently support hierarchically deterministic key generation and reproduction.
-
-An example might be
-
-```bash
-did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=;0\1\2
-```
-
-where ";" semi-colon indicates that what follows is key path and the number represent which
-child at each level.
-
-The following is a data item using a signing key that is a hierachically determined DID.
-
-```json
-{
-   "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=#keys/0",
-   "changed": "2000-01-01T00:00:00+00:00",
-   "keys": 
-   [
-    {
-      "key": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=;0\1\2",
-    }
-   ],
-   "name": "Jim",
-   "age": 30
-}
-/r/n/r/n
-B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
-
-```
-
-### Key Recovery
-
-
-### Key Revocation
-
-
 
 ## Nested Signatures
 
