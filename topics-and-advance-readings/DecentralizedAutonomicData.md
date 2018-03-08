@@ -1,4 +1,4 @@
-# Decentralized Autonomic Data (DAD)
+# Decentralized Autonomic Data (DAD) and the three R's of Key Management
 
 Samuel M. Smith Ph.D. (sam@samuelsmith.org)  and Vishal Gupta (vishal@diro.io)
 
@@ -6,7 +6,7 @@ Samuel M. Smith Ph.D. (sam@samuelsmith.org)  and Vishal Gupta (vishal@diro.io)
 
 ## Abstract
 
-This paper proposes a new class of data called *decentralized autonomic data* (DAD). The term *decentralized* means that the governance of the data may not reside with a single party. A related concept is that the trust in the data provenance is diffuse in nature. Central to the approach is leveraging the emerging [*DID*](https://w3c-ccg.github.io/did-spec/) (decentralized identifier) standard. The term *autonomic* means self-managing or self-regulating. In the context of data we crystalize the meaning of self-managing to include cryptographic techniques for maintaining data provenance that make the data self-identifying, self-certifying, and self-securing. Implied thereby is the use of cryptographic keys and signatures to provide a root of trust for data integrity and maintain that trust over transformation of that data, e.g. provenance. Thus key management must be a first order property of DADs. This includes key reproduction, rotation, revocation, and recovery.
+This paper proposes a new class of data called *decentralized autonomic data* (DAD). The term *decentralized* means that the governance of the data may not reside with a single party. A related concept is that the trust in the data provenance is diffuse in nature. Central to the approach is leveraging the emerging [*DID*](https://w3c-ccg.github.io/did-spec/) (decentralized identifier) standard. The term *autonomic* means self-managing or self-regulating. In the context of data we crystalize the meaning of self-managing to include cryptographic techniques for maintaining data provenance that make the data self-identifying, self-certifying, and self-securing. Implied thereby is the use of cryptographic keys and signatures to provide a root of trust for data integrity and maintain that trust over transformation of that data, e.g. provenance. Thus key management must be a first order property of DADs. This includes key reproduction, rotation, and recovery.
 
 The motivating use of DAD is to provide provenance for streaming data that is generated and processed in a distributed 
 manner with decentralized governance. Streaming data are typically measurements that are collected and aggregated to form higher level constructs. Applications include analytics and instrumentation of distributed web or internet of things (IoT) applications. Of particular interest is the use of DADs in self-sovereign reputation systems. A DAD seeks to maintain a provenance chain for data undergoing various processing stages that follows diffuse trust security principles including signed at rest and in motion. 
@@ -14,7 +14,6 @@ manner with decentralized governance. Streaming data are typically measurements 
 Streaming data applications may impose significant performance demands on the processing of the associated data. Consequently one major goal is to use efficient mechanisms for providing the autonomic properties. This means finding minimally sufficient means for managing keys and cryptographic integrity.
 
 Importantly this paper provides detailed descriptions of the minimally sufficient means for key reproduction, rotation, revocation, and recovery for DID leveraged DADS. 
-
 
 
 ## Overview
@@ -94,12 +93,11 @@ While, the simple DADs given in the examples above are minimally self-identifyin
 
 The four main key management operations are:
 
-* Reproduction
+* Reproduction 
 * Rotation 
-* Revocation 
 * Recovery 
 
-We call these the four R's of key management.
+We call these the essential three R's of key management.
 
 ### Key Reproduction
 
@@ -130,7 +128,14 @@ This expression above discloses the root public DID as well as the key derivatio
 ```bash
 did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=
 ```
-Thus a database of DDIDs could be indexed by DDID expressions with each value being the extended DID. Looking up the extended DID allows the holder to recreate on the fly the associated private key for the DDID without ever having to store the private key. 
+Thus a database of DDIDs could be indexed by DDID expressions with each value being the extended DID. Looking up the extended DID allows the holder to recreate on the fly the associated private key for the DDID without ever having to store the private key. This might look like the following:
+
+```json
+{
+    "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=": "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=?chain=0\1\2",
+   ... 
+}
+```
 
 Some refinements to this approach may be useful. One is the granularity of DDID allocation. A unique DDID could be used for each unique DAD or a unique DID could be used for each unique destination party that is receiving a data stream. In this case each DAD would need an additional identifier to disambiguate on DAD from another that is sent to the same party. This can be provided with an additional field or using the DID path part. The following shows the sequence number provided in the DID path.
 
@@ -172,7 +177,7 @@ Below is an example of an non-trivial data item that has a *changed* field for c
 u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFRzAPnAQ==
 ```
 
-Change detection prevents replay attacks in the following manner. A second party receives DAD updates that are each signed by the associated private key. Each update has a monitonically increasing changed field. The source signer controls the contents of the data wrapped by the signature. Therefore the signer controls any the changed field. A consistent signer will use a monotonically increasing changed value whenever the data wrapped by the signature is changed. Thus a malicious third party cannot replay earlier instances of the DAD wrapped by a valid signature to the orginal second party because the second party knows to discard any receptions that have older changed fields than the latest one they have already received. 
+Change detection prevents replay attacks in the following manner. A second party receives DAD updates that are each signed by the associated private key. Each update has a monitonically increasing changed field. The source signer controls the contents of the data wrapped by the signature. Therefore the signer controls any changed field. A consistent signer will use a monotonically increasing changed value whenever the data wrapped by the signature is changed. Thus a malicious third party cannot replay earlier instances of the DAD wrapped by a valid signature to the orginal second party because the second party knows to discard any receptions that have older changed fields than the latest one they have already received. 
 
 #### On the Fly DDIDS in DADs
 
@@ -180,22 +185,58 @@ One important use case for DDIDS in DADS is to identify data that is received fr
 
 #### Public Derivation
 
-Another important used case for DDIDS in DADS is to avoid storing even the the DDID with its derivation chain. This may be an issue when a client wishes to communicate with a potenially very large number of public services. Each public service would be a new pairing with a unique DDID. If the derivation algorithm for an HD Key DDID could use the public key or public DID of the public service to generate the DDID then the client need not store the actual DDID but can recover the DDID by using the public DID of the server to re-derive the associated DDID.
-
+Another important used case for DDIDS in DADS is to avoid storing even the the DDID with its derivation chain. This may be an issue when a client wishes to communicate with a potenially very large number of public services. Each public service would be a new pairing with a unique DDID. If the derivation algorithm for an HD Key DDID could use the public key or public DID of the public service to generate the DDID then the client need not store the actual DDID but can recover the DDID by using the public DID of the server to re-derive the associated DDID. This can be done by creating a hash of the root DID private key and the remote server public DID to create the seed used to generate the DDID for the DAD.
 
 
 ### Key Rotation
 
-Key rotation is necessary because keys used for signing (and/or encryption) may become compromised as some point or risk becoming compromized if overused. Changing the key that is used to sign a data item to a new key manages the risk of compromise. 
+The simplest approach to key rotation is to revoke and replace the key in one operation. In some cases revocation without replacement is warranted. But this is the same as revoking and then replacing with a null key. Key rotation without revocation usually poses a security risk so it is not needed. Hence we simplify key management to include revocation as a subset of rotation.
 
-One way to reduce lookups is to include key-rotation support directly in the data item. Key rotation can be expressed directly as part of a data item by adding a keys field. The value of the  keys field is a list of Public keys or DIDs. Rotating a key is accomplished by adding a key to the key list and then changing the signer field value to reference the new key.
+Key rotation is necessary because keys used for signing (and/or encryption) may suffer increased risk of becoming compromized due to continued use over time, may be vulnerable to brute force attack merely due to advances in computing technology over time, or may become compromised due to misuse or a specific exploit. Peridically rotating the key bounds the risk of compromise resulting from exposure over time. The more difficult problem to solve is secure rotation after a specific exploit may have already occurred. In this case the receiving party may recieve a valid signed rotation operation from the exploiter prior to the orignal holding entity sending a valid rotation operation. The receiver may erroneously accept a rotation operation that transfers control of the data to the exploiter. A subsequent rotation operation from the original holder would either create a conflict or a race condition for the receiver.
 
-If the data is used in an immutable data system the original data item is not changed but a new one created with changed keys. If the data item is used in a mutable data system then the original data item may be replaced with a new one.  
+Although there are several ways to solve the early rotation exploit problem described above, the goal is to find the minimally sufficient means for preventing that exploit that is compatible with the demands of streaming data applications for which DADs are well suited. 
+
+The approach presented here is to pre-rotate the DID key and declare the pre-rotation at the inception of the DID. A complication with DADs is that there are two types of keys being used. The keys for the root DIDs and the keys for the derived DIDS (DDIDS). Generating a derived key pair requires using the private root key. The process for pre-rotating the root DID is described first, followed by the additional measures for DDID pre-rotation.
+
+When rotation occurs the rotation operation atomically indicates that the current key is to be replaced with the pre-declared rotation key and also declares the next rotation key. The rotation operation has two signatures. The first signature is created with the current key. The second signature with the rotated key. In addition, the receiver needs to be able to replay the history of rotation operations to verify the provenance of the rotations.
+
+This approach has some useful. For many exploits the likelihood of exploit is a function of exposure to continued monitoring or probing. Narrowly resticting the opportunity for exploit in terms of time, place, and method, especially if the time and place is a one time event makes exploit extremely difficult. The exploiter has to either predict the event or has to have continuous universal monitoring of all events. By declaring the pre-rotation at the inception event of the associated DAD the window for exploit is as narrow as possible. Pre-rotation does not require any additional keys or special purpose keys for rotation. This makes the approach self-contained. Because the rotation operation event requires two signatures, one using the current key and the other using the pre-rotated key, an exploiter would have to exploit both keys. This is extremely difficult because the only time the private side of the pre-rotated key is used is at its creation to make the public key and then at the later signing of the rotation operation event. This minimizes the time and place to a minimally narrow window. The rotation operation event creates the next pre-rotated key thus propogating a new current key and pre-rotated key pair. 
+
+The complication for DDIDs (Derived DIDs) is that each DAD stream for each pairing of sender and receiver has a unique DDID. Rotation requires rotating the the DDIDs as well. The same pre-rotation approach can be used for the DDIDs as well. At the inception event the root key and pre-rotation root keys are created. These keys are then used to created a set of DDIDS and pre-rotated DDIDS using the root key and pre-rotated root key respectively. This does not significantly change the exploit vulnerability as the inception event is still one event. The pre-rotated key is used to create a set of pre-rotated DDIDS but that is not a signicant increase in exposure. Each rotation event then involves rotating the root key and all the DDIDs.  The more important complication is that the  number of DDIDs in the set must be determined in advance in order to perform all the pre-rotations. This can be managed by created extra DDIDs and pre-rotated DDIDS at the inception event. Only the public half of each the key pairs need to be stored. Creating additional DDIDs with pre-rotated keys at a later time requires using the pre-rotated root private key. This increases the exposure of that private to exploit and makes it less secure for pre-rotation. When the set of pre-rotated DDIDs is consumed, a rotation operation event may be triggered thereby rotating the existing DDIDs and then allowing additional DDIDs to be created. Alternatively if the pre-rotated set of DDIDs is consumed an new DDID tree may be created with a unique new pre-rotated root key. Finally, when the re-establishment and re-initialization of a DAD stream is not a high cost or high risk endeavor then instead of pre-rotating the DDIDs, only pre-rotate the root DID and just close down the current DAD stream and re-establish with new DDID created by the pre-rotated key as part of the rotation event.
+
+The constraint on pre-rotation is that the receiving party be able to replay the rotation events to ensure that it did not miss an event. This replay allows the receiver to verify the provenance chain of rotations. The question then is what are minimally sufficient means for enabling this replay capability?
+
+There are two use cases for providing this replay capability. The first case is for online one-to-one or pairwise interactions and the other case is for offline one-to-one or equivalently one-to-many or public interactions.  
+
+In the one-to-one case, there is the sender of a DAD stream and the reciever of the stream. The initiation of the stream would involve exchanging keys for pairwise communication and would also include the establishment of the DDID used for the DAD items sent. The first DAD sent would include the DDID for the DAD as will as the pre-rotated DDID. This is the inception event.  The receiver then merely needs to maintain a running log of DAD items that contain rotation events. As long as reliable communications are used between the sender and receiver, then the receiver can ensure that it has observed all rotation events by keeping its log and no imposter can later send an undetectable forged inception or rotation event. If the reciever loses its history then it must re-establish its communications channel and re-initialize. Alternatively the sender could maintain a copy of the inception and rotation event history and then provide it to the receiver upon request. The receiver would cache this history for speedier lookup. 
+
+In the one-to-many, public, or offline case, the rotation history is maintained by a service. While a decentralized distributed consensus blockchain ledger could provide this service it is not the minimally sufficient means of providing this capability. The minimally sufficient means is a redundant immutable event log of inception and rotation events indexed by the DDID associated with the DAD for the given DAD stream. The constraint is that a sufficient majority of the log hosts must be non-faulty at any point in time. This includes Byzantine faults. Is is also assumed that the sender communicates with the hosts using a reliable end-to-end signed protocol. The sender broadcasts the inception event to all the redundant hosts that provide copies of the log. These hosts are called Replicants. Then either the Replicants respond to the sender with a confirmation that the event is written to their log or the sender reads the log to verify. The event history is indexed by the DDID. The sender can then verify that a sufficient majority of the Replicants have captured the event. Subsequent rotation events are redundantly appended to the DDID indexed log in the same way. The receiver can then broadcast a query to the Replicants and verify via their responses that a sufficient majority of the Replicants have the same DDID indexed event log. This eanbles both offline and one-to-many event streams.  
+
+This approach is more scalable than using a distributed consensus ledger because the Replicants do not need to communicate with each other. The inter-host agreement of the members of a distributed consensus pool is usually the limited factor in scalablity. Morever a given receiver could be completely responsible for providing the immutable log service for its own data stream with the sender. Each receiver could choose to implement a different level of reliability. Loss of the event log means that the sender and receiver have to re-initialize and re-establish the DAD stream. Alternatively the sender could be responsible for providing a set of Replicants and make the event log available to the receiver upon request.
+
+Although key recovery has not been discussed in detail. If it required or desirable that the DAD stream not be reinitialized due to loss of the rotation event history then a key recovery mechanism would also provide recovery of rotation events. Given that rotations typically happen rarely the rotation event history should be small in size and not pose a problem for recovery. Essentially recovery of the root DID or DDID for a stream would recover the original key and any rotations.
+Example of key rotatable self-signed data item.
+
+```json
+{
+   "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=#keys/0",
+   "changed": "2000-01-01T00:00:00+00:00",
+   "keys": 
+   [
+    {
+      "key": "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+    }
+   ],
+   "name": "Jim",
+   "age": 30
+}
+/r/n/r/n
+B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
+
+```
 
 
-When the the signer field DID prefix is the same as the item DID but has a fragment that references one of the keys in the keys field list, then the data item is self-signed in that the signer field key reference is contained in the data item itself. To establish that the signer private key and did private key are held by the same entity, either attach two signatures one by each private key or issue a  challenge to the public key of the data item DID.
-
-If the signer field value of a given data item (DID prefix with fragment) references the keys field of a different data item, the the given data item is not self-signed. 
 
 Example of key rotatable self-signed data item.
 
@@ -217,6 +258,19 @@ Example of key rotatable self-signed data item.
 B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
 
 ```
+
+
+
+ +In circumstances like termination or completeion of interaction the key may just be revoked and not rotated.
+ +
+ +Rovocation may involve informing the counterperties and further in case of highly senetive environments maintaining a time stamped list of revoked keys for reference. 
+ +
+ +The DDIDs usually would just rotate to the next set of keys and have no overhead of a revocation process. However a Master key should never be revoked or rotated.
+ +
+
+
+
+--------------------------------
 
 When the cryptographic suite is not the intelligent default then an optional *kind* field can be included in a given keys list item that provides the cryptographic suite and version.
 
@@ -249,20 +303,10 @@ B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pj
 A pair-wise interaction is reasonably private if a unique key pair is generated for the interaction and not reused else where.  The idea I presented which he helped refine is that for public services, the hd key could be generated from the public service identifier so the
 client would not have to remember anything to recreate the key pair.  For non-public services this would not be true but would require the client remember some information about the interaction. 
 
-The other idea is to pre-rotate each key pair by publishing in the DID document associated with the DID key pair the next key to rotate too. This eliminates an exploit where a key gets compromised and then is used to rotate to a key not in control of the orginal owner. By pre-rotating a comprimized key can at best trigger a rotation to a key that is not compromised at which point the orignal owner uses the rotated key to generate a new pre-rotated key.  The pre-rotated key  is not vulnerable to exploit since it is not used to sign anything.
-
-The client then needs to keep a list of all the rotated keys so that if the client needs to regenerate an hd-key and doesnt remember which master key was used it can try the list of pre-rotated keys. Key recovery would also keep this list. This a couple of orders of magnitude less effort than having to keep all the keys pairs. Only the master keys in sequence.
-
-
 
 
 
 ### Key Recovery
-
-
-### Key Revocation
-
-
 
 
 
