@@ -50,12 +50,22 @@ We're beginning with our secondary focus.
 We have five topics, but you don't have to take on one if you prefer
 what you're working on already:
 
-   * Key Recovery Mechanisms (Christian)
-   * Formal Language to Model and Express Intent & Consent (Zachary)
-   * Minimal Web of Trust Schema (Christopher)
-   * Passive Storage Network (Kulpreet)
-   * Adhaar vs Self-Sovereign ID (Joe)
+   * #1. Adhaar vs Self-Sovereign ID (Joe)
+   * #2. Passive Storage Network (Kulpreet)
+   * #3. Key Recovery Mechanisms (Christian)
+   * #4. Minimal Web of Trust Schema (Christopher)
 
+Cut due to absence:
+
+   * Formal Language to Model and Express Intent & Consent (Zachary)
+
+Possible additional topics:
+
+   * #5. Layer 2 to Support Volumes of DID (Daniel)
+   * #6. Extensible APIs with Agents (Sam C.)
+   * #7, DID Glossary (Moses)
+   * #8. PATA Quadrilateral (Vishal)
+   
 ## Other Logistics
 
 We'll have surveys, which we'd like to get back before lunch.
