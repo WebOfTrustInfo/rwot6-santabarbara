@@ -23,7 +23,7 @@ This directory continues the drafts of the white papers and specs that are comin
    <tr>
      <td><b><i>Introducing the BTCR DID Method Spec</i></b></td>
     <td>Kim</td>
-    <td><a href="introducing_btcr.md">Draft</a></td>
+    <td><a href="introducing_btcr.md">Outline</a></td>
   </tr>
   <tr>
     <td colspan=3>
