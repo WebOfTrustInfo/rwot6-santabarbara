@@ -84,6 +84,7 @@ The term DID Auth has been used in different ways and is currently not well-defi
 
 # Introduction
 
+![DID Auth scope](./media/DID_Auth.jpg)
 
 ## Scope
 
