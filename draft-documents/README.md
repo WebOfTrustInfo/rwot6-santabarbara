@@ -4,6 +4,7 @@ This directory continues the drafts of the white papers and specs that are comin
 
 ## Primary Papers 
 
+|--|--|--|--|
 | 2 | DID-Auth | Markus | [Draft](did_auth_draft.md) |
 | | <colspan=3>__Abstract:__ The term DID Auth has been used in different ways and is currently not well-defined. We define DID Auth as a ceremony where an identity owner, with the help of various components such as web browsers, mobile devices, and other agents, cryptographically proves to a relying party that they are in control of a DID. This means demonstrating control over the DID using the mechanism specified in the DID Document Authentication object. This could take place using a number of different data formats, protocols, and flows. DID Auth includes the ability to establish mutually authenticated communication channels, and to authenticate to web sites and applications. Authorization, verifiable credentials, and capabilities are built on top of DID Auth and out of scope for this document. This specification defines the scope of DID Auth, supported protocols and flows, the use of components of the DID documents which are relevant to authentication, as well as formats for challenges and responses. |
 | 1 | Petnames & Secure User Interfaces | Chris W. | [Outline](making-dids-invisible-with-petnames.md) |
