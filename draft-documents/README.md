@@ -31,7 +31,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
   <tr>
-    <td>DAD: Decentralized Autonomic Data</td>
+    <td><b><i>DAD: Decentralized Autonomic Data</i></b></td>
     <td>Sam S.</td>
     <td></td>
   </tr>
@@ -41,7 +41,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
   <tr>
-    <td>DID v1.0</td>
+    <td><b><i>DID v1.0</i></b></td>
     <td>Manu</td>
     <td></td>
   </tr>
@@ -51,7 +51,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
   <tr>
-    <td>DID-Auth</td>
+    <td><b><i>DID-Auth</i></b></td>
     <td>Markus</td>
     <td><a href="did_auth_draft.md">Draft</a></td>
   </tr>
@@ -61,7 +61,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
    <tr>
-    <td>Identity Hubs</td>
+     <td><b><i>Identity Hubs</i></b></td>
     <td>Daniel</td>
     <td><a href="Identity%20Hub%20Attestation%20Handling.md">Draft</a></td>
   </tr>
@@ -71,7 +71,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
   <tr>
-    <td>Making DIDs Invisible: Petnames & Their Secure User Interfaces</td>
+    <td><b><i>Making DIDs Invisible: Petnames & Their Secure User Interfaces</i></b></td>
     <td>Chris W.</td>
      <td><a href="making-dids-invisible-with-petnames.md">Outline</a></td>
   </tr>
@@ -81,7 +81,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
    <tr>
-    <td>Open Badge Are Verifiable Credentials</td>
+     <td><b><i>Open Badge Are Verifiable Credentials</i></b></td>
     <td>Nate</td>
     <td><a href="open-badges-are-verifiable-credentials.md">Draft</a></td>
   </tr>
@@ -91,7 +91,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
    <tr>
-    <td>Roadmap: Let's Go Exponential</td>
+     <td><b><i>Roadmap: Let's Go Exponential</i></b></td>
     <td>Moses</td>
     <td><a href="a-roadmap-for-ssi.md">Draft</a></td>
   </tr>
@@ -101,7 +101,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
      <tr>
-    <td>Six Truths About Biometrics</td>
+       <td><b><i>Six Truths About Biometrics</i></b></td>
     <td>John C.</td>
     <td><a href="Biometrics.md">Draft</a></td>
   </tr>
@@ -111,7 +111,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
   <tr>
-    <td>TLS-Flex</td>
+    <td><b><i>TLS-Flex</i></b></td>
     <td>Sam C.</td>
     <td><a href="TLS-Flex.md">Draft</a></td>
   </tr>
@@ -121,7 +121,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
   <tr>
-    <td>Towards a Sustainable Technology Commons</td>
+    <td><b><i>Towards a Sustainable Technology Commons</i></b></td>
     <td>Heather</td>
     <td><a href="Towards a Sustainable Technology Commons.md">Draft</a></td>
   </tr>
@@ -131,7 +131,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
   <tr>
-    <td>Web of Trust: End to End</td>
+    <td><b><i>Web of Trust: End to End</i></b></td>
     <td>Kim</td>
     <td></td>
   </tr>
