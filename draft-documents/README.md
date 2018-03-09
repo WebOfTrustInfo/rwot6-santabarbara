@@ -11,7 +11,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b>Link</b></td>
   </tr>
   <tr>
-    <td>Attribute-Based Credentials</td>
+    <td><b><i>Attribute-Based Credentials</i></b></td>
     <td>Nathan G.</td>
     <td></td>
   </tr>
@@ -21,7 +21,7 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
    <tr>
-    <td>Introducing the BTCR DID Method Spec</td>
+     <td><b><i>Introducing the BTCR DID Method Spec</i></b></td>
     <td>Kim</td>
     <td><a href="introducing_btcr.md">Draft</a></td>
   </tr>
