@@ -1,4 +1,6 @@
-# BTCR DID Method Spec
+# Introducing the BTCR DID Method Spec
+
+Authors: Kim Hamilton Duffy, Ryan Grant, Christopher Allen, Dan Pape
 
 ## Abstract
 This paper describes the BTCR DID Method Specification. BTCR is a simple DID method spec using the Bitcoin blockchain. Because of its simplicity, it's a useful introduction to DIDs, and anyone can start using them right away.
