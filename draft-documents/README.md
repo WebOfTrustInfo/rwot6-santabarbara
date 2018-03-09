@@ -11,7 +11,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b>Link</b></td>
   </tr>
   <tr>
-    <td>Attribute-Bsed Credentials</td>
+    <td>Attribute-Bqsed Credentials</td>
     <td>Nathan G.</td>
     <td><a href="">Draft</a></td>
   </tr>
@@ -21,13 +21,13 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
    <tr>
-    <td>BTCR Method</td>
+    <td>Introducing the BTCR DID Method Spec</td>
     <td>Kim</td>
-    <td><a href="">Draft</a></td>
+    <td><a href="introducing_btcr.md">Draft</a></td>
   </tr>
   <tr>
     <td colspan=3>
-      <b>Abstract:</b> 
+      <b>Abstract:</b> This paper describes the BTCR DID Method Specification. BTCR is a simple DID method spec using the Bitcoin blockchain. Because of its simplicity, it's a useful introduction to DIDs, and anyone can start using them right away. This paper describes how the BTCR DID Operations work, including creation, resolving, updating, and deleting. We weave in examples using our BTCR Playground to demonstrate how to get started immediately.
     </td>
   </tr>
   <tr>
@@ -63,25 +63,15 @@ This directory continues the drafts of the white papers and specs that are comin
    <tr>
     <td>Identity Hubs</td>
     <td>Daniel</td>
-    <td><a href="">Draft</a></td>
+    <td><a href="Identity%20Hub%20Attestation%20Handling.md">Draft</a></td>
   </tr>
   <tr>
     <td colspan=3>
-      <b>Abstract:</b> 
+      <b>Abstract:</b> Define all technical components and user flows required to facilitate request, issuance, presentation, verification, and revocation of interoperable attestations. This is used as an update to the identity hub specification to reflect these flows and components.
     </td>
-  </tr>
-   <tr>
-    <td>Open Badge / Verifiable Credentials Alignment</td>
-    <td>Nate</td>
-    <td><a href="">Draft</a></td>
   </tr>
   <tr>
-    <td colspan=3>
-      <b>Abstract:</b> 
-    </td>
-  </tr>
-   <tr>
-    <td>Petnames & Secure User Interfaces</td>
+    <td>Making DIDs Invisible: Petnames & Their Secure User Interfaces</td>
     <td>Chris W.</td>
      <td><a href="making-dids-invisible-with-petnames.md">Outline</a></td>
   </tr>
@@ -91,43 +81,53 @@ This directory continues the drafts of the white papers and specs that are comin
     </td>
   </tr>
    <tr>
-    <td>Roadmap: Let's Go Exponential</td>
-    <td>Moses</td>
-    <td><a href="">Draft</a></td>
+    <td>Open Badge Are Verifiable Credentials</td>
+    <td>Nate</td>
+    <td><a href="open-badges-are-verifiable-credentials.md">Draft</a></td>
   </tr>
   <tr>
     <td colspan=3>
-      <b>Abstract:</b> 
+      <b>Abstract:</b> We identify use cases and requirements that connect threads of work happening in the Rebooting Web of Trust community around: educational achievement claims (particularly using the Open Badges vocabulary), use of decentralized identifiers (DIDs) within web services where educational claims circulate, and integrating blockchain-reliant verification layers. We illustrate each of these cases with a set of example documents and describe user stories for Open Badges ecosystem software in the roles of Issuer, Host/Backpack, Displayer, and Verifier that need to be implemented in order to enable the capabilities described.
+    </td>
+  </tr>
+   <tr>
+    <td>Roadmap: Let's Go Exponential</td>
+    <td>Moses</td>
+    <td><a href="a-roadmap-for-ssi.md">Draft</a></td>
+  </tr>
+  <tr>
+    <td colspan=3>
+      <b>Abstract:</b> The self-sovereign identity developer community is fun and vibrant in thought leadership, but the community’s current direction will not lead to exponential adoption. The community needs to get serious about doing what it takes to insure success for the standard, applications and vision. The goals need to be made clear: (i) a better approach to communicating the core concept and its benefits, (ii) the production of tools to assist in the development of compelling applications, (iii) the deployment of products that produce WOWs that stimulate media interest and viral propagation, and (iv) which leads to the formation of a critical mass of end users.
     </td>
   </tr>
      <tr>
     <td>Six Truths About Biometrics</td>
     <td>John C.</td>
-    <td><a href="">Draft</a></td>
+    <td><a href="Biometrics.md">Draft</a></td>
   </tr>
   <tr>
     <td colspan=3>
-      <b>Abstract:</b> 
-    </td>
-  </tr>
-     <tr>
-    <td>Sustainable Technology Commons</td>
-    <td>Heather</td>
-    <td><a href="">Draft</a></td>
-  </tr>
-  <tr>
-    <td colspan=3>
-      <b>Abstract:</b> 
+      <b>Abstract:</b> Biometrics are already here, and they will be used on the internet, whether we like it or not. They are already are; a lot of the current practices are bad and the centralized hosts know it. We know that centralized repositories of sensitive information are highly vulnerable and present irresistible targets, but better solutions are not available to current practitioners; they’re not even being considered. Fortunately, there are other fields that are already solving these problems, such as self-sovereign identity. We need to adapt their best practices to make biometrics safe and secure.
     </td>
   </tr>
   <tr>
     <td>TLS-Flex</td>
     <td>Sam C.</td>
-    <td><a href="">Draft</a></td>
+    <td><a href="TLS-Flex.md">Draft</a></td>
   </tr>
   <tr>
     <td colspan=3>
-      <b>Abstract:</b> 
+      <b>Abstract:</b> TLS validation requirements is burdened by problematic certificate mechanisms. The goal for this work is to reduce that burden and thereby enable a broader range of TLS use by applications. The effort will facilitate exploration of alternate types of certificate and validation mechanisms, leading to mechanisms with better administration and operations properties; it will also have the benefit of permitting mutual authentication to be completed at the beginning of the connection.
+    </td>
+  </tr>
+  <tr>
+    <td>Towards a Sustainable Technology Commons</td>
+    <td>Heather</td>
+    <td><a href="Towards a Sustainable Technology Commons.md">Draft</a></td>
+  </tr>
+  <tr>
+    <td colspan=3>
+      <b>Abstract:</b> There are technology commons and they have varying levels of success. Capitalism can not produce innovations/innovative products without utilizing commons. However capitalist activities do not have a financial feedback mechanism to support commons. It is as if commons and capitalism are oil and water, but they need to work together and support each other's aims. Doing so can create a more sustainable and thriving commons that enables and supports more technology innovation.
     </td>
   </tr>
   <tr>
@@ -145,9 +145,11 @@ This directory continues the drafts of the white papers and specs that are comin
 ## Mandatory Minor Papers
 
 | Title | Lead | Link |
+|:--|:--|:--|
 | Adhaar vs Sovereign | Joe | |
 | Decentralized Interfaces for Extensible APIs | Vlad | |
+| Survey of Cryptographic Key Recovery Methods | Ryan etal. | [Outline](key_recovery_methods.md) |
 | Key Recovery (I) | Drummond | |
 | Key Recovery (II) | Christian | |
-| Minimal Web of Trust Schema | Andrew | |
-| Passive Storage Network | Kulpreet | |
+| Minimal Web of Trust Schema | Andrew | [Notes](topics-and-advance-readingsWeb%20Of%20Trust%20Schema%20RWOT%206.md) |
+| Permissionless, Replicated, Decentralised Storage Network | Kulpreet | [Draft](permissionless-replicated-decentralised-storage-network.md) |
