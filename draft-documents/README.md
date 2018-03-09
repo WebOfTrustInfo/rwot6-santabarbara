@@ -123,7 +123,7 @@ This directory continues the drafts of the white papers and specs that are comin
   <tr>
     <td><b><i>Towards a Sustainable Technology Commons</i></b></td>
     <td>Heather</td>
-    <td><a href="Towards a Sustainable Technology Commons.md">Draft</a></td>
+    <td><a href="Towards a Sustainable Technology Commons.md">Outline</a></td>
   </tr>
   <tr>
     <td colspan=3>
