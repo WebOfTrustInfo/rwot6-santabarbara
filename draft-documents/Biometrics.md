@@ -202,24 +202,13 @@ Biometrics aren’t the end-all and be-all. They need to be part of a
 larger systematic procedure. There are a number of possible steps for a
 biometric system:
 
-1.  Biometrics can have passive liveness (such as an Apple face
-    > recognition), or a more extensive system can require active
-    > liveness (such as lip-reading a person’s face when they specified
-    > words), to facilitate presentation attack detection (PAD).
+1.  Biometrics can have passive liveness (such as an Apple face recognition), or a more extensive system can require active liveness (such as lip-reading a person’s face when they specified words), to facilitate presentation attack detection (PAD).
 
-2.  Biometrics can combine multiple factors, such as requiring a
-    > passphrase in addition to biometrics.
+2.  Biometrics can combine multiple factors, such as requiring a passphrase in addition to biometrics.
 
-3.  Biometrics can produce confidence ratings; rather than offering a
-    > binary result, they can suggest how likely a result is to be
-    > accurate, based on the reliability of the biometric trait for the
-    > purpose and the use of other systematic elements such as active
-    > liveness and multiple factors.
+3.  Biometrics can produce confidence ratings; rather than offering a binary result, they can suggest how likely a result is to be accurate, based on the reliability of the biometric trait for the purpose and the use of other systematic elements such as active liveness and multiple factors.
 
-4.  Biometrics can have fallbacks. If either the measurement device or
-    > the person suffers a temporary or permanent change (such as a
-    > scar, a lost finger, or a broken phone), then the biometric system
-    > should permit other means of access.
+4.  Biometrics can have fallbacks. If either the measurement device or the person suffers a temporary or permanent change (such as a scar, a lost finger, or a broken phone), then the biometric system should permit other means of access.
 
 The need for these more in-depth systems is a fact that’s already been
 stated: no biometric is perfect. This means that any system will suffer
