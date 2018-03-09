@@ -411,23 +411,25 @@ In the one-to-many, public, or offline case, the rotation history is maintained 
 
 This approach is more scalable than using a distributed consensus ledger because the Replicants do not need to communicate with each other. The inter-host agreement of the members of a distributed consensus pool is usually the limited factor in scalablity. Morever a given receiver could be completely responsible for providing the immutable log service for its own data stream with the sender. Each receiver could choose to implement a different level of reliability. Loss of the event log means that the sender and receiver have to re-initialize and re-establish the DAD stream. Alternatively the sender could be responsible for providing a set of Replicants and make the event log available to the receiver upon request.
 
-Although key recovery has not been discussed in detail. If it required or desirable that the DAD stream not be reinitialized due to loss of the rotation event history then a key recovery mechanism would also provide recovery of rotation events. Given that rotations typically happen rarely the rotation event history should be small in size and not pose a problem for recovery. Essentially recovery of the root DID or DDID for a stream would recover the original key and any rotations.
-
-As mentioned above when the DDID for communicating with a public service is derived from a the public key of a server then the client does not need to preserve an HD chain code. Instead it can regenerate the DDID using the root private and the public DID of the server. A complication occurs when the root private key has been rotated and the server was not made aware of the rotation. The client can still recover the current root DID used by the server using a trial and error approach by going through the list of rotated root DIDs, generating the associated DDID, verifying if the server will accept it, and if not incrementing to the next rotated root. Eventually the client can recover the appropriate DDID for a given service without having to preserve anything but the history of rotated root DIDs. This may be a big storage savings when the number of external services is large.
 
 
 
 ### Key Recovery
 
 
+#### Rotation Related Considerations
 
-Key recovery would also keep this list. This is a couple of orders of magnitude less effort than having to keep all the keys pairs. Only the master keys in sequence.
+Although key recovery has not been discussed in detail. If it required or desirable that the DAD stream not be reinitialized due to loss of the rotation event history then a key recovery mechanism would also provide recovery of rotation events. Given that rotations typically happen rarely the rotation event history should be small in size and not pose a problem for recovery. Essentially recovery of the root DID or DDID for a stream would recover the original key and any rotations.
+
+As mentioned above when the DDID for communicating with a public service is derived from a the public key of a server then the client does not need to preserve an HD chain code. Instead it can regenerate the DDID using the root private and the public DID of the server. A complication occurs when the root private key has been rotated and the server was not made aware of the rotation. The client can still recover the current root DID used by the server using a trial and error approach by going through the list of rotated root DIDs, generating the associated DDID, verifying if the server will accept it, and if not incrementing to the next rotated root. Eventually the client can recover the appropriate DDID for a given service without having to preserve anything but the history of rotated root DIDs. This may be a big storage savings when the number of external services is large.
 
 
 
 
 
 
+
+## Appendices
 
 ### Support for DAD Signatures in HTTP 
 
@@ -473,39 +475,51 @@ Signature: signer="B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2P
 
 ```
 
+### Cryptographic Suite Representation
 
+Best practices cryptography limits the option that user may choose from for the various cryptographic operations, such as, signing, encrypting, hashing to a suite of balanced and tuned set of protocols, one for each operation. Each member of the set should be the one and only one best suited to that operation. This prevents the user from making bad choices. In most key representation schemes each operation is completely free to be specified independent of the others. This is a very bad idea.  Users should not be custom combining different protocols that are not part of a best practices cypher suite. Each custom configuration may be vunerable to potential attack vectors for exploit. The suggested approach is to specify a cypher suite with a version. If an exploit is discovered for a member of a suite and then fixed, the suite is updated totally to a new version. The number of cypher suites should be minimized to those essential for compatibility but no more. This approach increases expressive power because only one element is needed to specify a whole suite of operations instead of a different element per operation.
 
+The following article explains in more detail how standards such as JOSE expose vulnerabilities due to too much flexibility in how cryptographic operations are specified. 
 
+https://paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standard-that-everyone-should-avoid 
 
-where ";" semi-colon indicates that what follows is key path and the number represent which
-child at each level.
+Example cypher suites:
 
-The following is a data item using a signing key that is a hierachically determined DID.
-
-```json
-{
-   "did": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-   "signer": "did:igo:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=#keys/0",
-   "changed": "2000-01-01T00:00:00+00:00",
-   "keys": 
-   [
-    {
-      "key": "did:rep:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=;0\1\2",
-    }
-   ],
-   "name": "Jim",
-   "age": 30
-}
-/r/n/r/n
-B0Qc72RP5IOodsQRQ_s4MKMNe0PIAqwjKsBl4b6lK9co2XPZHLmzQFHWzjA2PvxWso09cEkEHIeet5pjFhLUDg==
-
+```bash
+v1: Ed25519, X25519, XSalsa20poly1305, HMAC-SHA-512-256
+v2: Ed448, X448, XChaCha20Poly1305, keyed BLAKE2b
+v3: SPHINCS-256, SIDH, NORX64-4-1, keyed BLAKE2x
 ```
 
-## Relative Expressive Power
+
+## Canonical Data Serialization
+
+Canonical data serialization means that there is a universally defined way of serializing the data that is to be cyptographically signed.
+
+The are few typical approaches to achieving data canonicalization. The advantages of compatibility, flexibility and modularity that come from using a key/value store serialization such as JSON usually makes 1) the preferred approach.
+
+1. Store the serialization and signature as a chunk.
+
+The simplest is that the signer is the only entity that actually serializes the data. All other users of the data only deserialize. This simplifies the work to guarantee canonization. For example JSON is the typical data format used to serialize key:value or structured data. But the JSON specifcation for ser/deser treats whitespace characters as semantically unimportant as well as the order of appearance of keys. For a dictionary (key:value) data structure the typical approach is to represent it internally as a hash table. Most hash algorithms do not store data ordered in any predictable way (Python and other languages have support for Ordered Dicts or Ordered hashes which can be used to partially ameliorate this problem). But from the perspective of equivalence, key:value data structures are "dict" equal if they have the same set of keys with the same values for each key. Thus deserialization can produce uniform equivalent "dict equal" results from multiple but differing serializations (that differ in whitespace and order of appearance of fields). JSON only guarantees *dict* equivalent not serialization equivalence. Unfortunately the signatures for the differing but equivalent serializations will not match.
+
+But in signed at rest data only the signer ever needs to serialize the data. Indeed, only the signer may serialize the data because only the signer has the private key. So deserialization and reserialization by others is of limited value. The primary value appears to be either schema completeness where signatures are included as fields in a wrapper object or the ability to nest signatures or signed data with signatures. Because is is simple to convert a JSON serialization to a coded serializaiton such as Base64. Nested coded JSON serialization without canonicalization can be trivially supported.  After expansion and decoding, readers of the data can see the uncoded underlying data in a *schema complete* representation.
+
+The signer's serialization is always *canonical* for the signature. Users of the data merely need to use a "dict equal" deserialization which is provided by any compliant JSON deserializer. So no additional work is required to support it across multiple languages etc. If the associated data also needs to be stored unserialized then validation and extraction of the data is performed by first verifying the signature on the stored serialization and then deserializing it in memory.
+
+2. Implement perfectly canonical universally reproducibly serialization.
+
+In this approach all implementations of the protocol or service use the exact same serialization method that is canonical including white space and field order so that they can reproduce the exact same serialization that the original signer created when originally signing the data. This is difficult to achieve with something like JSON across multiple languages, platforms, and tool kits. Its usually more work to implement and more work to support because it usually means either using something other than JSON for serialization or writing from scratch conformant JSON implementations or at the very least having tight control of how white space and order occurs and ensuring accross updates that this does not change. Unfortunately many overly schematizied standards are based on this approach. This approach typically breaks web application frameworks.
+
+3. Use binary data structures
+
+With binary data structures the canonical form is well defined but it is also highly inflexible. 
+
+
+### Relative Expressive Power
 
 One way to measure and compare different knowledge representations is called *relative expressive power*.  In the physics world *power* is defined as work done per unit time. Its a ratio. *Expressive power* is similary defined as the ratio of meaning conveyed per dependency, where dependency is something that must be kept track of or transmitted to convey the meaningful information. Because dependencies are a measure of complexity, relatively higher expressive power conveys more meaning relatively more simply.
 
-### Intelligent Defaults
+#### Intelligent Defaults
 
 One approach to acheiving higher expressive power in a data representation specification is the use of intelligent defaults. An intelligent default assigns meaning to the absence of data. For example, if there are several options for a given data item value such as the *type* of a data item, an intelligent default would assign the type to a predetermined default if no type is provided in the data. This provides high expressive power as the type meaning is conveyed without the transmission of any bytes to represent type.
 
@@ -555,49 +569,8 @@ PACKET_DEFAULTS = odict([
 
 Any key value based schema standard specification may benefit from an intelligent default policy to greatly increase the expressive power of the schema.  This becomes even more important where security is concerned as the intelligent default might be the most secure set of options thus helping the user be more secure and more expressive. Moreover expressive power is about conveying meaning more simply which makes it easier to implement and incentivizes adoption.
 
-### Essential vs. Optional Elements
+#### Essential vs. Optional Elements
 
-Another related technique for increasing expressive power is to distinguish between essential and optional elements in a given representation. Any essential elements should be expressed as explicitly as possible (when not defaulted), that is, should not be looked up and should either not be indirected or have minimal indirecton. External lookups are expensive. Moreover, hiding essential elements behind multiple levels of indirection may make it harder to understand the conveyed meaning (adding dependencies and hence complexity). An important meaningful difference has occurred whenever an essential element is not set to a default value. This difference should not be hidden behind indirection.
+Another related technique for increasing expressive power is to distinguish between essential and optional elements in a given representation. Any essential elements should be expressed as explicitly as possible (when not defaulted), that is, should not be looked up and should either not be indirected or have minimal indirecton. External lookups are expensive. Moreover, hiding essential elements behind multiple levels of indirection may make it harder to understand the conveyed meaning (adding dependencies and hence complexity). An important meaningful difference that should be apparent is whenever an essential element is not set to a default value. This difference should not be hidden behind indirection.
 
-
-#### Cryptographic Suite Representation
-
-Best practices cryptography limits the option that user may choose from for the various cryptographic operations, such as, signing, encrypting, hashing to a suite of balanced and tuned set of protocols, one for each operation. Each member of the set should be the one and only one best suited to that operation. This prevents the user from making bad choices. In most key representation schemes each operation is completely free to be specified independent of the others. This is a very bad idea.  Users should not be custom combining different protocols that are not part of a best practices cypher suite. Each custom configuration may be vunerable to potential attack vectors for exploit. The suggested approach is to specify a cypher suite with a version. If an exploit is discovered for a member of a suite and then fixed, the suite is updated totally to a new version. The number of cypher suites should be minimized to those essential for compatibility but no more. This approach increases expressive power because only one element is needed to specify a whole suite of operations instead of a different element per operation.
-
-The following article explains in more detail how standards such as JOSE expose vulnerabilities due to too much flexibility in how cryptographic operations are specified. 
-
-https://paragonie.com/blog/2017/03/jwt-json-web-tokens-is-bad-standard-that-everyone-should-avoid 
-
-Example cypher suites:
-
-```bash
-v1: Ed25519, X25519, XSalsa20poly1305, HMAC-SHA-512-256
-v2: Ed448, X448, XChaCha20Poly1305, keyed BLAKE2b
-v3: SPHINCS-256, SIDH, NORX64-4-1, keyed BLAKE2x
-```
-
-## Nested Signatures
-
-
-## Data Canonicalization
-
-Data canonization means that there is a universally defined way of serializing the data that is to be cyptographically signed.
-
-The are few typical approaches to achieving data canonization.
-
-1. Store the serialization and signature as a chunk.
-
-The simplest is that the signer is the only entity that actually serializes the data. All other users of the data only deserialize. This simplifies the work to guarantee canonization. For example JSON is the typical data format used to serialize key:value or structured data. But the JSON specifcation for ser/deser treats whitespace characters as semantically unimportant as well as the order of appearance of keys. For a dictionary (key:value) data structure the typical approach is to represent it internally as a hash table. Most hash algorithms do not store data ordered in any predictable way (Python and other languages have support for Ordered Dicts or Ordered hashes which can be used to partially ameliorate this problem). But from the perspective of equivalence, key:value data structures are "dict" equal if they have the same set of keys with the same values for each key. Thus deserialization can produce uniform equivalent "dict equal" results from multiple but differing serializations (that differ in whitespace and order of appearance of fields). JSON only guarantees *dict* equivalent not serialization equivalence. Unfortunately the signatures for the differing but equivalent serializations will not match.
-
-But in signed at rest data only the signer ever needs to serialize the data. Indeed, only the signer may serialize the data because only the signer has the private key. So deserialization and reserialization by others is of limited value. The primary value appears to be either schema completeness where signatures are included as fields in a wrapper object or the ability to nest signatures or signed data with signatures. Because is is simple to convert a JSON serialization to a coded serializaiton such as Base64. Nested coded JSON serialization without canonicalization can be trivially supported.  After expansion and decoding, readers of the data can see the uncoded underlying data in a *schema complete* representation.
-
-The signer's serialization is always *canonical* for the signature. Users of the data merely need to use a "dict equal" deserialization which is provided by any compliant JSON deserializer. So no additional work is required to support it across multiple languages etc. If the associated data also needs to be stored unserialized then validation and extraction of the data is performed by first verifying the signature on the stored serialization and then deserializing it in memory.
-
-2. Implement perfectly canonical universally reproducibly serialization.
-
-In this approach all implementations of the protocol or service use the exact same serialization method that is canonical including white space and field order so that they can reproduce the exact same serialization that the original signer created when originally signing the data. This is difficult to achieve with something like JSON across multiple languages, platforms, and tool kits. Its usually more work to implement and more work to support because it usually means either using something other than JSON for serialization or writing from scratch conformant JSON implementations or at the very least having tight control of how white space and order occurs and ensuring accross updates that this does not change. Unfortunately many overly schematizied standards are based on this approach. This approach breaks virtually every web framework.
-
-3. Use binary data structures
-
-With binary data structures the canonical form is well defined but it is also highly inflexible. The advantages of compatibility, flexibility and modularity that come from using a key/value store serialization such as JSON usually makes 1) or 2) the preferred approach.
 
