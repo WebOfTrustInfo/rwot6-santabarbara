@@ -4,9 +4,30 @@ This directory continues the drafts of the white papers and specs that are comin
 
 ## Primary Papers 
 
-| # | Title | Lead | Link |
-|--|--|--|--|
-| 1 | DID-Auth | Markus | [Draft](did_auth_draft.md) |
-| <td colspan=3>__Abstract:__ The term DID Auth has been used in different ways and is currently not well-defined. We define DID Auth as a ceremony where an identity owner, with the help of various components such as web browsers, mobile devices, and other agents, cryptographically proves to a relying party that they are in control of a DID. This means demonstrating control over the DID using the mechanism specified in the DID Document Authentication object. This could take place using a number of different data formats, protocols, and flows. DID Auth includes the ability to establish mutually authenticated communication channels, and to authenticate to web sites and applications. Authorization, verifiable credentials, and capabilities are built on top of DID Auth and out of scope for this document. This specification defines the scope of DID Auth, supported protocols and flows, the use of components of the DID documents which are relevant to authentication, as well as formats for challenges and responses.</td></tr>
-| 2 | Petnames & Secure User Interfaces | Chris W. | [Outline](making-dids-invisible-with-petnames.md) |
-| <td colspan=3>__Abstract:__ If we ever show a DID to a user we have failed. We should always show a human readable name. DIDs and tor .onion names give decentralized and globally unique names, but they are not human readable. How can we build user interfaces that real users might actually use? In this paper we provide an overview of petname systems, a way of mapping human readable names to cryptographically secure names, and describe changes to two user interface designs that we believe that are compatible with intuitive user expectations. We first discuss the smartphone contact list as already approximating petnames to some degree and discuss how to augment it with secure introduction. We then walk through several changes to browsers (which may be provided natively or as an extension) which add the functionality of a petname system. By utilizing petname systems we are able to collectively support individual naming definitions, community curated directories of names, as well as exiting naming authorities such as certificate authorities and the domain name system, government agencies such as trademark offices, and decentralized systems such as namecoin.</td></tr>
+<table>
+  <tr>
+    <td>Title</td>
+    <td>Lead</td>
+    <td>Link</td>
+  </tr>
+  <tr>
+    <td>DID-Auth</td>
+    <td>Markus</td>
+    <td>[Draft](did_auth_draft.md)</td>
+  </tr>
+  <tr>
+    <td colspan=3>
+      __Abstract:__ The term DID Auth has been used in different ways and is currently not well-defined. We define DID Auth as a ceremony where an identity owner, with the help of various components such as web browsers, mobile devices, and other agents, cryptographically proves to a relying party that they are in control of a DID. This means demonstrating control over the DID using the mechanism specified in the DID Document Authentication object. This could take place using a number of different data formats, protocols, and flows. DID Auth includes the ability to establish mutually authenticated communication channels, and to authenticate to web sites and applications. Authorization, verifiable credentials, and capabilities are built on top of DID Auth and out of scope for this document. This specification defines the scope of DID Auth, supported protocols and flows, the use of components of the DID documents which are relevant to authentication, as well as formats for challenges and responses.
+    </td>
+  </tr>
+   <tr>
+    <td>Petnames & Secure User Interfaces</td>
+    <td>Chris W.</td>
+    <td>[Outline](making-dids-invisible-with-petnames.md)</td>
+  </tr>
+  <tr>
+    <td colspan=3>
+      __Abstract:__ T If we ever show a DID to a user we have failed. We should always show a human readable name. DIDs and tor .onion names give decentralized and globally unique names, but they are not human readable. How can we build user interfaces that real users might actually use? In this paper we provide an overview of petname systems, a way of mapping human readable names to cryptographically secure names, and describe changes to two user interface designs that we believe that are compatible with intuitive user expectations. We first discuss the smartphone contact list as already approximating petnames to some degree and discuss how to augment it with secure introduction. We then walk through several changes to browsers (which may be provided natively or as an extension) which add the functionality of a petname system. By utilizing petname systems we are able to collectively support individual naming definitions, community curated directories of names, as well as exiting naming authorities such as certificate authorities and the domain name system, government agencies such as trademark offices, and decentralized systems such as namecoin.
+    </td>
+  </tr>
+</table>
