@@ -11,9 +11,9 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b>Link</b></td>
   </tr>
   <tr>
-    <td>Attribute-Bqsed Credentials</td>
+    <td>Attribute-Based Credentials</td>
     <td>Nathan G.</td>
-    <td><a href="">Draft</a></td>
+    <td></td>
   </tr>
   <tr>
     <td colspan=3>
@@ -33,7 +33,7 @@ This directory continues the drafts of the white papers and specs that are comin
   <tr>
     <td>DAD: Decentralized Autonomic Data</td>
     <td>Sam S.</td>
-    <td><a href="">Draft</a></td>
+    <td></td>
   </tr>
   <tr>
     <td colspan=3>
@@ -43,7 +43,7 @@ This directory continues the drafts of the white papers and specs that are comin
   <tr>
     <td>DID v1.0</td>
     <td>Manu</td>
-    <td><a href="">Draft</a></td>
+    <td></td>
   </tr>
   <tr>
     <td colspan=3>
@@ -133,7 +133,7 @@ This directory continues the drafts of the white papers and specs that are comin
   <tr>
     <td>Web of Trust: End to End</td>
     <td>Kim</td>
-    <td><a href="">Draft</a></td>
+    <td></td>
   </tr>
   <tr>
     <td colspan=3>
