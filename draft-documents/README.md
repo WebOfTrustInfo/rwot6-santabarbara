@@ -153,3 +153,5 @@ This directory continues the drafts of the white papers and specs that are comin
 | Key Recovery (II) | Christian | |
 | Minimal Web of Trust Schema | Andrew | [Notes](topics-and-advance-readingsWeb%20Of%20Trust%20Schema%20RWOT%206.md) |
 | Permissionless, Replicated, Decentralised Storage Network | Kulpreet | [Draft](permissionless-replicated-decentralised-storage-network.md) |
+
+We also have primers on [functional identity](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/functional-identity-primer.md) and [DIDs](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/did-primer.md) that have been developed over two Web of Trust events and might be ready to release as final papers.
