@@ -32,12 +32,18 @@ did:*method*:*idstring*
 
 The *method* is some short string that namespaces the did and provides for unique behavior in the associated method specification. In this paper we will use the method *dad*.
 
-The  *idstring* is linked to a cryptographic key pair and is defined by the method. In this paper we will use a 44 character Base64 URL-File safe  encoding as per [RFC-4648](https://tools.ietf.org/html/rfc4648) with one trailing pad byte of the 32 byte public verification key for an EdDSA (Ed25519) signing key pair. Unless otherwise specified Base64 in this document refers to the URL-File safe version of Base64. The URL-File safe version of Base64 encoding replaces "+" with “-” and  “\” with  “_”. 
+The  *idstring* must be universally unique. The *idstring* can have multiple colon ":" separated parts thus allowing for namespacing. In this document the first part of the *idstring* is linked to the public member of a cryptographic key pair that is defined by the method. In this paper we will use a 44 character Base64 URL-File safe  encoding as per [RFC-4648](https://tools.ietf.org/html/rfc4648) with one trailing pad byte of the 32 byte public verification key for an EdDSA (Ed25519) signing key pair. Unless otherwise specified Base64 in this document refers to the URL-File safe version of Base64. The URL-File safe version of Base64 encoding replaces plus "+" with minus “-” and slash “\” with underscore “_”. 
 
 As an example a did using this format would be as follows:
 
 ```bash
 did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=
+```
+
+An example did with namespaced idstring follows:
+
+```bash
+did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=:blue
 ```
 
 A DID may have optional parts including a path, query, or fragment. These used the same syntax of a URL, that is, the path is delimited with slashes, */*, the query with a question mark, *?*, and the fragment with a pound sign, *#*. When the path part is provided then the query applies to the resource referenced by the path and the fragment refers to an element in the document referenced by the path. An example follows:
@@ -89,11 +95,11 @@ An example DAD with a payload follows:
 u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFRzAPnAQ==
 ```
 
-While, the simple DADs given in the examples above are minimally self-identifying and self-certifying, they do not provide support for other self-management properties such such as privacy. Moreover because each DID (Decentralized Identifer) or DDID references a public signing key with its associated private key, it needs to be managed as a key not just as an identifier. The following sections will introduce the core key management properties and the associated meta-data that a DAD needs in order to support those properties.
+While, the simple DADs given in the examples above are minimally self-identifying and self-certifying, they do not provide support for other self-management properties such as key management. In other words, because each DID (Decentralized Identifer) references a public signing key with its associated private key, it needs to be managed as a key not just as an identifier. The following sections will introduce the core key management properties and the associated meta-data that a DAD needs in order to support those properties.
 
 ## Key Management
 
-The four main key management operations are:
+The three main key management operations are:
 
 * Reproduction 
 * Rotation 
@@ -103,24 +109,24 @@ We call these the essential three R's of key management.
 
 ### Key Reproduction
 
-Key reproduction is all about managing the creation of new or derived keys. Each new DID requires a new public/private key pair. The private keys must be kept in a secured location. One reason to create unique public private key pairs for each pair-wise relationship is to minimize the risk of exposure to exploit from the repeated use of a given key-pair. Another reason to create unique public/private keys for each interaction between parties is as a means for maintaining privacy through *pseudonymity*. This is discusses in more detail below. Minimizing the number of private keys that must be securely preserved for a given number of public keys simplifies management and reduces both expense and risk of exposure. To reiterate, there are two key storage issues, one is storing public keys and the other is securing storing private keys. An exploit that captures a store of public keys may mean a loss of privacy because the expoiter can now correlate activity associated with those public keys. An exploit that captures a store of private keys means that the exploiter can sign attestations with those private keys and may take control of any associated resources. Consequently, one wants to avoid storing privates as much as possible.
+Key reproduction is all about managing the creation of new or derived keys. Each new DID requires a new public/private key pair. The private keys must be kept in a secured location. One reason to create unique public private key pairs for each pair-wise relationship is to minimize the risk of exposure to exploit from the repeated use of a given key pair. Another reason to create unique key pairs for each interaction between parties is as a means for maintaining privacy through *pseudonymity*. This is discussed in more detail below. Minimizing the number of private keys that must be securely preserved for a given number of public keys simplifies management and reduces both expense and risk of exposure. To reiterate, there are two key storage issues, one is storing public keys and the other is securely storing private keys. An exploit that captures a store of public keys may mean a loss of privacy because the expoiter can now correlate activity associated with those public keys. An exploit that captures a store of private keys means that the exploiter many now be able to use those private keys to take control of any associated resources. Consequently, one wants to avoid storing private keys as much as possible.
 
 #### Privacy and Confidentiality
 
-One desirable feature of a DAD is that it be privacy preserving. A simplified definition of privacy is that if two parties are participating in an exchange of data in a given context that the parties are not linked to other interactions with other parties in other contexts. A simplified definition of confidentiality is that the content of the data exchanged is not disclosed to a third party. Confidentiality is usually obtained by encrypting the data. This paper does not specifically cover encryption but in general the mechanisms for managing signing keys and encryption keys are highly similar.
+One desirable feature of a DAD is that it be privacy preserving. A simplified definition of privacy is that if two parties are participating in an exchange of data in a given context that the parties are not linked to other interactions with other parties in other contexts. A simplified definition of confidentiality is that the content of the data exchanged is not disclosed to a third party. Confidentiality is usually obtained by encrypting the data. This paper does not specifically cover encryption but in general the mechanisms for managing encryption keys are very similar to those for managing signing keys.
 
-An exchange can be private but not confidential, confidential but not private, both, or neither. A minimally sufficent means to preserving privacy is to use a DID as a pseudonomous identifier of each party to the exchange. A *pseudonynm* is a made up alias e.g. identifier that is under the control of its creator and is used to identify a given interaction but is not linkable to other interactions by its owner. The ability of a third party to correlate and entity's behavior across contexts is reduced when the entity uses a unique DID for each context.  Although, there are more sophisticated methods for preserving privacy such as zero knowledge proofs, the goal here is to use methods that are compatible with the performance demands of streaming data. 
+An exchange can be private but not confidential, confidential but not private, both, or neither. A minimally sufficent means for preserving privacy is to use a DID as a pseudonomous identifier of each party to the exchange. A *pseudonynm* is a manufactured alias e.g. identifier that is under the control of its creator and is used to identify a given interaction but is not linkable to other interactions by its owner. The ability of a third party to correlate an entity's behavior across contexts is reduced when the entity uses a unique DID for each context.  Although, there are more sophisticated methods for preserving privacy such as zero knowledge proofs, the goal here is to use methods that are compatible with the performance demands of streaming data. 
 
-As mentioned above, the problem with using unique pseudonyms/cryptonyms for each exchange is that a large number of such identifiers may need to be maintained. Fortunately hierachically derived keychains provide a way to manage these cryptonyms with minimal effort. 
+As mentioned above, the problem with using unique pseudonyms/cryptonyms for each exchange is that a large number of such identifiers may need to be maintained. Fortunately hierachically derived keychains provide a way to manage these cryptonyms with a reasonable level of effort. 
 
 #### Hierachical Deterministic Key Generation
 
-As previously mentioned, reproduction has to do with the generation of new keys. One way to accomplish this is with a deterministic proceedure for generating new public/private keys pairs where the private keys may be reproduced securely without having to be stored. A hierarchically deterministic key generation algorithm does this by using a master or root private key and then generating new key pairs using a deterministic key derivation algorithm. A derived key is expressed as a branch in a tree of parent/child keys. Each public key includes the path to its location in the tree. The private key for a given public key in the tree can be securely regenerated using the root private key and the key path. Only one private key, (the root) needs to be stored. 
+As previously mentioned, reproduction has to do with the generation of new keys. One way to accomplish this is with a deterministic proceedure for generating new public/private keys pairs where the private keys may be reproduced securely from some public information without having to be stored. A hierarchically deterministic (HD) key generation algorithm does this by using a master or root private key and then generating new key pairs using a deterministic key derivation algorithm. A derived key is expressed as a branch in a tree of parent/child keys. Each public key includes the path to its location in the tree. The private key for a given public key in the tree can be securely regenerated using the root private key and the key path also called a chain code. Only one private key, (the root) needs to be stored. 
 
 The [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) specification, for example, uses an indexed path representation for its HD *chain* code, such as, "0/1/2/0".
-The BIP-32 algorithm needs a master or root key pair and a chain code for each derived key. Then only the master key pair needs to be saved and only the master private key needs to be kept securely secret. The other private keys can be reproduced on the fly given the key generation algorithm and the chain code. An extended public key would include the chain code in its representation so that the associated private key can be derived by the holder of the master private key anytime the extended public key is presented. 
+The BIP-32 algorithm needs a master or root key pair and a chain code for each derived key. Then only the master key pair needs to be saved and only the master private key needs to be kept securely secret. The other private keys can be reproduced on the fly given the key generation algorithm and the chain code. An extended public key would include the chain code in its representation so that the associated private key can be derived by the holder of the master private key anytime the extended public key is presented. This is the procedure for hardened keys.
 
-The query part of the DID syntax may be used to represent an HD chain code or key path for an HD key that is derived from a root DID. This provides an economoical way to specify derived DIDs (DDIDs) used to identify DADS. An example follows:
+The query part of the DID syntax may be used to represent an HD chain code or HD key path for an HD key that is derived from a root DID. This provides an economoical way to specify derived DIDs (DDIDs) used to identify DADS. An example follows:
 
 ```bash
 did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=?chain=0\1\2
@@ -130,6 +136,7 @@ This expression above discloses the root public DID as well as the key derivatio
 ```bash
 did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=
 ```
+
 Thus a database of DDIDs could be indexed by DDID expressions with each value being the extended DID. Looking up the extended DID allows the holder to recreate on the fly the associated private key for the DDID without ever having to store the private key. This might look like the following:
 
 ```json
@@ -148,11 +155,19 @@ Or given that the same did method is used throughout:
 }
 ```
 
-Some refinements to this approach may be useful. One is the granularity of DDID allocation. A unique DDID could be used for each unique DAD or a unique DID could be used for each unique destination party that is receiving a data stream. In this case each DAD would need an additional identifier to disambiguate each DAD sent to the same party. This can be provided with an additional field or using the DID path part to provide a sequence number. This is shown in the following example:
+The namespacing of the DID idstring also provides information that could be used to help formulate and HD path to generate a DDID. The following example shows two different DDIDs using the same chain coide but with a different extended idstring but using the same public key.
+
+```bash
+did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=:blue?chain=0/1
+did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=:red?chain=0/1
+```
+
+Some refinements to this approach may be useful. One is the granularity of DDID allocation. A unique DDID could be used for each unique DAD or a unique DDID could be used for each unique destination party that is receiving a data stream. In this case each DAD would need an additional identifier to disambiguate each DAD sent to the same party. This can be provided with an additional field or using the DID path part to provide a sequence number. This is shown in the following example:
 
 ```bash
 did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=/10057
 ```
+
 The associated DAD is as follows:
 
 ```json
@@ -170,7 +185,7 @@ u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFR
 
 #### Change Detection
 
-Using a sequence number or some other identifier could provide change detection. Often stale DAD items must be detectable to prevent replay attacks. A later re-transmission of an old copy of the DAD item not supercede a newer copy. One way to provide change detection is for the DAD item to include a *changed* field whose value is monotonically increasing and changes everytime the data is changed. The souce of the data can enforce that the value is monotonically increasing. Typical  approaches include a monotonically increasing date-time stamp or sequence number. Any older data items will have older date-time stamps or lower sequence numbers and will thus be detectable as stale.
+Often stale DAD items must be detectable to prevent replay attacks. A later re-transmission of an old copy of the DAD item must not supercede a newer copy. Using a sequence number or some other identifier could provide change detection. Another way to provide change detection is for the DAD item to include a *changed* field whose value is monotonically increasing and changes everytime the data is changed. The souce of the data can enforce that the *changed* field value is monotonically increasing. Typical approaches include a monotonically increasing date-time stamp or sequence number. Any older data items resent or replayed would have older date-time stamps or lower sequence numbers and would thus be detectable as stale. 
 
 Below is an example of an non-trivial data item that has a *changed* field for change detection.
 
@@ -220,8 +235,8 @@ Example inception event:
 {
     "id": "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
     "changed" : "2000-01-01T00:00:00+00:00",
-    "signer": "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
-    "ensuer": "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148="
+    "signer": "Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
+    "ensuer": "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148="
 }
 \r\n\r\n
 u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFRzAPnAQ==
@@ -233,13 +248,13 @@ u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFR
 {
     "id": "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
     "changed" : "2000-01-01T00:00:00+00:00",
-    "ensuer": "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148="
+    "ensuer": "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148="
 }
 \r\n\r\n
 u72j9aKHgz99f0K8pSkMnyqwvEr_3rpS_z2034L99sTWrMIIJGQPbVuIJ1cupo6cfIf_KCB5ecVRYoFRzAPnAQ==
 ```
 
-When rotation occurs sometime later, the rotation operation atomically indicates that the key in the *signer* field is to be replaced with the pre-declared rotation key in the *ensuer* field and also declares the next rotation key to be placed in the *ensuer* field. One way to keep track of this is to provide three keys in the rotation event, the former signer in a new erster field, the former ensuer in the signer field and a new pre-rotated key in the ensuer field. The rotation operation has two signatures. The first signature is created with the former *signer* key (now *erster* field). The second signature with the form *ensuer* key (now *signer* field). This establishes provenance of the rotation operation.
+When rotation occurs sometime later, the rotation operation atomically indicates that the key in the *signer* field is to be replaced with the pre-declared rotation key in the *ensuer* field and also declares the next rotation key to be placed in the *ensuer* field. One way to keep track of this is to provide three keys in the rotation event, the former signer in a new *erster* field, the former *ensuer* in the *signer* field and a new pre-rotated key in the *ensuer* field. The rotation operation has two signatures. The first signature is created with the former *signer* key (now *erster* field). The second signature with the form *ensuer* key (now *signer* field). This establishes provenance of the rotation operation.
 
 Example rotation event:
 
@@ -247,9 +262,9 @@ Example rotation event:
 {
     "id": "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
     "changed" : "2000-01-01T00:00:00+00:00",
-    "erster": "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
-    "signer": "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-    "ensuer": "did:dad:dZ74MLZXD-1QHoa73w9pQ9GroAvxqFi2RTZWlkC0raY="
+    "erster": "Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
+    "signer": "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+    "ensuer": "dZ74MLZXD-1QHoa73w9pQ9GroAvxqFi2RTZWlkC0raY="
 }
 \r\n\r\n
 jc3ZXMA5GuypGWFEsxrGVOBmKDtd0J34UKZyTIYUMohoMYirR8AgH5O28PSHyUB-UlwfWaJlibIPUmZVPTG1DA==
@@ -257,7 +272,7 @@ jc3ZXMA5GuypGWFEsxrGVOBmKDtd0J34UKZyTIYUMohoMYirR8AgH5O28PSHyUB-UlwfWaJlibIPUmZV
 efIU4jplMtZzjgaWc85gLjJpmmay6QoFvApMuinHn67UkQZ2it17ZPebYFvmCEKcd0weWQONaTO-ajwQxJe2DA==
 ```
 
-Instead of three fields in the structure a list or tuple of three fields could be used where the order corresponds to [erster, signer, ensuer].
+Instead of three fields in the structure a list or tuple of three fields could be used where the order corresponds to ```[erster, signer, ensuer]```.
 
 In order to verify provenance over multiple rotation operations, the receiver needs to be able to replay the history of rotation operations. 
 
@@ -276,8 +291,8 @@ Example pre-rotated inception event with list structure for signing keys:
     "signer": 0,
     "signers": 
     [
-        "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
-        "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+        "Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
+        "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
     ]
 }
 \r\n\r\n
@@ -295,9 +310,9 @@ Example rotation event with list structure for signing keys:
     "signer": 1,
     "signers": 
     [
-        "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
-        "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-        "did:dad:dZ74MLZXD-1QHoa73w9pQ9GroAvxqFi2RTZWlkC0raY="
+        "Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
+        "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+        "dZ74MLZXD-1QHoa73w9pQ9GroAvxqFi2RTZWlkC0raY="
     ]
 }
 \r\n\r\n
@@ -317,10 +332,10 @@ A subsequent rotation would add another key to the signers list and increment th
     "signer": 2,
     "signers": 
     [
-        "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
-        "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-        "did:dad:dZ74MLZXD-1QHoa73w9pQ9GroAvxqFi2RTZWlkC0raY=",
-        "did:igo:3syVH2woCpOvPF0SD9Z0bu_OxNe2ZgxKjTQ961LlMnA="
+        "Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
+        "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
+        "dZ74MLZXD-1QHoa73w9pQ9GroAvxqFi2RTZWlkC0raY=",
+        "3syVH2woCpOvPF0SD9Z0bu_OxNe2ZgxKjTQ961LlMnA="
     ]
 }
 \r\n\r\n
@@ -331,9 +346,9 @@ o9yjuKHHNJZFi0QD9K6Vpt6fP0XgXlj8z_4D-7s3CcYmuoWAh6NVtYaf_GWw_2sCrHBAA2mAEsml3thL
 
 #### Multi-signature Pre-rotation
 
-The list structure enables the declaration of several pre-rotations in advance by providing several future pre-rotation keys in the inception event. A rotation event then could include several rotations at once. Each rotation event would require a signature per each of the multiple rotations in the event thus allowing for multi-signature inception and rotations. If each key is from a different entity then the rotation would require multiple entities to agree. Thus a DAD could be multi-signature and support multi-signature rotations. In this case the signer field would be a list of indices into the signers list. This approach could be further extended to support an M of N signature scheme where any M of N signatures are required to incept or rotate where M < N, M,N integers. The total number of keys in the list is a multiple of N. The following examples provide an inception and rotation event for a two signature pre-rotation.
+The list structure enables the declaration of several pre-rotations in advance by providing several future pre-rotation keys in the inception event. A rotation event then could include several rotations at once. Each rotation event would require a signature per each of the multiple rotations in the event thus allowing for multi-signature inception and rotations. If each key is from a different entity then the rotation would require multiple entities to agree. Thus a DAD could be multi-signature and support multi-signature rotations. In this case the signer field would be a list of indices into the signers list. This approach could be further extended to support an M of N signature scheme where any M of N signatures are required to incept or rotate where M < N, M,N integers. The total number of keys in the list is a multiple of N. The following examples provide an inception and rotation event for a two signature pre-rotation. A named spaced key with colon separated idstring as per the DID syntax could be used to allow for signers using a different DID method or for namespacing within a given DID method.
 
-Example of a pre-rotated two signature inception event with list structure for signing keys:
+Example of a pre-rotated two signature inception event with list structure for signing keys where "*blue*" indicates one source and "*red*" indicates another source:
 
 ```json
 {
@@ -342,10 +357,10 @@ Example of a pre-rotated two signature inception event with list structure for s
     "signer": [0,1],
     "signers": 
     [
-        "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
-        "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-        "did:dad:dZ74MLZXD-1QHoa73w9pQ9GroAvxqFi2RTZWlkC0raY=",
-        "did:igo:3syVH2woCpOvPF0SD9Z0bu_OxNe2ZgxKjTQ961LlMnA="
+        "Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=:blue",
+        "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=:red",
+        "dZ74MLZXD-1QHoa73w9pQ9GroAvxqFi2RTZWlkC0raY=:blue",
+        "3syVH2woCpOvPF0SD9Z0bu_OxNe2ZgxKjTQ961LlMnA=:red"
     ]
 }
 \r\n\r\n
@@ -356,7 +371,7 @@ o9yjuKHHNJZFi0QD9K6Vpt6fP0XgXlj8z_4D-7s3CcYmuoWAh6NVtYaf_GWw_2sCrHBAA2mAEsml3thL
 
 The signatures above are generated with the keys at indices 0 and 1 in the signers list respectively.
 
-Example of a two signature rotation event with list structure for signing keys:
+Example of a two signature rotation event with list structure for signing keys where "*blue*" indicates one source and "*red*" indicates another source:
 
 ```json
 {
@@ -365,12 +380,12 @@ Example of a two signature rotation event with list structure for signing keys:
     "signer": [2,3],
     "signers": 
     [
-        "did:dad:Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=",
-        "did:dad:Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=",
-        "did:dad:dZ74MLZXD-1QHoa73w9pQ9GroAvxqFi2RTZWlkC0raY=",
-        "did:igo:3syVH2woCpOvPF0SD9Z0bu_OxNe2ZgxKjTQ961LlMnA="
-        "did:dad:rTkep6H-4HA8tr54sHON1vWl6FEQt27fThWoNZsa88V=",
-        "did:dad:7IUhL0JRaU2_RxFP0AL43wYn148Xq5YqaL6L48pf0fu=",
+        "Qt27fThWoNZsa88VrTkep6H-4HA8tr54sHON1vWl6FE=:blue",
+        "Xq5YqaL6L48pf0fu7IUhL0JRaU2_RxFP0AL43wYn148=:red",
+        "dZ74MLZXD-1QHoa73w9pQ9GroAvxqFi2RTZWlkC0raY=:blue",
+        "3syVH2woCpOvPF0SD9Z0bu_OxNe2ZgxKjTQ961LlMnA=:red"
+        "rTkep6H-4HA8tr54sHON1vWl6FEQt27fThWoNZsa88V=:blue",
+        "7IUhL0JRaU2_RxFP0AL43wYn148Xq5YqaL6L48pf0fu=:red",
     ]
 }
 \r\n\r\n
@@ -385,19 +400,21 @@ GpVNJQQoYKBYrPPxAoIc1i5SHCIDS8KFFgf8i0tDq8XGizaCgAeYbsHot0pmdWAcgTo5sD8iAuSQAfnH
 
 The signatures above are generated with the keys at indices 0 through 3 in the signers list respectively.
 
+#### Collective Signatures
+
 This multi-signature scheme suffers from the significant increase in the length of the attached signature block.  One way to ameliorate this "bloat" is to use collective multi-signatures. A collective signature has the property that its length is not a multiple of the number of signatures it holds. Typically the maximum length of a collective signature is about double the length of a non-collective signature and does not increase significantly as more signatures are added to the collective. There is a draft IETF standard for collective signatures [CoSi](https://tools.ietf.org/id/draft-ford-cfrg-cosi-00.html) that might be useful for multi-signature rotation. Some useful references are here [project](https://github.com/dedis/cothority/wiki/CoSi), [paper](https://arxiv.org/pdf/1503.08768.pdf), [slides](http://dedis.cs.yale.edu/dissent/pres/160524-sp-cosi.pdf). Collective signatures are a type of Schnorr multi-signature or Schnorr threshold signature.
 
 #### DDID Pre-rotation
 
-The complication for DDIDs (Derived DIDs) is that each DAD stream for each pairing of sender and receiver has a unique DDID. Rotation fo the root DID also requires rotating the the DDIDs. The same pre-rotation approach, however, can be used for the DDIDs. At the inception event the root key and pre-rotation root keys are created. These keys are then used to created a set of DDIDS and pre-rotated DDIDS using the root and pre-rotated root keys respectively. This does not significantly change the exploit vulnerability as the inception event is still one event. Although the pre-rotated root DID key is used to create a set of pre-rotated DDID keys, it does not signicantly increase its exposure. Each rotation event then involves rotating the root DID key and all the DDID keys.  The important consideration is that the number of DDIDs in the set must be determined in advance in order to create all the pre-rotated DDIDs at one time. This can be managed by created extra DDIDs and pre-rotated DDIDs at the inception event. Only the public half of each the key pairs need to be stored. 
+The complication for DDIDs (Derived DIDs) is that each DAD stream for each pairing of sender and receiver may have a unique DDID. Rotation fo the root DID also requires rotating the the DDIDs. The same pre-rotation approach, however, can be used for the DDIDs. At the inception event the root key and pre-rotation root keys are created. These keys are then used to created a set of DDIDS and pre-rotated derived keys using the root and pre-rotated root keys respectively. This does not significantly change the exploit vulnerability as the inception event is still one event. Although the pre-rotated root DID key is used to create a set of pre-rotated derived keys, it does not signicantly increase its exposure. Each rotation event then involves rotating the root DID key and all the DDID keys.  The important consideration is that the number of DDIDs in the set must be determined in advance in order to create all the pre-rotated derived keys at one time. This can be managed by created extra DDIDs and pre-rotated derived keys at the inception event. Only the public half of each the key pairs need to be stored. 
 
 In contrast, creating additional DDIDs with pre-rotated keys at a later time requires using the pre-rotated root private key. This increases the exposure of that private key to exploit and makes it less secure for pre-rotation. When the set of pre-rotated DDIDs is consumed, a rotation operation event may be triggered thereby rotating the existing DDIDs and then allowing additional DDIDs to be created. 
 
-Alternatively if the pre-rotated set of DDIDs is consumed then a new DDID tree may be created with a unique new pre-rotated root key. This would create a hierachy of groups of pre-rotated DDIDs. 
+Alternatively if the pre-rotated set of DDIDs is consumed then a new DDID tree may be created with a unique new pre-rotated root key. This would create a hierachy of groups of pre-rotated DDIDs and derived keys. 
 
 Moreover, when the re-establishment and re-initialization of a DAD stream is not a high cost or high risk endeavor then instead of pre-rotating the DDIDs, only pre-rotate the root DID and just close down the current DAD stream and re-establish with new DDID created by the pre-rotated key as part of the rotation event. 
 
-Finally if the exposure of the root DID is insignificant compared the exposure of the DDIDs then another approach to DDID pre-rotation could be employed. This requires a trade-off between convenience and privacy. A group of receivers could all have knowledge of the root public DID key and its pre-rotated public DID key for their unique DDIDs. This means that the members of the group could leak correlation information about the group via the shared root DID. However each member of the group could still maintain security via its unique DDID. In this case the root private DID is used to derive both the inception DDID and the pre-rotated DDID of each member. The individual members could then undergo DDID key rotation but only using the root DID not its pre-rotated DID. In the rate event that the root DID needs to be rotated then each of the DDID members performs a double rotation within a rotation event. The first rotation rotates to the pre-rotated key generated using the original root DID, the second rotation is to a new pair of DDIDs, each generated using the new pre-rotated root DID. The first DDID in the pair is the new signer key, the second is the new pre-rotated signer key. A receiver must have knowledge of the root DID and pre-rotated root DID in order to verify that the second roation is not a forgery.  This approach enables the organization and managment of DDIDs in heirarchical groups where the members of each group know about their group root DID but that group root did could be a DDID of a higher leverl group and so on. Lower level groups only know about thier group root DID not any sibling groups so can't leak information about sibling or parent groups only child groups.
+Finally if the exposure of the root DID is insignificant compared the exposure of the DDIDs then another approach to DDID pre-rotation could be employed. This requires a trade-off between convenience and privacy. A group of receivers could all have knowledge of the root public DID key and its pre-rotated public DID key for their unique DDIDs. This means that the members of the group could leak correlation information about the group via the shared root DID. However each member of the group could still maintain security via its unique DDID. In this case the root private DID is used to derive both the inception DDID and the pre-rotated derived key of each member. The individual members could then undergo DDID key rotation but only using the root DID not its pre-rotated key. In the rare event that the root DID needs to be rotated then each of the DDID members performs a double rotation within a rotation event. The first rotation rotates to the pre-rotated key generated using the original root DID, the second rotation is to a new set of derived and pre-rotated derived keys, each generated using the new pre-rotated root key. The first derived key in the pair is the new signer key, the second is the new pre-rotated signer key. A receiver must have knowledge of the root DID and pre-rotated root key in order to verify that the second rotation is not a forgery.  This approach enables the organization and managment of DDIDs in heirarchical groups where the members of each group know about their group root DID but that group root did could be a DDID of a higher level group and so on. Lower level groups only know about thier group root DID, but not any sibling groups so it can't leak information about sibling or parent groups only child groups.
 
 #### Replayability
 
@@ -412,20 +429,17 @@ In the one-to-many, public, or offline case, the rotation history is maintained 
 This approach is more scalable than using a distributed consensus ledger because the Replicants do not need to communicate with each other. The inter-host agreement of the members of a distributed consensus pool is usually the limited factor in scalablity. Morever a given receiver could be completely responsible for providing the immutable log service for its own data stream with the sender. Each receiver could choose to implement a different level of reliability. Loss of the event log means that the sender and receiver have to re-initialize and re-establish the DAD stream. Alternatively the sender could be responsible for providing a set of Replicants and make the event log available to the receiver upon request.
 
 
-
-
 ### Key Recovery
 
+Because cryptographic keys are long strings of numbers they are extremely hard to remember. Moreover to be secure the private key needs to be kept secret. This means that the private keys are stored someplace besides a human brain and are subject to being lost. Key recovery is all about providing a secure way of recovering a lost private key. The important consideration here is that the recovery mechanism be compativle with streaming data applications as per DADs. Keys recovery tends to be a rare occurrence so there is more flexibility for solutions. Nonetheless, finding the minimally sufficient means for key recovery is still the goal.
 
-#### Rotation Related Considerations
+If it is required or at least desirable that the DAD stream not be reinitialized due to loss of the rotation event history then a key recovery mechanism would also need to provide recovery of the key rotation history. To restate, it is not enough to just recover the original root DID but every rotated root DID must be recovered as well. Given that typically rotations happen rarely, the rotation event history should be small in size and not pose a storage size problem for recovery. Thus essential key recovery for DAD needs to at least recover the original root key and any rotations. 
 
-Although key recovery has not been discussed in detail. If it required or desirable that the DAD stream not be reinitialized due to loss of the rotation event history then a key recovery mechanism would also provide recovery of rotation events. Given that rotations typically happen rarely the rotation event history should be small in size and not pose a problem for recovery. Essentially recovery of the root DID or DDID for a stream would recover the original key and any rotations.
+DIDs can be regenerated from the root DID given the chain code. In the case where the the DDID stream may not be easily reestablished but must resume given the latest rotated DDID then the HD chain code must also be preserved and recovered. If the number of DDIDs is very large then the storage requirements for for chain codes may also be large relative to the key recovery system. The DID root public key and DDID derivation chain codes do not expose the private keys, so disclosing the root public key and chain code for a DDID is not a security risk but could be a privacy risk. A third party could correlate data streams from the associated DDIDs should the root public key used by multiple DDIDs be exposed. One way to address this is to encrypt the chain codes with an encryption key derived from the root signing key. The chain codes can then be stored outside of the core recovery system. The worst case exploit then is a loss of privacy should the encryption be broken but not a loss of control of the resources owned by the private key.
 
-As mentioned above when the DDID for communicating with a public service is derived from a the public key of a server then the client does not need to preserve an HD chain code. Instead it can regenerate the DDID using the root private and the public DID of the server. A complication occurs when the root private key has been rotated and the server was not made aware of the rotation. The client can still recover the current root DID used by the server using a trial and error approach by going through the list of rotated root DIDs, generating the associated DDID, verifying if the server will accept it, and if not incrementing to the next rotated root. Eventually the client can recover the appropriate DDID for a given service without having to preserve anything but the history of rotated root DIDs. This may be a big storage savings when the number of external services is large.
+When the DDID for communicating with a public service is derived from the public key of a server then the client does not even need to preserve and recover the HD chain code. Instead it can regenerate the DDID using a hash of the root private DID and the public DID of the server. A complication occurs when the root private key has been rotated and the server was not made aware of the rotation. The client can still recover the current root DID used by the server using a trial and error approach by going through the list of rotated root DIDs, generating the associated DDID, verifying if the server will accept it, and if not incrementing to the next rotated root. Eventually the client can recover the appropriate DDID for a given service without having to preserve anything but the history of rotated root DIDs. This may be a big storage savings when the number of external services is large.
 
-
-
-
+#### Recovery Methods
 
 
 
