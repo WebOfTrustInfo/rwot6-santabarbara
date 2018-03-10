@@ -6,8 +6,7 @@ Contributors: (feel free to move yourself up to the author line as you feel your
 * Kulpreet Singh (Chlu)
 * Luiz Gustavo Ferraz Aoqui (IBM)
 
-This document is expected to contribute to standards development at IMS Global and/or other standards bodies such as the W3C. This document's license is Creative Commons Attribution (CC-BY)
-, but contributions should also be ready to commit to license relevant and necessary IP under the IPR policies of these standard organizations.
+This document is expected to contribute to standards development at IMS Global and/or other standards bodies such as the W3C. This document's license is Creative Commons Attribution (CC-BY), but contributions should also be ready to commit to license relevant and necessary IP under the IPR policies of these standard organizations.
 
 ## Abstract
 We identify use cases and requirements that connect threads of work happening in the Rebooting Web of Trust community around: educational achievement claims (particularly using the Open Badges vocabulary), use of decentralized identifiers (DIDs) within web services where educational claims circulate, and integrating blockchain-reliant verification layers. We illustrate each of these cases with a set of example documents and describe user stories for Open Badges ecosystem software in the roles of Issuer, Host/Backpack, Displayer, and Verifier that need to be implemented in order to enable the capabilities described.
@@ -18,10 +17,55 @@ We identify use cases and requirements that connect threads of work happening in
 ## Introduction
 The Open Badges Specification is a vocabulary and set of protocols that describes Credentials. The vocabulary can describe any achievement in terms of a common set of attributes and is most often found in describing educational or occupational credentials. At present, Open Badges defines two verification methods, `HostedBadge` (requiring resources hosted on HTTP in specific locations) and `SignedBadge` (using a JSON Web Signature, that references hosted Issuer Profile and CryptographicKey information). This paper proposes a new option that can reside alongside these existing verification methods. We present an ordered set of examples introducing new capabilities for Open Badges and we explore the opportunities and costs in  implementing each of them.
 
-## TODO: describe how these approaches will be used relating to existing and expected future OB & VC ecosystem
+## TODO: describe how these approaches will be used relating to existing and expected future OB & VC ecosystem. TODO: Kim needs to review/cleanup
+0. Context setting for comparison -- Open Badges and Verifiable Credentials are complementary
+
+Both Open Badges (OB) and Verifiable Credentials (VC) are capable of expressing a cryptographically verifiable statement about the subject, issuer, evidence, and expiration date of a credential.
+
+A VC provides a very lightweight structure for expressing a variety of claims, including government-issued credentials (such as driver's licenses or passports) and educational credentials. A VC implementer chooses which schema/vocabulary to use, depending on the use case or domain. 
+
+The strength of Verifiable Claims is its flexibility across a wide variety of use caess. A VC is obtains semantics through JSON-LD contexts; however, because of its relative newness, there is not general agreement on schemas and vocabulary sets. This will no doubt improve over time: while fragmentation is an initial risk, issuers in a given domain will likely converge to a few well-known vocabularies, and there will be established semantic mappings.
+
+> Note that equivalence of credentials (e.g. C.S. 101 at University A qualifies as a transfer credit for "Intro to C.S." at University B) is beyond the scope of semantic equivalence (and this paper).
+
+In comparison, Open Badges have been used in production deployments for nearly a decade. This has established fitness-of-purpose FOR real-world EDU/OCC scenarios, and has led to a rich set of conventions and vocabularies. Successful deployments range from low to high stakes scenarios:
+- informal recognition of a valuable contribution, which in aggregate may establish an individual as a subject matter expert among their peers
+- recognition for completion of online training, which provides an individual recognition by their employer
+- completion of coursework or university degrees
+
+Building on this success, the Open Badges community has driven related standards, such as stackable credentials leading to a larger goal ("Open Pathways", which could be used to represent the path from individual university courses to a degree). Open Badges -- like Verifable Credentials -- have been architected with self-sovereign principles in mind, even before the term was established. The goal is to allow recipients to own their credentials, that a recipient's credentials are independently-verifiable and long-lived.
+
+The Blockcerts extension of Open Badges furthered alignment with Verifiable Credentials by using JSON-LD signatures/verification and blockchain anchoring. The logical next step is continued alignment, such that a recipient may share their Open Badges just like any Verifiable Credential, 
+
 1. What is the structure/purpose of an Open Badge?
+
+
+An Open Badge consists of an `Assertion`, a `BadgeClass` and `Profiles` -- one each for the issuer and recipient. The issuer is identified by a URI, typically pointing to an http Issuer Profile containing information about the issuer, including its current and revoked cryptographic keys.
+
+Open Badges support signed and hosted ... TODO blockcerts
+
+....
+
+
 2. What is the structure/purpose of a Verifiable Credential?
-3. What is the prospect for implementation implementation landscape that brings these together.
+
+
+A `Credential` is set of one or more `Claim`s about a `Subject`. Credentials are almost always digitally signed by the `Issuer`, making the credential tamper-resistennt and non-repudiable.
+
+
+3. What is the prospect for implementation landscape that brings these together.
+
+There is significant cross-pollination in the development of Open Badges and Verifiable Credentials; accordingly, there is already significant structural alignment:
+- Open Badge Endorsements employ the Verifiable Credneitals structure
+- Open Badges and Verifiable Credentials Issuer Profiles are aligned
+- Both use JSON Linked Data, allowing reuse among different contexts
+
+The motivation behind the Verifiable Credentials specification was largely driven by educational and occupational use cases. The current VC data model uses samples outside the edu/occ space; e.g. driver's licenses or other government-issued credentials. 
+
+Further alignemnt of Open Badges and Verifiable Credentials provides benefits to both communities:
+- Verifiable Credentials benefit from the rich expressiveness and vocabulary vetted by years of real-world Open Badges deployments 
+- Open Badges can participate in the upcoming Verifiable Credentials ecosystem, which benefits recipients by allowing their Open Badges to function as Verifiable Credentials (via alignment of structural and verification mechanisms).
+
 
 We have identified three ways to connect the Open Badges and Verifiable Credentials specifications. We will circulate and compare the core options here and choose which to base our prototypes upon.
 
