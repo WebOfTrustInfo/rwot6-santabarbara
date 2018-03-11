@@ -84,8 +84,6 @@ The three types of names in a petname system are:
    
 * Implementing petnames
 
-# - Implementation scenarios
-
 ** Smartphone contact list integration
 
 #   - Contact list
@@ -100,7 +98,21 @@ The three types of names in a petname system are:
 #         - User interface uses that mapping both in selecting things and in
 #           rendering things such as an incoming call or call history
 #         - The rendering is in terms of the live mapping
-#
+
+One system that is already very similar to a petnames system is a
+smartphone's contact list application.
+Contact list applications use phone numbers as a global namespace
+without making phone numbers the primary user experience.
+Human meaningful names are mapped to phone numbers with no pretense
+that the names have global experience; the names are chosen by each
+human operator according to what is useful to them.
+The UI uses this mapping both to search and select entities from a
+contact list to display a name in an incoming call, or to review call
+history.
+The rendering it done in terms of a live mapping; should an entity's
+petname be updated, that petname will be retroactively updated on the
+call history.
+
 #     - Things to add
 #       - Party scenario
 #       - Searching the contact list, type in a friend's name, get results
