@@ -262,7 +262,6 @@ The volunteers who have bravely committed to join this tribe are:
 -   The communications workgroup:
 
     -   Kate Sills:
-        > [*katelynsills@gmail.com*]
 
     -   Sean Bohan: (via Drummond)
 
