@@ -26,7 +26,7 @@ This directory continues the drafts of the white papers and specs that are comin
      <td><b><i>Introducing the BTCR DID Method Spec</i></b></td>
     <td>Kim</td>
     <td><a href="introducing_btcr.md">Outline</a></td>
-     <td>Queried</td>
+     <td>4/12</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -92,7 +92,7 @@ This directory continues the drafts of the white papers and specs that are comin
      <td><b><i>Open Badge Are Verifiable Credentials</i></b></td>
     <td>Nate</td>
     <td><a href="open-badges-are-verifiable-credentials.md">Draft</a></td>
-          <td>Queried</td>
+          <td>3/14</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -114,6 +114,7 @@ This directory continues the drafts of the white papers and specs that are comin
        <td><b><i>Six Truths About Biometrics</i></b></td>
     <td>John C.</td>
     <td><a href="Biometrics.md">Draft</a></td>
+                 <td>Queried</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -124,6 +125,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>TLS-Flex</i></b></td>
     <td>Sam C.</td>
     <td><a href="TLS-Flex.md">Draft</a></td>
+              <td>Queried</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -134,6 +136,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>Towards a Sustainable Technology Commons</i></b></td>
     <td>Heather</td>
     <td><a href="Towards a Sustainable Technology Commons.md">Outline</a></td>
+              <td>Queried</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -144,6 +147,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>Web of Trust: End to End</i></b></td>
     <td>Kim</td>
     <td></td>
+              <td>Queried</td>
   </tr>
   <tr>
     <td colspan=4>
