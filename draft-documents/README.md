@@ -58,7 +58,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>DID-Auth</i></b></td>
     <td>Markus</td>
     <td><a href="did_auth_draft.md">Draft</a></td>
-    <td>Queried</td>
+    <td>4/27</td>
 
   </tr>
   <tr>
