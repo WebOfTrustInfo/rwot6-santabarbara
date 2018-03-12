@@ -249,30 +249,30 @@ The volunteers who have bravely committed to join this tribe are:
 
 -   Co-chairs
 
-    -   Dan: gisolfi@us.ibm.com
+    -   Dan:
 
-    -   Moses Ma: moses.ma@futurelabconsulting.com
+    -   Moses Ma:
 
     -   ???
 
 -   Scrummaster:
 
-    -   Darrell Duane, [*d@duane.com*](mailto:d@duane.com)
+    -   Darrell Duane
 
 -   The communications workgroup:
 
     -   Kate Sills:
-        > [*katelynsills@gmail.com*](mailto:katelynsills@gmail.com)
+        > [*katelynsills@gmail.com*]
 
     -   Sean Bohan: (via Drummond)
 
-    -   Kaliya Young: Kaliya@identitywomen.net
+    -   Kaliya Young: 
 
 -   GTM resource developers:
 
     -   Alex Preukschat: (via Drummond)
 
-    -   Remy Lyon: remy@keemail.me
+    -   Remy Lyon: 
 
 -   Domain leaders:
 
@@ -284,7 +284,7 @@ The volunteers who have bravely committed to join this tribe are:
 
 -   Interested Resources
 
-    -   Vishal Diro: [*vishal@diro.io*](mailto:vishal@diro.io)
+    -   Vishal Diro: 
 
 Manifesting some WOWs
 
