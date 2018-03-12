@@ -60,7 +60,6 @@ This directory continues the drafts of the white papers and specs that are comin
     <td>Markus</td>
     <td><a href="did_auth_draft.md">Draft</a></td>
     <td>4/27</td>
-
   </tr>
   <tr>
     <td colspan=4>
@@ -71,6 +70,7 @@ This directory continues the drafts of the white papers and specs that are comin
      <td><b><i>Identity Hubs</i></b></td>
     <td>Daniel</td>
     <td><a href="Identity%20Hub%20Attestation%20Handling.md">Draft</a></td>
+     <td>Queried</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -81,6 +81,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>Making DIDs Invisible: Petnames & Their Secure User Interfaces</i></b></td>
     <td>Chris W.</td>
      <td><a href="making-dids-invisible-with-petnames.md">Outline</a></td>
+         <td>Queried</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -91,6 +92,7 @@ This directory continues the drafts of the white papers and specs that are comin
      <td><b><i>Open Badge Are Verifiable Credentials</i></b></td>
     <td>Nate</td>
     <td><a href="open-badges-are-verifiable-credentials.md">Draft</a></td>
+          <td>Queried</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -101,6 +103,7 @@ This directory continues the drafts of the white papers and specs that are comin
      <td><b><i>Roadmap: Let's Go Exponential</i></b></td>
     <td>Moses</td>
     <td><a href="a-roadmap-for-ssi.md">Draft</a></td>
+          <td>Queried</td>
   </tr>
   <tr>
     <td colspan=4>
