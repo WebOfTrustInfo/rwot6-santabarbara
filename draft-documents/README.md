@@ -15,6 +15,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>Attribute-Based Credentials</i></b></td>
     <td>Nathan G.</td>
     <td></td>
+    <td>Queried</td>
   </tr>
   <tr>
     <td colspan=4>
