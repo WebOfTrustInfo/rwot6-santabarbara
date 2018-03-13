@@ -299,7 +299,13 @@ more dangerous with larger cryptographically secure names.
 See also the first line of this paper.
 
 
-** Browser integration
+** Web browser integration
+
+While smartphone contact lists already have much in common with
+petname systems, web browsers require more care.
+But if we pay attention to what the boundaries and usage behavior
+of modern browsers are, a petnames system can be built which matches
+user expectations.
 
 #   - Browser
 #     - What it already does right
@@ -307,12 +313,36 @@ See also the first line of this paper.
 #       - a web page, when over a secure connection, is able to present a link that
 #         does express where the web page would like you to go
 #       - bookmarks
+
+One thing browsers are close to doing right are expressing the
+understanding that the address bar /should be/ a trusted path
+(though unfortunately browsers allow this trust to be broken,
+as we will see).
+Furthermore, a web page, when visited over a secure connection,
+is able to present a link that does express where the web page
+would like you to go.
+And usefully browsers already provide something that is very much like
+petnames: bookmarks, which allow users to map a locally human
+meaningful name to a global identifier.[fn:we-borrowed-this-idea-from-an-extension]
+
 #     - What it currently does wrong
 #       - hovers
 #       - the bottom bar can change
 #       - the address bar can change (though less)
 #       - no petnames
-#
+
+Unfortunately browsers also have different design decisions which can
+make providing a secure environment difficult.
+While it is good that the web page can direct the user successfully to
+another page of the original page's choosing, it is possible to "bait
+and switch" users into believing they are going to one web page when
+in fact they are being sent to another.
+For example, on desktop browsers if a user hovers over a link the bottom
+bar of a browser can indicate to a user where they will probably go.
+Unfortunately this is not guaranteed to be the actual place the user
+will be sent; for example, a web page can intercept the click in
+javascript and direct the user somewhere else.
+
 #     - when can you and can't you control the "body" of the interface?
 #       yes on a mobile application but not on 
 #
