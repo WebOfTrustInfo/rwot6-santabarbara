@@ -1,7 +1,7 @@
 #+TITLE: Making DIDs invisible: Petnames and their secure user interfaces
 
-By Mark S. Miller, Christopher Lemmer Webber, Zarchary Larson, Kate Sills,
-Eli Yaacoby, and Steve Dekorte.
+By Christopher Lemmer Webber, Mark S. Miller, Zarchary Larson, Kate Sills,
+and Eli Yaacoby
 
 If we ever show a DID to a user we have failed.  We should always show
 a human readable name.  DIDs and tor .onion names give decentralized
