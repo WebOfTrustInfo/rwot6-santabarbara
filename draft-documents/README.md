@@ -37,7 +37,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>DAD: Decentralized Autonomic Data</i></b></td>
     <td>Sam S.</td>
     <td></td>
-    <td>Queried</td>
+    <td>3/19</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -48,7 +48,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>DID v1.0</i></b></td>
     <td>Manu</td>
     <td></td>
-     <td>Queried</td>    
+     <td>[Update](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/did-spec-1.0.md)</td>    
   </tr>
   <tr>
     <td colspan=4>
@@ -125,7 +125,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>TLS-Flex</i></b></td>
     <td>Sam C.</td>
     <td><a href="TLS-Flex.md">Draft</a></td>
-              <td>Queried</td>
+              <td>3/20?</td>
   </tr>
   <tr>
     <td colspan=4>
