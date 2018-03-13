@@ -72,7 +72,7 @@ The three types of names in a petname system are:
    namespace, providing "paths" to names to other entities in the
    system as a graph, and these provided names are called "edge names".
    For example, "example.org" is an edge name in "dns ⇒ example.org",
-   and "Sarah Smith" is an edge name in "Uncle Bob ⇒ Sarah Smith".
+   and "Sarah Smith" is an edge name in "Uncle Bob ⇒ Sarah Smith".[fn:edgename-separator]
    We don't have to get rid of popular naming systems like DNS, but can
    absorb them in such a way that they are on equal footing with any other
    entity.
@@ -82,6 +82,13 @@ The three types of names in a petname system are:
    If you get an email that is cc'ed to =Ben Bitdiddle <ben@example.org>=,
    "Ben Bitdiddle" would be the intro name.
    
+[fn:edgename-separator] The pattern of using a path separator for edge
+names comes from [[https://en.wikipedia.org/wiki/Simple_public-key_infrastructure][SPKI/SDSI]].
+We considered using various separators including forward slashes, the
+english possessive "'s", and various others, but settled on a unicode
+arrow to give the impression that path separators are implementation
+specific and that delimiters may not even be typed in by hand.
+
 * Implementing petnames
 
 ** Smartphone contact list integration
@@ -105,7 +112,7 @@ Contact list applications use phone numbers as a global namespace
 without making phone numbers the primary user experience.
 Human meaningful names are mapped to phone numbers with no pretense
 that the names have global experience; the names are chosen by each
-human operator according to what is useful to them.
+human operator according to what is useful to them.[fn:not-just-phone-numbers]
 The UI uses this mapping both to search and select entities from a
 contact list to display a name in an incoming call, or to review call
 history.
@@ -114,7 +121,24 @@ petname be updated, that petname will be retroactively updated on the
 call history.
 
 #     - Things to add
-#       - Party scenario
+#       - Academic lecture scenario
+
+So a smartphone contact list brings us reasonably far, but not quite
+far enough.
+Let's consider a scenario in which we can explore the rest of the
+pieces to complete this puzzle.
+
+Alyssa receives a phone call from 1-324-555-8953.
+However, when she checks her phone to answer it, she does not see
+the phone number itself, she sees "Mom", which is the petname she has
+bound locally to the phone number.
+Alyssa answers the call and her mother, Dr. Nym, mentions that she's
+giving a special lecture on mathematics that she would like help
+organizing, and wonders if any of Alyssa's friends may be interested
+in attending or assisting.
+Alyssa offers to help and suggests that her long-time friend Ben
+Bitdiddle may be interested in both attending and helping.
+
 #       - Searching the contact list, type in a friend's name, get results
 #         from "your contacts" (petnames) "network contacts" (path names)
 #         - Sorting petname systems?
@@ -122,6 +146,33 @@ call history.
 #           - two-level path where first step is something you've chosen to use as a naming hub
 #         - call a person who's a friend
 #         - call a friend of a friend
+
+Dr. Nym says goodbye to her daughter and hangs up the phone.
+She searches for "Ben" in her contact list:
+
+The "local contacts" section shows *petnames* of people she knows,
+and "Ben Shapiro" is a research colleague of Dr. Nym's.
+The "network contacts" shows *edge names* published by entities
+Dr. Nym has stored locally as
+petnames.[fn:sorting-in-petname-systems][fn:how-are-edge-names-shared]
+Dr. Nym has stored her daughter as "Alyssa", and so when she sees
+"Alyssa ⇒ Ben Bitdiddle" ("Ben Bitdiddle" being the edge name supplied
+by Alyssa) she is confident this must be her daughter's friend.
+She clicks this entry and dials Ben.
+
+Ben hears an incoming call and sees that the caller is labeled
+"Alyssa ⇒ Jane Nym" and in smaller text "Campus Faculty ⇒ Dr. Nym".
+While Ben did not have Dr. Nym saved with a local petname, he
+has both Alyssa and the Campus Faculty directory saved as local
+petnames, and from the both of those remembers that Alyssa's mother
+is named Jane Nym and that she is a professor on campus.
+Ben accepts the call and enthusiastically agrees to help Dr. Nym
+set up the event.
+Ben offers to coordinate food for the event, and Dr. Nym
+enthusiastically states that while she will place an order for pizza,
+she would not have time to pick it up beforehand, and so help there
+would be greatly appreciated.
+
 #       - Saving a friend of a friend as a new petname
 #         - Save the petname (highlighted text which you can edit)
 #         - Click "share with contacts"
@@ -132,15 +183,121 @@ call history.
 #         - A footnote to: we've glossed over it in our example, but
 #           what should we do about mapping to a composite of values
 #           such as email and phone numbers
-#
+
+Ben decides that since he is helping out that he should store
+Dr. Nym's contact information permanently in his address book.
+Ben checks the call history and sees that the first item says
+a call from "Alyssa ⇒ Jane Nym".
+He selects "Save Contact" from a menu.
+On the edit screen that appears, a "local name" widget is immediately
+selected with a suggested entry of "Jane Nym" highlighted in such
+a way that if Ben were to begin typing he could override this text.
+Ben decides this name is good enough... since he knows Alyssa's mother
+on a personal basis through Alyssa, he is comfortable thinking about
+her as Jane Nym.
+Ben decides that he would also like to share this contact as an edge
+name with the rest of his contacts, and so presses the "share with
+contacts" button.
+Once again Ben is presented with an editable field with the name
+"Jane Nym" preselected, but Ben decides to edit this edge name to
+be called "Dr. Nym".
+While Ben knows Dr. Nym on a first name basis in a personal context,
+Ben and Dr. Nym both work in an academic setting, and in such contexts
+he thinks it would be respectful for others to hear Dr. Nym referred
+to with her full title.
+Dr. Nym's phone number is already entered, and with the mapping
+established, Ben presses save.[fn:composite-values]
+Returning to the recent calls page, he sees that the contact list's
+display has been updated to saying simply "Jane Nym" for the most
+recent call.
+
+#       - scan a QR code for a business, and "blocknym"
+
+Meanwhile Dr. Nym is wasting no time in placing the order for the
+pizzas for the event.
+She finds on her desk an advertisement for "Pizza Piano", a local
+pizza chain, which includes a QR code that she can scan.[fn:why-a-qr-code]
+The QR code only supplied the number to be called for the local
+restaurant, but Dr. Nym's phone supplies the identifier
+"bizdir ⇒ Pizza Piano East".
+"bizdir" is a business directory naming hub that Dr. Nym uses which
+independently verifies that local businesses are who they say they
+are.
+Dr. Nym is satisfied enough by this to be confident calling the
+establishment and paying for pizzas.
+She calls, pays, and tells the cashier who is taking the order that
+Ben will be the one picking up the pizzas and handling any additional
+details and supplies them with Ben's number.
+
 #       - caller ID (anchor name)
 #         Someone you don't know wants to come to your party
 #         - How do we visually distinguish between these and path names?
 #           We should probably do a "?=>John Doe 1"
 #       - a user is called and there's no phone number given,
 #         "?=>Unknown/Unnamed Caller Number 1"
-#       - scan a QR code for a business, and "blocknym"
 #
+
+Time passes, and just hours before the event Ben gets an incoming
+phone call from a number he has not saved as a petname and for which
+none of his contacts have provided a petname (including that Ben does
+not have the same business directory Dr. Nym does as a contact
+either).
+"Caller ID" does provide an *intro name* of "Pizza Piano" for this
+context (though there is no guarantee that "caller ID" provides the
+same intro name to others for this phone number), however since this
+is a contextual name and Ben's contact and phone applications do not
+want Ben to be confused, this renders as "? ⇒ Pizza Piano 2".
+The "?" is because this message comes from the local context of the
+application and otherwise is not rooted in a known entity from Ben's
+local trust network (ie, contacts).
+"Pizza Piano" is the intro name, but Ben has already had contact with
+one of the other Pizza Piano franchise locations, and so the system
+distinctively marks this one as entry 2.
+Ben answers the call; the pizza parlor employee merely wanted to let
+Ben know that they were all out of olives and wanted to know if another
+ingredient would be acceptable.
+Even though Ben is trusting that caller ID is correct, he can't
+imagine any reason why someone would be trying to phish him to
+authorize a topping change, so he suggests changing from olives to
+mushrooms.
+Now all that's left for Ben to do is pick up the pizzas!
+
+[fn:not-just-phone-numbers] Phone numbers are one example of
+not-particularly-human-memorable identifiers, and since contact list
+applications so frequently deal with them, we've stuck with that example.
+Of course there's no reason a contact list couldn't deal with DIDs or
+other URIs or tor .onion addresses or really any such global
+identifiers.
+
+[fn:sorting-in-petname-systems] It is important to deliver a reasonable
+sorting order to the names presented.
+In general, petnames should always be presented first.
+Following petnames should be one-level-deep edge names.
+What entities should be prioritized to provide edge names?
+This might depend on the user or application, but it would be reasonable
+that trust might vary here, with well known naming hubs and trusted
+(which may mean frequently interacted with) other entities.
+
+[fn:how-are-edge-names-shared] One detail we've glossed over is how edge
+names are shared in the first place.
+There are many routes to providing edge names, from occasionally
+sharing a certificate with an entire list of edge names with all
+followers to querying an endpoint from a particular entity on demand.
+Implementations of petname systems may vary in their implementation here.
+
+[fn:composite-values] Of course a contacts system may have a composite of
+values for a particular entity, such as email alongside a phone number
+(or numbers).
+This is possible in a petnames system, as long as such mappings remain
+bidirectional, but we have left out such details from our example scenario
+to keep it simple.
+
+[fn:why-a-qr-code] Note that we did not suggest that Dr. Nym typed in
+the phone number.
+Typing in identifiers is problematic enough with phone numbers, and far
+more dangerous with larger cryptographically secure names.
+See also the first line of this paper.
+
 
 ** Browser integration
 
