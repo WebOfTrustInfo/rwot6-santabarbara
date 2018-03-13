@@ -48,7 +48,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>DID v1.0</i></b></td>
     <td>Manu</td>
     <td></td>
-     <td>[Update](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/did-spec-1.0.md)</td>    
+     <td><a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/did-spec-1.0.md">Update</a></td>    
   </tr>
   <tr>
     <td colspan=4>
