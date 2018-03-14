@@ -3,12 +3,21 @@ The Five Truths about Biometric Data
 
 Contributors:\
 John Callahan
-
+Heather Vescent
+Kaliya Young
 Darrell Duane
-
 Shannon Appelcline
-
 Asem Othman
+Adrian Gropper
+
+Reviwers:\
+Joe Andrieu
+Manu Sporny
+Kim Hamilton Duffy
+Chris Allen
+Christian Lundkvist
+Drummond Reed
+Kyle Den Hartog
 
 **ABSTRACT**
 
