@@ -145,12 +145,12 @@ the easiest way to provide access to the data is through an active
 agent. This is probably the case for mediated access to personally
 identifiable information.
 
-Howeever, there are other ways to provide mediated access. For
+However, there are other ways to provide mediated access. For
 example, by making a copy of the data and then encrypting it with the
 public key of a consumer. Such an approach to providing access to data
 works if the consumer needs to access a large amount of data,
 i.e. almost all of the entity's historical data and then receive
-occassional updates.
+occasional updates.
 
 Revoking access to an already shared data is a problem, however, once
 a consumer has access to the data, then they could have made a copy of
@@ -273,7 +273,7 @@ in and then serve the new version.
 
 ### Reciprocity - No free riders
 
-To borrow from the bittorrent protocol, a storage network can require
+To borrow from the bit-torrent protocol, a storage network can require
 that a node is sent new data only if it is storing and serving a
 certain minimum amount of data. Providing such reciprocity incentives
 has not been easy in other networks, so we advise carefully evaluating
