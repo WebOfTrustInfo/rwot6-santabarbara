@@ -1,5 +1,5 @@
 
-# Permissionless, replicated, decentralised storage network for storing verifiable credentials
+# Permissionless, Replicated, Decentralised Storage Network for Storing Verifiable Credentials
 
 Authors: Kulpreet Singh, Joao Santos, Nate Otto, Ron Kreutzer
 
@@ -42,7 +42,7 @@ network might want to support.
 # Common Patterns for Storing Verifiable Credentials
 
 In this section we identify common patterns of using storage of
-verifiable credentials among three projects -
+verifiable credentials among four projects -
 [DClaims](https://github.com/inesc-id/dclaims-news),
 [Pillar Project](https://pillarproject.io/),
 [OpenBadges](https://openbadges.org/) and [Chlu](https://chlu.io). We
@@ -181,9 +181,9 @@ available and the subject can not deny access to that data.
 
 In cases where an entity wants to revoke access to a verifiable
 credential, we think agents will provide a stronger guarantee to be
-able to do so. Using decentralised storage network, revoking access is
-possible through revocation lists, but the trust that no nodes on the
-network misbehave and ignore the revocation lists.
+able to do so. Using a decentralised storage network, revoking access
+is possible through revocation lists, but with the trust that no nodes
+on the network misbehave and ignore the revocation lists.
 
 However, as we pointed out earlier, the consumer still has a copy of
 the data, and it can't be guaranteed that they will not use it in
@@ -196,8 +196,8 @@ Another use case, similar to the one above is sharing verifiable
 credentials within a community, where other members are also sharing
 credentials to build a network of trust relations. In this case, other
 entities in the community need to access the verifiable credentials
-even if the entities that shared the verifiable credentials left with
-their device.
+even if the entities that shared the verifiable credentials have left
+with their device.
 
 Once an entity's agent leaves the community, for example, the user
 leaves the area with their mobile phone, then the rest of the
@@ -269,7 +269,20 @@ version of a credential to the old version. This will assure that a
 node can quickly check if a new version of a credential is available
 in and then serve the new version.
 
-[IMAGE]
+![Versioning Verifiable Credentials](media/storage-network/versioning.png)
+
+The figure above shows how a verifiable credential is linked from the
+blockchain. Any updates to a claim link back to the previous
+credential that is being over-ridden by the new credential.
+
+Each node on the storage network maintains an index of the content
+identifiers stored at the node. There is another reverse index
+maintained by each node, which allows for quick lookups for a content
+address that include a hash pointer to a given content address.
+
+When a node is queried for a given content identifier, the node
+returns the entire chain of claims. It is then up to the consumer how
+to consume the data.
 
 ### Reciprocity - No free riders
 
@@ -285,8 +298,8 @@ the benefits of providing this feature.
 Nodes should be able to identify if other nodes are not serving the
 correct data. Full nodes will have the entire data set and they can
 police other nodes to check if they are serving correct data. In case,
-a node is sending incorrect data, the policing nodes should be able to
-call out the bad nodes along with a proof of the incorrect data
+if a node is sending incorrect data, the policing nodes should be able
+to call out the bad nodes along with a proof of the incorrect data
 served. By encouraging nodes to police each other and simply call out
 bad actors we can provide for a way to govern and maintain the
 network.
@@ -314,8 +327,17 @@ published there and then fetch verifiable credentials from a given
 node. If the node is able to provide all verifiable credentials then
 it is a full node.
 
+In this section we identified a list of features that a storage
+network needs to support. We envision a multitude of storage networks
+that support different combinations of the features listed. In the
+next section we propose an architecture of a storage network and
+identify which of the above features can be provided by putting
+together open source libraries already available.
 
-## Implementation
+
+## Architecuture Proposal
+
+
 
 ## Related Work
 
