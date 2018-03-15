@@ -112,13 +112,10 @@ made highly available independent of the claim issuers availability.
 ## Pillar Project
 
 The Pillar project's aim is to provide users control over their
-data. The project currently stores assets in a user's wallet. The
-wallet acts as a user's agent to mediate access to user owned
-data. Just like in the case of OpenBadges, it remains to be seen if
-the Pillar project's use case can be fulfilled by storing user data on
-a decentralised storage network.
-
-[TODO:RON: Are there any plans to support storing user's data on a storage network?]
+data. The project currently stores assets in a user's wallet and on servers run 
+by the project. The wallet acts as a user's agent to mediate access to user owned
+data. The near-term plan is to store data, including verifiable credentials, 
+consents and encrypted personal data on a decentralised storage network.
 
 ## Patterns of data storage
 
@@ -135,8 +132,10 @@ and allows the subject entity to define access control rules.
 
 If an application needs to store PPI data, we believe they should
 provide access to these through an active agent that can adhere to
-entity selected authorisation policies. PPI should not be stored on a
-decentralised storage network.
+entity selected authorisation policies. PPI should not be stored
+unencrypted on a decentralised storage network.
+
+[added "unencrypted" -- is this our thinking?]
 
 ### Mediated Access
 
