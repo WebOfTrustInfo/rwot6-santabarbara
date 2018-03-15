@@ -335,10 +335,94 @@ identify which of the above features can be provided by putting
 together open source libraries already available.
 
 
-## Architecuture Proposal
+## Proposed Architecture
 
+In this section we propose a layered architecture of the storage
+network and identify which of the features listed above can be
+provided by an implementation of such an architecture. The figure
+below shows our proposed layered architecture.
 
+![Proposed Architecture](media/storage-network/architecture.png)
+
+The components are
+
+### HTTP API Endpoint
+
+An HTTP API to receive GET, PUT and UPDATE requests. DELETE is not
+supported as claims have to revoked using a revocation list, they can
+not be deleted from the storage network. PUT requests are
+asynchronous, and the client does not have to wait for the node to
+verify the review and save it before it can receive a response. PUT
+requests are queued for processing so that the client doesn't have to
+wait.
+
+### Gossip based Replication
+
+Gossip based replication protocol that provides eventual
+consistency. Each claim is an independent data point and therefore
+claim write operations are commutative. This allows us to provide
+eventual consistency even in the case of network partitions. When
+partitions heal, then the nodes have to synchronise by playing catch
+up with each other. Again, this architecture will work for
+applications whose writes that are commutative. In case, the writes do
+not commute, the storage network will have to use an alternative
+replication protocol to provide eventual consistency.
+
+Finally, we note that updates to a verifiable credential is also a
+commutative write. This is provided because we require that
+applications using this particular architecture provide a claim update
+to include a hash pointer to the review being updated. This hash
+pointer is simply the hash of the claim being updated, and clients can
+compute this hash from the contents of the claim.
+
+### Verification Layer with Plugins
+
+A verification layer, that makes sure a received message is a valid
+claim. A lot of cases are verifiable directly following the Verified
+Credentials specifications, but some might require application
+specification steps to be taken. We propose to handle this situation
+by allowing for nodes to load plugins for running application specific
+verification protocols. These are shown as "Plugin DApp X" in the
+figure. Once a received claim is verified it is saved in the local
+data storage and also passed to the gossip based replication protocol
+to make sure other nodes receive a copy.
+
+### Data Storage
+
+Finally, the local data storage will use a LevelDB database to store
+each claim keyed by the hash of the entire contents of the claim. This
+hash can be computed by the client sending the HTTP/PUT request and
+therefore the node does not need to return this to the client. The PUT
+requests can therefore be made asynchronous, and the client does not
+have to wait for the node to run the verification for the claim being
+written.
+
+The LevelDB store will also write to a reverse index to enable fast
+lookups for any updates to a claim.
+
+The architecture presented above addresses one particular use case,
+that we believe will be fairly common for DApps. The requirement here
+is that DApps need a censorship resistant storage network and are
+willing to provide for write operations to be commutative.
 
 ## Related Work
 
+IPFS is a popular option in the DApps community as a storage
+solution. But from our experience on Chlu we have found that
+developers need to build bespoke solutions to provide replication and
+verification. We believe that the IPFS use case of a permanent web is
+slightly different from what DApps like Chlu and DClaims require.
+
+The Ethereum SWARM project motivations are closest to the one
+presented in this paper, however, SWARM was never released to
+production and it does not seem to be under active development.
+
 ## Conclusion
+
+We presented use cases motivating a need for a permissionless,
+replicated, decentralised storage network. The use cases were derived
+from discussion at the RWOT6 between participants from Chlu, DClaims,
+OpenBadges and The Pillar Project. After identifying the use cases, we
+derived requirements for a storage network and finally presented an
+architecture that will address the storage problems for some of our
+use cases.
