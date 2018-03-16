@@ -1,42 +1,47 @@
-The Five Truths about Biometric Data
-====================================
+Five Best Practices for Self-Sovereign Biometrics
+=================================================
 
 Contributors:\
-John Callahan
-Heather Vescent
-Kaliya Young
-Darrell Duane
-Shannon Appelcline
-Asem Othman
+John Callahan,
+Heather Vescent,
+Kaliya Young,
+Darrell Duane,
+Shannon Appelcline,
+Asem Othman,
 Adrian Gropper
 
 Reviwers:\
-Joe Andrieu
-Manu Sporny
-Kim Hamilton Duffy
-Chris Allen
-Christian Lundkvist
-Drummond Reed
+Joe Andrieu,
+Manu Sporny,
+Kim Hamilton Duffy,
+Chris Allen,
+Christian Lundkvist,
+Drummond Reed,
 Kyle Den Hartog
 
 **ABSTRACT**
 
-Biometrics are already here, and they *will* be used on the internet,
-whether we like it or not. They are already are; a lot of the current
-practices are bad and the centralized hosts know it. We know that
-centralized repositories of sensitive information are highly vulnerable
-and present irresistible targets, but better solutions are not available
-to current practitioners; they’re not even being considered.
-Fortunately, there are other fields that are already solving these
-problems, such as self-sovereign identity. We need to adapt their best
-practices to make biometrics safe and secure.
+Biometrics are widely used for identity proofing, identity
+verification and authentication, but many implementations are
+vulnerable to breaches and exploitation. For example, centralized
+repositories of sensitive personally identifiable information (PII),
+including biometric data, can associate such information with other
+identity information in violation of privacy and cybersecurity
+guidelines.  Such respositories include public and private blockchains
+that should never be used to store full, partial, or encrypted
+biometric data.  This paper describes some of the best practices of
+decentralized solutions, such as self-sovereign identity, that can
+help solve many of the problems with biometric privacy and provide
+better overall security.
+
+[WEF and Andrieu's Aadhaar articles, private vs. secret]
 
 ### Introduction
 
-Biometric data is a third rail for discussions of identity. It’s broadly
-understood to be both permanent and sensitive, so there’s a value fear
-is that if the data is put online, it will inevitably be stolen and
-abused.
+Biometric data is a third rail for many discussions about
+identity. It’s broadly understood to be both permanent and sensitive,
+so there’s a value fear is that if the data is put online, it will
+inevitably be stolen and abused.
 
 There is the potential for disaster.
 
@@ -71,12 +76,12 @@ Adopting self-sovereign principles for biometric data requires a new
 framework. This paper lays them out as five *truths* that are needed for
 the safe storage and usage of biometric data.
 
-### Biometrics Should Never Be Stored in Central Databases \[Darrell\]
+### Biometrics Should Be Decentralized
 
-When Biometrics for Authentication were first developed, the only option
-to store the biometric data for comparison with the login data was in a
-centralized silo connected to the internet. As time has gone by,
-centralized silos have become more and more vulnerable, presenting
+When biometrics for authentication were first developed, the only
+option to store the biometric data for comparison with the login data
+was in a centralized silo connected to the internet. As time has gone
+by, centralized silos have become more and more vulnerable, presenting
 irresistible targets for data thieves.
 
 There are a number of cases where significant collections of very
@@ -760,6 +765,8 @@ video technology* (2004).
         ii. Point to from a Blockchain
 
         iii. \[and example of DID-Auth too\]
+
+![Alt](Biometric-diagrams/bioEnrollment.sequence.svg)
 
     b.  And we explain how it meets our 5 or 6 criteria
 

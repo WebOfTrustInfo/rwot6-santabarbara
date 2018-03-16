@@ -1,0 +1,26 @@
+participant User
+participant MCA
+participant Service\nProvider\n(Verifier) as ServiceProvider
+participant BOPS\nServer B as BOPS
+participant Blockchain\n(btcr r3 sov v1 ...) as Blockchain
+participant Identity Hub\n(dropbox gdrive s3 ...) as IdentityHub
+Note over IdentityHub: DID document contains\nissuer signature,\nenrollment signature &\nencrypted share 2/2
+User -> MCA: use mobile app\nto access a resource
+MCA -> ServiceProvider: login with given DID, signature & enrollment pub key
+ServiceProvider -> BOPS: create a\nsession opportunity for DID
+BOPS -> Blockchain: resolve DID
+IdentityHub -> BOPS: return DID Document
+Note over BOPS: verify known\nissuer signature
+Note over BOPS: verify enrollment\nsignature
+BOPS -> MCA: request share 1/2 & signed challenge\n(e.g., via push notification)
+MCA -> MCA: retrieve share 1/2\n(e.g., via TPM/TEE)
+MCA -> User: collect biometric\nquery template
+User -> MCA: return biometric\nquery template
+Note over MCA: sign challenge\n(w/enrollment priv key)
+MCA -> BOPS: send share 1/2, query template & signed challenge
+Note over BOPS: verify challenge\nsignature
+Note over BOPS: use enrollment\npub key to\ndecrypt share 1/2
+Note over BOPS: combine shares\n& perform match
+BOPS -> ServiceProvider: match success
+Note over BOPS: purge share 1, share 2 \n& associated keys
+ServiceProvider -> User: authorize access to resource
