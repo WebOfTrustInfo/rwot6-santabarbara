@@ -1,7 +1,7 @@
-Five Best Practices for Self-Sovereign Biometrics
-=================================================
+Six Principles for Self-Sovereign Biometrics
+============================================
 
-Contributors:\
+Contributors:
 John Callahan,
 Heather Vescent,
 Kaliya Young,
@@ -10,14 +10,15 @@ Shannon Appelcline,
 Asem Othman,
 Adrian Gropper
 
-Reviwers:\
+Reviwers:
 Joe Andrieu,
 Manu Sporny,
 Kim Hamilton Duffy,
-Chris Allen,
+Christopher Allen,
 Christian Lundkvist,
 Drummond Reed,
 Kyle Den Hartog
+Marcus Sabadello
 
 **ABSTRACT**
 
@@ -76,7 +77,7 @@ Adopting self-sovereign principles for biometric data requires a new
 framework. This paper lays them out as five *truths* that are needed for
 the safe storage and usage of biometric data.
 
-### Biometrics Should Be Decentralized
+### Principle 1: Biometrics Should Be Decentralized
 
 When biometrics for authentication were first developed, the only
 option to store the biometric data for comparison with the login data
@@ -94,7 +95,7 @@ suffered various breaches[^4].
 As new data technologies and architectures have emerged, many have
 thought that there might be some role for the Blockchain for Biometrics.
 
-### Biometrics Should Never Be Stored on the Blockchain \[Shannon\]
+### Principle 2: Biometrics Should Never Be Stored on a Blockchain
 
 Blockchains are one of the most popular and well-tested decentralized
 tools for storing data on the internet. They have already become a prime
@@ -122,7 +123,7 @@ that blockchains can’t be used. They’re a great decentralized tool, and
 there are ways to use them than don’t store biometric data on the
 blockchain itself.
 
-### Biometrics Can Be Accessed *Via* the Blockchain \[Jack\]
+### Principle 3: Biometrics Can Be Accessed *Via* a Blockchain
 
 If you need to store biometric data, you can store a ***pointer*** to it
 on a blockchain but not the data itself. Biometric data always needs to
@@ -151,7 +152,7 @@ access even though the address is public.
 \[Additional Topic of Discussion: Offline First. How can we make this
 work when you’re offline without internet access, then sync up lately?\]
 
-### Biometrics Should Be Under A User’s Control \[Shannon\]
+### Principle 4: Biometrics Should Be Under A User’s Control
 
 When a user decides where to place his actual biometric data, he should
 ensure that it stays under his control: he should be the authority who
@@ -191,7 +192,7 @@ With biometric storage (at last) stored in a way that maximizes
 protection and authority for the user, the next question is: *how do you
 use it?*
 
-### Biometrics Traits Should Be Reliable \[Asem/Shannon\]
+### Principle 5: Biometrics Traits Should Be Reliable
 
 Not just any biometrics will do the job. When choosing which biometrics
 will be stored and used, care should be taken to ensure that the
@@ -210,32 +211,42 @@ relation to the specific application that they’re being used for.
 
 And even with that, biometrics might not be quite enough ...
 
-### Biometrics Should Be Part of a Systematic Procedure \[Asem/Shannon\]
+### Principle 6: Biometrics Should Be Part of a Systematic Procedure
 
 Biometrics aren’t the end-all and be-all. They need to be part of a
 larger systematic procedure. There are a number of possible steps for a
 biometric system:
 
-1.  Biometrics can have passive liveness (such as an Apple face recognition), or a more extensive system can require active liveness (such as lip-reading a person’s face when they specified words), to facilitate presentation attack detection (PAD).
+1.  Biometrics can have passive liveness (such as an Apple face
+recognition), or a more extensive system can require active liveness
+(such as lip-reading a person’s face when they specified words), to
+facilitate presentation attack detection (PAD).
 
-2.  Biometrics can combine multiple factors, such as requiring a passphrase in addition to biometrics.
+2.  Biometrics can combine multiple factors, such as requiring a
+passphrase in addition to biometrics.
 
-3.  Biometrics can produce confidence ratings; rather than offering a binary result, they can suggest how likely a result is to be accurate, based on the reliability of the biometric trait for the purpose and the use of other systematic elements such as active liveness and multiple factors.
+3.  Biometrics can produce confidence ratings; rather than offering a
+binary result, they can suggest how likely a result is to be accurate,
+based on the reliability of the biometric trait for the purpose and
+the use of other systematic elements such as active liveness and
+multiple factors.
 
-4.  Biometrics can have fallbacks. If either the measurement device or the person suffers a temporary or permanent change (such as a scar, a lost finger, or a broken phone), then the biometric system should permit other means of access.
+4.  Biometrics can have fallbacks. If either the measurement device or
+the person suffers a temporary or permanent change (such as a scar, a
+lost finger, or a broken phone), then the biometric system should
+permit other means of access.
 
 The need for these more in-depth systems is a fact that’s already been
-stated: no biometric is perfect. This means that any system will suffer
-from False Rejection Rate (FRR) and False Acceptance Rate (FAR): the
-right users may be rejected and the wrong users may be accepted. NIST’s
-SOFA metrics provide more details on these problems and possible
-attacks[^9].
+stated: no biometric is perfect. This means that any system will
+suffer from False Rejection Rate (FRR) and False Acceptance Rate
+(FAR): the right users may be rejected and the wrong users may be
+accepted. NIST’s SOFA metrics provide more details on these problems
+and possible attacks[^9].
 
 Systematic approaches can be actively aware of these challenges and
 compensate for them.
 
-A Biometric Use Case
---------------------
+### A Biometric Use Case
 
 1.  Give the Solution
 
