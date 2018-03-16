@@ -1,6 +1,4 @@
-%% grip permissionless-replicated-decentralised-storage-network.md 
-
-# Permissionless, Replicated, Decentralised Storage Network for Storing Verifiable Credentials
+# Permissionless, Replicating, Decentralised Storage Network for Storing Verifiable Credentials
 
 Authors: Kulpreet Singh, Joao Santos, Nate Otto, Ron Kreutzer
 
@@ -9,48 +7,65 @@ Authors: Kulpreet Singh, Joao Santos, Nate Otto, Ron Kreutzer
 The Verifiable Credentials specifications require that "Holders must
 provide verifiable claims to inspector-verifiers through an agent that
 inspector-verifiers needn't trust; they only need to trust issuers."
-This requirement can be fulfilled by a permissionless, replicated,
+This requirement can be fulfilled by a permissionless, replicating,
 decentralised storage network that serves any Verifiable Credential
 saved on the network with high availability. We motivate the need for
 such a storage network by describing use cases where holders need to
 provide public access to the claims. We identify common use cases of
 storing verifiable credentials and try to separate them in to two
 groups where the data must be stored on an active agent, and where the
-data can be stored on a permissionless, replicated and decentralised
+data can be stored on a permissionless, replicating and decentralised
 storage network. Finally we identify a set of features that such a
-storage network needs to provide. We don't believe that all these
+storage network needs to provide. We don't think that all these
 features are necessarily compatible and should all be provided by all
-implementations. Instead we believe that a number of different storage
-networks are possible that support different combinations of these
+implementations. Instead we suggest that a number of different storage
+networks are possible supporting different combinations of these
 features.
 
 ## Introduction
 
-A permissionless, replicating, decentralised storage network is a peer
-to peer network that stores verifiable credentials so that these
-credentials are always available, publicly readable and allow anyone
-to join and obtain a replica of the entire data set stored on the
-network. We envision that each node in this decentralised network can
-choose to store data for a one or more Dapps, so that not all nodes
-store data for all Dapps.
+[Verifiable Credentials Specifications](https://w3c.github.io/vc-data-model/)
+provide a mechanism to express these sorts of credentials on the Web
+in a way that is cryptographically secure, privacy respecting, and
+automatically verifiable. The
+[Credentials Community](https://www.w3.org/community/credentials/charter/)
+is working on providing specifications for the Verifiable Credentials
+and [Decentralised Identiy(DID)](https://w3c-ccg.github.io/did-spec/)
+where
+[Identity Hubs](https://github.com/decentralized-identity/hubs/blob/master/explainer.md)
+are used to store credentials for an entity identified by a DID
+document. We present an alternative way to store Verifiable
+Credentials - by storing them on a public decentralised network.
 
-In the next sections we identify common patterns used by Dapps to
+A permissionless, replicating, decentralised storage network is a peer
+to peer network that stores Verifiable Credentials so that the
+credentials are always available and publicly readable. The network
+allows anyone to join and obtain a replica of the entire data set
+stored on the network. We envision that each node in this
+decentralised network can choose to store data for a one or more
+DApps, so that not all nodes store data for all DApps. Such a storage
+network runs as a public utility where participants store and retrieve
+data for their use cases but as a consequence provide the utility for
+everyone else.
+
+In the following sections we identify common patterns used by DApps to
 store verifiable credentials and identify if they need an active agent
 for storage or if a permissionless, decentralised storage network is
-needed. Finally, we identify a set of features that such a storage
-network might want to support.
+needed. We identify a set of features that such a storage network
+might want to support and finally present a layered architecture to
+provide features that cover some common usage patterns.
 
 # Common Patterns for Storing Verifiable Credentials
 
-In this section we identify common patterns of using storage of
-verifiable credentials among four projects -
+In this section we identify common patterns for storing verifiable
+credentials among four projects - [Chlu](https://chlu.io),
 [DClaims](https://github.com/inesc-id/dclaims-news),
-[Pillar Project](https://pillarproject.io/),
-[OpenBadges](https://openbadges.org/) and [Chlu](https://chlu.io). We
-then identify if each of the identified patterns requires an active
-agent to store the credentials or can can also be stored on a
-permissionless, decentralised storage network while providing the
-required application behaviour.
+[OpenBadges](https://openbadges.org/) and
+[Pillar Project](https://pillarproject.io/). We then identify if each
+of the identified patterns requires an active agent to store the
+credentials or can can also be stored on a permissionless,
+decentralised storage network while providing the required application
+behaviour.
 
 First we provide an brief overview of the three projects and list the
 requirements for storing the Verifiable Credentials stored in each
@@ -60,7 +75,7 @@ project.
 
 Chlu decentralises ratings and reviews earned by vendors from selling
 their goods and services on marketplaces. These ratings and reviews
-are saved so that they can be verified by any third part. The ratings
+are saved so that they can be verified by any third party. The ratings
 and reviews data includes references to the entities and keys that
 signed the review. The ratings and reviews also include a reference to
 a public payment made through a cryptocurrency, the payment inturn
@@ -76,27 +91,10 @@ Currently, Chlu saves the ratings and review data on IPFS, however
 data replication on IPFS is not supported natively. For the moment,
 Chlu uses IPFS' pubsub mechanism to provide replication.
 
-## OpenBadges
-
-The OpenBadges project provides a way for users to earn badges
-asserting their achievements. These assertions are issued by XXX and
-are stored in the recipient's accounts on OpenBadges backpack
-services. These backpack services are independent services that store
-a user's badges and allow anyone to access these verified badges.
-
-The OpenBadges ecosystem relies on the backpack services to act as
-verifiers of assertions included in the badges before being displayed
-to a consumer. However, with recent innovation towards decentralised
-identities, there is a drive within the OpenBadges community to adopt
-verifiable credentials. It remains to be seen if OpenBadges could be
-stored on a storage network that stores OpenBadges as verifiable
-credentials and thus does not require an active agent like a
-backpack. [TODO:NATE: If you kill me for saying such things, I will understand]
-
 ## DClaims
 
 DClaims is a platform that enables a truly distributed and trustless
-way of managing claims about News articles. Using the
+way of managing claims about news articles. Using the
 DClaims-Web-Extension users can generate claims (whose authenticity
 and integrity can be verified by anyone without the need of a third
 party) about any news article, and those claims can be presented to
@@ -105,10 +103,30 @@ with the use of IPFS and Ethereum.
 
 Currently, DClaims stores claims about news articles on IPFS, such
 that, if the claim writers turn off their IPFS nodes the claim is lost
-forever. The claims created by DClaims users need to replicated and
+forever. The claims created by DClaims users need to replicating and
 made highly available independent of the claim issuers availability.
 
 [TODO:JOAO: Would love your feedback on this section and if you want to saying something more or something less please do so.]
+
+## OpenBadges
+
+[TODO:NATE: Does this section make sense? Please point out if my understanding is incorrect anywhere]
+
+The OpenBadges project provides a way for users to earn badges
+asserting their achievements. These assertions are issued by
+educational institutions and are stored in the recipient's accounts on
+OpenBadges backpack services. These backpack services are independent
+services that store a user's badges and allow anyone to access these
+verified badges.
+
+The OpenBadges ecosystem relies on the backpack services to act as
+verifiers of assertions included in the badges before being displayed
+to a consumer. However, with recent innovation towards decentralised
+identities, there is a drive within the OpenBadges community to adopt
+verifiable credentials. It remains to be seen if OpenBadges could be
+stored on a storage network that stores OpenBadges as verifiable
+credentials and thus does not require an active agent like a
+backpack.
 
 ## Pillar Project
 
@@ -118,7 +136,7 @@ by the project. The wallet acts as a user's agent to mediate access to user owne
 data. The near-term plan is to store data, including verifiable credentials, 
 consents and encrypted personal data on a decentralised storage network.
 
-## Patterns of data storage
+## Patterns of Data Storage
 
 In this section, we identify the common patterns of storing data that
 were discovered while trying to understand the use cases of the above
@@ -152,24 +170,22 @@ works if the consumer needs to access a large amount of data,
 i.e. almost all of the entity's historical data and then receive
 occasional updates.
 
-Revoking access to an already shared data is a problem, however, once
-a consumer has access to the data, then they could have made a copy of
-the data.
+Revoking access to an already shared data is a problematic. This is
+because, once a consumer has access to the data, then they could have
+made a copy of the data.
 
-So mediated access by keeping a copy of encrypted data works if there
-is a large amount of entity's historical data that needs to be shared
-and also where the application can tolerate that a data consumer
-retains access to data shared in the past.
+We think mediated access by keeping a copy of encrypted data works if
+there is a large amount of entity's historical data that needs to be
+shared and also where the application can tolerate that a data
+consumer retains access to data shared in the past.
 
-### No mediated access, censorship resistant verifiable credentials
-
-[TODO: This can be highlighted much earlier]
+### No Mediated Access, Censorship Resistant Verifiable Credentials
 
 If data has to be publicly accessible without a mediated access, then
 such data can be stored on a public, permissionless decentralised
 storage network. An active agent does not provide any benefits but
-adds to the overhead of starting and maintaining services for all the
-entities.
+adds to the overhead of running and maintaining services for all
+entities that want to share their verifiable credentials.
 
 If the verifiable credential is created for an entity by another
 entity, for example a claim written by a reader about an article, and
@@ -177,50 +193,55 @@ it needs to be censorship resistant, then we have to store it in a
 permissionless decentralised storage network so that it remains highly
 available and the subject can not deny access to that data.
 
-### Revoking access to verifiable credentials
+### Revoking Access to Verifiable Credentials
 
 In cases where an entity wants to revoke access to a verifiable
 credential, we think agents will provide a stronger guarantee to be
-able to do so. Using a decentralised storage network, revoking access
-is possible through revocation lists, but with the trust that no nodes
-on the network misbehave and ignore the revocation lists.
+able to do so. Revoking access to credentials stored on a
+decentralised storage network is possible through revocation
+lists. But it requires trusting nodes on the network to not misbehave
+by ignoring revocation lists.
 
 However, as we pointed out earlier, the consumer still has a copy of
 the data, and it can't be guaranteed that they will not use it in
 future. Therefore, revoking access to data comes down to the trust
 relationships established between the consumer and the subject.
 
-### Share credentials with a community
+### Share Credentials with a Community
 
 Another use case, similar to the one above is sharing verifiable
 credentials within a community, where other members are also sharing
 credentials to build a network of trust relations. In this case, other
 entities in the community need to access the verifiable credentials
-even if the entities that shared the verifiable credentials have left
+even after the entities that shared the verifiable credentials have left
 with their device.
 
 Once an entity's agent leaves the community, for example, the user
 leaves the area with their mobile phone, then the rest of the
 community can't access the entity's shared data anymore. In such
-cases, a storage network approach, where entity's data are replicated
+cases, a storage network approach, where entity's data are replicating
 on all nodes will provide a better solution.
 
-### Running services
+### Running Services
 
 Agents need to be run somewhere and the cost of running them has to be
-paid by somebody. In some use cases, for example a vendor reviews or
-claims made by readers of online news sites, running an agent or hub
-to manage access to decentralised claims can be difficult to provide.
+paid by somebody. In some use cases, for example, when a customer
+leaves reviews for a vendor, or claims created by readers of online
+news sites, running an agent or hub to manage access to decentralised
+claims can be difficult to provide. The claims should not be only
+stored on the news website, nor only the reader's device. At the same
+time the subjects (vendors or news articles) can not be required to
+run a service for claims associated to them.
 
 Depending on hubs to act as agents for entities creates other points
 of centralisation, and in cases where an active agent is not required,
-we believe a decentralised, replicated storage network can provide a
+we believe a decentralised, replicating storage network can provide a
 better solution.
 
 ## Features
 
 In this section we identify a set of features that a permissionless,
-replicated, decentralised, storage network can support. We realise
+replicating, decentralised, storage network can support. We realise
 that some of these features are incompatible with each other, however,
 different implementations of such a network can pick and choose which
 features they want to support.
@@ -248,7 +269,13 @@ long as at least one node is online. This can be solved in a number of
 ways, and we don't suggest any single solution. For example, all nodes
 on the network can store all the verifiable credentials that were ever
 stored or we can choose a system where each credential is stored with
-a k replicas. [TODO: Use p2p terminology here].
+a k replicas, enough to provide 100% availability. Using a k-replica
+approach creates a requirement that when a node goes offline, other
+nodes in the network make sure all the data on that node gets
+replicated one more time. DHTs like
+(Chord)[https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf],
+provide for such replication, but they result in a lot of
+implementation complexity.
 
 ### Replication
 
@@ -267,7 +294,7 @@ a verifiable claim. This is a hard problem to solve and our suggested
 solution is to use full nodes and to use hash pointers from a new
 version of a credential to the old version. This will assure that a
 node can quickly check if a new version of a credential is available
-in and then serve the new version.
+in and then serve the new version, or the entire history of the claim.
 
 ![Versioning Verifiable Credentials](media/storage-network/versioning.png)
 
@@ -284,7 +311,7 @@ When a node is queried for a given content identifier, the node
 returns the entire chain of claims. It is then up to the consumer how
 to consume the data.
 
-### Reciprocity - No free riders
+### Reciprocity - No Free Riders
 
 To borrow from the bit-torrent protocol, a storage network can require
 that a node is sent new data only if it is storing and serving a
@@ -293,7 +320,7 @@ has not been easy in other networks, so we advise carefully evaluating
 the benefits of providing this feature.
 
 
-### Identify bad actors
+### Identify Bad Actors
 
 Nodes should be able to identify if other nodes are not serving the
 correct data. Full nodes will have the entire data set and they can
@@ -306,8 +333,8 @@ network.
 
 ### Freshness
 
-Node should be able to specify the lifetime they are willing to store
-data for. This is useful in the DClaims use case. Claims written
+A node should be able to specify the lifetime they are willing to
+store data for. This is useful in the DClaims use case. Claims written
 against old articles might not be of interest to the community, and by
 pruning old data, we allow light nodes run on user's machines to
 participate in the network without requiring too many resources.
@@ -318,7 +345,7 @@ When a new node starts it should be able to fetch the entire data
 stored on the network. This is similar to bitcoin full node obtaining
 the entire blockchain.
 
-### Prove full node status
+### Prove Full Node Status
 
 Full nodes should be able to prove that they are storing the entire
 data set, and anyone should be able to check the same. Our proposal is
@@ -356,7 +383,7 @@ verify the review and save it before it can receive a response. PUT
 requests are queued for processing so that the client doesn't have to
 wait.
 
-### Gossip based Replication
+### Gossip Based Replication
 
 Gossip based replication protocol that provides eventual
 consistency. Each claim is an independent data point and therefore
@@ -364,8 +391,8 @@ claim write operations are commutative. This allows us to provide
 eventual consistency even in the case of network partitions. When
 partitions heal, then the nodes have to synchronise by playing catch
 up with each other. Again, this architecture will work for
-applications whose writes that are commutative. In case, the writes do
-not commute, the storage network will have to use an alternative
+applications whose writes are commutative. In case, the writes do not
+commute, the storage network will have to use an alternative
 replication protocol to provide eventual consistency.
 
 Finally, we note that updates to a verifiable credential is also a
@@ -373,7 +400,8 @@ commutative write. This is provided because we require that
 applications using this particular architecture provide a claim update
 to include a hash pointer to the review being updated. This hash
 pointer is simply the hash of the claim being updated, and clients can
-compute this hash from the contents of the claim.
+compute this hash from the contents of the claim, before they publish
+an update.
 
 ### Verification Layer with Plugins
 
@@ -407,50 +435,52 @@ willing to provide for write operations to be commutative.
 
 ## Related Work
 
-IPFS is a popular option in the DApps community as a storage
-solution. But from our experience on Chlu we have found that
-developers need to build bespoke solutions to provide replication and
-verification. We believe that the IPFS use case of a permanent web is
-slightly different from what DApps like Chlu and DClaims require.
+(IPFS)[https://ipfs.io/ipfs/QmR7GSQM93Cx5eAg6a6yRzNde1FQv7uL6X1o4k7zrJa3LX/ipfs.draft3.pdf]
+is a popular option in the DApps community as a storage solution. But
+from our experience on Chlu we have found that developers need to
+build bespoke solutions to provide replication and verification. We
+believe that the IPFS use case of a permanent web is slightly
+different from what DApps like Chlu and DClaims require.
 
-The Ethereum SWARM project motivations are closest to the one
-presented in this paper, however, SWARM is still under development and
-the team is highly focused on making storage auditable and providing
-incentives to nodes for storing the data. In the solution we propose
+The (Ethereum SWARM)[https://github.com/ethersphere/swarm] project
+motivations are closest to the one presented in this paper, however,
+the SWARM team is focused on providing auditable storage and with
+incentives for nodes to store data. In the solution we have proposed,
 nodes have an incentive to store data for a DApp and run full nodes
-for it because the value the presence of the data itself. For example,
-in Chlu's case marketplaces want to make sure reviews and ratings data
-are available on a permissionless, decentralised network to build
-trust in the reviews. In case of DClaims, online publishers of news
-content have an incentive to run full nodes so that claims about
-articles published by them and other publishers remain available to
-their readers.
+for it because they value the availability of the data itself. For
+example, in Chlu's case, marketplaces want to make sure reviews and
+ratings data are available on a permissionless, decentralised network
+to build trust in the reviews. In case of DClaims, online publishers
+of news content have an incentive to run full nodes so that claims
+about articles published by them and other publishers remain available
+to their readers.
 
 In both the cases of Chlu and DClaims, competing marketplaces and
 publishers have an incentive to police full nodes run by the others
-and call out if they skip any reviews. Further still, anyone can audit
-that the full nodes run by the marketplace include all reviews linked
-from blockchain transactions. All full nodes can collude and hide an
-update to a claim, as it is not linked directly from a blockchain. But
-to counter this problem, all it takes is for a claim issuer to publish
-the claim again on a new full node, and immediately call out all the
-existing full nodes for trying to hide the claim.
+and call them out if they skip any reviews. Further still, anyone can
+audit that the full nodes run by the marketplace include all reviews
+linked from blockchain transactions. All full nodes can collude and
+hide an update to a claim, as it is not linked directly from a
+blockchain. But to counter this problem, all it takes is for a claim
+issuer to publish the claim again on a new full node, and immediately
+call out all the existing full nodes for trying to hide the claim.
 
-Dat protocol is designed for syncing shared folders between peers who
-know and trust each other. In Dat, Alice can access Bob's data only if
-Alice knows Bob's public key. Dat also provide advanced features like
-privacy, random access to data within a filesystem hierarchy and also
-mirroring data a node knows about. Dat's goals are different from our
-requirements of publicly accessible data stored on a decentralised
-network. In Dat, each peer makes a direct connection to all the known
-peers and runs synchronisation between them. This will be problematic
-if we want tens of thousands of claim writers to push claims on the
-network.
+(Dat protocol)[https://datproject.org/paper] is designed for syncing
+shared folders between peers who know and trust each other. In Dat,
+Alice can access Bob's data only if Alice knows Bob's public key. Dat
+also provide advanced features like privacy, random access to data
+within a filesystem hierarchy and also mirroring data a node knows
+about. Dat's goals are different from our requirements of publicly
+accessible data stored on a decentralised network. In Dat, each peer
+makes a direct connection to all the known peers and runs
+synchronisation between them. Such an approach will not work for use
+cases we are concerned with, especially if we want tens of thousands
+of claim writers to publish claims on the network.
 
 ## Conclusion
 
 We presented use cases motivating a need for a permissionless,
-replicated, decentralised storage network. The use cases were derived
+replicating, decentralised storage network. The use cases were derived
 from discussion at the RWOT6 between participants from Chlu, DClaims,
 OpenBadges and The Pillar Project. After identifying the use cases, we
 derived requirements for a storage network and finally presented an
