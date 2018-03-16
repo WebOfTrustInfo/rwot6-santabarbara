@@ -34,7 +34,7 @@ decentralized solutions, such as self-sovereign identity, that can
 help solve many of the problems with biometric privacy and provide
 better overall security.
 
-[WEF and Andrieu's Aadhaar articles, private vs. secret]
+[//]: # (WEF and Andrieu's Aadhaar articles, private vs. secret)
 
 ### Introduction
 
@@ -338,7 +338,7 @@ FIDO)
 STEP 15: USER sends encrypted message back to RELYING PARTY, who now
 links their account with the DID
 
-Conclusion 
+Conclusion
 -----------
 
 1.  Conclusion
@@ -786,7 +786,7 @@ video technology* (2004).
 
 [^2]: https://www.nytimes.com/2017/09/07/business/equifax-cyberattack.html
 
-[^3]: 
+[^3]:
 
 [^4]: https://www.hindustantimes.com/tech/aadhaar-breach-everything-you-need-to-know/story-VhCKHDIL8lziw6OcnhL4wO.html
 
