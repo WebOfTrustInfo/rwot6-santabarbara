@@ -47,7 +47,9 @@ To address these goals, the community needs to crystalize a cohesive maturation 
 * Go to Market Resources to support developers by year end 2018
 	* Glossary of Terms
 	* Convergence of technical primers (tutorials) into a single  getting started kit
-	* Common baseline talking points for SSI advocates
+	* Communications Kit
+		* Cohesive narrative about the initiative and its goals for the Media
+		* Common baseline talking points for SSI advocates
 	* High impact videos and other demo recordings (i.e.: RWOT)
 	* Portfolio of industry specific demonstrations
 * Foundational catalysts for adoption
@@ -67,7 +69,7 @@ We are a community of very passionate and bright individuals who share a common 
 This perfect storm arrives at a time when non-SSI alternatives are also being considered at scale. If these alternatives gain traction inside key adoption communities like DMVs, which are historically slow to change, our failure to focus on SSI adoption will indirectly allow for new alternatives to get entrenched thereby making our adoption challenge more difficult. For example, one of our core worldwide identity instruments, the digital driver license, is being considered by national and state governments worldwide. Unfortunately, the new mobile driver license (mDL) initiative that is being considered by [ISO](https://www.iso.org/standard/41920.html) will yield technical debit within our society that will make the adoption of SSI even more difficult.  The time is now to get focused on an clear and achievable rollout roadmap for SSI technology.    
  
 ### Resetting Priorities
-An honest assessment of the state of our SSI initiative will yield the reality that we are “not ready for prime time”. If we can get the community to agree on short and long term priorities, we have a very good chance to succeed and prevent unnecessary adoption hurdles. So instead of worrying about when/if DNA chips may be used to track humans, we should focus on:  
+An honest assessment of the state of our SSI initiative will yield the reality that we are “not ready for prime time”. If we can get the community to agree on short and long term priorities, we have a very good chance to succeed and prevent unnecessary adoption hurdles. So instead of worrying about when/if DNA chips may be used to track humans (which is really a fun and thought provoking topic, and we encourage discussion), we need to focus on:  
 
 * Setting technology available expectations so early adopters can develop plans 
 * Hiding the complexity for usage; 
@@ -79,7 +81,7 @@ An honest assessment of the state of our SSI initiative will yield the reality t
 
 The urgency for a roadmap may be justified best by listening to the naysayers. An unfortunate outcome of a poor communication plan is the rise of myths that need to be discredited. Here are a few examples of unfortunate myths that are already circulating in the media and amongst analysts:
 
-* There is a perception that blockchain based identity solutions actually store personally identifiable information (PII) on the distributed ledger. This is utterly false. The SSI initiative not only advocates against such poor practices, the community has established several principles including that of *portability* which addresses this issue. A globally unique [decentralized identifier](https://w3c-ccg.github.io/did-spec/#dfn-did) (DID), which is compliant with internet standard [Universally Unique Identifiers](https://en.wikipedia.org/wiki/Universally_unique_identifier) (UUIDs), is used to establish a non-correlatable unique ID. While this DID may be stored on a blockchain and used as mechanism for public key exchange, the actual PII associated with an individual is never placed on a public ledger. This DID is used by an SSI solution to deliver public keys that can be used to verify identity realted credentials that are exchanged privately between willing participants at the edges of the network.
+* For example some people believe that blockchain based identity solutions actually store personally identifiable information (PII) on the distributed ledger. This is utterly false. The SSI initiative not only advocates against such poor practices, the community has established several principles including that of *portability* which addresses this issue. A globally unique [decentralized identifier](https://w3c-ccg.github.io/did-spec/#dfn-did) (DID), which is compliant with internet standard [Universally Unique Identifiers](https://en.wikipedia.org/wiki/Universally_unique_identifier) (UUIDs), is used to establish a non-correlatable unique ID. While this DID may be stored on a blockchain and used as mechanism for public key exchange, the actual PII associated with an individual is never placed on a public ledger. This DID is used by an SSI solution to deliver public keys that can be used to verify identity realted credentials that are exchanged privately between willing participants at the edges of the network.
 * Another common misconception about the decentralized identity concept is that participation in the system is somehow involuntary. Additionally, it has been said, erroneously, that a decentralized ID could "*never be turned off or blocked*” due to the immutability of the distributed ledgers that underlie decentralized applications. And finally, that it will be impossible to prevent anyone from publishing anything they want about you, and that the immutability of the ledger means a negative review would be part of an indelible permanent record. Implying that once you are associated with a digital key in a world of pertinent memory, anyone can choose to add any information they want about you to the public record that could never be changed.  These misconceptions could not be farther from the truth. The DID specification states clearly that the publishing of any user’s decentralized ID is explicitly controlled and administered by the user/owner. The proposed specification for Verifiable Credentials states plainly that claims are revocable, expirable, and that the policies of both the issuer and holder must be adhered to. It’s assumed that the normal policy for a holder is to approve every credential before acceptance. This means that a competitor, who would not be trusted to make a claim about your business, could not append a negative claim about your business without your explicit approval. This is because both the issuer and holder both have the ability to revoke any claim. 
 * Some also misunderstand the concepts behind *Selective Disclosure* (or the Principle of Minimum Disclosure). The true intent here is that a system should follow a minimal disclosure approach that could help with compliance with regulations like HIPAA in the US and GDPR in the EU. This means that users can be in control of private data that they don’t even realize they have, enabling a level of control over personally identifiable data and enabling data privacy at a level heretofore never seen before. 
 
@@ -100,19 +102,19 @@ Initially as single **Scrum-master** can be assigned to drive the workflow and i
 
 The volunteers who have initially committed to join this tribe are:
 
-| Group | Person(s) | Email | Note |
-| --- | --- | --- | --- |
-| Co-chair | Dan Gisolfi | gisolfi@us.ibm.com | |
-| Co-chair | Moses Ma| moses.ma@futurelabconsulting.com | |
-| Scrum-master | Darrell Duane | d@duane.com | |
-| Communications Squad | Kate Sills | katelynsills@gmail.com | |
-| Communications Squad | Kaliya Young | kaliya@identitywoman.net | |
-| Communications Squad | Remy Lyon | remy@keemail.me | |
-| GTM Development Squad | Alex Preukschat | alex.preukschat@evernym.com | Invited |
-| GTM Development Squad | Wes Kussmaul | wes@village.com | |
-| Domain Leaders Squad | Sean Bohan |sean.bohan@evernym.com | Invited|
+| Group | Person(s) | Note |
+| --- | --- | --- | 
+| Co-chair | Dan Gisolfi | |
+| Co-chair | Moses Ma| |
+| Scrum-master | Darrell Duane | |
+| Communications Squad | Kate Sills | |
+| Communications Squad | Kaliya Young | |
+| Communications Squad | Remy Lyon | |
+| GTM Development Squad | Alex Preukschat | Invited |
+| GTM Development Squad | Wes Kussmaul | |
+| Domain Leaders Squad | Sean Bohan | Invited|
 | Domain Leaders Squad | David Crocker | | Invited |
-| Domain Leaders Squad | Nathan George | nathan.george@sovrin.org | Invited |
+| Domain Leaders Squad | Nathan George | Invited |
 
 >NOTE: Squad participation is open and voluntary. Nomination of individuals is not good enough, active and willing participation is required.
 
