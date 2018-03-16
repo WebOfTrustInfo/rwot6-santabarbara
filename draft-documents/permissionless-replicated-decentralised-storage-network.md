@@ -1,3 +1,4 @@
+%% grip permissionless-replicated-decentralised-storage-network.md 
 
 # Permissionless, Replicated, Decentralised Storage Network for Storing Verifiable Credentials
 
@@ -413,8 +414,38 @@ verification. We believe that the IPFS use case of a permanent web is
 slightly different from what DApps like Chlu and DClaims require.
 
 The Ethereum SWARM project motivations are closest to the one
-presented in this paper, however, SWARM was never released to
-production and it does not seem to be under active development.
+presented in this paper, however, SWARM is still under development and
+the team is highly focused on making storage auditable and providing
+incentives to nodes for storing the data. In the solution we propose
+nodes have an incentive to store data for a DApp and run full nodes
+for it because the value the presence of the data itself. For example,
+in Chlu's case marketplaces want to make sure reviews and ratings data
+are available on a permissionless, decentralised network to build
+trust in the reviews. In case of DClaims, online publishers of news
+content have an incentive to run full nodes so that claims about
+articles published by them and other publishers remain available to
+their readers.
+
+In both the cases of Chlu and DClaims, competing marketplaces and
+publishers have an incentive to police full nodes run by the others
+and call out if they skip any reviews. Further still, anyone can audit
+that the full nodes run by the marketplace include all reviews linked
+from blockchain transactions. All full nodes can collude and hide an
+update to a claim, as it is not linked directly from a blockchain. But
+to counter this problem, all it takes is for a claim issuer to publish
+the claim again on a new full node, and immediately call out all the
+existing full nodes for trying to hide the claim.
+
+Dat protocol is designed for syncing shared folders between peers who
+know and trust each other. In Dat, Alice can access Bob's data only if
+Alice knows Bob's public key. Dat also provide advanced features like
+privacy, random access to data within a filesystem hierarchy and also
+mirroring data a node knows about. Dat's goals are different from our
+requirements of publicly accessible data stored on a decentralised
+network. In Dat, each peer makes a direct connection to all the known
+peers and runs synchronisation between them. This will be problematic
+if we want tens of thousands of claim writers to push claims on the
+network.
 
 ## Conclusion
 
