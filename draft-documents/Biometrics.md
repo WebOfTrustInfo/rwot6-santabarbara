@@ -54,7 +54,7 @@ and used.
 And the likelihood is, they will do so *badly*.
 
 Good usage of biometric data should focus on privacy, security, and
-scalability. The owner of the data should be able to determine how it’s
+scalability. The owner (Do you mean the person who the biometric is from) of the data should be able to determine how it’s
 used, and they should good confidence that it will be protected, and
 they should be able to use it as part of a system that could support
 data from over 7 billion people.
