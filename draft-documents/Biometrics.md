@@ -1,42 +1,48 @@
-The Five Truths about Biometric Data
-====================================
+Six Principles for Self-Sovereign Biometrics
+============================================
 
-Contributors:\
-John Callahan
-Heather Vescent
-Kaliya Young
-Darrell Duane
-Shannon Appelcline
-Asem Othman
+Contributors:
+John Callahan,
+Heather Vescent,
+Kaliya Young,
+Darrell Duane,
+Shannon Appelcline,
+Asem Othman,
 Adrian Gropper
 
-Reviwers:\
-Joe Andrieu
-Manu Sporny
-Kim Hamilton Duffy
-Chris Allen
-Christian Lundkvist
-Drummond Reed
+Reviwers:
+Joe Andrieu,
+Manu Sporny,
+Kim Hamilton Duffy,
+Christopher Allen,
+Christian Lundkvist,
+Drummond Reed,
 Kyle Den Hartog
+Marcus Sabadello
 
 **ABSTRACT**
 
-Biometrics are already here, and they *will* be used on the internet,
-whether we like it or not. They are already are; a lot of the current
-practices are bad and the centralized hosts know it. We know that
-centralized repositories of sensitive information are highly vulnerable
-and present irresistible targets, but better solutions are not available
-to current practitioners; they’re not even being considered.
-Fortunately, there are other fields that are already solving these
-problems, such as self-sovereign identity. We need to adapt their best
-practices to make biometrics safe and secure.
+Biometrics are widely used for identity proofing, identity
+verification and authentication, but many implementations are
+vulnerable to breaches and exploitation. For example, centralized
+repositories of sensitive personally identifiable information (PII),
+including biometric data, can associate such information with other
+identity information in violation of privacy and cybersecurity
+guidelines.  Such respositories include public and private blockchains
+that should never be used to store full, partial, or encrypted
+biometric data.  This paper describes some of the best practices of
+decentralized solutions, such as self-sovereign identity, that can
+help solve many of the problems with biometric privacy and provide
+better overall security.
+
+[//]: # (WEF and Andrieu's Aadhaar articles, private vs. secret)
 
 ### Introduction
 
-Biometric data is a third rail for discussions of identity. It’s broadly
-understood to be both permanent and sensitive, so there’s a value fear
-is that if the data is put online, it will inevitably be stolen and
-abused.
+Biometric data is a third rail for many discussions about
+identity. It’s broadly understood to be both permanent and sensitive,
+so there’s a value fear is that if the data is put online, it will
+inevitably be stolen and abused.
 
 There is the potential for disaster.
 
@@ -71,12 +77,12 @@ Adopting self-sovereign principles for biometric data requires a new
 framework. This paper lays them out as five *truths* that are needed for
 the safe storage and usage of biometric data.
 
-### Biometrics Should Never Be Stored in Central Databases \[Darrell\]
+### Principle 1: Biometrics Should Be Decentralized
 
-When Biometrics for Authentication were first developed, the only option
-to store the biometric data for comparison with the login data was in a
-centralized silo connected to the internet. As time has gone by,
-centralized silos have become more and more vulnerable, presenting
+When biometrics for authentication were first developed, the only
+option to store the biometric data for comparison with the login data
+was in a centralized silo connected to the internet. As time has gone
+by, centralized silos have become more and more vulnerable, presenting
 irresistible targets for data thieves.
 
 There are a number of cases where significant collections of very
@@ -89,7 +95,7 @@ suffered various breaches[^4].
 As new data technologies and architectures have emerged, many have
 thought that there might be some role for the Blockchain for Biometrics.
 
-### Biometrics Should Never Be Stored on the Blockchain \[Shannon\]
+### Principle 2: Biometrics Should Never Be Stored on a Blockchain
 
 Blockchains are one of the most popular and well-tested decentralized
 tools for storing data on the internet. They have already become a prime
@@ -117,7 +123,7 @@ that blockchains can’t be used. They’re a great decentralized tool, and
 there are ways to use them than don’t store biometric data on the
 blockchain itself.
 
-### Biometrics Can Be Accessed *Via* the Blockchain \[Jack\]
+### Principle 3: Biometrics Can Be Accessed *Via* a Blockchain
 
 If you need to store biometric data, you can store a ***pointer*** to it
 on a blockchain but not the data itself. Biometric data always needs to
@@ -146,7 +152,7 @@ access even though the address is public.
 \[Additional Topic of Discussion: Offline First. How can we make this
 work when you’re offline without internet access, then sync up lately?\]
 
-### Biometrics Should Be Under A User’s Control \[Shannon\]
+### Principle 4: Biometrics Should Be Under A User’s Control
 
 When a user decides where to place his actual biometric data, he should
 ensure that it stays under his control: he should be the authority who
@@ -186,7 +192,7 @@ With biometric storage (at last) stored in a way that maximizes
 protection and authority for the user, the next question is: *how do you
 use it?*
 
-### Biometrics Traits Should Be Reliable \[Asem/Shannon\]
+### Principle 5: Biometrics Traits Should Be Reliable
 
 Not just any biometrics will do the job. When choosing which biometrics
 will be stored and used, care should be taken to ensure that the
@@ -205,32 +211,42 @@ relation to the specific application that they’re being used for.
 
 And even with that, biometrics might not be quite enough ...
 
-### Biometrics Should Be Part of a Systematic Procedure \[Asem/Shannon\]
+### Principle 6: Biometrics Should Be Part of a Systematic Procedure
 
 Biometrics aren’t the end-all and be-all. They need to be part of a
 larger systematic procedure. There are a number of possible steps for a
 biometric system:
 
-1.  Biometrics can have passive liveness (such as an Apple face recognition), or a more extensive system can require active liveness (such as lip-reading a person’s face when they specified words), to facilitate presentation attack detection (PAD).
+1.  Biometrics can have passive liveness (such as an Apple face
+recognition), or a more extensive system can require active liveness
+(such as lip-reading a person’s face when they specified words), to
+facilitate presentation attack detection (PAD).
 
-2.  Biometrics can combine multiple factors, such as requiring a passphrase in addition to biometrics.
+2.  Biometrics can combine multiple factors, such as requiring a
+passphrase in addition to biometrics.
 
-3.  Biometrics can produce confidence ratings; rather than offering a binary result, they can suggest how likely a result is to be accurate, based on the reliability of the biometric trait for the purpose and the use of other systematic elements such as active liveness and multiple factors.
+3.  Biometrics can produce confidence ratings; rather than offering a
+binary result, they can suggest how likely a result is to be accurate,
+based on the reliability of the biometric trait for the purpose and
+the use of other systematic elements such as active liveness and
+multiple factors.
 
-4.  Biometrics can have fallbacks. If either the measurement device or the person suffers a temporary or permanent change (such as a scar, a lost finger, or a broken phone), then the biometric system should permit other means of access.
+4.  Biometrics can have fallbacks. If either the measurement device or
+the person suffers a temporary or permanent change (such as a scar, a
+lost finger, or a broken phone), then the biometric system should
+permit other means of access.
 
 The need for these more in-depth systems is a fact that’s already been
-stated: no biometric is perfect. This means that any system will suffer
-from False Rejection Rate (FRR) and False Acceptance Rate (FAR): the
-right users may be rejected and the wrong users may be accepted. NIST’s
-SOFA metrics provide more details on these problems and possible
-attacks[^9].
+stated: no biometric is perfect. This means that any system will
+suffer from False Rejection Rate (FRR) and False Acceptance Rate
+(FAR): the right users may be rejected and the wrong users may be
+accepted. NIST’s SOFA metrics provide more details on these problems
+and possible attacks[^9].
 
 Systematic approaches can be actively aware of these challenges and
 compensate for them.
 
-A Biometric Use Case
---------------------
+### A Biometric Use Case
 
 1.  Give the Solution
 
@@ -333,7 +349,7 @@ FIDO)
 STEP 15: USER sends encrypted message back to RELYING PARTY, who now
 links their account with the DID
 
-Conclusion 
+Conclusion
 -----------
 
 1.  Conclusion
@@ -761,6 +777,8 @@ video technology* (2004).
 
         iii. \[and example of DID-Auth too\]
 
+![Alt](Biometric-diagrams/bioEnrollment.sequence.svg)
+
     b.  And we explain how it meets our 5 or 6 criteria
 
     c.  This solution will cause new problems…
@@ -779,7 +797,7 @@ video technology* (2004).
 
 [^2]: https://www.nytimes.com/2017/09/07/business/equifax-cyberattack.html
 
-[^3]: 
+[^3]:
 
 [^4]: https://www.hindustantimes.com/tech/aadhaar-breach-everything-you-need-to-know/story-VhCKHDIL8lziw6OcnhL4wO.html
 
