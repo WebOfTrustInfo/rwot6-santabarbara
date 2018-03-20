@@ -132,6 +132,7 @@ Key Performance Indicators which include:
             > Wikipedia
 
 Reality Check
+-------------
 
 We are a community of very passionate and bright individuals who share a
 common vision about self-sovereign identity (SSI). We have as an open
@@ -165,8 +166,9 @@ community That is actually
     -   Need secure wallets - http://www.links.org/files/nspw36.pdf
 
 Myths to debunk
+---------------
 
-There is a perception that blockchain based identity solutions actually
+There is a mis-perception that blockchain identity solutions actually
 store personally identifiable information (PII) on the distributed
 ledger. This is utterly false. The SSI initiative not only advocates
 against such poor practices, the community has established several
@@ -219,23 +221,17 @@ able to opt out as a user from participating in the public sharing of
 identity data. You might choose as an individual to not identify
 yourself with a public key on a blockchain. But someone can still add
 other pointers to the ledger (your email, your phone, your photo) and
-then attach claims to that log that anyone can access.
-
-One common misunderstanding concerns the perception that one cannot opt
-out as a user from participating in the public sharing of identity data.
-This notion is reminiscent of the old passive aggressive putdown, “When
-did you stop beating your wife?” - leaving not only a presumption that
-the offense occurred, but also leaving the target of the disparagement
-with the impossible task of proving a negative.
-
-Why would one assume that somehow the fact that a blockchain is involved
-means that a user would be compelled to assert an identity in any
-particular case?
-
-Beyond that is the fact that an asserted identity cannot be
-reconstructed from the trail it leaves on the blockchain.
+then attach claims to that log that anyone can access - leaving not 
+only a presumption that the offense occurred, but also leaving the 
+target of the disparagement with the impossible task of proving a 
+negative. The DID and Verifiable Credentials standards address such
+concerns, which is referred to as the correlation of identity data.
+This complex issue is addressed in a document titled [A Primer on 
+Functional Identity](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/functional-identity-primer.md) which serves as a theoretical
+framework for the SSI initiative. 
 
 Establishment of the Roadmap Tribe
+----------------------------------
 
 One requirement for success is to establish a roadmap tribe, that would
 be responsible for driving the workflow for developing tools and process
@@ -286,6 +282,7 @@ The volunteers who have bravely committed to join this tribe are:
     -   Vishal Diro: 
 
 Manifesting some WOWs
+---------------------
 
 Another requirement for success is to create a design process that would
 lead to a sustainable flow of compelling technologies that provide a
