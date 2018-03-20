@@ -1,7 +1,7 @@
 # Making DIDs invisible: Petnames and their secure user interfaces
 
-By Mark S. Miller, Christopher Lemmer Webber, Zarchary Larson, Kate Sills,
-Eli Yaacoby, and Steve Dekorte.
+By Christopher Lemmer Webber, Mark S. Miller, Zarchary Larson, Kate Sills,
+and Eli Yaacoby
 
 If we ever show a DID to a user we have failed.  We should always show
 a human readable name.  DIDs and tor .onion names give decentralized
@@ -21,111 +21,290 @@ of names, as well as exiting naming authorities such as certificate
 authorities and the domain name system, government agencies such as
 trademark offices, and decentralized systems such as namecoin.
 
-## Outline
+# The what and why of petname systems<a id="sec-1" name="sec-1"></a>
 
- - Introduction / abstract
-   - Add examples from twitter
 
- - Explaination of petnames derived from topic paper
-   - types of names
-     - petname: set locally by a user (has to be bidirectional, but
-       not necessarily 1:1 (maybe we go into this more in contact
-       section))
-     - path names (which are rooted in a petname, and have paths to
-       edge names): a path through a graph to find a name (using a
-       unicode thick black arrow in this paper)
-     - anchor name: to suggest to the receiver what a good petname
-       for the entity would be and the receiver can act on the suggestion
-       by accepting or accept it with modification
-   - Naming hubs
+[Zooko's Triangle](https://en.wikipedia.org/wiki/Zooko%27s_triangle)
+tells us that names can have two out of three properties:
+decentralized, globally unique, human meaningful.
+[DIDs](https://w3c-ccg.github.io/did-spec/) and tor .onion addresses are decentralized and
+globally unique; they are intentionally not built to be human
+readable, and yet are meant to be used by humans.
+Consider the following example DID:
 
- - Implementation scenarios
-   - Contact list
-     - What it already does right
-       - Bidirectional mapping
-         - Uses phone numbers as a global namespace without making the
-           numbers be the primary user experience
-         - The names that it presents that correspond to phone
-           numbers, it has no pretense that the names have global
-           significance... chosen by each human operator according to
-           what's useful to them.
-         - User interface uses that mapping both in selecting things and in
-           rendering things such as an incoming call or call history
-         - The rendering is in terms of the live mapping
+    did:example:fbc0f54d1a084b469490ff78d55632ea
 
-     - Things to add
-       - Party scenario
-       - Searching the contact list, type in a friend's name, get results
-         from "your contacts" (petnames) "network contacts" (path names)
-         - Sorting petname systems?
-           - petnames
-           - two-level path where first step is something you've chosen to use as a naming hub
-         - call a person who's a friend
-         - call a friend of a friend
-       - Saving a friend of a friend as a new petname
-         - Save the petname (highlighted text which you can edit)
-         - Click "share with contacts"
-           - your edge name for others is immediately highlighted so you can edit
-         - Previous interactions should also show an updated name
-           (they were previously an accquaintence, you realize you'd
-           like to add them to your primary contacts)
-         - A footnote to: we've glossed over it in our example, but
-           what should we do about mapping to a composite of values
-           such as email and phone numbers
+Identifiers like this look like gobbledygook to you and me, so how can
+we use them?
 
-       - caller ID (anchor name)
-         Someone you don't know wants to come to your party
-         - How do we visually distinguish between these and path names?
-           We should probably do a "?=>John Doe 1"
-       - a user is called and there's no phone number given,
-         "?=>Unknown/Unnamed Caller Number 1"
-       - scan a QR code for a business, and "blocknym"
 
-   - Browser
-     - What it already does right
-       - they understand the address bar *should* be a trusted path
-       - a web page, when over a secure connection, is able to present a link that
-         does express where the web page would like you to think that you would go
-       - bookmarks, which is the basis of doing petnames
-     - What it currently does wrong
-       - the web page can confuse the user; the webpage may confuse you by telling
-         you where you may go, but you're reliant on the browser to tell you where
-         you are
-         - hovers
-         - the bottom bar can change
-         - the address bar can change (though less)
 
-     - Things to add
-       - no petnames
+[Petnames](http://www.skyhunter.com/marcs/petnames/IntroPetNames.html)
+offer a way forward by mapping local names to global identifiers and
+vice versa.
+By adding a petname system as an additional layer to a globally unique
+and decentralized system, we are able to achieve all three properties.
 
-     - we can repurpose Certificate Authorities + DNS as a particular petname
-       which expresses domains as names
+A "petname system" is a database and a set of interfaces which use that
+database to bidirectionally map human readable names to
+cryptographically secure names.
+The three types of names in a petname system are:
 
-     - you can always have a naming hub that issues confusing names for things,
-       which may make them a bad naming hub.  We aren't avoiding this, but we
-       are giving users other ways to find edge names (which they may compare)
-       and who it is that's issueing edge names (which can be audited
-       and can be competitive)
+-   **petnames**: These are set localy by a user to map local meaning
+    to an external identifier.
+    For example, "Mom", "Uncle Bob", and "Pawnee Library".
+-   **edge names**: Every entity in a petname system may act as its own
+    namespace, providing "paths" to names to other entities in the
+    system as a graph, and these provided names are called "edge names".
+    For example, "example.org" is an edge name in "dns ⇒ example.org",
+    and "Sarah Smith" is an edge name in "Uncle Bob ⇒ Sarah Smith".
+    We don't have to get rid of popular naming systems like DNS, but can
+    absorb them in such a way that they are on equal footing with any other
+    entity.
+-   **intro names**: These are names which are introduced within a local context.
+    For example, email permits users to specify a name on its addressing
+    along with the email address.
+    If you get an email that is cc'ed to `Ben Bitdiddle <ben@example.org>`,
+    "Ben Bitdiddle" would be the intro name.
 
-     - when can you and can't you control the "body" of the interface?
-       yes on a mobile application but not on 
+# Implementing petnames<a id="sec-2" name="sec-2"></a>
 
-     - assumptions: we're assuming that you don't have a soci
-     - the top bar shows the name from the petname system
+## Smartphone contact list integration<a id="sec-2-1" name="sec-2-1"></a>
 
-     - footnote: why we didn't do the bottom bar and the hover (you
-       can't take control from the web page about where you will go)
 
-     - You must copy around the URL and *NOT* the petname.
-     - footnote: bookmark should by default add a petname for the whole url but may
-       expose an option to give a petname to the whole prefix
+One system that is already very similar to a petnames system is a
+smartphone's contact list application.
+Contact list applications use phone numbers as a global namespace
+without making phone numbers the primary user experience.
+Human meaningful names are mapped to phone numbers with no pretense
+that the names have global experience; the names are chosen by each
+human operator according to what is useful to them.
+The UI uses this mapping both to search and select entities from a
+contact list to display a name in an incoming call, or to review call
+history.
+The rendering it done in terms of a live mapping; should an entity's
+petname be updated, that petname will be retroactively updated on the
+call history.
 
- - Conclusion
 
- - Glossary "Within this document, these words mean..."
+So a smartphone contact list brings us reasonably far, but not quite
+far enough.
+Let's consider a scenario in which we can explore the rest of the
+pieces to complete this puzzle.
 
- - Extended reading
-   - Petname markup language
-   - Petmail
-   - SPKI/SDSI??
+Alyssa receives a phone call from 1-324-555-8953.
+However, when she checks her phone to answer it, she does not see
+the phone number itself, she sees "Mom", which is the petname she has
+bound locally to the phone number.
+Alyssa answers the call and her mother, Dr. Nym, mentions that she's
+giving a special lecture on mathematics that she would like help
+organizing, and wonders if any of Alyssa's friends may be interested
+in attending or assisting.
+Alyssa offers to help and suggests that her long-time friend Ben
+Bitdiddle may be interested in both attending and helping.
 
+
+Dr. Nym says goodbye to her daughter and hangs up the phone.
+She searches for "Ben" in her contact list:
+
+The "local contacts" section shows **petnames** of people she knows,
+and "Ben Shapiro" is a research colleague of Dr. Nym's.
+The "network contacts" shows **edge names** published by entities
+Dr. Nym has stored locally as
+petnames.
+Dr. Nym has stored her daughter as "Alyssa", and so when she sees
+"Alyssa ⇒ Ben Bitdiddle" ("Ben Bitdiddle" being the edge name supplied
+by Alyssa) she is confident this must be her daughter's friend.
+She clicks this entry and dials Ben.
+
+Ben hears an incoming call and sees that the caller is labeled
+"Alyssa ⇒ Jane Nym" and in smaller text "Campus Faculty ⇒ Dr. Nym".
+While Ben did not have Dr. Nym saved with a local petname, he
+has both Alyssa and the Campus Faculty directory saved as local
+petnames, and from the both of those remembers that Alyssa's mother
+is named Jane Nym and that she is a professor on campus.
+Ben accepts the call and enthusiastically agrees to help Dr. Nym
+set up the event.
+Ben offers to coordinate food for the event, and Dr. Nym
+enthusiastically states that while she will place an order for pizza,
+she would not have time to pick it up beforehand, and so help there
+would be greatly appreciated.
+
+
+Ben decides that since he is helping out that he should store
+Dr. Nym's contact information permanently in his address book.
+Ben checks the call history and sees that the first item says
+a call from "Alyssa ⇒ Jane Nym".
+He selects "Save Contact" from a menu.
+On the edit screen that appears, a "local name" widget is immediately
+selected with a suggested entry of "Jane Nym" highlighted in such
+a way that if Ben were to begin typing he could override this text.
+Ben decides this name is good enough&#x2026; since he knows Alyssa's mother
+on a personal basis through Alyssa, he is comfortable thinking about
+her as Jane Nym.
+Ben decides that he would also like to share this contact as an edge
+name with the rest of his contacts, and so presses the "share with
+contacts" button.
+Once again Ben is presented with an editable field with the name
+"Jane Nym" preselected, but Ben decides to edit this edge name to
+be called "Dr. Nym".
+While Ben knows Dr. Nym on a first name basis in a personal context,
+Ben and Dr. Nym both work in an academic setting, and in such contexts
+he thinks it would be respectful for others to hear Dr. Nym referred
+to with her full title.
+Dr. Nym's phone number is already entered, and with the mapping
+established, Ben presses save.
+Returning to the recent calls page, he sees that the contact list's
+display has been updated to saying simply "Jane Nym" for the most
+recent call.
+
+
+Meanwhile Dr. Nym is wasting no time in placing the order for the
+pizzas for the event.
+She finds on her desk an advertisement for "Pizza Piano", a local
+pizza chain, which includes a QR code that she can scan.
+The QR code only supplied the number to be called for the local
+restaurant, but Dr. Nym's phone supplies the identifier
+"bizdir ⇒ Pizza Piano East".
+"bizdir" is a business directory naming hub that Dr. Nym uses which
+independently verifies that local businesses are who they say they
+are.
+Dr. Nym is satisfied enough by this to be confident calling the
+establishment and paying for pizzas.
+She calls, pays, and tells the cashier who is taking the order that
+Ben will be the one picking up the pizzas and handling any additional
+details and supplies them with Ben's number.
+
+
+Time passes, and just hours before the event Ben gets an incoming
+phone call from a number he has not saved as a petname and for which
+none of his contacts have provided a petname (including that Ben does
+not have the same business directory Dr. Nym does as a contact
+either).
+"Caller ID" does provide an **intro name** of "Pizza Piano" for this
+context (though there is no guarantee that "caller ID" provides the
+same intro name to others for this phone number), however since this
+is a contextual name and Ben's contact and phone applications do not
+want Ben to be confused, this renders as "? ⇒ Pizza Piano 2".
+The "?" is because this message comes from the local context of the
+application and otherwise is not rooted in a known entity from Ben's
+local trust network (ie, contacts).
+"Pizza Piano" is the intro name, but Ben has already had contact with
+one of the other Pizza Piano franchise locations, and so the system
+distinctively marks this one as entry 2.
+Ben answers the call; the pizza parlor employee merely wanted to let
+Ben know that they were all out of olives and wanted to know if another
+ingredient would be acceptable.
+Even though Ben is trusting that caller ID is correct, he can't
+imagine any reason why someone would be trying to phish him to
+authorize a topping change, so he suggests changing from olives to
+mushrooms.
+Now all that's left for Ben to do is pick up the pizzas!
+
+## Web browser integration<a id="sec-2-2" name="sec-2-2"></a>
+
+While smartphone contact lists already have much in common with
+petname systems, web browsers require more care.
+But if we pay attention to what the boundaries and usage behavior
+of modern browsers are, a petnames system can be built which matches
+user expectations.
+
+
+One thing browsers are close to doing right are expressing the
+understanding that the address bar *should be* a trusted path
+(though unfortunately browsers allow this trust to be broken,
+as we will see).
+Furthermore, a web page, when visited over a secure connection,
+is able to present a link that does express where the web page
+would like you to go.
+And usefully browsers already provide something that is very much like
+petnames: bookmarks, which allow users to map a locally human
+meaningful name to a global identifier.
+
+
+Unfortunately browsers also have different design decisions which can
+make providing a secure environment difficult.
+While it is good that the web page can direct the user successfully to
+another page of the original page's choosing, it is possible to "bait
+and switch" users into believing they are going to one web page when
+in fact they are being sent to another.
+For example, on desktop browsers if a user hovers over a link the bottom
+bar of a browser can indicate to a user where they will probably go.
+Unfortunately this is not guaranteed to be the actual place the user
+will be sent; for example, a web page can intercept the click in
+javascript and direct the user somewhere else.
+
+<!--
+
+ - when can you and can't you control the "body" of the interface?
+   yes on a mobile application but not on 
+
+ - assumptions: we're assuming that you don't have a soci
+ - the top bar shows the name from the petname system
+
+ - footnote: why we didn't do the bottom bar and the hover (you
+   can't take control from the web page about where you will go)
+
+ - You must copy around the URL and *NOT* the petname.
+ - footnote: bookmark should by default add a petname for the whole url but may
+   expose an option to give a petname to the whole prefix
+-->
+
+
+# Conclusion<a id="sec-3" name="sec-3"></a>
+
+# Glossary<a id="sec-4" name="sec-4"></a>
+
+
+-   **naming hub:**
+
+# Extended reading<a id="sec-5" name="sec-5"></a>
+
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> The pattern of using a path separator for edge
+names comes from [SPKI/SDSI](https://en.wikipedia.org/wiki/Simple_public-key_infrastructure).
+We considered using various separators including forward slashes, the
+english possessive "'s", and various others, but settled on a unicode
+arrow to give the impression that path separators are implementation
+specific and that delimiters may not even be typed in by hand.</div>
+
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> Phone numbers are one example of
+not-particularly-human-memorable identifiers, and since contact list
+applications so frequently deal with them, we've stuck with that example.
+Of course there's no reason a contact list couldn't deal with DIDs or
+other URIs or tor .onion addresses or really any such global
+identifiers.</div>
+
+<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> It is important to deliver a reasonable
+sorting order to the names presented.
+In general, petnames should always be presented first.
+Following petnames should be one-level-deep edge names.
+What entities should be prioritized to provide edge names?
+This might depend on the user or application, but it would be reasonable
+that trust might vary here, with well known naming hubs and trusted
+(which may mean frequently interacted with) other entities.</div>
+
+<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> One detail we've glossed over is how edge
+names are shared in the first place.
+There are many routes to providing edge names, from occasionally
+sharing a certificate with an entire list of edge names with all
+followers to querying an endpoint from a particular entity on demand.
+Implementations of petname systems may vary in their implementation here.</div>
+
+<div class="footdef"><sup><a id="fn.5" name="fn.5" class="footnum" href="#fnr.5">5</a></sup> Of course a contacts system may have a composite of
+values for a particular entity, such as email alongside a phone number
+(or numbers).
+This is possible in a petnames system, as long as such mappings remain
+bidirectional, but we have left out such details from our example scenario
+to keep it simple.</div>
+
+<div class="footdef"><sup><a id="fn.6" name="fn.6" class="footnum" href="#fnr.6">6</a></sup> Note that we did not suggest that Dr. Nym typed in
+the phone number.
+Typing in identifiers is problematic enough with phone numbers, and far
+more dangerous with larger cryptographically secure names.
+See also the first line of this paper.</div>
+
+<div class="footdef"><sup><a id="fn.7" name="fn.7" class="footnum" href="#fnr.7">7</a></sup> <p>DEFINITION NOT FOUND.</p></div>
