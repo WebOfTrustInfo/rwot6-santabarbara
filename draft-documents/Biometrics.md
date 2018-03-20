@@ -2,13 +2,13 @@ Six Principles for Self-Sovereign Biometrics
 ============================================
 
 Contributors:
-John Callahan,
-Heather Vescent,
-Kaliya Young,
-Darrell Duane,
-Shannon Appelcline,
-Asem Othman,
-Adrian Gropper
+John Callahan (JC),
+Heather Vescent (HV),
+Kaliya Young (KY),
+Darrell Duane (DD),
+Shannon Appelcline (SA),
+Asem Othman (AO),
+Adrian Gropper (AG)
 
 Reviwers:
 Joe Andrieu,
@@ -35,7 +35,7 @@ decentralized solutions, such as self-sovereign identity, that can
 help solve many of the problems with biometric privacy and provide
 better overall security.
 
-[//]: # (WEF and Andrieu's Aadhaar articles, private vs. secret)
+[//]: # (JC: WEF and Andrieu's Aadhaar articles, private vs. secret)
 
 ### Introduction
 
@@ -54,10 +54,13 @@ and used.
 And the likelihood is, they will do so *badly*.
 
 Good usage of biometric data should focus on privacy, security, and
-scalability. The owner (Do you mean the person who the biometric is from) of the data should be able to determine how it’s
+scalability. The subject of the data should be able to determine how it’s
 used, and they should good confidence that it will be protected, and
 they should be able to use it as part of a system that could support
 data from over 7 billion people.
+
+[//]: # (KY: Do you mean the person who the biometric is from?)
+[//]: # (JC: I'm changing "owner" to "subject" as per Functional Identity terminology)
 
 Trying to meet all of these requirements might seem daunting, but
 there’s already a philosophy for identity that advocates these same
