@@ -33,9 +33,10 @@ In the examples below, “Sites” are assumed to be Web or Mobile Site – user
 
 #### Decentralized IDs (DIDs), Documents and Attestations
 
-A DID is a decentralized identifier to a user’s agent (UA), for a specific purpose, and not necessarily correlated to any other identifiers for her identity. Per the [W3C DID Specification](https://w3c-ccg.github.io/did-spec/), associated with a DID is a DID Document that contains information about the public keys and service endpoints for that DID. Thus, given a DID, the holder of the DID has a mechanism to communicate with the Identity Owner of that DID. DIDs may be public and stored on a publicly available Distribute Ledger, with their associated DID Document found via the [DIF Universal Resolver](https://github.com/decentralized-identity/universal-resolver), or may be pairwise private DIDs, where two Identities directly exchange DIDs/DID Documents.
-  
-An attestation is something (such as a [Verifiable Credential](https://www.w3.org/TR/verifiable-claims-data-model/)) issued by an entity to a holder (often the individual) so that the holder can prove they hold the attestation to others. In one of the example below, for instance, Alice wants to receive a graduation attestation from the College so that they can present (prove) that attestation to LinkedIn.
+A DID is a decentralized identifier to a user’s agent (UA), for a specific purpose, and not necessarily correlated to any other identifiers for her identity. Per the [W3C DID Specification](https://w3c-ccg.github.io/did-spec/), associated with a DID is a DID Document that contains information about the public keys and service endpoints for that DID. Thus, given a DID, the holder of the DID has a mechanism to communicate with the Identity Owner of that DID. DIDs may be public and stored on a publicly available Distributed Ledger or may be pairwise private DIDs, where two Identities directly exchange DIDs. For each DID, its associated DID Document is found via the [DIF Universal Resolver](https://github.com/decentralized-identity/universal-resolver).
+ > [name=Ron Kreutzer]I modified the part about pairwise DIDs to state that only DIDs are shared. All DDOs are found via the Universal Resolver -- correct?
+ 
+An attestation is something (such as a [Verifiable Credential](https://www.w3.org/TR/verifiable-claims-data-model/)) issued by an entity to a holder (often the individual) so that the holder can prove they hold the attestation to others. In one of the examples below, for instance, Alice wants to receive a graduation attestation from the College so that she can present (prove) that attestation to a professional networking site.
 
 #### Interface Guidelines: Hubs, Agents and Identity Owners
 
@@ -373,7 +374,7 @@ Referenced Message Objects
 
 Identity Hub attestation handling relies on the passage and recognition of common message types that Hubs, User Agents, and consuming apps/services understand. In order to ensure that the flows related to attestations are precise and maximally descriptive of their intent, the Identity Hub spec will define its own message objects for each of the relevant attestation actions. These objects are extensions of the Schema.org Action object, the schema origin of which shall be schema.identity.foundation. These objects are strictly a shared means of communicating and facilitating the various activities related to attestations, they do not infer or require a specific type of proof format or material be used within them.
 
-Note that each message returns only a status of whether the message was successfully (or not) transmitted. The result of processing the request is conveyed to the caller via a subsequent subsequent message.
+Note that each message returns only a status of whether the message was successfully (or not) transmitted. The result of processing the request is conveyed to the caller via a subsequent message.
 
 The following is a description of the objects and examples that encompass their structure and properties:
 
