@@ -47,10 +47,10 @@ inevitably be stolen and abused.
 
 There is the potential for disaster.
 
-Despite this fear, biometric data already exists, and it’s already being
-recorded digitally. We need to discuss it, or other people will
-determine the future of biometric data, how it will be recorded, stored,
-and used.
+Despite this fear, biometric data already exists, and it’s already
+being recorded digitally and includes embedded devices [^16]. We need
+to discuss it, or other people will determine the future of biometric
+data, how it will be recorded, stored, and used.
 
 And the likelihood is, they will do so *badly*.
 
@@ -78,8 +78,8 @@ an *identifier*, which recognizes, remembers, and relates to an
 identity, and *data*, which contains the actual biometric information.
 
 Adopting self-sovereign principles for biometric data requires a new
-framework. This paper lays them out as five *truths* that are needed for
-the safe storage and usage of biometric data.
+framework. This paper lays them out as six *principles* that are
+needed for the safe storage and usage of biometric data.
 
 ### Principle 1: Biometrics Should Be Decentralized
 
@@ -228,7 +228,9 @@ use it?*
 
 Not just any biometrics will do the job. When choosing which biometrics
 will be stored and used, care should be taken to ensure that the
-biometrics are reliable.
+biometrics are reliable. Biometrics are not passwords [^15]:
+
+> This point is not widely known, which leads to some very common misconceptions. For example, a common criticism of biometric authentication is, say, "You can't reset a fingerprint." But this is based on the mistaken notion that the biometric data is just a kind of password or token, and overlooks the importance of live presentation of the fingerprint. In a robust fingerprint method, it shouldn't matter that an attacker can present a facsimile of a person's fingerprint; anything other than the person's actual finger (still attached to his or her living body) should not work [^15]
 
 This is a problem for two reasons. First, some biometrics are less
 reliable than others [^8]. For example, fingerprints and iris scans
@@ -243,8 +245,6 @@ behavioral traits (e.g., voice). These spoof attacks are referred to
 as presentation attacks in first ISO standard related to these
 attacks, ISO/IEC 30107-1:2016 [^10]. NIST’s SOFA metrics provide more
 details on these problems and possible attacks [^9].
-
-> This point is not widely known, which leads to some very common misconceptions. For example, a common criticism of biometric authentication is, say, "You can't reset a fingerprint." But this is based on the mistaken notion that the biometric data is just a kind of password or token, and overlooks the importance of live presentation of the fingerprint. In a robust fingerprint method, it shouldn't matter that an attacker can present a facsimile of a person's fingerprint; anything other than the person's actual finger (still attached to his or her living body) should not work [^15]
 
 [//]: # (adaptive/behaviorial biometrics - google's captcha, abacus)
 [//]: # (Technology will be get better over time to assure liveness)
@@ -314,6 +314,7 @@ compensate for them.
 
 [^1]: http://www.lifewithalacrity.com/2016/04/the-path-to-self-soverereign-identity.html
 
+[//]: # (link broken)
 [^2]: https://www.nytimes.com/2017/09/07/business/equifax-cyberattack.html
 
 [^3]: https://www.washingtonpost.com/news/federal-eye/wp/2015/07/09/hack-of-security-clearance-system-affected-21-5-million-people-federal-authorities-say/?utm\_term=.e5301c5c6f53
@@ -341,3 +342,7 @@ compensate for them.
 [^14]: https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/functional-identity-primer.md
 
 [^15]: https://www.gartner.com/doc/3796577/technology-insight-biometric-authentication
+
+[^16]: https://www.telegraph.co.uk/technology/2018/03/17/sydney-biohacker-fined-implanting-travel-card-chip-hand/
+
+[^17]: https://thefinancialbrand.com/67810/biometric-banking-know-your-customer-kyc/
