@@ -108,7 +108,6 @@ suffered various breaches[^4].
 As new data technologies and architectures have emerged, many have
 thought that there might be some role for the Blockchain for Biometrics.
 
-[//]: # (SSI: control your identity, minimize it, protect it, make it portable, ... cite: Life w/Alacrity Paper)
 [//]: # (We separate identifiers and data (identity): separate the identifier from data immutably related to an identity)
 [//]: # (From reports that AADHAAR, the system run Unique Identification)
 [//]: # (Authority of India (UIDAI) having a rogue operator selling access to the database to)
