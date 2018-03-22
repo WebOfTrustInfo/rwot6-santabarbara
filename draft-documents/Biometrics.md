@@ -117,7 +117,7 @@ thought that there might be some role for the Blockchain for Biometrics.
 [//]: # (Joe Andrieu’s People Centered Identity article?)
 [//]: # (Equifax - https://www.nytimes.com/2017/09/07/business/equifax-cyberattack.html)
 [//]: # (OPM - https://www.washingtonpost.com/news/federal-eye/wp/2015/07/09/hack-of-security-clearance-system-affected-21-5-million-people-federal-authorities-say/?utm\_term=.e5301c5c6f53)
-[//]: # (OPM - https://en.wikipedia.org/wiki/Office\_of\_Personnel\_Management\_data\_breach
+[//]: # (OPM - https://en.wikipedia.org/wiki/Office\_of\_Personnel\_Management\_data\_breach)
 
 ### Principle 2: Biometrics Should Never Be Stored on a Blockchain
 
@@ -305,7 +305,7 @@ compensate for them.
 [//]: # (roadmap is needed - getting from here to there)
 [//]: # (train has left the station - Aadhaar, etc.)
 [//]: # (Legal, Technical, Social Challenges for doing it better - GDPR, PSD2)
-[//]: # (SSI offers privacy, security (group/national), scalability)
+[//]: # (SSI offers privacy, security [group/national], scalability)
 [//]: # (Biometrics is one of the ways to prove who you are - the naked man problem, refugee crisis)
 [//]: # (Biometrics include physical characteristics, embedded devices - can be ephemeral or permanent. We’ll use them, even though they’re ephemeral)
 [//]: # (It’s the third element of: What you have, what you know, and what you are)
