@@ -108,15 +108,16 @@ suffered various breaches[^4].
 As new data technologies and architectures have emerged, many have
 thought that there might be some role for the Blockchain for Biometrics.
 
-[//]: # (We separate identifiers and data (identity): separate the identifier from data immutably related to an identity)
+[//]: # (SSI - control your identity, minimize it, protect it, make it portable, cite Life with Alacrity Paper)
+[//]: # (We separate identifiers and identity data: separate the identifier from data immutably related to an identity)
 [//]: # (From reports that AADHAAR, the system run Unique Identification)
-[//]: # (Authority of India (UIDAI) having a rogue operator selling access to the database to)
+[//]: # (Authority of India UIDAI having a rogue operator selling access to the database to)
 [//]: # (https://www.hindustantimes.com/tech/aadhaar-breach-everything-you-need-to-know/story-VhCKHDIL8lziw6OcnhL4wO.html)
 [//]: # (https://www.hindustantimes.com/tech/aadhaar-breach-everything-you-need-to-know/story-VhCKHDIL8lziw6OcnhL4wO.html)
 [//]: # (Joe Andrieu’s People Centered Identity article?)
 [//]: # (Equifax - https://www.nytimes.com/2017/09/07/business/equifax-cyberattack.html)
 [//]: # (OPM - https://www.washingtonpost.com/news/federal-eye/wp/2015/07/09/hack-of-security-clearance-system-affected-21-5-million-people-federal-authorities-say/?utm\_term=.e5301c5c6f53)
-[//]: # (OPM - https://en.wikipedia.org/wiki/Office\_of\_Personnel\_Management\_data\_breach*](https://en.wikipedia.org/wiki/Office_of_Personnel_Management_data_breach)
+[//]: # (OPM - https://en.wikipedia.org/wiki/Office\_of\_Personnel\_Management\_data\_breach
 
 ### Principle 2: Biometrics Should Never Be Stored on a Blockchain
 
