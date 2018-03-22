@@ -108,7 +108,7 @@ suffered various breaches[^4].
 As new data technologies and architectures have emerged, many have
 thought that there might be some role for the Blockchain for Biometrics.
 
-[//]: # (SSI: control your identity, minimize it, protect it, make it portable, ... cite: Christopher’s Paper)
+[//]: # (SSI: control your identity, minimize it, protect it, make it portable, ... cite: Life w/Alacrity Paper)
 [//]: # (We separate identifiers and data (identity): separate the identifier from data immutably related to an identity)
 [//]: # (From reports that AADHAAR, the system run Unique Identification)
 [//]: # (Authority of India (UIDAI) having a rogue operator selling access to the database to)
@@ -304,10 +304,10 @@ compensate for them.
 
 [//]: # (roadmap is needed - getting from here to there)
 [//]: # (train has left the station - Aadhaar, etc.)
-[//]: # (Legal & Technical & Social Challenges for doing it better - GDPR, PSD2)
+[//]: # (Legal, Technical, Social Challenges for doing it better - GDPR, PSD2)
 [//]: # (SSI offers privacy, security (group/national), scalability)
 [//]: # (Biometrics is one of the ways to prove who you are - the naked man problem, refugee crisis)
-[//]: # (Biometrics include (physical characteristics, embedded devices): can be ephemeral or permanent. We’ll use them, even though they’re ephemeral)
+[//]: # (Biometrics include physical characteristics, embedded devices - can be ephemeral or permanent. We’ll use them, even though they’re ephemeral)
 [//]: # (It’s the third element of: What you have, what you know, and what you are)
 
 [//]: # (REFERENCES)
