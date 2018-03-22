@@ -295,6 +295,8 @@ compensate for them.
 
 ### Biometric Use Cases
 
+Two use cases based on primary biometric protocols [^18]: IEEE 2410-2017 and FIDO UAF 
+
 [//]: # (And we explain how it meets our 5 or 6 criteria)
 [//]: # (DID Auth: BOPS - enrollment/auth, FIDO UAF and WebAuthN flows)
 
@@ -346,3 +348,6 @@ compensate for them.
 [^16]: https://www.telegraph.co.uk/technology/2018/03/17/sydney-biohacker-fined-implanting-travel-card-chip-hand/
 
 [^17]: https://thefinancialbrand.com/67810/biometric-banking-know-your-customer-kyc/
+
+[^18]: https://newsroom.mastercard.com/eu/files/2017/06/Mobile-Biometrics-in-Financial-Services_A-Five-Factor-Framework-compressed3.pdf
+
