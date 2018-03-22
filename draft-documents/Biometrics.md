@@ -36,6 +36,7 @@ help solve many of the problems with biometric privacy and provide
 better overall security.
 
 [//]: # (JC: WEF and Andrieu's Aadhaar articles, private vs. secret)
+[//]: # (This report uses https://github.com/francoislaberge/diagrams)
 
 ### Introduction
 
@@ -86,7 +87,16 @@ When biometrics for authentication were first developed, the only
 option to store the biometric data for comparison with the login data
 was in a centralized silo connected to the internet. As time has gone
 by, centralized silos have become more and more vulnerable, presenting
-irresistible targets for data thieves.
+irresistible targets for data thieves.  In function identity [^14]
+terms, centralized systems have one secure point for multiple records:
+
+![Alt](Biometric-diagrams/centralized.dot.svg)
+
+This presents a single point of failure and a large attack surface.
+In contrast, decentralization protects records individually and
+presents a small attack surface:
+
+![Alt](Biometric-diagrams/decentralized.dot.svg)
 
 There are a number of cases where significant collections of very
 personal data have been hacked. In the United States, Equifax lost the
@@ -148,7 +158,7 @@ possess the device. Your device is assigned several public addresses
 (e.g., IP, phone, device id) but biometric data on the device is
 supposed to be accessible only by explicit consent.
 
-Biometric data is private, not secret[^5]. A password is a secret and
+Biometric data is private, not secret [^5]. A password is a secret and
 should never be shared by definition. Your biometrics are private
 because you must consent to share them on each use. Like a house, your
 address is public but your possessions inside the house are private
@@ -163,8 +173,7 @@ locks and encryption). You may need to share this private data, but only
 under explicit consent. The keys to your house give you control to
 access even though the address is public.
 
-\[Additional Topic of Discussion: Offline First. How can we make this
-work when you’re offline without internet access, then sync up lately?\]
+[//]: # (Additional Topic of Discussion: Offline First. How can we make this work when you’re offline without internet access, then sync up lately?)
 
 ### Principle 4: Biometrics Should Be Under A User’s Control
 
@@ -206,7 +215,7 @@ With biometric storage (at last) stored in a way that maximizes
 protection and authority for the user, the next question is: *how do you
 use it?*
 
-[//]: # (being on device is a blip)*
+[//]: # (being on device is a blip)
 [//]: # (PSD2 explicit consent)
 [//]: # (Adrian G - authorization)
 [//]: # (different people will have different criteria for what under their control means)
@@ -222,8 +231,8 @@ will be stored and used, care should be taken to ensure that the
 biometrics are reliable.
 
 This is a problem for two reasons. First, some biometrics are less
-reliable than others[^8]. For example, fingerprints and iris scans are
-very different than face and voice scans. Second, there’s more
+reliable than others [^8]. For example, fingerprints and iris scans
+are very different than face and voice scans. Second, there’s more
 opportunity to spoof some biometrics than others: Googling a picture
 of someone is easy while lifting a fingerprint is harder; and
 producing a fake image of someone is easy while producing a fake
@@ -232,14 +241,17 @@ the trait of an individual can be imitated using artifacts (e.g., fake
 fingers), in the case of physical traits, and mimicry, in the case of
 behavioral traits (e.g., voice). These spoof attacks are referred to
 as presentation attacks in first ISO standard related to these
-attacks,ISO/IEC 30107-1:2016 [^10]. NIST’s SOFA metrics provide more
-details on these problems and possible attacks[^9].
+attacks, ISO/IEC 30107-1:2016 [^10]. NIST’s SOFA metrics provide more
+details on these problems and possible attacks [^9].
+
+> This point is not widely known, which leads to some very common misconceptions. For example, a common criticism of biometric authentication is, say, "You can't reset a fingerprint." But this is based on the mistaken notion that the biometric data is just a kind of password or token, and overlooks the importance of live presentation of the fingerprint. In a robust fingerprint method, it shouldn't matter that an attacker can present a facsimile of a person's fingerprint; anything other than the person's actual finger (still attached to his or her living body) should not work [^15]
 
 [//]: # (adaptive/behaviorial biometrics - google's captcha, abacus)
 [//]: # (Technology will be get better over time to assure liveness)
 [//]: # (Google CAPTCHA is a good example)
 [//]: # (even though used remotely)
 [//]: # (CITE GARTNER REPORT - biometrics are not passwords - don't discount liveness)
+[//]: # (NIST 800-63 appendix a,b,c references)
 
 This isn’t to say that any biometric is necessarily superior, let alone
 perfect. Instead, biometrics need to be selected that are reliable in
@@ -298,7 +310,7 @@ compensate for them.
 [//]: # (Biometrics include (physical characteristics, embedded devices): can be ephemeral or permanent. We’ll use them, even though they’re ephemeral)
 [//]: # (It’s the third element of: What you have, what you know, and what you are)
 
-References:
+[//]: # (REFERENCES)
 
 [^1]: http://www.lifewithalacrity.com/2016/04/the-path-to-self-soverereign-identity.html
 
@@ -314,12 +326,18 @@ References:
 
 [^7]: https://blockstack.org/whitepaper.pdf
 
-[^8]: Anil Jain, Arun Ross, and Salil Prabhakar. "An introduction to
-    biometric recognition." *IEEE Transactions on circuits and systems
-    for video technology* (2004).
+[^8]: http://ieeexplore.ieee.org/document/1262027
 
 [^9]: https://pages.nist.gov/SOFA/SOFA.html
 
-[^10]: [*https://www.iso.org/standard/53227.html*](https://www.iso.org/standard/53227.html)
+[^10]: https://www.iso.org/standard/53227.html
 
-[^11]: CITE 800-63 LOA, vectorized [*https://pages.nist.gov/800-63-3/sp800-63-3.html*](https://pages.nist.gov/800-63-3/sp800-63-3.html)
+[^11]: https://pages.nist.gov/800-63-3/sp800-63-3.html
+
+[^12]: https://www.weforum.org/reports/the-known-traveller-unlocking-the-potential-of-digital-identity-for-secure-and-seamless-travel
+
+[^13]: http://blog.joeandrieu.com/2017/11/16/aadhaar-digital-identity-writ-large-in-india/
+
+[^14]: https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-fall2017/blob/master/topics-and-advance-readings/functional-identity-primer.md
+
+[^15]: https://www.gartner.com/doc/3796577/technology-insight-biometric-authentication

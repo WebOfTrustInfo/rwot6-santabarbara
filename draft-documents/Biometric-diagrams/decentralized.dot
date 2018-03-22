@@ -1,0 +1,22 @@
+digraph G {
+    Secure1 [label="Secure"];
+    Secure2 [label="Secure"];
+    Secure3 [label="Secure"];
+    Secure4 [label="Secure"];
+    Secure5 [label="Secure"];
+    Secure6 [label="Secure"];
+
+    Subject1 [label=<Subject<SUB>1</SUB>>];
+    Subject2 [label=<Subject<SUB>2</SUB>>];
+    Subject3 [label=<Subject<SUB>3</SUB>>];
+    Subject4 [label=<Subject<SUB>4</SUB>>];
+    Subject5 [label=<Subject<SUB>5</SUB>>];
+    Subject6 [label=<Subject<SUB>...</SUB>>];
+
+    Secure1 -> Subject1;
+    Secure2 -> Subject2;
+    Secure3 -> Subject3;
+    Secure4 -> Subject4;
+    Secure5 -> Subject5;
+    Secure6 -> Subject6;
+}
