@@ -32,7 +32,7 @@ before 2018-03-05.
 
 The group expects that work will continue during the
 [W3C Credentials Community Group](https://w3c-ccg.github.io/)
-meetings over the next several months with a plan to take the specification on
+meetings over the next several months, with a plan to take the specification on
 the W3C Standards track by Q4 2018. The following work items will be needed
 to progress onto the W3C Standards track:
 
