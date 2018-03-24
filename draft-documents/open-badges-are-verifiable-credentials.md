@@ -408,33 +408,26 @@ An important capability enabled by using a DID instead of an HTTP URI as an Issu
 The DID Document doesn't have any ability to describe in a verifiable sense the issuer's name, url or email, but these properties are desired to display within badging systems as part of the Open Badges [Profile](https://openbadgespec.org/#Profile) class, so they are embedded in the claim in these examples. Open Badges ecosystem tools need to determine for themselves when and why they trust these values to be correctly associated with an issuer ID. We can authenticate the DID, but not these properties directly. However, they may be the claims of other Verifiable Credentials where the Issuer is the subject. If a consumer trusts one or more of these claims, they could trust this data wherever it is presented associated with the issuer. This is likely a case where an issuer would want to reference [Endorsements](https://openbadgespec.org/#Endorsement) (the Open Badges Vocabulary term for "plain" Verifiable Credentials) they have received within the Issuer Profile that gets embedded in claims like the above example.
 
 ## Blockchain proof of existence with Blockcerts
-Blockchain-tethered issuance of Open Badges / Verifiable Credentials is enabled by the same JSON-LD signature and verification framework described here. The [MerkleProof2017](https://github.com/IMSGlobal/cert-schema/blob/e0ef2203af5eb01a8efc22dc6ced766ec2773cb8/cert_schema/2.0/merkleProof2017Schema.json) LD signature suite allows verification of data anchored to a blockchain. This is the same signature suite used by Blockcerts, The above Option 2 example modified to use this MerkleProof2017 signature suite looks the following:
+
+Blockchain-tethered issuance of Open Badges / Verifiable Credentials is enabled by the same JSON-LD signature and verification framework described here. The [MerkleProof2017](https://github.com/IMSGlobal/cert-schema/blob/e0ef2203af5eb01a8efc22dc6ced766ec2773cb8/cert_schema/2.0/merkleProof2017Schema.json) LD signature suite allows verification of data anchored to a blockchain. This is the same signature suite used by Blockcerts, The above Option 1 example modified to use this MerkleProof2017 signature suite looks the following:
 
 ```json
 {
-	"@context": "https://w3id.org/credentials/v1",
-	"id": "urn:uuid:01f0bb90-86ee-4469-9655-7ca6f4d591ae",
-	"type": ["Credential", "OpenBadgeCredential"],
+	"@context": ["https://w3id.org/credentials/v1", "https://w3id.org/openbadges/v2"],
+	"id": "https://example.com/assertions/1001",
+	"type": ["Credential", "Assertion"],
 	"issuer": "did:example:issuer_did",
 	"issued": "2018-02-28T14:58:57.461422+00:00",
-	"claim": [{
-		"@context": "https://w3id.org/openbadges/v2",
-		"id": "urn:uuid:437fc6ff-bb3c-4987-a4b7-be8661ff6f21",
-		"type": "Assertion",
-		"issuedOn": "2018-02-25T00:00:00+00:00",
-		"recipient": {
-			"type": "id",
-			"identity": "did:example:recipient_did",
-			"hashed": false
-		},
-		"badge": {
+	"claim": {
+		"id": "did:example:recipient_did",
+		"obi:holds": {
+			"id": ""urn:uuid:7aad3c57-3bfb-45ea-ae79-5a6023cc62e4",
 			"type": "BadgeClass",
-			"id": "urn:uuid:7aad3c57-3bfb-45ea-ae79-5a6023cc62e4",
 			"name": "Certificate of Accomplishment",
 			"image": "data:image/png;base64,...",
-			"description": "Lorem ipsum dolor sit amet, mei docendi concludaturque ad, cu nec partem graece. Est aperiam consetetur cu, expetenda moderatius neglegentur ei nam, suas dolor laudem eam an.",
+			"description": "A badge describing great accomplishments",
 			"criteria": {
-				"narrative": "Nibh iriure ei nam, modo ridens neglegentur mel eu. At his cibo mucius."
+				"narrative": "Perform tasks of valor and wit."
 			},
 			"issuer": {
 				"type": "Profile",
@@ -443,11 +436,14 @@ Blockchain-tethered issuance of Open Badges / Verifiable Credentials is enabled 
 				"url": "http://example.com",
 				"email": "test@example.com"
 			}
-		},
-		"verification": {
-			"type": "VerifiableClaim2018"
 		}
-	}],
+	},
+	"obi:evidence": {
+		"id": "https://example.org/portfolios/25",
+		"name": "Bob's Portfolio",
+		"narrative": "Bob worked hard to develop a good portfolio",
+		"genre": "ePortfolio"
+	},
 	"sec:proof": {
             "type": "MerkleProof2017",
             "targetHash": "637ec732fa4b7b56f4c15a6a12680519a17a9e9eade09f5b424a48eb0e6f5ad0",
@@ -470,7 +466,7 @@ Informally, the Merkle proof, along with JSON-LD normalization, allows you to co
 
 More precisely, during verification, the hash of the present credential is calculated to ensure it matches `targetHash`. The `proof` section is how to merge this local credential with one-way hashes of other credentials (to avoid revealing the contents) into a tree structure, the base of which should equal `merkleRoot`. Lastly, the `merkleRoot` value is the expected value on the blockchain, which we can indepdently confirm. In the `anchors` part of the proof, the `type` and `sourceId` incidate which blockchain, transaction id, and transaction field to fetch; this value should equal the `merkleRoot` value.
 
-The proof is able to tie the Verifiable Credential to the issuer DID by proving that the public key that signed the target transaction is authorized by the DID document associated with the issuer's DID.
+This example shows an issuer identitied with a DID (`did:example:issuer_did`). This enables an improved authenticity check during the Blockcerts verification process, which will ensure the public key that signed the issuing transaction is authorized by the DID document associated with the issuer's DID.
 
 This format is proposed for Blockcerts v3, and has the advantage of unifying Blockcerts more tighly into Verifiable Credentials / Open Badges, as opposed to a separate Open Badge extension.
 
