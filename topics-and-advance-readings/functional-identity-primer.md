@@ -125,7 +125,7 @@ In the diagrams below, the blue boxes are nouns and the red ovals are
 verbs. Together they comprise the building blocks for describing
 identity systems.
 
-<img src="./media/functionalidentity1.png" width=300 align="center">
+<center><img src="./media/functionalidentity1.png" width=30% height=30%></center>
 
 We start with the simplest identity system, using
 three nouns and a verb:
