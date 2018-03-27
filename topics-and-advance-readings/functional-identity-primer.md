@@ -292,9 +292,10 @@ People, Places and Things
 This is the point of identity: those people, places, and things we
 recognize.
 
-  **Technologists**   **Laypeople**     **Common meaning**
-  ------------------- ----------------- -----------------------------------------------------------------------------------
-  Subject             Person or Thing   Someone or something under consideration. The focus of interaction or discussion.
+ | **Technologists** 
+  **Laypeople**  |   **Common meaning** |
+ |-------------------|-----------------|-----------------------------------------------------------------------------------|
+  Subject        |     Person or Thing |  Someone or something under consideration. The focus of interaction or discussion.
 
 Identity Information
 --------------------
