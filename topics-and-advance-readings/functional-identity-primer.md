@@ -125,7 +125,7 @@ In the diagrams below, the blue boxes are nouns and the red ovals are
 verbs. Together they comprise the building blocks for describing
 identity systems.
 
-<p style="text-align:center;"><img src="./media/functionalidentity1.png" width=50% height=50%></p>
+<div style="text-align:center;"><img src="./media/functionalidentity1.png" width=50% height=50%></div>
 
 We start with the simplest identity system, using
 three nouns and a verb:
@@ -158,7 +158,8 @@ Input and Effect
 We learn or acquire identity information over time, then apply what
 we’ve learned to various interactions, usually elsewhere.
 
-![](./media/functionalidentity2.png)**\
+<div style="text-align:center;"><img src="./media/functionalidentity2.png" width=50% height=50%></div>
+
 Acquire** means to gather identity information for use by the system.
 
 **Apply** means to use identity information to affect change outside the
@@ -192,7 +193,8 @@ we know about people and apply to our interactions. It’s also how we
 make judgments based on what we know, gaining insights into character,
 capabilities, and proclivities.
 
-> ![](./media/functionalidentity3.png)**\
+<div style="text-align:center;"><img src="./media/functionalidentity3.png" width=50% height=50%></div>
+
 > Raw data** are data which may or may not contain information relatable
 > to a person or thing.
 >
@@ -243,7 +245,9 @@ Governing Identity Information
 
 We go to great lengths to manage identity information.
 
-> ![](./media/functionalidentity4.png)**Govern** means to manage the creation and
+<div style="text-align:center;"><img src="./media/functionalidentity4.png" width=50% height=50%></div>
+
+**Govern** means to manage the creation and
 > flow of identity information so the right people have access for the
 > right reasons at the right time.
 
@@ -327,7 +331,7 @@ current and future interactions with subjects. We **govern** identity
 information to preserve privacy and give appropriate controls to the
 right parties.
 
-![](./media/functionalidentity5.png)
+<div style="text-align:center;"><img src="./media/functionalidentity5.png" width=50% height=50%></div>
 
 In more ordinary language: we give **names** to **people**. We collect
 **observations** and linking those observations to people, remembering
@@ -336,7 +340,7 @@ knowledge to generate new knowledge. We then **apply** what we know when
 dealing with those we recognize. We control identity information to
 preserve privacy and to protect those we love.
 
-![](./media/functionalidentity6.png)
+<div style="text-align:center;"><img src="./media/functionalidentity6.png" width=50% height=50%></div>
 
 This is the vocabulary of Functional Identity, a way to discuss and
 understand identity in terms of functionality: how it works and what it
