@@ -158,7 +158,7 @@ Input and Effect
 We learn or acquire identity information over time, then apply what
 we’ve learned to various interactions, usually elsewhere.
 
-<div style="text-align:center;"><img src="./media/functionalidentity2.png" width=50% height=50%></div>
+<div style="text-align:center;"><img src="./media/functionalidentity2.png" width=33% height=33%></div>
 
 Acquire** means to gather identity information for use by the system.
 
@@ -193,7 +193,7 @@ we know about people and apply to our interactions. It’s also how we
 make judgments based on what we know, gaining insights into character,
 capabilities, and proclivities.
 
-<div style="text-align:center;"><img src="./media/functionalidentity3.png" width=50% height=50%></div>
+<div style="text-align:center;"><img src="./media/functionalidentity3.png" width=33% height=33%></div>
 
 > Raw data** are data which may or may not contain information relatable
 > to a person or thing.
@@ -245,7 +245,7 @@ Governing Identity Information
 
 We go to great lengths to manage identity information.
 
-<div style="text-align:center;"><img src="./media/functionalidentity4.png" width=50% height=50%></div>
+<div style="text-align:center;"><img src="./media/functionalidentity4.png" width=20% height=20%></div>
 
 **Govern** means to manage the creation and
 > flow of identity information so the right people have access for the
