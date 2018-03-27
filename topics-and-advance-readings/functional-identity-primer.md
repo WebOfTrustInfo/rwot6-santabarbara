@@ -303,12 +303,12 @@ Identity Information
 These are the abstract nouns of identity, the informational assets
 created and used by identity systems.
 
-  **Technologists**   **Laypeople**   **Common meaning**
-  ------------------- --------------- ---------------------------------------------------------------------------------------------------------------
-  Identifiers         Names           Refers to entities. Used to keep track of people and things.
-  Attributes          Knowledge       What we know about people and things. How we describe the state, appearance, or other qualities of an entity.
-  Raw data            Observations    Data which may or may not contain correlatable information.
-  Contexts            Situations      Information which allows us to evaluate if another piece of information is dependable.
+  |**Technologists** |  **Laypeople** |  **Common meaning**|
+ |-------------------|-----------------|-----------------------------------------------------------------------------------|
+|  Identifiers    |     Names        |   Refers to entities. Used to keep track of people and things. |
+|  Attributes     |     Knowledge    |   What we know about people and things. How we describe the state, appearance, or other qualities of an entity. |
+|  Raw data       |     Observations  |  Data which may or may not contain correlatable information. |
+|  Contexts       |     Situations    |  Information which allows us to evaluate if another piece of information is dependable. |
 
 Identity Actions
 ----------------
@@ -316,13 +316,13 @@ Identity Actions
 These are the verbs of identity. These are the actions taken by identity
 systems working with identity information.
 
-  **Technologists**   **Laypeople**   
-  ------------------- --------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Acquire             Collect         Intake or generate identity information for use by the system.
-  Correlate           Relate          Associate attributes or observations with particular entities. We associate what we know about someone with either an identifier in the system or with a subject in question.
-  Reason              Reason          Evaluate existing identity information to generate new beliefs, expressed in attributes, captured in statements.
-  Apply               Apply           Use identity information in a system, typically to moderate interactions with known entities.
-  Govern              Control         Manage the creation and flow of identity information to the right people at the right time.
+ |**Technologists** |  **Laypeople** |  **Common meaning**|
+ |-------------------|-----------------|-----------------------------------------------------------------------------------|
+ | Acquire          |   Collect     |    Intake or generate identity information for use by the system. |
+ | Correlate        |   Relate      |    Associate attributes or observations with particular entities. We associate what we know about someone with either an identifier in the system or with a subject in question. |
+ | Reason           |   Reason      |    Evaluate existing identity information to generate new beliefs, expressed in attributes, captured in statements. |
+ | Apply            |   Apply       |    Use identity information in a system, typically to moderate interactions with known entities. |
+ | Govern           |   Control     |    Manage the creation and flow of identity information to the right people at the right time. |
 
 For technologists: we assign **identifiers** to **subjects**. We collect
 **raw data** and **correlate** **attributes** to the subjects we track,
