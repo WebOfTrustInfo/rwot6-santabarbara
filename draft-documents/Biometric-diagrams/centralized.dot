@@ -1,0 +1,14 @@
+digraph G {
+    Subject1 [label=<Subject<SUB>1</SUB>>];
+    Subject2 [label=<Subject<SUB>2</SUB>>];
+    Subject3 [label=<Subject<SUB>3</SUB>>];
+    Subject4 [label=<Subject<SUB>4</SUB>>];
+    Subject5 [label=<Subject<SUB>5</SUB>>];
+    Subject6 [label=<Subject<SUB>...</SUB>>];
+    Secure -> Subject1;
+    Secure -> Subject2;
+    Secure -> Subject3;
+    Secure -> Subject4;
+    Secure -> Subject5;
+    Secure -> Subject6;
+}
