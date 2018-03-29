@@ -1,8 +1,8 @@
 # Decentralized Autonomic Data (DAD) and the three R's of Key Management
 
-Author: Samuel M. Smith Ph.D. (sam@samuelsmith.org)
+Author: [Samuel M. Smith Ph.D.](sam@samuelsmith.org)
 
-Contributor: Vishal Gupta (vishal@diro.io)
+Contributor: [Vishal Gupta](vishal@diro.io)
 
 2018/03/07
 
