@@ -15,7 +15,7 @@ manner with decentralized governance. Streaming data are typically measurements 
 
 Streaming data applications may impose significant performance demands on the processing of the associated data. Consequently one major goal is to use efficient mechanisms for providing the autonomic properties. This means finding minimally sufficient means for managing keys and cryptographic integrity.
 
-Importantly this paper provides detailed descriptions of the minimally sufficient means for key reproduction, rotation, revocation, and recovery for DID leveraged DADS. 
+Importantly this paper provides detailed descriptions of the minimally sufficient means for key reproduction, rotation, and recovery for DID leveraged DADS. 
 
 
 ## Overview
