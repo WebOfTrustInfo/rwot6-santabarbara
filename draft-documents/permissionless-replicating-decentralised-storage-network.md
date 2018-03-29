@@ -42,7 +42,7 @@ to peer network that stores Verifiable Credentials so that the
 credentials are always available and publicly readable. The network
 allows anyone to join and obtain a replica of the entire data set
 stored on the network. We envision that each node in this
-decentralised network can choose to store data for a one or more
+decentralised network can choose to store data for one or more
 DApps, so that not all nodes store data for all DApps. Such a storage
 network runs as a public utility where participants store and retrieve
 data for their use cases but as a consequence provide the utility for
@@ -67,7 +67,7 @@ credentials or can can also be stored on a permissionless,
 decentralised storage network while providing the required application
 behaviour.
 
-First we provide an brief overview of the three projects and list the
+First we provide an brief overview of the four projects and list the
 requirements for storing the Verifiable Credentials stored in each
 project.
 
@@ -95,7 +95,7 @@ Chlu uses IPFS' pubsub mechanism to provide replication.
 
 DClaims is a platform that enables a truly distributed and trustless
 way of managing claims about news articles. Using the
-DClaims-Web-Extension users can generate claims (whose authenticity
+DClaims-Web-Extension, users can generate claims (whose authenticity
 and integrity can be verified by anyone without the need of a third
 party) about any news article, and those claims can be presented to
 all other users. This all happens in a distributed and trustless form,
@@ -130,11 +130,13 @@ backpack.
 
 ## Pillar Project
 
-The Pillar project's aim is to provide users control over their
-data. The project currently stores assets in a user's wallet and on servers run 
-by the project. The wallet acts as a user's agent to mediate access to user owned
-data. The near-term plan is to store data, including verifiable credentials, 
-consents and encrypted personal data on a decentralised storage network.
+The Pillar project's aim is to provide users with ownership and control over their
+personal data. The project currently stores some assets in a user's wallet with the
+remaining data on data hub servers run by the project. The wallet acts as a user's
+agent to mediate access to user owned data. The near-term plan is to store data,
+including verifiable credentials, consents and encrypted personal data on a
+replicated storage network, with a longer-term plan of storing data on a combination
+of user-selected storage options, including decentralised storage networks.
 
 ## Patterns of Data Storage
 
@@ -144,21 +146,22 @@ projects.
 
 ### Storing Protected Personal Information
 
-Storing protected personal information and mediating access to the
-same requires that an active agent is running on a device controlled
-by the subject. The active agent can be run on behalf of the subject
-and allows the subject entity to define access control rules.
+Storing personally identifiable information (PII), or sensitive personal
+information (SPI) and mediating access to the same requires that an
+active agent is running on a device controlled by the subject. The active
+agent can be run on behalf of the subject and allows the subject entity
+to define access control rules.
 
-If an application needs to store PPI data, we believe they should
+If an application needs to store PII or SPI data, we believe they should
 provide access to these through an active agent that can adhere to
-entity selected authorisation policies. PPI should not be stored
+entity selected authorisation policies. PII AND SPI should not be stored
 unencrypted on a decentralised storage network.
 
 [added "unencrypted" -- is this our thinking?]
 
 ### Mediated Access
 
-If any data requires that an access policy, then it is seems that the
+If any data requires an access policy, then it seems that the
 the easiest way to provide access to the data is through an active
 agent. This is probably the case for mediated access to personally
 identifiable information.
@@ -170,7 +173,7 @@ works if the consumer needs to access a large amount of data,
 i.e. almost all of the entity's historical data and then receive
 occasional updates.
 
-Revoking access to an already shared data is a problematic. This is
+Revoking access to an already shared data is problematic. This is
 because, once a consumer has access to the data, then they could have
 made a copy of the data.
 
@@ -181,7 +184,7 @@ consumer retains access to data shared in the past.
 
 ### No Mediated Access, Censorship Resistant Verifiable Credentials
 
-If data has to be publicly accessible without a mediated access, then
+If data has to be publicly accessible without mediated access, then
 such data can be stored on a public, permissionless decentralised
 storage network. An active agent does not provide any benefits but
 adds to the overhead of running and maintaining services for all
@@ -203,7 +206,7 @@ lists. But it requires trusting nodes on the network to not misbehave
 by ignoring revocation lists.
 
 However, as we pointed out earlier, the consumer still has a copy of
-the data, and it can't be guaranteed that they will not use it in
+the data, and it can't be guaranteed that they will not use it in the
 future. Therefore, revoking access to data comes down to the trust
 relationships established between the consumer and the subject.
 
@@ -247,7 +250,7 @@ different implementations of such a network can pick and choose which
 features they want to support.
 
 We invite feedback from the community about any features that seem
-problematic or if there any features we missed out.
+problematic or if there are any features we missed out.
 
 ### Verification
 
@@ -294,7 +297,7 @@ a verifiable claim. This is a hard problem to solve and our suggested
 solution is to use full nodes and to use hash pointers from a new
 version of a credential to the old version. This will assure that a
 node can quickly check if a new version of a credential is available
-in and then serve the new version, or the entire history of the claim.
+and then serve the new version, or the entire history of the claim.
 
 ![Versioning Verifiable Credentials](media/storage-network/versioning.png)
 
@@ -411,21 +414,21 @@ Credentials specifications, but some might require application
 specification steps to be taken. We propose to handle this situation
 by allowing for nodes to load plugins for running application specific
 verification protocols. These are shown as "Plugin DApp X" in the
-figure. Once a received claim is verified it is saved in the local
+figure. Once a received claim is verified, it is saved in the local
 data storage and also passed to the gossip based replication protocol
 to make sure other nodes receive a copy.
 
 ### Data Storage
 
-Finally, the local data storage will use a LevelDB database to store
-each claim keyed by the hash of the entire contents of the claim. This
-hash can be computed by the client sending the HTTP/PUT request and
+Finally, the local data storage will use a database to store each
+claim keyed by the hash of the entire contents of the claim. This hash
+can be computed by the client sending the HTTP/PUT request and
 therefore the node does not need to return this to the client. The PUT
 requests can therefore be made asynchronous, and the client does not
 have to wait for the node to run the verification for the claim being
 written.
 
-The LevelDB store will also write to a reverse index to enable fast
+The database store will also write to a reverse index to enable fast
 lookups for any updates to a claim.
 
 The architecture presented above addresses one particular use case,
@@ -482,7 +485,7 @@ of claim writers to publish claims on the network.
 We presented use cases motivating a need for a permissionless,
 replicating, decentralised storage network. The use cases were derived
 from discussion at the RWOT6 between participants from Chlu, DClaims,
-OpenBadges and The Pillar Project. After identifying the use cases, we
+OpenBadges and Pillar Project. After identifying the use cases, we
 derived requirements for a storage network and finally presented an
 architecture that will address the storage problems for some of our
 use cases.
