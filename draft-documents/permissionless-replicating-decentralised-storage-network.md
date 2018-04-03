@@ -92,21 +92,17 @@ data replication on IPFS is not supported natively. For the moment,
 Chlu uses IPFS' pubsub mechanism to provide replication.
 
 ## DClaims
+DClaims is a decentralised social commentary platform. It uses Verifiable Credentials as the base data structure. Claims are stored on IPFS and kept track of using an Ethereum smart-contract. DClaims can support a wide range of applications. As a proof of concept they developed an application for commenting and classifying news articles directly on news websites. This application is a browser extension that any user can run and which works on most news websites. 
 
-DClaims is a platform that enables a truly distributed and trustless
-way of managing claims about news articles. Using the
-DClaims-Web-Extension, users can generate claims (whose authenticity
+Using the DClaims-Web-Extension, users can generate claims (whose authenticity
 and integrity can be verified by anyone without the need of a third
 party) about any news article, and those claims can be presented to
 all other users. This all happens in a distributed and trustless form,
 with the use of IPFS and Ethereum.
 
 Currently, DClaims stores claims about news articles on IPFS, such
-that, if the claim writers turn off their IPFS nodes the claim is lost
-forever. The claims created by DClaims users need to replicating and
-made highly available independent of the claim issuers availability.
-
-[TODO:JOAO: Would love your feedback on this section and if you want to saying something more or something less please do so.]
+that if the claim issuers turn off their IPFS nodes the claim is not accessible to any one in the network, until the user comes back online. The claims created by DClaims users need to replicating and
+made highly available independent of the claim issuers' availability.
 
 ## OpenBadges
 
