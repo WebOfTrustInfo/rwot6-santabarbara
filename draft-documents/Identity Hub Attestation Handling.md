@@ -21,7 +21,7 @@ In the digital identity space, Hubs let you securely store and share data. A Hub
 
 ## 2 Example Use Cases
 
-We use examples here to give guidance/suggestions for how attestations can be used with real world examples. The overall use case is a person, Alice who registers for College using that a process that includes using an attestation she possesses to prove she has received some required immunizations. After graduation, Alice requests an attestation from the College that she has graduated, and presents that attestation to LinkedIn to be added to her professional profile.
+We use examples here to give guidance/suggestions for how attestations can be used with real world examples. The overall use case is a person, Alice who registers for College using a process that includes using an attestation she possesses to prove she has received some required immunizations. After graduation, Alice requests an attestation from the College that she has graduated, and presents that attestation to LinkedIn to be added to her professional profile.
 
 #### Agents
 
@@ -52,7 +52,7 @@ Some basic guidelines are defined about Hubs, Agents, and their Identity Owners:
 
 In order to communicate regarding attestations with an entity, an individual, in our examples Alice, will first need to establish a connection between her user agent and the entity she will interact with. This is necessary for all follow-on scenarios and is discussed first.
   
-Alice wants to transact with the entity used in the scenarios with the intent to exchange attestations via her digital identity. First and foremost, the entity verifies that Alice is the owner of the digital identifier. In order to find Alice’s user agent we utilize the Universal Resolver (UR) to lookup Alice’s provided Decentralized Identifier (DID) to find her DID Document (DDO), used to authenticate Alice’s ownership of the DID and have access to Alice’s hub and user agent.
+Alice wants to transact with the entity used in the scenarios with the intent to exchange attestations via her digital identity. First and foremost, the entity verifies that Alice is the owner of the digital identifier. In order to find Alice’s user agent we utilize the Universal Resolver (UR) to lookup Alice’s provided Decentralized Identifier (DID) to find her DID Document (DDO), used to authenticate Alice’s ownership of the DID and access to Alice’s hub and user agent.
 
 ```sequence
 participant Universal Resolver as UR
