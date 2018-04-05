@@ -19,6 +19,7 @@ Christian Lundkvist,
 Drummond Reed,
 Kyle Den Hartog
 Marcus Sabadello
+Vishal Gupta
 
 **ABSTRACT**
 
@@ -293,12 +294,78 @@ accepted.
 Systematic approaches can be actively aware of these challenges and
 compensate for them.
 
-### Biometric Use Cases
+### DID Auth flows with biometrics
 
-Two use cases based on primary biometric protocols [^18]: IEEE 2410-2017 and FIDO UAF 
+We illustrate several DID Auth examples using *biometric-based*
+identity credentials that reflect these six principles.  These
+examples are based on flows found in [^19].  In all cases, however,
+biometric authentication first requires enrollment (or registration)
+in which an Intial Biometric Vector (IBV) is collected and stored.  An
+IBV is a *template* and is independent of biometric modality:
+fingerprint, voice, face, etc. but contains data in standards-based or
+proprietary formats.  During subsequent authentication sessions, a
+Candidate Biometric Vector (CBV) is collected and "matched" against an
+enrolled IBV using methods specific to the biometric modality and
+format of the CBV and IBV.
+
+|                                   |IBV-CBV matched on mobile device|IBV-CBV matched on server|
+| ----------                        |-------                         |-------                  |
+|**IBV stored on the mobile device**|  A                             |   B                     |
+|**IBV stored on the server**       |  C                             |   D                     |
+
+We examine two protocols [^18], IEEE 2410-2017 (BOPS) and FIDO (UAF
+and WebAuthN), in which a public-private key pair is generated during
+enrollment and biometric authentication is only used to protect access
+to the private key.  Both protocols define standards for collecting
+and securing biometrics on mobile devices and negotiating with relying
+party servers.  We consider 4 uses cases (A,B,C and D) as a
+combination of (1) where biometric data is either stored on a mobile
+device or server and (2) where the authentication match occurs on the
+mobile device or server for both protocols.
 
 [//]: # (And we explain how it meets our 5 or 6 criteria)
 [//]: # (DID Auth: BOPS - enrollment/auth, FIDO UAF and WebAuthN flows)
+[//]: # (BOPS cloud agent - a personal agent)
+
+#### Enrollment
+
+The following sequence diagram generalizes DID-based biometric
+enrollment for all flows (A,B,C, D).  First, the subject is prompted
+to enroll via one or more biometric presentations (e.g., fingerprint,
+face, voice).  Depending on protocol and configuration, the mobile
+device or server generates a public-private key pair and reserves the
+IBV (step 1).  Next, the server generates a DID for the enrolled key
+pair and populates a corresponding DID Document with the public key on
+a given blockchain as per server configured DID methods.  The
+generated DID is associated with the public-private key pair and
+returned to the subject's mobile device.
+
+#### Biometric DID Auth Flow A: mobile store and mobile match
+
+In this flow, the IBV is stored on the mobile device, typically with
+the assistance of a TPM, such as iOS Secure Enclave.  This is a
+typical flow for hardware-specific biometrics, like TouchId and FaceID
+on iOS devices, where biometric data is never transmitted.
+
+#### Biometric DID Auth Flow B: mobile store and server match
+
+In this flow, the IBV is stored on the mobile device but is
+transmitted to a server for match along with a CBV.  This is a typical
+use case for *voice* biometrics where voice CBV samples
+
+#### Biometric DID Auth Flow C: server store and mobile match
+
+In this flow, the IBV is stored on the server and typically
+encrypted-at-rest (with the assistance of an optional HSM and/or an
+AFIS-compliant database.  Upon authentication, the IBV is transmitted
+to the mobile device for match along with a CBV.  This is a typical
+flow for *facial* biometrics in cases where
+
+#### Biometric DID Auth Flow D: server store and server match
+
+In this flow, the IBV is stored on the server and typically
+encrypted-at-rest (with the assistance of an optional HSM and/or an
+AFIS-compliant database.
 
 ![Alt](Biometric-diagrams/bioEnrollment.sequence.svg)
 
@@ -351,3 +418,6 @@ Two use cases based on primary biometric protocols [^18]: IEEE 2410-2017 and FID
 
 [^18]: https://newsroom.mastercard.com/eu/files/2017/06/Mobile-Biometrics-in-Financial-Services_A-Five-Factor-Framework-compressed3.pdf
 
+[^19]: https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID%20Auth:%20Scope%2C%20Formats%2C%20and%20Protocols.md#example-flow-1
+
+[^20]: https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/HorcruxProtocol.pdf
