@@ -17,8 +17,8 @@ Kim Hamilton Duffy,
 Christopher Allen,
 Christian Lundkvist,
 Drummond Reed,
-Kyle Den Hartog
-Marcus Sabadello
+Kyle Den Hartog,
+Marcus Sabadello,
 Vishal Gupta
 
 **ABSTRACT**
