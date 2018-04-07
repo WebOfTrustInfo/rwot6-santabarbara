@@ -1,12 +1,14 @@
-# Making DIDs invisible: Petnames and their secure user interfaces
+# Making DIDs Invisible: Petnames and their Secure User Interfaces
 
-By Christopher Lemmer Webber, Mark S. Miller, Zarchary Larson, Kate Sills,
+By Christopher Lemmer Webber, Mark S. Miller, Zachary Larson, Kate Sills,
 and Eli Yaacoby
 
-If we ever show a DID to a user we have failed.  We should always show
-a human readable name.  DIDs and tor .onion names give decentralized
-and globally unique names, but they are not human readable.  How can
-we build user interfaces that real users might actually use?  In this
+> "If we ever show a DID to a user we have failed."
+  
+Names must be human-readable in order to be widely used. 
+Unfortunately, while DIDs and Tor .onion addresses are 
+decentralized and globally unique, they are not human readable. How can
+we build user interfaces that real users might actually use?  In this 
 paper we provide an overview of petname systems, a way of mapping
 human readable names to cryptographically secure names, and describe
 changes to two user interface designs that we believe that are
@@ -19,7 +21,7 @@ system.  By utilizing petname systems we are able to collectively
 support individual naming definitions, community curated directories
 of names, as well as exiting naming authorities such as certificate
 authorities and the domain name system, government agencies such as
-trademark offices, and decentralized systems such as namecoin.
+trademark offices, and decentralized systems such as Namecoin.
 
 # The what and why of petname systems<a id="sec-1" name="sec-1"></a>
 
@@ -50,7 +52,7 @@ database to bidirectionally map human readable names to
 cryptographically secure names.
 The three types of names in a petname system are:
 
--   **petnames**: These are set localy by a user to map local meaning
+-   **petnames**: These are set locally by a user to map local meaning
     to an external identifier.
     For example, "Mom", "Uncle Bob", and "Pawnee Library".
 -   **edge names**: Every entity in a petname system may act as its own
@@ -204,23 +206,27 @@ Now all that's left for Ben to do is pick up the pizzas!
 ## Web browser integration<a id="sec-2-2" name="sec-2-2"></a>
 
 While smartphone contact lists already have much in common with
-petname systems, web browsers require more care.
-But if we pay attention to what the boundaries and usage behavior
+petname systems, web browsers require more care. But if we pay attention to what the boundaries and usage behavior
 of modern browsers are, a petnames system can be built which matches
 user expectations.
 
+As Eric Lawrence [explains](https://textslashplain.com/2017/01/14/the-line-of-death/), 
+in web browsers, the browser itself typically has control over the top of the window. 
+However, below the address bar, the webpage can display whatever it wants, causing
+Lawrence to call this demarcation the "Line of Death."
 
-One thing browsers are close to doing right are expressing the
-understanding that the address bar *should be* a trusted path
-(though unfortunately browsers allow this trust to be broken,
-as we will see).
+Even the supposedly safe area, above the Line of Death, is in danger -- 
+HTML5's Fullscreen API, for example, allows the webpage to control the 
+entire screen area. Moreover, mobile web browsers have dispensed with 
+the idea of a trusted header entirely. 
+
+However, web browers do get some things right. For instance, they proposed 
+the idea that the address bar *should be* a trusted path. 
 Furthermore, a web page, when visited over a secure connection,
 is able to present a link that does express where the web page
-would like you to go.
-And usefully browsers already provide something that is very much like
-petnames: bookmarks, which allow users to map a locally human
+would like you to go. And usefully browsers already provide something that 
+is very much like petnames: bookmarks, which allow users to map a locally human
 meaningful name to a global identifier.
-
 
 Unfortunately browsers also have different design decisions which can
 make providing a secure environment difficult.
@@ -233,6 +239,31 @@ bar of a browser can indicate to a user where they will probably go.
 Unfortunately this is not guaranteed to be the actual place the user
 will be sent; for example, a web page can intercept the click in
 javascript and direct the user somewhere else.
+
+To see how petnames (if correctly implemented) can help, we will
+analyze a specific scenario, in which a website (paypa1.com) attempts to pass
+itself off as paypal.com, hoping to capitalize on the similarity of appearance 
+in the names.
+
+Previous implementations of petnames in the browser have used a separate bar 
+adjacent to the address bar to display the petname, such as in
+[Tyler Close's 2005 paper](https://www.w3.org/2005/Security/usability-ws/papers/02-hp-petname/). 
+Our implementation shows the petname itself in the address bar. If the user has a 
+ local petname (essentially, a bookmark name), the local petname is shown. If the user 
+ does not have a local petname, an edge name is shown, using the ⇒ symbol as in 
+ the contact list example.
+ 
+Alice hasn't used Paypal before, so she types "Paypal" into Google. She clicks on the top
+result, and is taken to the webpage. At the top of her browser window, the address bar
+shows "DomainSpace ⇒ paypal.com", indicating that paypal.com is a edge name that is provided
+by the domain name registry DomainSpace. Alice prefers to use DomainSpace as her main petname
+provider because DomainSpace has a strict policy of allocating all "nearby" names as a package
+whenever a domain name is sold, so that scammers cannot claim a lookalike name later. 
+For instance, "DomainSpace ⇒ paypa1.com" automatically redirects to 
+"DomainSpace ⇒ paypal.com" because paypa1 was close enough to paypal it was sold
+as part of the same package. (For more information on  "nearby" names (also called "confusables") 
+see [Unicode Utilities: Confusables](https://unicode.org/cldr/utility/confusables.jsp).
+ 
 
 <!--
 
