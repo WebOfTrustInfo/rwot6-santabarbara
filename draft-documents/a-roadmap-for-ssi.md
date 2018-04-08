@@ -25,7 +25,7 @@ This section describes the state of the SSI industry, as of 7 April 2018. We can
 
 ### Weaknesses
 
-Our own complacency could also derail or delay SSI adoption.
+Our own complacency could derail or delay SSI adoption.
 
 * Self-sovereign identity concepts can be confusing, especially when we lead with technology and not societal benefits
 * We do not discuss deployment schedules for SSI networks and APIs, so many application developers refrain from investing effort;
