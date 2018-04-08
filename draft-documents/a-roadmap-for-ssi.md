@@ -1,20 +1,64 @@
 # SSI: A Roadmap for Adoption
 > A Journey from huh? to DUH!
 
-#### Authors
-* Moses Ma, FutureLab
-* Claire Rumore, FutureLab
-* Dan Gisolfi, IBM
-* Wes Kussmaul, Reliable Identities, Inc
-* Dan Greening, Senex Rex
+Moses Ma (FutureLab), Claire Rumore (FutureLab), Dan Gisolfi (IBM), Wes Kussmaul (Reliable Identities, Inc), Dan Greening (Senex Rex)
 
 ## Abstract
-This document summarizes the market strengths, weaknesses, opportunities, and threats facing the Self-Sovereign Identity (SSI) industry. It proposes to create a persistent cross-functional and cross-company team to develop the SSI market. It lists key stakeholders who can open market doors for the SSI industry, and who would benefit from better understanding of the SSI market. Its first project will be an SSI application market roadmap, to show the technical prerequisites, market enablers, risks, revenues, and costs of different SSI applications on a reasonable timeline. A roadmap will help SSI leaders, standards bodies, developers, academics, media, and investors focus on important work, and accelerate the SSI market. Further projects will include go-to-market materials for developers, market explainers, frequently asked questions, market glossaries, and market research.
+This document proposes to create a persistent cross-functional and cross-company team to develop the Self-Sovereign Identity (SSI) market. It lists key stakeholders who would actively promote SSI adoption, if they were well-informed. Its first project will be an SSI application market roadmap, to show the technical prerequisites, market enablers, risks, revenues, and costs of different SSI applications on a reasonable timeline. A roadmap will help SSI leaders, standards bodies, developers, academics, media, and investors focus on important work, and accelerate the SSI market. We illustrate industry marketing by summarizing our market strengths, weaknesses, opportunities, and threats (SWOT analysis), and show how this simple analysis exposes important marketing goals. Further projects will include go-to-market materials for developers, market explainers, frequently asked questions, market glossaries, and market research.
 
 ## Audience
 We wrote this paper to find more people who see a healthy SSI market as essential to their own success. By working with us, you will grow the overall SSI market, meet the major SSI market participants, and advance your own ambitions. Please join us!
 
-# 1 SSI Industry Analysis
+---
+
+# 1 Self-Sovereign Identity Group Charter
+
+This section describes the mission, stakeholders, goals, and initial organizational structure of the proposed [Self-Sovereign Identity Group](http://selfsovereign.id).
+
+## Mission
+We improve social stability, economic productivity, and individual freedom by promoting broad use of self-sovereign identity. 
+
+## Stakeholders
+Our market development efforts will target these stakeholders.
+
+| Role                                 | Benefit                                                   |
+|--------------------------------------|-----------------------------------------------------------|
+| Technical leaders                    | Focus innovation on market enabling technology            |
+| Standards participants               | Develop standards that promote high usage                 |
+| Media                                | Develop more compelling, meaningful, and accurate stories |
+| Developers                           | Create applications and services for rapid adoption       |
+| Businesses, Governments, Non-profits | Develop early customers and adoption                      |
+| Venture capitalists                  | Make better decisions to reduce risk and increase IRR     |
+| Academics                            | Target hot research opportunities                         |
+
+## Membership
+
+Members in this organization must contribute to content development and distribution, stakeholder engagement and recruiting. In return, members' companies (or the individual if they are independent) will be highlighted on our web site and promotional materials. Individual members will learn an enormous amount about the SSI market, ICO funding strategies, identity stakeholders, standards organizations, and marketing. Members will meet many industry luminaries and through them gain career opportunities. Finally, to the extent possible we want members to have autonomy, by providing measurable goals and allowing them to achieve those goals as they see fit (within reason).
+
+We expect the organization to ultimately self-organize to maximize market expansion. Initially, a single **Product Owner** may prioritize work, and a **Scrum Master** may be assigned to facilitate communication and work, manage the workflow and seek timely results.
+
+These focus areas will likely dominate our activities.
+
+* **Content**: Create informational content (presentation, videos, etc) suitable for stakeholders
+* **Portal**: Create and maintain the organization's website
+* **Communications**: Propagate SSI messaging to passive stakeholders
+* **Stakeholder Engagement**: Engage key standards and open source workgroups in a two-way dialog
+* **Management**: Recruit members, prioritize value, facilitate effort
+
+Contact [Moses Ma](mailto:moses@futurelab.com) or [Dan Greening](mailto:dan@senexrex.com) to become a member.
+## Assets
+
+This document was developed as part of the RWOT (Rebooting Web of Trust) group. Source is [HERE](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/a-roadmap-for-ssi.md)
+
+An initial web site has been created at [selfsovereign.id]().
+
+Group work is prioritized and tracked at [Trello:ssi-roadmap](https://trello.com/b/FBz4oGqy/ssi-roadmap).
+
+---
+# 2 Next Steps
+
+## Motivation (SWOT)
+
 This section describes the state of the SSI industry, as of 7 April 2018. We can gain a broad understanding of the maturity and vulnerability of our industry by listing strengths, weaknesses, opportunities and threats (SWOT analysis).
 
 ### Strengths
@@ -62,96 +106,25 @@ False assumptions about SSI are rife:
 * Some believe that participation in SSI networks is involuntary,
 * Some believe that a decentralized ID could "*never be turned off or blocked*” due to the immutability of the distributed ledgers.
 * Some believe it will be impossible to prevent anyone from publishing anything they want about you, without the standard societal repercussions (libel, etc.), and that ledger immutability negative reviews become part of an indelible permanent record.
-* Few people understand the privacy benefits of *Selective Disclosure* (or the Principle of Minimum Disclosure), and how those are built into many SSI network implementations.
+* Few people know the privacy benefits of *Selective Disclosure* (or the Principle of Minimum Disclosure), and how SSI supports it.
 
 Most of these threats can be disarmed by informing key influencers.
 
-## Industry Goals
+## Be Proactive 
+The reality is that there will always be naysayers and alternatives to our SSI vision. However, it is our responsibility to proactively defend our cause. It is not in our best interest to spend wasteful energy debating. Instead we should focus our attention on awareness and education through positive communications and live exemplars. To be proactive we need a plan.
 
-Presently, the SSI industry operates by loose consensus via the Internet Identity Workshop (IIW) and the Rebooting Web of Trust (RWOT) conferences, and through the W3C Verified Claims and Distributed Identity communities and working groups. Here are the goals that they have articulated:
+## Technical Goals
 
-* One million public (non-pseudonymous) DIDs issued by March 2019
-* Formalized plans by year-end 2018 for the foundational SSI specifications
+Presently, the SSI industry operates by loose consensus via Internet Identity Workshop (IIW), Rebooting Web of Trust (RWOT), W3C Verified Claims, W3C Distributed Identity. Here are the goals that they have articulated:
+
+* One million public (public or pseudonymous) DIDs issued by March 2019
+* Formalized plans by year-end 2018 for foundational SSI specifications
 	* W3C DID
 	* W3C VC
 	* Oasis DKMS
 * Public release of a handful of reference applications that can help jumpstart developer applications
 
----
-
-# 2 Self-Sovereign Identity Group Charter
-
-This section describes the mission, stakeholders, goals, and initial organizational structure of the proposed [Self-Sovereign Identity Group](http://selfsovereign.id).
-
-## Mission
-We improve social stability, economic productivity, and individual freedom by promoting broad use of self-sovereign identity. 
-
-## Stakeholders
-Our market development efforts will target these stakeholders.
-
-| Role                                 | Benefit                                                   |
-|--------------------------------------|-----------------------------------------------------------|
-| Technical leaders                    | Focus innovation on market enabling technology            |
-| Standards participants               | Develop standards that promote high usage                 |
-| Media                                | Develop more compelling, meaningful, and accurate stories |
-| Developers                           | Create applications and services for rapid adoption       |
-| Businesses, Governments, Non-profits | Develop early customers and adoption                      |
-| Venture capitalists                  | Make better decisions to reduce risk and increase IRR     |
-| Academics                            | Target hot research opportunities                         |
-
-## Membership
-
-Members in this organization must contribute to content development and distribution, stakeholder engagement and recruiting. In return, members' companies (or the individual if they are independent) will be highlighted on our web site and promotional materials. Individual members will learn an enormous amount about the SSI market, ICO funding strategies, identity stakeholders, standards organizations, and marketing. Members will meet many industry luminaries and through them gain career opportunities. Finally, to the extent possible we want members to have autonomy, by providing measurable goals and allowing them to achieve those goals as they see fit (within reason).
-
-We expect the organization to ultimately self-organize to maximize market expansion. Initially, a single **Product Owner** may prioritize work, and a **Scrum Master** may be assigned to facilitate communication and work, manage the workflow and seek timely results.
-
-These focus areas will likely dominate our activities.
-
-* **Content**: Create the informational content (presentation, videos, etc) suitable for stakeholders
-* **Portal**: Create and maintain the organization's website
-* **Communications**: Propagate SSI messaging to passive stakeholders
-* **Stakeholder Engagement**: Engage key standards and open source workgroups in a two-way dialog
-* **Management**: Recruit members, prioritize value, facilitate effort
-
-Existing members have contributed substantially so far. They are 
-
-| Person | Company | Contribution |
-| --- | --- | --- | 
-| Dan Gisolfi | IBM | Content |
-| Moses Ma | Futurelab | Content, Management |
-| Darrell Duane | Independent | Portal |
-| Wes Kussmaul | Delphi Internet Services | Content |
-| Dan Greening | Senex Rex | Content |
-
-## Assets
-
-This document was developed as part of the RWOT (Rebooting Web of Trust) group. Source is [HERE](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/a-roadmap-for-ssi.md)
-
-An initial web site has been created at [selfsovereign.id]().
-
-Group work is prioritized and tracked at [Trello:ssi-roadmap](https://trello.com/b/FBz4oGqy/ssi-roadmap).
-
----
-
-# 3 Working Materials
-
-## Possible volunteers
-
-People who have expressed interest in the organization include:
-
-| Person | Company | Desired Role |
-| --- | --- | --- | 
-| Kate Sills | | Communications |
-| Kaliya Young | | Communications |
-| Remy Lyon | | Communications |
-| Alex Preukschat (Invited) | | GTM Development |
-| Sean Bohan (Invited) | | Stakeholder Engagement |
-| David Crocker (Invited) | | Stakeholder Engagement |
-| Nathan George (Invited) | Sovrin | Stakeholder Engagement |
-
-
-
-## Initial Goals
+## SSI Group (our) Goals
 
 * Recruit members who contribute effort, and avoid the distraction of those who don't
 * Adopt a formal agile project management approach to drive the organization
@@ -172,35 +145,22 @@ People who have expressed interest in the organization include:
 		* Recruit influential leaders (i.e: Reid Hoffman, Fred Wilson, etc) to speak favorably about SSI.
 		* Recruit developer support services, such as GitHub, CircleCI, BitBucket, to support DIDs
 
+---
+
+# 3 Working Materials and Ideas
+
 ## Approach
-Frame an approach that will place concentrated focus on key success factors and deliverables. We will touch on the necessity for toolkits, minimum viable environments (MVE), and interoperable end-to-end exemplars. Specifically, we suggest that attention must be placed on the following goals:
 
-* Outline a better approach for communicating a crisp, cohesive and comprehensive vision of the core benefits of SSI.
-* Justify the importance of streamlining the developer experience through tools that improve time to value and assist in the development of compelling applications.
-* Shift the focus from longer term ad-hoc brainstorming towards a formal initiative to develop a set of minimum viable reference applications.
-* Help find the WOW (the balance between low hanging fruit scenarios and instantly graspable killer app features) that inspires hope and stimulates media interest and viral propagation so that we can win the hearts and minds of a critical mass of stakeholders.
-
-To address these goals, the community needs to crystalize a cohesive maturation roadmap (plan) that outlines initiatives which are measurable via key performance indicators. For example:
-
-## Starting Content
-
-### Wallet Vendors
-
-* Solving the Wallet distribution problem
+* Focus on key success factors and deliverables. 
+* Touch on the necessity for toolkits, minimum viable environments (MVE), and interoperable end-to-end exemplars. 
+* Communicate a crisp, cohesive, and comprehensive vision of the core benefits of SSI.
+* Help developers accelerate application development and value production
+* Promote development of a set of minimum viable reference applications
+* Help find the WOW balance (between low hanging fruit and instantly recognizable killer apps) that inspires hope and stimulates media interest and virality to win the hearts and minds of stakeholders.
+* Crystalize a cohesive maturation roadmap, outlining initiatives and metrics. 
+* Explain wallets and DID distribution
 	* Who are the wallet makers 
 	* How wallets will be [interoperable and secure](http://www.links.org/files/nspw36.pdf) 
-
-### Debunking Myths
-
-The urgency for a roadmap may be justified best by listening to naysayers. A poor communication plan gives rise to myths that need to be discredited. Here are a few examples of myths already circulating in the media and amongst analysts:
-
-* For example some people believe that blockchain identity solutions store personally identifiable information (PII) on the distributed ledger. This is utterly false. The SSI initiative not only advocates against such poor practices, the community has established several principles including that of *portability* which addresses this issue. A globally unique [decentralized identifier](https://w3c-ccg.github.io/did-spec/#dfn-did) (DID), which is compliant with internet standard [Universally Unique Identifiers](https://en.wikipedia.org/wiki/Universally_unique_identifier) (UUIDs), is used to establish a non-correlatable unique ID. While this DID may be stored on a blockchain and used as mechanism for public key exchange, the actual PII associated with an individual is never placed on a public ledger. This DID is used by an SSI solution to deliver public keys that can be used to verify identity realted credentials that are exchanged privately between willing participants at the edges of the network.
-* Another common misconception about the decentralized identity concept is that participation in the system is somehow involuntary. Additionally, it has been said, erroneously, that a decentralized ID could "*never be turned off or blocked*” due to the immutability of the distributed ledgers that underlie decentralized applications. And finally, that it will be impossible to prevent anyone from publishing anything they want about you, and that the immutability of the ledger means a negative review would be part of an indelible permanent record. Implying that once you are associated with a digital key in a world of pertinent memory, anyone can choose to add any information they want about you to the public record that could never be changed.  These misconceptions could not be farther from the truth. The DID specification states clearly that the publishing of any user’s decentralized ID is explicitly controlled and administered by the user/owner. The proposed specification for Verifiable Credentials states plainly that claims are revocable, expirable, and that the policies of both the issuer and holder must be adhered to. It’s assumed that the normal policy for a holder is to approve every credential before acceptance. This means that a competitor, who would not be trusted to make a claim about your business, could not append a negative claim about your business without your explicit approval. This is because both the issuer and holder both have the ability to revoke any claim. 
-* Some also misunderstand the concepts behind *Selective Disclosure* (or the Principle of Minimum Disclosure). The true intent here is that a system should follow a minimal disclosure approach that could help with compliance with regulations like HIPAA in the US and GDPR in the EU. This means that users can be in control of private data that they don’t even realize they have, enabling a level of control over personally identifiable data and enabling data privacy at a level heretofore never seen before. 
-
-
-### Be Proactive 
-The reality is that there will always be naysayers and alternatives to our SSI vision. However, it is our responsibility to proactively defend our cause. It is not in our best interest to spend wasteful energy debating. Instead we should focus our attention on awareness and education through positive communications and live exemplars. To be proactive we need a plan.
 
 ## Manifesting some WOWs
 
@@ -224,10 +184,12 @@ Another requirement for success is to create a design process that would lead to
 A project roadmap should produce the following non-exhaustive list of artifacts:
 
 * Creation of the Roadmap Tribe 
-	* Criteria for Success: Goals for the Roadmap Tribe
-	* Members and Roles
+	* **(Done)** Criteria for Success: Goals for the Roadmap Tribe
+	* **(Done)**  Members and Roles
 	* Published Plan/Schedule
 * Community Information Portal (i.e.: ssi.org)
+   * **(Done)**  Site is live. See [selfsovereign.id]()
+   * Site requires registration for market data (through SSI providers?)
 	* Go-to-Market (GTM) Resources
 		* MythBusters: SSI/VC FAQ Sheet
 		* Glossary
@@ -250,3 +212,63 @@ A project roadmap should produce the following non-exhaustive list of artifacts:
 		* Work with Joe to figure out where a SSI.org portal is  organizationally hosted (CCG, RWOT?)
 		* Develop a comprehensive glossary of SSI/VC terms
 
+
+Some people have contributed substantially so far. They are 
+
+| Person | Company | Contribution |
+| --- | --- | --- | 
+| Dan Gisolfi | IBM | Content |
+| Moses Ma | Futurelab | Content, Management |
+| Darrell Duane | Crypto UBI | Portal |
+| Wes Kussmaul | Reliable Identities | Content |
+| Dan Greening | Senex Rex | Content |
+
+## Possible volunteers
+
+People who have expressed interest in the organization include:
+
+| Person | Company | Possible Role |
+| --- | --- | --- | 
+| Kate Sills | | Communications |
+| Kaliya Young | | Communications |
+| Remy Lyon | | Communications |
+
+People who have been invited are:
+
+| Person | Company | Possible Role |
+| --- | --- | --- | 
+| Alex Preukschat (Invited) | Globatalent | GTM Development |
+| Sean Bohan (Invited) | Evernym | Stakeholder Engagement |
+| David Crocker (Invited) | Brandenburg InternetWorking | Stakeholder Engagement |
+| Nathan George (Invited) | Sovrin | Stakeholder Engagement |
+
+
+# 4 Possible Content
+
+## Frequently Asked Questions
+
+Naysayers illustrate the urgency for this effort. A poor communication plan gives rise to myths that need to be discredited. Here are a few examples of myths already circulating in the media and amongst analysts:
+
+#### Do blockchain SSI solutions store personally identifiable information (PII)?
+
+No. Commercial blockchain identity systems do not store personally identifiable information (PII) on blockchains, because it is unnecessary, expensive, and limits portability. Your DID entry on the blockchain may point to data, if there is any, stored elsewhere physically, typically in encrypted form. The SSI standards discourage storing personal data on blockchains, and the industry has established several principles against it.
+
+#### Can I prevent someone from correlating my information from different sites to find out more about me?
+
+Yes. Once you create a "public DID," you create "pseudonymous DIDs" whenever you establish a new online relationship (such as a new login). Pseudonymous DIDs cannot be correlated by others to your public DID without your involvement (and rarely need to be). See [decentralized identifier](https://w3c-ccg.github.io/did-spec/#dfn-did) (DID) and internet standard [Universally Unique Identifiers](https://en.wikipedia.org/wiki/Universally_unique_identifier) (UUIDs). 
+
+#### Can I revoke an SSI distributed ID?
+
+Yes. A decentralized ID is turned off by invalidated the data that the DID points to.
+
+#### Can someone publish something permanently about me on an SSI blockchain?
+
+No. Blockchains are "immutable," meaning data published there are never erased. However, the only things published on SSI blockchains are DIDs, encryption keys (not *decryption keys*), and pointers to outside data (which can be erased or changed). The DID specification states that the user/owner explicitly controls and administers the publishing of their decentralized IDs (this is actually the meaning of the phrase "self-sovereign ID." The proposed Verifiable Credentials specification states plainly that SSI credentials are revocable, expirable, and that an SSI network must enforce the data policies of both the issuer and holder. Existing SSI networks require an ID holder to approve before sharing an ID. This means that a competitor, who would not be trusted to make a claim about your business, could not append a negative claim about your business without your explicit approval. This is because both the issuer and holder both have the ability to revoke any claim. 
+
+#### When I use a DID with a provider, is my personal information exchanged?
+
+If the DID is a new pseudonymous DID (easy to create from your public DID), the answer is "No." Furthermore, the SSI industry encourages applications to uses something called "Zero Knowledge Proofs" to limit the amount of information shared. For example, when you assure a bartender that you can legally drink, you typically show a drivers license and reveal your birthdate. With most SSI networks, an identity supplier that knows your birthdate can reveal your legal drinking status without sharing your birthdate. 
+
+#### How does SSI protect my privacy?
+
+The SSI industry promotes the use of pseudonymoius IDs and encourages *Selective Disclosure* (or the Principle of Minimum Disclosure) to keep your personal data secure and private. Those practices also improve compliance with privacy regulations like [HIPAA (Health Insurance Portability and Accountability Act)](https://www.hhs.gov/hipaa/index.html) in the US and [GDPR (Global Data Protection Regulation)](https://gdpr-info.eu/) in the EU. With SSI networks, users control their personally identifiable data and data privacy at levels they've never experienced before. 
