@@ -49,32 +49,33 @@ Inexpensive SSI-based solutions can resolve each of these problems. If we direct
 
 ### Threats
 
-Despite the many advantages of SSI, competitive threats that could derail or significantly delay SSI adoption.
+Despite the many advantages of SSI, competitive threats could derail or significantly delay SSI adoption.
 
 * Key customers could adopt inferior non-SSI alternatives;
-* Due to high switching cost, a poor identity decision by a customer will take years and cash to correct;
-* Poor government agency decisions are worse: their low-agility means their bad technology decisions affect everyone for decades. If government agencies don't participate in distributed identity networks—for licenses, passports and national identity—it will degrade citizen security, financial tracability, and information verifiability for a long time;
+* A poor identity decision by a customer will take years and cash to correct, due to high switching costs for identity;
+* The low-agility of government agencies compounds the effect: their bad decisions could affect everyone for decades. If government agencies don't participate in distributed identity networks—for licenses, passports and national identity—it will degrade citizen security, financial tracability, and information verifiability for a long time;
 * Standards bodies could produce standards incompatible with SSI. A specific concern is the mDL (mobile drivers license) standard being developed by the [ISO/IEC JTC 1/SC 17/SG 1 working group](https://www.iso.org/committee/45144.html);
 
 False assumptions about SSI are rife:
 
 * Some believe blockchain solutions store personally identifiable information (PII) on the distributed ledger.
 * Some believe that participation in SSI networks is involuntary,
-* Some believe that a decentralized ID could "*never be turned off or blocked*” due to the immutability of the distributed ledgers that underlie decentralized applications.
+* Some believe that a decentralized ID could "*never be turned off or blocked*” due to the immutability of the distributed ledgers.
 * Some believe it will be impossible to prevent anyone from publishing anything they want about you, without the standard societal repercussions (libel, etc.), and that ledger immutability negative reviews become part of an indelible permanent record.
 * Few people understand the privacy benefits of *Selective Disclosure* (or the Principle of Minimum Disclosure), and how those are built into many SSI network implementations.
 
-Most of these threats can be disarmed by informing key influencers.	
+Most of these threats can be disarmed by informing key influencers.
+
 ## Industry Goals
 
-Presently, the SSI industry operates by loose consensus via the Internet Identity Workshop (IIW) and the Rebooting Web of Trust (RWOT) conferences, and through the W3C Verified Claims and Distributed Identity communities and working groups.
+Presently, the SSI industry operates by loose consensus via the Internet Identity Workshop (IIW) and the Rebooting Web of Trust (RWOT) conferences, and through the W3C Verified Claims and Distributed Identity communities and working groups. Here are the goals that they have articulated:
 
 * One million public (non-pseudonymous) DIDs issued by March 2019
 * Formalized plans by year-end 2018 for the foundational SSI specifications
 	* W3C DID
 	* W3C VC
 	* Oasis DKMS
-* The release of a handful of reference applications that provide a down payment on the promise of decentralized identity.
+* Public release of a handful of reference applications that can help jumpstart developer applications
 
 ---
 
