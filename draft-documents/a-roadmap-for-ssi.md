@@ -7,7 +7,7 @@ Moses Ma (FutureLab), Claire Rumore (FutureLab), Dan Gisolfi (IBM), Wes Kussmaul
 This document proposes to create a persistent cross-functional and cross-company team to develop the Self-Sovereign Identity (SSI) market. It lists key stakeholders who would actively promote SSI adoption, if they were well-informed. Its first project will be an SSI application market roadmap, to show the technical prerequisites, market enablers, risks, revenues, and costs of different SSI applications on a reasonable timeline. A roadmap will help SSI leaders, standards bodies, developers, academics, media, and investors focus on important work, and accelerate the SSI market. We illustrate industry marketing by summarizing our market strengths, weaknesses, opportunities, and threats (SWOT analysis), and show how this simple analysis exposes important marketing goals. Further projects will include go-to-market materials for developers, market explainers, frequently asked questions, market glossaries, and market research.
 
 ## Audience
-We wrote this paper to find more people who see a healthy SSI market as essential to their own success. By working with us, you will grow the overall SSI market, meet the major SSI market participants, and advance your own ambitions. Please join us!
+We wrote this paper to find more people who value a healthy SSI market	. By working with us, you will grow the overall SSI market, meet the major SSI market participants, and advance your own ambitions. Please join us!
 
 ---
 
@@ -48,13 +48,15 @@ These focus areas will likely dominate our activities.
 Contact [Moses Ma](mailto:moses@futurelab.com) or [Dan Greening](mailto:dan@senexrex.com) to become a member.
 ## Assets
 
-This document was developed as part of the RWOT (Rebooting Web of Trust) group. Source is [HERE](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/a-roadmap-for-ssi.md)
+This document was developed at RWOT6 (Rebooting Web of Trust, Spring 2018) group. Document source is [HERE](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/a-roadmap-for-ssi.md)
 
-An initial web site has been created at [selfsovereign.id]().
+An organizational web site has been created at [selfsovereign.id]().
 
 An initial glossary is here [SSI Glossary](https://docs.google.com/document/d/17pt9ExTIETXTKXOgHmuljj6NI9hpDv3A_f7ptMK2HpQ/view)
 
-Group work is prioritized and tracked at [Trello:ssi-roadmap](https://trello.com/b/FBz4oGqy/ssi-roadmap).
+Group work is prioritized and tracked at [Trello](https://trello.com/b/FBz4oGqy/ssi-roadmap).
+
+Members communicate through [Slack](https://selfsovereign.slack.com/).
 
 ---
 # 2 Next Steps
@@ -112,12 +114,39 @@ False assumptions about SSI are rife:
 
 Most of these threats can be disarmed by informing key influencers.
 
-## Be Proactive 
-The reality is that there will always be naysayers and alternatives to our SSI vision. However, it is our responsibility to proactively defend our cause. It is not in our best interest to spend wasteful energy debating. Instead we should focus our attention on awareness and education through positive communications and live exemplars. To be proactive we need a plan.
+## Industry Organizations
 
-## Technical Goals
+As far as we know, other non-profits focus on engineering, interoperability, specific networks, or specific application domains, but not general distributed identity market development. They include:
 
-Presently, the SSI industry operates by loose consensus via Internet Identity Workshop (IIW), Rebooting Web of Trust (RWOT), W3C Verified Claims, W3C Distributed Identity. Here are the goals that they have articulated:
+### Rebooting Web of Trust (RWOT)
+[Rebooting Web of Trust](http://www.weboftrust.info/) is a group that meets twice yearly to develop position papers and kick off more significant efforts. It seeks to create the next generation of decentralized web-of-trust based identity systems. Each event generates roughly 5 technical white papers on topics decided by the group that will have the greatest impact on the future. RBOT may also use hackathons to implement those ideas.
+
+This document is a "technical white paper" written at RWOT6 (Spring 2018).
+
+### Internet Identity Workshop (IIW)
+[Internet Identity Workshop](https://www.internetidentityworkshop.com/) is a group that meets twice yearly to share and refine ideas about identity and forge working relationships. It is organized as an [unconference](https://en.wikipedia.org/wiki/Unconference) using Open Space Technology. It is highly effective, and that effectiveness is largely due to its insistence on note-taking and collaboration.
+
+### World Wide Web Consortium (W3C)
+[World Wide Web Consortium (W3C)](https://www.w3.org/) is an international community that develops open standards to ensure the long-term growth of the Web. Two working groups are particularly relevant to self-sovereign identity.
+
+[Verified Claims Working Group (VC)](https://www.w3.org/2017/vc/WG/) seeks to make expressing and exchanging credentials that have been verified by a third party easier and more secure on the Web.
+
+[Credentials Community Group (CCG)](https://www.w3.org/community/credentials/) explores the creation, storage, presentation, verification, and user control of credentials. The group drafts and incubates Internet specifications for further standardization and prototyping and testing reference implementations. CCG was the original source of material for the official Verified Claims Working Group.
+
+### Distributed Identity Foundation (DIF)
+[Distributed Identity Foundation (DIF)](http://identity.foundation/) is an engineering-focused, non-profit organization composed of individuals and companies who are collaboratively developing an interoperable set of decentralized identity protocols, specs, and reference implementations that run across chains and service providers. Its goal is user-enablement via the creation of a ubiquitous decentralized identity ecosystem that benefits every person and company worldwide.
+
+### Sovrin Foundation (Sovrin)
+[Sovrin Foundation (Sovrin)](https://sovrin.org/) is a non-profit organization that manages a permissioned blockchain identity network. Because the network is permissioned, participants must agree to maintain identity security and privacy (otherwise a collection of members could subvert the network). Authoritative network participants must sign the Sovrin Trust Framework, which gives them permission to operate a node.  The Sovrin Foundation is a spinoff of the company [Evernym](https://evernym.com).
+
+The Sovrin Foundation has produced a substantial body of market-relevant material, but it is targeted toward one specific network. Other competing networks include [Veres One](https://veres.one) (with its own network) and [uPort](https://www.uport.me/) (based on the [Ethereum contract network](https://www.ethereum.org/)).
+
+### Information Trust Exchange Governing Association (ITEGA)
+[Information Trust Exchange Governing Association](https://infotrust.org/) provides Internet stakeholders a forum to convene, develop and implement governing protocols and business rules for protecting and balancing trust, privacy, identity and information commerce. It seeks to balance privacy, personalization, and payment to improve journalism and publishing. One of its first projects is to deploy a proof-of-concept for a first-party-user-data exchange that would be privacy-by-design.
+
+## Industry Goals
+
+Here are the goals these other organizations have articulated:
 
 * One million public (public or pseudonymous) DIDs issued by March 2019
 * Formalized plans by year-end 2018 for foundational SSI specifications
@@ -163,6 +192,12 @@ Presently, the SSI industry operates by loose consensus via Internet Identity Wo
 * Explain wallets and DID distribution
 	* Who are the wallet makers 
 	* How wallets will be [interoperable and secure](http://www.links.org/files/nspw36.pdf) 
+
+
+## Be Proactive 
+The reality is that there will always be naysayers and alternatives to our SSI vision. However, it is our responsibility to proactively defend our cause. It is not in our best interest to spend wasteful energy debating. Instead we should focus our attention on awareness and education through positive communications and live exemplars. To be proactive we need a plan.
+
+
 
 ## Manifesting some WOWs
 
