@@ -52,6 +52,8 @@ This document was developed as part of the RWOT (Rebooting Web of Trust) group. 
 
 An initial web site has been created at [selfsovereign.id]().
 
+An initial glossary is here [SSI Glossary](https://docs.google.com/document/d/17pt9ExTIETXTKXOgHmuljj6NI9hpDv3A_f7ptMK2HpQ/view)
+
 Group work is prioritized and tracked at [Trello:ssi-roadmap](https://trello.com/b/FBz4oGqy/ssi-roadmap).
 
 ---
