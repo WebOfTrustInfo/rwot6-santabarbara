@@ -4,10 +4,9 @@
 Moses Ma (FutureLab), Claire Rumore (FutureLab), Dan Gisolfi (IBM), Wes Kussmaul (Reliable Identities, Inc), Dan Greening (Senex Rex)
 
 ## Abstract
-This document proposes to create a persistent cross-functional and cross-company team to develop the Self-Sovereign Identity (SSI) market. It lists key stakeholders who would actively promote SSI adoption, if they were well-informed. Its first project will be an SSI application market roadmap, to show the technical prerequisites, market enablers, risks, revenues, and costs of different SSI applications on a reasonable timeline. A roadmap will help SSI leaders, standards bodies, developers, academics, media, and investors focus on important work, and accelerate the SSI market. We illustrate industry marketing by summarizing our market strengths, weaknesses, opportunities, and threats (SWOT analysis), and show how this simple analysis exposes important marketing goals. Further projects will include go-to-market materials for developers, market explainers, frequently asked questions, market glossaries, and market research.
+This document proposes an industry group to develop the Self-Sovereign Identity (SSI) market. It lists key stakeholders who would actively promote SSI adoption, if they were well-informed. Its first project will be an SSI application market roadmap, to show the technical prerequisites, market enablers, risks, revenues, and costs of different SSI applications on a reasonable timeline. A roadmap will help SSI leaders, standards bodies, developers, academics, media, and investors focus on important work, and accelerate the SSI market. We illustrate industry marketing by summarizing our market strengths, weaknesses, opportunities, and threats (SWOT analysis), and show how this simple analysis exposes important marketing goals. Further projects will include go-to-market materials for developers, market explainers, frequently asked questions, market glossaries, and market research.
 
-## Audience
-We wrote this paper to find more people who value a healthy SSI market	. By working with us, you will grow the overall SSI market, meet the major SSI market participants, and advance your own ambitions. Please join us!
+We wrote this paper to find more people who value a healthy SSI market. By working with us, you will grow the overall SSI market, meet the major SSI market participants, and advance your own ambitions. Please join us!
 
 ---
 
@@ -46,6 +45,50 @@ These focus areas will likely dominate our activities.
 * **Management**: Recruit members, prioritize value, facilitate effort
 
 Contact [Moses Ma](mailto:moses@futurelab.com) or [Dan Greening](mailto:dan@senexrex.com) to become a member.
+
+## Goals
+
+* Get ourselves organized
+	* **(DONE)** Agree on mission (see above)
+	* **(DONE)** Setup tools (i.e. Trello)
+	* **(DONE)** Establish web site (see [Self Sovereign ID](https://selfsovereign.id/)
+	* **(in progress)** Complete the final draft of this
+	* **(not doing until bigger)** Discuss project management
+		* Schedule cadence (scrum) call
+		* Review and refine tribe structure 
+	* Establish site login tiers (public, developer, marketer, press) and tracking to measure reach and engagement
+* Create and promulgate a realistic technology and market roadmap
+* Recruit initial foundational partners as adoption catalysts
+   * Identify minimum viable ecosystem (DID network, wallet, browser integration, blog integration?)
+		* Build Drupal plugin for *SuperSignOn*, a decentralized authentication system based on DID-Auth
+		* Allow developers and others to *SuperSignOn* to our (Drupal) site
+	* Recruit and help influential leaders (i.e: Reid Hoffman, Fred Wilson, etc) to speak favorably about SSI
+		* Access to subject matter experts
+		* Sample Presentations
+		* Speakers bureau
+	* Recruit/produce minimum viable ecosystem participants
+		* willing networks, wallets, feasible browser plugins, feasible blog plugins
+		* key communication technologies from Slack, Telegram, RocketChat, Wikipedia to support DIDs
+		* Recruit developer support services, such as GitHub, CircleCI, BitBucket, to support DIDs
+* Produce *Go To Market Resources* to support developers by year end 2018
+	* **(in progress)** Glossary of market relevant terms
+	* **(in progress)** Develop FAQs that debunk myths and promote adoption
+	* Consolidate technical primers (tutorials) into a single getting started kit
+	* Develop a Communications Kit
+	   * Simplify and articulate the concepts and benefits of SSI for the masses
+		* Provide a cohesive narrative about SSI and its goals for the Media
+		* Offer common baseline talking points for SSI developers
+	* Explain wallets and DID distribution
+		* Who are the wallet makers 
+		* How wallets will be [interoperable and secure](http://www.links.org/files/nspw36.pdf) 
+	* High impact videos and other demo recordings (i.e.: RWOT)
+* Best practices for businesses and government to create SSI strategy
+	* Best practices for businesses to create a SSI strategy
+	* Offer domain-specific descriptions and demonstrations (drivers licenses, voting, site login, insurance, business registration, etc
+	* Presentations
+	* Videos
+
+
 ## Assets
 
 This document was developed at RWOT6 (Rebooting Web of Trust, Spring 2018) group. Document source is [HERE](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/a-roadmap-for-ssi.md)
@@ -58,8 +101,42 @@ Group work is prioritized and tracked at [Trello](https://trello.com/b/FBz4oGqy/
 
 Members communicate through [Slack](https://selfsovereign.slack.com/).
 
+# Contributors
+
+Some people have contributed substantially so far. They are 
+
+| Person | Company | Contribution |
+| --- | --- | --- | 
+| Dan Gisolfi | IBM | Content |
+| Moses Ma | Futurelab | Content, Management |
+| Darrell Duane | Crypto UBI | Portal |
+| Wes Kussmaul | Reliable Identities | Content |
+| Dan Greening | Senex Rex | Content |
+
+## Possible volunteers
+
+People who have expressed interest in the organization include:
+
+| Person | Company | Possible Role |
+| --- | --- | --- | 
+| Vishal Gupta | Diro Foundation | Portal (Design) |
+| Chandran Gaurav | Diro Foundation | Portal (Design) |
+| Kate Sills | | Communications |
+| Kaliya Young | | Communications |
+| Remy Lyon | | Communications |
+
+People who have been invited are:
+
+| Person | Company | Possible Role |
+| --- | --- | --- | 
+| Alex Preukschat (Invited) | Globatalent | GTM Development |
+| Sean Bohan (Invited) | Evernym | Stakeholder Engagement |
+| David Crocker (Invited) | Brandenburg InternetWorking | Stakeholder Engagement |
+| Nathan George (Invited) | Sovrin | Stakeholder Engagement |
+
+
 ---
-# 2 Next Steps
+# 2 Existing Market
 
 ## Motivation (SWOT)
 
@@ -155,61 +232,35 @@ Here are the goals these other organizations have articulated:
 	* Oasis DKMS
 * Public release of a handful of reference applications that can help jumpstart developer applications
 
-## SSI Group (our) Goals
-
-* Recruit members who contribute effort, and avoid the distraction of those who don't
-* Adopt a formal agile project management approach to drive the organization
-* Produce *Go To Market Resources* to support developers by year end 2018
-	* Develop and maintain a glossary of market relevant terms
-	* Consolidate technical primers (tutorials) into a single getting started kit
-	* Develop a Communications Kit
-	   * Simplify and articulate the concepts and benefits of SSI for the masses
-		* Provide a cohesive narrative about SSI and its goals for the Media
-		* Offer common baseline talking points for SSI advocates
-	* High impact videos and other demo recordings (i.e.: RWOT)
-	* Portfolio of domain-specific demonstrations (drivers licenses, site login, insurance, business registration, etc.
-* Develop FAQs that debunk myths and promote adoption
-* Adoption catalysts
-	* Create and promulgate a realistic technology and market roadmap
-	* Recruit foundational partners for a social media platform
-		* Recruit key communication technologies from Slack, Telegram, RocketChat, Wikipedia to support DIDs
-		* Recruit influential leaders (i.e: Reid Hoffman, Fred Wilson, etc) to speak favorably about SSI.
-		* Recruit developer support services, such as GitHub, CircleCI, BitBucket, to support DIDs
-
 ---
 
-# 3 Working Materials and Ideas
+# 3 Summary
 
-## Approach
+The distributed identity market is at a crossroads: 
 
-* Focus on key success factors and deliverables. 
-* Touch on the necessity for toolkits, minimum viable environments (MVE), and interoperable end-to-end exemplars. 
-* Communicate a crisp, cohesive, and comprehensive vision of the core benefits of SSI.
-* Help developers accelerate application development and value production
-* Promote development of a set of minimum viable reference applications
-* Help find the WOW balance (between low hanging fruit and instantly recognizable killer apps) that inspires hope and stimulates media interest and virality to win the hearts and minds of stakeholders.
-* Crystalize a cohesive maturation roadmap, outlining initiatives and metrics. 
-* Explain wallets and DID distribution
-	* Who are the wallet makers 
-	* How wallets will be [interoperable and secure](http://www.links.org/files/nspw36.pdf) 
+* market forces are demanding secure, privacy-respecting solutions to identity
+* DID infrastructure is in beta or better
+* whether we have a minimum viable ecosystem is debatable
+* our market communications, so far, have been weak
 
+This paper argues for the formation of an unbiased team to develop the Self-Sovereign Identity (SSI) market, across all participants. We will educate and support a variety of stakeholders to promote SSI. We will provide infrastructure and application developers unbiased information and tools to support their go-to-market efforts.
 
-## Be Proactive 
-The reality is that there will always be naysayers and alternatives to our SSI vision. However, it is our responsibility to proactively defend our cause. It is not in our best interest to spend wasteful energy debating. Instead we should focus our attention on awareness and education through positive communications and live exemplars. To be proactive we need a plan.
+We seek your help. 
 
+# Appendix A: WOWs to Consider
 
-
-## Manifesting some WOWs
+**(Incorporate into roadmap or organization Backlog)**
 
 Another requirement for success is to create a design process that would lead to a sustainable flow of compelling technologies that provide a “wow” factor, that can form a pipeline of compelling functionality to fortify the value proposition for decentralized identity. An initial set of projects and ideas for “wow prototypes” include:
+
+2. **Industry Demos**: Develop a number of vertical industry references. For example:
+	* FinTech: A demo of the [CULedger](http://culedger.com) CUID Trust Framework that uses the Hyperledger Indy framework. 
+	* Travel and Transportation: A [Dapps](https://coinsutra.com/dapps-decentralized-applications/) that implements one or more  concepts outlined in the [World Economic Forum’s Known Traveler Report](https://www.weforum.org/reports/the-known-traveller-unlocking-the-potential-of-digital-identity-for-secure-and-seamless-travel). 
 
 1. **Community Badges Toolkit**: Produce a Starter Kit for any small or large community to begin to issue verifiable credentials in the form of [OpenBadges](https://openbadges.org). Such a toolkit would be a perfect *Getting Started* toolkit for a Go-to-Market (GTM) package of resources.  
 
 	>NOTE:  The final paper submitted by the [Open Badges are Verifiable Credentials](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018) RWOT Workgroup is suppose to produce a working prototype that can be used to seed this toolkit.
 
-2. **Industry Demos**: Develop a number of vertical industry references. For example:
-	* FinTech: A demo of the [CULedger](http://culedger.com) CUID Trust Framework that uses the Hyperledger Indy framework. 
-	* Travel and Transportation: A [Dapps](https://coinsutra.com/dapps-decentralized-applications/) that implements one or more  concepts outlined in the [World Economic Forum’s Known Traveler Report](https://www.weforum.org/reports/the-known-traveller-unlocking-the-potential-of-digital-identity-for-secure-and-seamless-travel). 
 	
 3. **Other Interesting Concepts**: There are a number of other potential reference applications that could be interesting to develop and deploy. 
 	* *SuperSignOn*, a decentralized authentication system based on the DID-Auth specification. 
@@ -217,72 +268,10 @@ Another requirement for success is to create a design process that would lead to
 	* *ICO-LegalAssist* which would use Verifiable Claims as a basis for attestations by attorneys in ICOs. 
 	* *IDESG’s IDEF assessment* [tool for receiving badges](https://www.idefregistry.org/)
 
-## Deliverables
-A project roadmap should produce the following non-exhaustive list of artifacts:
 
-* Creation of the Roadmap Tribe 
-	* **(Done)** Criteria for Success: Goals for the Roadmap Tribe
-	* **(Done)**  Members and Roles
-	* Published Plan/Schedule
-* Community Information Portal (i.e.: ssi.org)
-   * **(Done)**  Site is live. See [selfsovereign.id]()
-   * Site requires registration for market data (through SSI providers?)
-	* Go-to-Market (GTM) Resources
-		* MythBusters: SSI/VC FAQ Sheet
-		* Glossary
-		* Sample Presentations
-		* Videos
-		* Access to subject matter experts
-	* WOW Factor: Community Badges Toolkit
-	* Dashboard tracking success metrics
-	* Best practices for businesses to create a SSI strategy
+# Appendix B: Frequently Asked Questions
 
-## Next Steps
-
-* Finalize RWOT paper (this document) as a catalyst for a roadmap.
-* Get Organized
-	* Duanne and Claire discuss project management
-		* Setup tools (i.e. Trello)
-		* Schedule cadence (scrum) call
-		* Review and refine tribe structure 
-	* Establish initial plan/schedule (for standards, communications media kits and GTM materials), that includes the meeting schedule (which will be a minimal time standup meeting once a week, online)
-		* Work with Joe to figure out where a SSI.org portal is  organizationally hosted (CCG, RWOT?)
-		* Develop a comprehensive glossary of SSI/VC terms
-
-
-Some people have contributed substantially so far. They are 
-
-| Person | Company | Contribution |
-| --- | --- | --- | 
-| Dan Gisolfi | IBM | Content |
-| Moses Ma | Futurelab | Content, Management |
-| Darrell Duane | Crypto UBI | Portal |
-| Wes Kussmaul | Reliable Identities | Content |
-| Dan Greening | Senex Rex | Content |
-
-## Possible volunteers
-
-People who have expressed interest in the organization include:
-
-| Person | Company | Possible Role |
-| --- | --- | --- | 
-| Kate Sills | | Communications |
-| Kaliya Young | | Communications |
-| Remy Lyon | | Communications |
-
-People who have been invited are:
-
-| Person | Company | Possible Role |
-| --- | --- | --- | 
-| Alex Preukschat (Invited) | Globatalent | GTM Development |
-| Sean Bohan (Invited) | Evernym | Stakeholder Engagement |
-| David Crocker (Invited) | Brandenburg InternetWorking | Stakeholder Engagement |
-| Nathan George (Invited) | Sovrin | Stakeholder Engagement |
-
-
-# 4 Possible Content
-
-## Frequently Asked Questions
+**(Start of a section for the web site)**
 
 Naysayers illustrate the urgency for this effort. A poor communication plan gives rise to myths that need to be discredited. Here are a few examples of myths already circulating in the media and amongst analysts:
 
