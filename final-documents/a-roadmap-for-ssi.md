@@ -18,7 +18,7 @@ This section describes the mission, stakeholders, goals, and initial organizatio
 We improve social stability, economic productivity, and individual freedom by promoting broad use of self-sovereign identity. 
 
 ## Stakeholders
-Our market development efforts will target these stakeholders.
+Our market development efforts will target these stakeholders, who can form a minimal viable community to drive adoption.
 
 | Role                                 | Benefit                                                   |
 |--------------------------------------|-----------------------------------------------------------|
