@@ -247,6 +247,8 @@ This paper argues for the formation of an unbiased team to develop the Self-Sove
 
 We seek your help. 
 
+---
+
 # Appendix A: WOWs to Consider
 
 **(Incorporate into roadmap or organization Backlog)**
@@ -268,6 +270,7 @@ Another requirement for success is to create a design process that would lead to
 	* *ICO-LegalAssist* which would use Verifiable Claims as a basis for attestations by attorneys in ICOs. 
 	* *IDESG’s IDEF assessment* [tool for receiving badges](https://www.idefregistry.org/)
 
+---
 
 # Appendix B: Frequently Asked Questions
 
