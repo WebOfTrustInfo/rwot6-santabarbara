@@ -1,3 +1,6 @@
+<style>
+	hr { height: 0; page-break-after: always; }
+</style>
 # SSI: A Roadmap for Adoption
 > A Journey from huh? to DUH!
 
@@ -7,8 +10,6 @@ Moses Ma (FutureLab), Claire Rumore (FutureLab), Dan Gisolfi (IBM), Wes Kussmaul
 This document proposes an industry group to develop the Self-Sovereign Identity (SSI) market. It lists key stakeholders who would actively promote SSI adoption, if they were well-informed. Its first project will be an SSI application market roadmap, to show the technical prerequisites, market enablers, risks, revenues, and costs of different SSI applications on a reasonable timeline. A roadmap will help SSI leaders, standards bodies, developers, academics, media, and investors focus on important work, and accelerate the SSI market. We illustrate industry marketing by summarizing our market strengths, weaknesses, opportunities, and threats (SWOT analysis), and show how this simple analysis exposes important marketing goals. Further projects will include go-to-market materials for developers, market explainers, frequently asked questions, market glossaries, and market research.
 
 We wrote this paper to find more people who value a healthy SSI market. By working with us, you will grow the overall SSI market, meet the major SSI market participants, and advance your own ambitions. Please join us!
-
----
 
 # 1 Self-Sovereign Identity Group Charter
 
@@ -88,7 +89,6 @@ Contact [Moses Ma](mailto:moses@futurelab.com) or [Dan Greening](mailto:dan@sene
 	* Presentations
 	* Videos
 
-
 ## Assets
 
 This document was developed at RWOT6 (Rebooting Web of Trust, Spring 2018) group. Document source is [HERE](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/a-roadmap-for-ssi.md)
@@ -133,7 +133,6 @@ People who have been invited are:
 | Sean Bohan (Invited) | Evernym | Stakeholder Engagement |
 | David Crocker (Invited) | Brandenburg InternetWorking | Stakeholder Engagement |
 | Nathan George (Invited) | Sovrin | Stakeholder Engagement |
-
 
 ---
 # 2 Existing Market
@@ -248,7 +247,6 @@ This paper argues for the formation of an unbiased team to develop the Self-Sove
 We seek your help. 
 
 ---
-
 # Appendix A: WOWs to Consider
 
 **(Incorporate into roadmap or organization Backlog)**
@@ -271,7 +269,6 @@ Another requirement for success is to create a design process that would lead to
 	* *IDESG’s IDEF assessment* [tool for receiving badges](https://www.idefregistry.org/)
 
 ---
-
 # Appendix B: Frequently Asked Questions
 
 **(Start of a section for the web site)**
