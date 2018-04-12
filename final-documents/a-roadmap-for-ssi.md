@@ -52,7 +52,7 @@ Contact [Moses Ma](mailto:moses@futurelab.com) or [Dan Greening](mailto:dan@sene
 * Get ourselves organized
 	* **(DONE)** Agree on mission (see above)
 	* **(DONE)** Setup tools (i.e. Trello)
-	* **(DONE)** Establish web site (see [Self Sovereign ID](https://selfsovereign.id/)
+	* **(DONE)** Establish web site (see [Self Sovereign ID](https://selfsovereign.id/) We already have the Decentralized Identity Foundation (http://www.identity.foundation) 
 	* **(in progress)** Complete the final draft of this
 	* **(not doing until bigger)** Discuss project management
 		* Schedule cadence (scrum) call
@@ -63,7 +63,7 @@ Contact [Moses Ma](mailto:moses@futurelab.com) or [Dan Greening](mailto:dan@sene
    * Identify minimum viable ecosystem (DID network, wallet, browser integration, blog integration?)
 		* Build Drupal plugin for *SuperSignOn*, a decentralized authentication system based on DID-Auth
 		* Allow developers and others to *SuperSignOn* to our (Drupal) site
-	* Recruit and help influential leaders (i.e: Reid Hoffman, Fred Wilson, etc) to speak favorably about SSI
+	* Recruit and help influential leaders (i.e: Reid Hoffman (this is interesting as a person to recruit more can be said offline), Fred Wilson, etc) to speak favorably about SSI
 		* Access to subject matter experts
 		* Sample Presentations
 		* Speakers bureau
