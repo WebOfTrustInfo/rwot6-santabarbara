@@ -4,9 +4,9 @@
 Moses Ma (FutureLab), Claire Rumore (FutureLab), Dan Gisolfi (IBM), Wes Kussmaul (Reliable Identities, Inc), Dan Greening (Senex Rex)
 
 ## Abstract
-This document proposes an industry group to develop the Self-Sovereign Identity (SSI) market. It lists key stakeholders who would actively promote SSI adoption, if they were well-informed. Its first project will be an SSI application market roadmap, to show the technical prerequisites, market enablers, risks, revenues, and costs of different SSI applications on a reasonable timeline. A roadmap will help SSI leaders, standards bodies, developers, academics, media, and investors focus on important work, and accelerate the SSI market. We illustrate industry marketing by summarizing our market strengths, weaknesses, opportunities, and threats (SWOT analysis), and show how this simple analysis exposes important marketing goals. Further projects will include go-to-market materials for developers, market explainers, frequently asked questions, market glossaries, and market research.
+This document proposes to form a short term team to develop consistent messaging for the Self-Sovereign Identity (SSI) market. It lists key stakeholders who would actively promote SSI adoption. The goal is to create an SSI market roadmap. This roadmap will help SSI leaders, standards bodies, developers, academics, media, and investors coordinate and clarify their messaging to the market, to accelerate the SSI adoption. We illustrate the need for this by summarizing our market strengths, weaknesses, opportunities, and threats (SWOT analysis), and show how this simple analysis exposes important marketing goals. Further projects will include go-to-market materials for developers, market explainers, frequently asked questions, market glossaries, and market research.
 
-We wrote this paper to find more people who value a healthy SSI market. By working with us, you will grow the overall SSI market, meet the major SSI market participants, and advance your own ambitions. Please join us!
+We wrote this paper to find more people who value a healthy SSI market. By working with us on this short term project, you will help to grow the overall SSI market. Please join us!
 
 ---
 
@@ -32,17 +32,15 @@ Our market development efforts will target these stakeholders.
 
 ## Membership
 
-Members in this organization must contribute to content development and distribution, stakeholder engagement and recruiting. In return, members' companies (or the individual if they are independent) will be highlighted on our web site and promotional materials. Individual members will learn an enormous amount about the SSI market, ICO funding strategies, identity stakeholders, standards organizations, and marketing. Members will meet many industry luminaries and through them gain career opportunities. Finally, to the extent possible we want members to have autonomy, by providing measurable goals and allowing them to achieve those goals as they see fit (within reason).
+Members in this roadmap team must contribute to content development and distribution, stakeholder engagement and more. Individuals who contribute will learn an enormous amount about the SSI market, identity stakeholders, standards organizations, and marketing. Finally, to the extent possible we want members to have autonomy, by providing measurable goals and allowing them to achieve those goals as they see fit (within reason).
 
-We expect the organization to ultimately self-organize to maximize market expansion. Initially, a single **Product Owner** may prioritize work, and a **Scrum Master** may be assigned to facilitate communication and work, manage the workflow and seek timely results.
+We expect the team to ultimately self-organize to maximize market expansion. Initially, a single **Product Owner** may prioritize work, and a **Scrum Master** may be assigned to facilitate communication and work, manage the workflow and seek timely results.
 
 These focus areas will likely dominate our activities.
 
 * **Content**: Create informational content (presentation, videos, etc) suitable for stakeholders
 * **Portal**: Create and maintain the organization's website
 * **Communications**: Propagate SSI messaging to passive stakeholders
-* **Stakeholder Engagement**: Engage key standards and open source workgroups in a two-way dialog
-* **Management**: Recruit members, prioritize value, facilitate effort
 
 Contact [Moses Ma](mailto:moses@futurelab.com) or [Dan Greening](mailto:dan@senexrex.com) to become a member.
 
@@ -82,11 +80,6 @@ Contact [Moses Ma](mailto:moses@futurelab.com) or [Dan Greening](mailto:dan@sene
 		* Who are the wallet makers 
 		* How wallets will be [interoperable and secure](http://www.links.org/files/nspw36.pdf) 
 	* High impact videos and other demo recordings (i.e.: RWOT)
-* Best practices for businesses and government to create SSI strategy
-	* Best practices for businesses to create a SSI strategy
-	* Offer domain-specific descriptions and demonstrations (drivers licenses, voting, site login, insurance, business registration, etc
-	* Presentations
-	* Videos
 
 
 ## Assets
@@ -193,7 +186,7 @@ Most of these threats can be disarmed by informing key influencers.
 
 ## Industry Organizations
 
-As far as we know, other non-profits focus on engineering, interoperability, specific networks, or specific application domains, but not general distributed identity market development. They include:
+As far as we know, there are many groups and organizations focused on distributed identity but there are many disparate voices, and we could all use a consistent messaging about market development. A quick overview of the landscape includes:
 
 ### Rebooting Web of Trust (RWOT)
 [Rebooting Web of Trust](http://www.weboftrust.info/) is a group that meets twice yearly to develop position papers and kick off more significant efforts. It seeks to create the next generation of decentralized web-of-trust based identity systems. Each event generates roughly 5 technical white papers on topics decided by the group that will have the greatest impact on the future. RBOT may also use hackathons to implement those ideas.
