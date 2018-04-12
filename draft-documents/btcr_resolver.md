@@ -2,7 +2,7 @@
 
 By: Kim Hamilton Duffy, Christopher Allen, Ryan Grant, Dan Pape
 
-This describes the process of resolving a BTCR DID into a DID Document. The draft reference implementation is available at https://github.com/WebOfTrustInfo/btcr-did-tools-js (see didFormatter.js). Note not all steps described in this document are implemented yet.
+This describes the process of resolving a BTCR DID into a DID Document. The draft reference implementation is available at https://github.com/WebOfTrustInfo/btcr-did-tools-js (see didFormatter.js). Note that not all steps described in this document are implemented yet.
 
 [See the BTCR playground](https://weboftrustinfo.github.io/btcr-tx-playground.github.io/) for a live demonstration. The BTCR playground uses the draft reference implementation BTCR DID resolver.
 
@@ -21,13 +21,13 @@ Example: did:btcr:xkyt-fzgq-qq87-xnhn
 ### Terminology
 - "Extended transaction reference": refers to our specific transaction reference customizations for the BTCR DID method spec [Issue #1](https://github.com/w3c-ccg/didm-btcr/issues/1)
 - "txref-ext": abbreviation for above
-- "Constructed" DID Document is what the resolver generates
-- "Continuation" DID Document is a referenced DID document to be merged into the constructed DID document
-    - We use to call this "DID Fragment" but this is confusing because of [DID Fragments defined in the spec](https://w3c-ccg.github.io/did-spec/#did-fragments)
+- "Constructed" DID Document: what the resolver generates
+- "Continuation" DID Document: a referenced DID document to be merged into the constructed DID document
+    - We used to call this a "DID Fragment" but this is confusing because of [DID Fragments defined in the spec](https://w3c-ccg.github.io/did-spec/#did-fragments)
 
 
 ### Goal
-This phase constructs the "implicit" DID Document from Bitcoin transaction data
+This phase constructs the "implicit" DID Document from Bitcoin transaction data.
 
 ### Steps
 0. Confirm `method` from the DID is `btcr`. Fail if not
@@ -51,8 +51,8 @@ This phase constructs the "implicit" DID Document from Bitcoin transaction data
     * Populate the first entry of the `publicKey` array in the DID document.
         * The `id` will have a fragment of `#keys-1`, so that the full `id` is  `did:btcr:<specific-idstring>#keys-1`. This is a BTCR method spec convention that `#keys-1` corresponds to the transaction signing key. We'll see in the next section that overriding this path in the supplementary DID document data is not allowed
         * Encode the key material according to the [Koblitz Elliptic Curve Signature 2016](https://w3c-dvcg.github.io/lds-koblitz2016/) signature suite. [Issue #5](https://github.com/w3c-ccg/didm-btcr/issues/5)
-    * Populate the first entry of the `authentication` array in the DID document, referencing the key above.
-    * Alternate representation note: a public key can be inlined if there is only one reference in the DID document (as opposed to the representation above, in which there is a `publicKey` array and a reference from `authentication`.
+    * Populate the first entry of the `authentication` array in the DID document, referencing the key above
+    * Alternate representation note: a public key can be inlined if there is only one reference in the DID document (as opposed to the representation above, in which there is a `publicKey` array and a reference from `authentication`)
 5. If the transaction contains an `OP_RETURN` field, populate the `serviceEndpoint` in the DID document. This is assumed to reference supplementary DID document data
     * Add an entry to the `service` section of the DID document
         * `type` is `BTCREndpoint`
@@ -137,7 +137,7 @@ Example: in the [BTCR Playground](https://weboftrustinfo.github.io/btcr-tx-playg
 
 ### Output of Phase 2
 
-Returns final constructed JSON-LD DID Document to caller, which can use the keys to authenticate data such the signature on a verifiable claim, or perform other application tasks.
+This resolution phase returns a final constructed JSON-LD DID Document to caller, which can use the keys to authenticate data such as the signature on a verifiable claim, or perform other application tasks.
 
 Let's assume the supplementary DID document (from the OP_RETURN data) is stored in an immutable store and contains the following `didDocument`.
 
