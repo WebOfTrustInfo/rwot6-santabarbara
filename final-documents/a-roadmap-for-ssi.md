@@ -45,7 +45,7 @@ These focus areas will likely dominate our activities.
 * **Stakeholder Engagement**: Engage key standards and open source workgroups in a two-way dialog
 * **Management**: Recruit members, prioritize value, facilitate effort
 
-Contact [Moses Ma](mailto:moses@futurelab.com) or [Dan Greening](mailto:dan@senexrex.com) to become a member.
+Contact [Moses Ma](mailto:moses@futurelabconsulting.com) or [Dan Greening](mailto:dan@senexrex.com) to become a member.
 
 ## Goals
 
