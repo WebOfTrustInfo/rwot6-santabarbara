@@ -1,10 +1,10 @@
 # SSI: A Roadmap for Adoption
 > A Journey from huh? to DUH!
 
-Moses Ma (FutureLab), Claire Rumore (FutureLab), Dan Gisolfi (IBM), Wes Kussmaul (Reliable Identities, Inc), Dan Greening (Senex Rex)
+Dan Greening (Senex Rex), Claire Rumore (FutureLab), Dan Gisolfi (IBM), Moses Ma (FutureLab), and Wes Kussmaul (Reliable Identities, Inc). 
 
 ## Abstract
-This document proposes to form a short term team to develop consistent messaging for the Self-Sovereign Identity (SSI) market. It lists key stakeholders who would actively promote SSI adoption. The goal is to create an SSI market roadmap. This roadmap will help SSI leaders, standards bodies, developers, academics, media, and investors coordinate and clarify their messaging to the market, to accelerate the SSI adoption. We illustrate the need for this by summarizing our market strengths, weaknesses, opportunities, and threats (SWOT analysis), and show how this simple analysis exposes important marketing goals. Further projects will include go-to-market materials for developers, market explainers, frequently asked questions, market glossaries, and market research.
+This document proposes to form a short term team to develop consistent messaging for the Self-Sovereign Identity (SSI) market and to create an SSI market roadmap.  It lists key stakeholders who would actively promote SSI adoption. This roadmap will help SSI leaders, standards bodies, developers, academics, media, and investors coordinate and clarify their messaging to the market, to accelerate the SSI adoption. We illustrate the need for this by summarizing our market strengths, weaknesses, opportunities, and threats (SWOT analysis), and show how this simple analysis exposes important marketing goals. Further projects will include go-to-market materials for developers, market explainers, frequently asked questions, market glossaries, and market research.
 
 We wrote this paper to find more people who value a healthy SSI market. By working with us on this short term project, you will help to grow the overall SSI market. Please join us!
 
@@ -18,7 +18,7 @@ This section describes the mission, stakeholders, goals, and initial organizatio
 We improve social stability, economic productivity, and individual freedom by promoting broad use of self-sovereign identity. 
 
 ## Stakeholders
-Our market development efforts will target these stakeholders.
+Our market development efforts will target these stakeholders, who can form a minimal viable community for its adoption.
 
 | Role                                 | Benefit                                                   |
 |--------------------------------------|-----------------------------------------------------------|
@@ -191,7 +191,7 @@ As far as we know, there are many groups and organizations focused on distribute
 ### Rebooting Web of Trust (RWOT)
 [Rebooting Web of Trust](http://www.weboftrust.info/) is a group that meets twice yearly to develop position papers and kick off more significant efforts. It seeks to create the next generation of decentralized web-of-trust based identity systems. Each event generates roughly 5 technical white papers on topics decided by the group that will have the greatest impact on the future. RBOT may also use hackathons to implement those ideas.
 
-This document is a "technical white paper" written at RWOT6 (Spring 2018).
+This document began as a "technical white paper" written at RWOT6 (Spring 2018).
 
 ### Internet Identity Workshop (IIW)
 [Internet Identity Workshop](https://www.internetidentityworkshop.com/) is a group that meets twice yearly to share and refine ideas about identity and forge working relationships. It is organized as an [unconference](https://en.wikipedia.org/wiki/Unconference) using Open Space Technology. It is highly effective, and that effectiveness is largely due to its insistence on note-taking and collaboration.
@@ -216,9 +216,9 @@ The Sovrin Foundation has produced a substantial body of market-relevant materia
 
 ## Industry Goals
 
-Here are the goals these other organizations have articulated:
+Here are the goals that some of these organizations have articulated:
 
-* One million public (public or pseudonymous) DIDs issued by March 2019
+* One million public (public or pseudonymous) DIDs issued by year end 2019
 * Formalized plans by year-end 2018 for foundational SSI specifications
 	* W3C DID
 	* W3C VC
@@ -281,7 +281,7 @@ Yes. Once you create a "public DID," you create "pseudonymous DIDs" whenever you
 
 #### Can I revoke an SSI distributed ID?
 
-Yes. A decentralized ID is turned off by invalidated the data that the DID points to.
+Yes. A decentralized ID can be turned off by the owner or by invalidating the data that the DID points to.
 
 #### Can someone publish something permanently about me on an SSI blockchain?
 
