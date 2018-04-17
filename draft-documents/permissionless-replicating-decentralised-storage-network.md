@@ -91,20 +91,19 @@ data replication on IPFS is not supported natively. For the moment,
 Chlu uses IPFS' pubsub mechanism to provide replication.
 
 ## DClaims
+DClaims is a decentralised social commentary platform. It uses Verifiable Credentials as the base data structure. Claims are stored on IPFS and kept track of using an Ethereum smart-contract. DClaims can support a wide range of applications. As a proof of concept they developed an application for commenting and classifying news articles directly on news websites. This application is a browser extension that any user can run and which works on most news websites. 
 
-DClaims is a platform that enables a truly distributed and trustless
-way of managing claims about news articles. Using the
-DClaims-Web-Extension, users can generate claims (whose authenticity
+Using the DClaims-Web-Extension, users can generate claims (whose authenticity
 and integrity can be verified by anyone without the need of a third
 party) about any news article, and those claims can be presented to
 all other users. This all happens in a distributed and trustless form,
 with the use of IPFS and Ethereum.
 
 Currently, DClaims stores claims about news articles on IPFS, such
-that, if the claim writers turn off their IPFS nodes the claim is lost
-forever. The claims created by DClaims users need to replicating and
-made highly available independent of the claim issuers availability.
-
+that if the claim issuers turn off their IPFS nodes the claim is not
+accessible to any one in the network, until the user comes back
+online. The claims created by DClaims users need to replicating and
+made highly available independent of the claim issuers' availability.
 
 ## Open Badges
 
@@ -293,7 +292,7 @@ a k replicas, enough to provide 100% availability. Using a k-replica
 approach creates a requirement that when a node goes offline, other
 nodes in the network make sure all the data on that node gets
 replicated one more time. DHTs like
-(Chord)[https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf],
+[Chord](https://pdos.csail.mit.edu/papers/chord:sigcomm01/chord_sigcomm.pdf),
 provide for such replication, but they result in a lot of
 implementation complexity.
 
@@ -462,14 +461,14 @@ willing to provide for write operations to be commutative.
 
 ## Related Work
 
-(IPFS)[https://ipfs.io/ipfs/QmR7GSQM93Cx5eAg6a6yRzNde1FQv7uL6X1o4k7zrJa3LX/ipfs.draft3.pdf]
+[IPFS](https://ipfs.io/ipfs/QmR7GSQM93Cx5eAg6a6yRzNde1FQv7uL6X1o4k7zrJa3LX/ipfs.draft3.pdf)
 is a popular option in the DApps community as a storage solution. But
 from our experience on Chlu we have found that developers need to
 build bespoke solutions to provide replication and verification. We
 believe that the IPFS use case of a permanent web is slightly
 different from what DApps like Chlu and DClaims require.
 
-The (Ethereum SWARM)[https://github.com/ethersphere/swarm] project
+The [Ethereum SWARM](https://github.com/ethersphere/swarm) project
 motivations are closest to the one presented in this paper, however,
 the SWARM team is focused on providing auditable storage and with
 incentives for nodes to store data. In the solution we have proposed,
@@ -492,7 +491,7 @@ blockchain. But to counter this problem, all it takes is for a claim
 issuer to publish the claim again on a new full node, and immediately
 call out all the existing full nodes for trying to hide the claim.
 
-(Dat protocol)[https://datproject.org/paper] is designed for syncing
+[Dat protocol](https://datproject.org/paper) is designed for syncing
 shared folders between peers who know and trust each other. In Dat,
 Alice can access Bob's data only if Alice knows Bob's public key. Dat
 also provide advanced features like privacy, random access to data
