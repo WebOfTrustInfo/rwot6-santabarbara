@@ -60,7 +60,7 @@ provide features that cover some common usage patterns.
 In this section we identify common patterns for storing verifiable
 credentials among four projects - [Chlu](https://chlu.io),
 [DClaims](https://github.com/inesc-id/dclaims-news),
-[OpenBadges](https://openbadges.org/) and
+[Open Badges](https://openbadges.org/) and
 [Pillar Project](https://pillarproject.io/). We then identify if each
 of the identified patterns requires an active agent to store the
 credentials or can can also be stored on a permissionless,
@@ -74,18 +74,17 @@ project.
 ## Chlu
 
 Chlu decentralises ratings and reviews earned by vendors from selling
-their goods and services on marketplaces. These ratings and reviews
-are saved so that they can be verified by any third party. The ratings
-and reviews data includes references to the entities and keys that
-signed the review. The ratings and reviews also include a reference to
-a public payment made through a cryptocurrency, the payment inturn
-also has a reference to the rating and review data, ensuring that each
-rating is verifiable as backed by a payment.
-
-Chlu also requires that vendors are unable to hide any rating or
-review - once a vendor gets a bad ratings, they should not be able to
-hide it from marketplaces and customers. This requires that access to
-ratings and reviews is not mediated by the vendor.
+their goods and services on marketplaces. Ratings and reviews are
+saved so that they can be verified by any third party. This is
+achieved by marketplaces and vendors generating a signed payment
+request, and this payment request is embedded in the ratings and
+review record. Finally, the reference to the rating and review is
+saved along with a cryptocurrency transaction - for example, as an
+op_return in bitcoin transaction. Chlu also requires that vendors are
+unable to hide any rating or review - once a vendor gets a bad
+ratings, they should not be able to hide it from marketplaces and
+customers. This requires that access to ratings and reviews is not
+mediated by the vendor.
 
 Currently, Chlu saves the ratings and review data on IPFS, however
 data replication on IPFS is not supported natively. For the moment,
@@ -106,27 +105,40 @@ that, if the claim writers turn off their IPFS nodes the claim is lost
 forever. The claims created by DClaims users need to replicating and
 made highly available independent of the claim issuers availability.
 
-[TODO:JOAO: Would love your feedback on this section and if you want to saying something more or something less please do so.]
 
-## OpenBadges
+## Open Badges
 
-[TODO:NATE: Does this section make sense? Please point out if my understanding is incorrect anywhere]
+The Open Badges project provides a way for users to earn badges that
+assert they have met the criteria of a defined achievement. These
+assertions are issued by educational institutions or other assessors
+of learning and are stored in the recipient's accounts on Open Badges
+backpack services. These backpack services are independent services
+that store a user's badges and and allow recipients to share their
+badges with specific inspectors or the public.
 
-The OpenBadges project provides a way for users to earn badges
-asserting their achievements. These assertions are issued by
-educational institutions and are stored in the recipient's accounts on
-OpenBadges backpack services. These backpack services are independent
-services that store a user's badges and allow anyone to access these
-verified badges.
+The Open Badges ecosystem relies on backpack services and their
+integrated verification capability to ensure authenticity and to
+mediate sharing with any inspector who only needs to load a URL to
+view badges. Increasingly, backpacks are expected to serve as service
+hubs for users, acting for instance, as the identity provider for
+purpose-built connected applications that make use of badges either as
+an issuer or displayer. Members of the Open Badges community are
+investigating whether the Verifiable Credentials envelope and
+verification mechanisms may be suitable for expressing Open Badges as
+well as how decentralized identifiers may be used by recipients and
+issuers.
 
-The OpenBadges ecosystem relies on the backpack services to act as
-verifiers of assertions included in the badges before being displayed
-to a consumer. However, with recent innovation towards decentralised
-identities, there is a drive within the OpenBadges community to adopt
-verifiable credentials. It remains to be seen if OpenBadges could be
-stored on a storage network that stores OpenBadges as verifiable
-credentials and thus does not require an active agent like a
-backpack.
+Some Open Badges are suitable to be made public, while others are
+more sensitive and best shared only with specific inspectors
+identified by the recipient. While there is no current mechanism for
+recipients to prevent inspectors from forwarding badges to other
+inspectors not authorized by the badges' recipients or issuers, not
+all badges are designed to be circulated among the general public. All
+badges may be contribute to the understanding of the qualifications of
+the recipient in their networks, badges issued with a public purpose
+in mind may offer promising use cases for storage on distributed
+networks.
+
 
 ## Pillar Project
 
@@ -156,8 +168,6 @@ If an application needs to store PII or SPI data, we believe they should
 provide access to these through an active agent that can adhere to
 entity selected authorisation policies. PII AND SPI should not be stored
 unencrypted on a decentralised storage network.
-
-[added "unencrypted" -- is this our thinking?]
 
 ### Mediated Access
 
@@ -235,6 +245,13 @@ claims can be difficult to provide. The claims should not be only
 stored on the news website, nor only the reader's device. At the same
 time the subjects (vendors or news articles) can not be required to
 run a service for claims associated to them.
+
+It is also important to have aggregations immediately available based
+on an appropriate sample of the data. Patterns of data accessibility
+that don't line up with meaningful sampling of the data interfere with
+the ability to serve the use cases identified above, like providing an
+accurate overall picture of a community's sentiment about a news
+article or retailer.
 
 Depending on hubs to act as agents for entities creates other points
 of centralisation, and in cases where an active agent is not required,
@@ -355,7 +372,9 @@ data set, and anyone should be able to check the same. Our proposal is
 that a "full node verifier" look at the blockchain for all anchors
 published there and then fetch verifiable credentials from a given
 node. If the node is able to provide all verifiable credentials then
-it is a full node.
+it is a full node. A full node verification can be made more efficient
+by using a random sampling technique to probabilistically determine if
+a node has all the data.
 
 In this section we identified a list of features that a storage
 network needs to support. We envision a multitude of storage networks
@@ -379,8 +398,8 @@ The components are
 ### HTTP API Endpoint
 
 An HTTP API to receive GET, PUT and UPDATE requests. DELETE is not
-supported as claims have to revoked using a revocation list, they can
-not be deleted from the storage network. PUT requests are
+supported as claims have to be revoked using a revocation list, they
+can not be deleted from the storage network. PUT requests are
 asynchronous, and the client does not have to wait for the node to
 verify the review and save it before it can receive a response. PUT
 requests are queued for processing so that the client doesn't have to
@@ -421,12 +440,17 @@ to make sure other nodes receive a copy.
 ### Data Storage
 
 Finally, the local data storage will use a database to store each
-claim keyed by the hash of the entire contents of the claim. This hash
-can be computed by the client sending the HTTP/PUT request and
-therefore the node does not need to return this to the client. The PUT
-requests can therefore be made asynchronous, and the client does not
-have to wait for the node to run the verification for the claim being
-written.
+claim keyed by the hash of the (canonicalized
+contents)[https://w3c-dvcg.github.io/ld-signatures/#dfn-canonicalization-algorithm]
+of the claim.
+
+Since the hash of canonicalized contetns can be computed by the client
+at the time of sending a PUT request, this request can be made in an
+asynchronous manner. The client then does not have to wait for the
+node to run the verification for the claim being written. This is
+important detail as verifying a claim can be an expensive process
+requiring keys to be fetched from remote hosts and clients should not
+have to wait for the verification process to be completed.
 
 The database store will also write to a reverse index to enable fast
 lookups for any updates to a claim.
@@ -480,12 +504,21 @@ synchronisation between them. Such an approach will not work for use
 cases we are concerned with, especially if we want tens of thousands
 of claim writers to publish claims on the network.
 
+The Open Badges community is working on specifying Open Badges as
+Verifiable Credentials. In a paper published at RWOT6, (Open Badges
+are Verifible
+Credentials)[https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/open-badges-are-verifiable-credentials.md],
+the authors present a way to model Open Badges as Verifiable
+Credentials such that they could be issued for DID owners. Modelling
+Verifiable Credentials in such a manner lends the claims to be saved
+in a decentralised storage network as proposed in here.
+
 ## Conclusion
 
 We presented use cases motivating a need for a permissionless,
 replicating, decentralised storage network. The use cases were derived
 from discussion at the RWOT6 between participants from Chlu, DClaims,
-OpenBadges and Pillar Project. After identifying the use cases, we
+Open Badges and Pillar Project. After identifying the use cases, we
 derived requirements for a storage network and finally presented an
 architecture that will address the storage problems for some of our
 use cases.
