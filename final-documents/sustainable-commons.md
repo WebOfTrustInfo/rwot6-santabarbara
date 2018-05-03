@@ -150,7 +150,7 @@ are not mutually exclusive:
     sending residuals back to a commons or collective contributor
     post-factum.
 
-*Examples: *RWoT, IIW, Digital Life Collective, other public
+*Examples:* RWoT, IIW, Digital Life Collective, other public
 blockchains.
 
 **Open Standards:** Open standards are the development of approved
@@ -180,10 +180,10 @@ Another problem occurs when these standard groups ignore history and the
 experience of adjacent groups activities, mainly due to interpersonal
 power dynamics and differing objectives.
 
-*Examples: *Open-stand.org, Internet Engineering Task Force, HTML, IP,
+*Examples:* Open-stand.org, Internet Engineering Task Force, HTML, IP,
 TCP.
 
-*Regulatory capture example: *HL7 mixing data model and authorization to
+*Regulatory capture example:* HL7 mixing data model and authorization to
 lock out innovation based on non-healthcare standards like UMA
 (User-Managed Access).
 
@@ -217,7 +217,7 @@ open-source model has had more limited economic success. The question
 remains: how to compensate developers who are not working for a large
 company that leverages the open-source code base.
 
-*Examples: *Linux, Apache, Drupal, WordPress.
+*Examples:* Linux, Apache, Drupal, WordPress.
 
 **Commons-Adjacent Business Models**
 
