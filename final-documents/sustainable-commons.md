@@ -67,7 +67,7 @@ yet the pressures of interfacing with existing systems (data systems but
 also systems of intellectual property and/or social control and capital
 capture) make them feel like distant abstractions in 2018.
 
--   **Re-decentralization: **this term names the reverse trend away from
+-   **Re-decentralization:** this term names the reverse trend away from
     our current web ecosystem driven by privacy-poor, capital-rich
     big-data players and towards decentralized forms of the Web, ideally
     via self-sovereign technology that distributes data power and
@@ -76,21 +76,21 @@ capture) make them feel like distant abstractions in 2018.
     corporations (e.g. Google, Amazon), and is often construed in
     cultural and ideological terms as a return towards the attitude of
     the early internet.
--   **Sustainable Capitalism: **sustainable technologies foster
+-   **Sustainable Capitalism:** sustainable technologies foster
     sustainable forms of capitalism and intellectual property. These
     forms consider economic externalities and end-to-end infrastructural
     costs and include them in their calculations of market ROI. They
     protect the standards process from financial influence (regulatory
     capture), while leveraging market diversity/competition and
     production, without harming the commons.
--   **Infrastructure: **elaborating on the last point, these
+-   **Infrastructure:** elaborating on the last point, these
     interactions of capital and the common good would need to treat
     specifications and protocols as a public infrastructure, and thus
     consider all web users as sovereign stakeholders. By this analogy,
     internet and other information technology protocols are similar to
     roads and other essential infrastructure that is used by many
     entities and people.
--   **Human Dignity: **protecting privacy and self-sovereignty are an
+-   **Human Dignity:** protecting privacy and self-sovereignty are an
     information protocol’s duty to human dignity, as many aspects of
     individual and family health, property rights, and political
     participation hinge upon privacy and control over one’s own data in
@@ -117,7 +117,7 @@ used, and who uses them. The authors identified multiple commons and
 commons-adjacent models of IT development and variations within those
 models used to build/design trust systems and protocols.
 
-**Ad-hoc Technology R&D: **Like-minded people organically create
+**Ad-hoc Technology R&D:** Like-minded people organically create
 communities to explore new technology. These communities can start
 inside another community or due to the death of a community. The
 Internet Identity Workshop (IIW) and Rebooting Web of Trust (RWoT) are
@@ -187,7 +187,7 @@ TCP.
 lock out innovation based on non-healthcare standards like UMA
 (User-Managed Access).
 
-**Government Funded R&D: **The U.S. government has a history of
+**Government Funded R&D:** The U.S. government has a history of
 investing in new technology standards to support a diverse and
 competitive marketplace. One goal of these investments is to support the
 development of interoperable technology and technology standards that
@@ -224,7 +224,7 @@ company that leverages the open-source code base.
 In addition to true commons models, we identified a variety of
 for-profit models that are “commons-adjacent”.
 
-**Corporate Non-Profit (e.g. SWIFT), Corporate Co-Op (variation): **A
+**Corporate Non-Profit (e.g. SWIFT), Corporate Co-Op (variation):** A
 top-down approach, this is a model where a non-profit representing a
 consortium of corporate interests is created to solve common technology
 and/or informational infrastructure problems for the benefit of member
@@ -289,37 +289,14 @@ We utilized the five principles for each example.
     strengths. We like to remember the successes we have already
     experienced as part of history.
 
-  ---------------------------------------------------------------------- ------------------------------------------------------------------------------------ ------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------------
-  **Appreciative Inquiry Model**                                         **RWoT: **workshop focused on co-developing technology papers                        **IIW: **unconference for User Centric Digital Identity                                     **DigiLife: **community building technology with decentralized web values
 
-  **Constructivist Principle**: we see the world as we are               Focused on outcomes, developing ideas.                                               A space for signals about digital identity to be voiced/named.                              Create governance that assigns resources, investments, tracks reputation and credit, using ledgers instead of money itself.
-                                                                                                                                                                                                                                                          
-                                                                                                                                                              Grassroots.                                                                                 
-                                                                                                                                                                                                                                                          
-                                                                                                                                                              Sustainable business model (with no exit).                                                  
-
-  **Poetic Principle:** what we focus on grows                           Developing ideas. Deliverables: Specs, Papers, Prototype examples.                   Exploring the edge of what is possible in digital identity with the technology available.   Sustainable capitalism and IP.
-                                                                                                                                                                                                                                                          
-                                                                         Making the community sustainable.                                                                                                                                                Growing resources/membership to fund and build the technology.
-
-  **Simultaneity Principle:** the questions we ask cause us to change.   How can we be more sustainable?                                                      What comes after federation?                                                                What are our new models of capitalization? How can new models be found?
-                                                                                                                                                                                                                                                          
-                                                                                                                                                              What is new? What is emerging? What new technology and ideas gives the community energy?    
-
-  **Anticipatory Principle:** what we believe, we conceive.              By working together, we can do it better and each of us can individually benefit.    Participants learn something new.                                                           Capitalism will not create technology we trust. We have to create it cooperatively.
-                                                                                                                                                                                                                                                          
-                                                                                                                                                              It’s always going to be around.                                                             
-                                                                                                                                                                                                                                                          
-                                                                                                                                                              Low barrier for entry/participation.                                                        
-
-  **Positive Principle:** identify and leverage strengths.               Things are happening, people are working, we are moving the spec forward together.   Huge community.                                                                             Review and vet new technology.
-                                                                                                                                                                                                                                                          
-                                                                                                                                                              Amplifies ideas developing on the edges.                                                    Build bridges across nascent technologies.
-                                                                                                                                                                                                                                                          
-                                                                                                                                                              Has longevity and sustainability.                                                           
-                                                                                                                                                                                                                                                          
-                                                                                                                                                              IIW gives space to others for disparate agendas.                                            
-  ---------------------------------------------------------------------- ------------------------------------------------------------------------------------ ------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------------------------------------------------
+|  **Appreciative Inquiry Model**   |                                      **RWoT:** workshop focused on co-developing technology papers                       |  **IIW:** unconference for User Centric Digital Identity                                     | **DigiLife:** community building technology with decentralized web values
+|--|--|--|--|
+| **Constructivist Principle**: we see the world as we are | Focused on outcomes, developing ideas. | A space for signals about digital identity to be voiced/named.<br><br>Grassroots.<br><br>Sustainable business model (with no exit).|Create governance that assigns resources, investments, tracks reputation and credit, using ledgers instead of money itself. |
+| **Poetic Principle:** what we focus on grows | Developing ideas. Deliverables: Specs, Papers, Prototype examples.<br><br>Making the community sustainable.|Exploring the edge of what is possible in digital identity with the technology available.|Sustainable capitalism and IP.<br>Growing resources / membership to fund and build the technology.|
+|**Simultaneity Principle:** the questions we ask cause us to change.|How can we be more sustainable?|What comes after federation?<br><br>What is new? What is emerging? What new technology and ideas gives the community energy?|What are our new models of capitalization? How can new models be found?|
+|**Anticipatory Principle:** what we believe, we conceive.|By working together, we can do it better and each of us can individually benefit.|Participants learn something new. <br><br>It’s always going to be around.<br><br>Low barrier for entry/participation.|Capitalism will not create technology we trust. We have to create it cooperatively.|
+|**Positive Principle:** identify and leverage strengths.|Things are happening, people are working, we are moving the spec forward together.|Huge community.<br><br>Amplifies ideas developing on the edges.<br><br>Has longevity and sustainability.<br><br>IIW gives space to others for disparate agendas.|Review and vet new technology. <br><br>Build bridges across nascent technologies.|
 
 The three examples are similar in that each group actively explores the
 bleeding edge of their chosen topic through an open community. However,
