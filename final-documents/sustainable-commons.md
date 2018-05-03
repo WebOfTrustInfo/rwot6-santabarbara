@@ -321,7 +321,7 @@ following four areas for follow-up inquiry.
 
 1.  Apply Appreciative Inquiry on RWoT’s Self-sovereign Identity
     architecture as it is currently being conceived and planned. At IIW
-    in April 2018, a session exploring Self-overeign Identity was held
+    in April 2018, a session exploring Self-Sovereign Identity was held
     and a link to notes is in the Bibliography.
 
 1.  Explore artificial intelligence as a technology method for the
@@ -360,10 +360,6 @@ following four areas for follow-up inquiry.
 -   Christopher Allen’s blog post about Commons Governance Models
 
     -   [*http://www.lifewithalacrity.com/2015/11/a-revised-ostroms-design-principles-for-collective-governance-of-the-commons-.html*](http://www.lifewithalacrity.com/2015/11/a-revised-ostroms-design-principles-for-collective-governance-of-the-commons-.html)
-
--   America by Design
-
-    -   [*https://www.amazon.com/America-Design-Technology-Corporate-Capitalism/dp/0195026187/*](https://www.amazon.com/America-Design-Technology-Corporate-Capitalism/dp/0195026187/)
 
 -   Fat Protocols
 
