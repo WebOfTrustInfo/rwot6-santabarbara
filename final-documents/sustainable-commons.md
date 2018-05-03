@@ -283,7 +283,7 @@ We utilized the five principles for each example.
     certain segment of a process. Change is happening all the time, at
     any stage of the process. How is your participation changing you
     right now?
-4.  The** Anticipatory Principle** is the rule that what we believe, we
+4.  The **Anticipatory Principle** is the rule that what we believe, we
     conceive.
 5.  The **Positive Principle** is where we identify and leverage
     strengths. We like to remember the successes we have already
