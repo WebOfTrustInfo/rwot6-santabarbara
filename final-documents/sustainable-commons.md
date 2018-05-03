@@ -253,9 +253,9 @@ installations on their hardware. Because Apple owns the hardware and
 software they are able to retain this power while opening up the
 platform to developers who follow their rules.
 
-Example: Apple App Store
+*Example:* Apple App Store
 
-[]{#anchor}Appreciative Inquiry on Ad-hoc Technology Models
+**Appreciative Inquiry on Ad-hoc Technology Models**
 
 To understand the positive effects of existing technology commons, we
 applied Appreciative Inquiry Principles. We limited the scope of this
@@ -303,7 +303,7 @@ bleeding edge of their chosen topic through an open community. However,
 the groups utilizes different governance models, have different
 community longevity, and focus on different outcomes.
 
-[]{#anchor-1}Areas for Further Research
+**Areas for Further Research**
 
 The initial RWOT topic paper proposed to apply AI to all commons models.
 However to keep our work in scope with the time available at RWOT, we
