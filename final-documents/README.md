@@ -1,5 +1,7 @@
 # Rebooting the Web of Trust VI (Spring 2018) Final Papers
 
+_This is a listing for the RWOT6 papers to date. [Several more](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/README.md) are in process._
+
 ## [*BTCR DID Resolver Specification*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/btcr-resolver.pdf) [(Text)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/btcr-resolver.md)
 #### Kim Hamilton Duffy, Christopher Allen, Ryan Grant, and Dan Pape
 
