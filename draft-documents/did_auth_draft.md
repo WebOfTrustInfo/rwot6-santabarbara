@@ -181,12 +181,12 @@ In a DID Auth interaction, a challenge is transmitted by a _relying party_ to an
  * The _relying party_ may or may not need additional transport-specific information about the _identity owner_ in order to be able to deliver the challenge (e.g. a DID Auth service endpoint). This additional protocol-specific information may be discoverable from the _identity owner's_ DID that is known to the relying party.
  * The _identity owner_ may or may not need additional transport-specific information about the _relying party_ in order to be able to deliver the response (e.g. a callback URL). This additional protocol-specific information may be included in the challenge, or it may be discoverable from the _relying party_'s DID that is included in the challenge.
 
-## Example DID Auth challenge (in JWT format)
+## Example DID Auth challenge (uPort, in JWT format)
 
-JWT payload:
+JWT:
 
 ```
-eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiIyb3BpTnJHU3hUVzZzRm82ZXJ2SFpuRWVFWEdOR0FvdXBGTiIsImlhdCI6MTUyMDQ2ODg4MywidmVyaWZpZWQiOlsiTXkgVGl0bGUiXSwiY2FsbGJhY2siOiJodHRwOi8vMTkyLjE2OC40NC4xNjI6ODA4MS9jYWxsYmFjayIsImV4cCI6MTUyMDQ2OTE4MywidHlwZSI6InNoYXJlUmVxIn0.zZVwQ-KT5XdLPXmXOOe2UgGFpWiq5MA7QVoLnIvcLE5p-KJfQ2Yvvhg5hWbrgRF5RzcpDvV7jyRKzBe-_6aMIQ
+eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiIyb2VYdWZIR0RwVTUxYmZLQnNaRGR1N0plOXdlSjNyN3NWRyIsImlhdCI6MTUyNTg2NTM5OCwicmVxdWVzdGVkIjpbIm5hbWUiLCJwaG9uZSIsImNvdW50cnkiLCJhdmF0YXIiXSwicGVybWlzc2lvbnMiOlsibm90aWZpY2F0aW9ucyJdLCJjYWxsYmFjayI6Imh0dHBzOi8vY2hhc3F1aS51cG9ydC5tZS9hcGkvdjEvdG9waWMvR29EVGtmV2hvQmZ0N1BaOSIsIm5ldCI6IjB4NCIsImV4cCI6MTUyNTg2NTk5OCwidHlwZSI6InNoYXJlUmVxIn0.sQnZv63KaiWj7uQzLHLZ2jfZCZTOPz-ei7zqiUeDpjCmAdrKhO_uBujYhERJ6m-vuHcoAKuibXAPoBVHI7_H4A
 ```
 
 Header and payload decodes to:
@@ -197,13 +197,61 @@ Header and payload decodes to:
   "alg": "ES256K"
 }
 {
-  "iss": "did:uport:2opiNrGSxTW6sFo6ervHZnEeEXGNGAoupFN",
-  "iat": 1520468883,
-  "callback": "http://192.168.44.162:8081/callback",
-  "exp": 1520469183,
+  "iss": "2oeXufHGDpU51bfKBsZDdu7Je9weJ3r7sVG",
+  "iat": 1525865398,
+  "requested": [
+    "name",
+    "phone",
+    "country",
+    "avatar"
+  ],
+  "permissions": [
+    "notifications"
+  ],
+  "callback": "https://chasqui.uport.me/api/v1/topic/GoDTkfWhoBft7PZ9",
+  "net": "0x4",
+  "exp": 1525865998,
   "type": "shareReq"
 }
 ```
+
+References:
+
+ * https://github.com/uport-project/specs/blob/develop/messages/sharereq.md
+
+## Example DID Auth challenge (Jolocom, in JWT format)
+
+JWT:
+
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6am9sbzo2eEV4S2ZnZzJXUkdCUExKZVVobVlrIiwicHViS2V5SXNzIjoiMDIzZTFjNGJkYTM4YmJhNGIzMmZkOTg2YjY5NjAyNmQ1NDUzMGQ4YjJiNjNhNmIzYzdjZDhjMzI0ZWQ3ZDhkMWUyIiwiY2FsbGJhY2tVcmwiOiJodHRwczovL2RlbW8tc3NvLmpvbG9jb20uY29tL3Byb3h5L2F1dGhlbnRpY2F0aW9uIiwicmVxQ2xhaW1zIjpbIm5hbWUiLCJlbWFpbCJdLCJjbGllbnRJZCI6IjAuYWE4NjF2ZjZrYW8iLCJpYXQiOiIyMDE4LTA1LTA5VDEwOjUzOjUwLjkxOFoiLCJleHAiOiIyMDE4LTA1LTA5VDExOjQzOjUwLjkxOFoiLCJqdGkiOiIwLmFhODYxdmY2a2FvIn0.ks9P6P0HqAhb3Ol3xwJdtxTPPm7Gy_EYYyclqI2azVesPrm61qLAV7oqqm7OqcUHqL1G1bHoqEC8KydDgYbrxg
+```
+
+Header and payload decodes to:
+
+```
+{
+  "typ": "JWT",
+  "alg": "ES256K"
+}
+{
+  "iss": "did:jolo:6xExKfgg2WRGBPLJeUhmYk",
+  "pubKeyIss": "023e1c4bda38bba4b32fd986b696026d54530d8b2b63a6b3c7cd8c324ed7d8d1e2",
+  "callbackUrl": "https://demo-sso.jolocom.com/proxy/authentication",
+  "reqClaims": [
+    "name",
+    "email"
+  ],
+  "clientId": "0.aa861vf6kao",
+  "iat": "2018-05-09T10:53:50.918Z",
+  "exp": "2018-05-09T11:43:50.918Z",
+  "jti": "0.aa861vf6kao"
+}
+```
+
+References:
+
+* https://demo-sso.jolocom.com/
 
 ## Example DID Auth challenge (in JSON-LD format)
 
@@ -230,26 +278,34 @@ A DID Auth response includes the _identity owner_'s DID together with proof of t
 In order to validate the response and therefore complete a DID Auth flow, the _relying party_ performs the following steps:
 
  * The _relying party_ resolves the _identity owner_'s DID to its DID Document and interprets the `authentication` and `publicKey` objects in that DID Document to determine how to verify the proof.
- * The _relying party_ must be able to internally link a response to a prior challenge. This can be done with a nonce in the challenge that must also be included in the response. It can also be done by including the entire original challenge in the response.
+ * The _relying party_ must be able to internally link a response to a prior challenge. This can be done with a nonce or message identifier in the challenge that must also be included in the response. It can also be done by including the entire original challenge in the response.
 
-## Example DID Auth response (in JWT format)
+## Example DID Auth response (uPort, in JWT format)
 
 ```
 {
-  "typ": "JWT",
-  "alg": "ES256K"
-}
-{
-  "iss": "did:uport:2omWsSGspY7zhxaG6uHyoGtcYxoGeeohQXz",
-  "iat": 1520469645,
-  "aud": "did:uport:2opiNrGSxTW6sFo6ervHZnEeEXGNGAoupFN",
+  "iat": 1525865451,
+  "exp": 1525951851,
+  "aud": "2oeXufHGDpU51bfKBsZDdu7Je9weJ3r7sVG",
   "type": "shareResp",
-  "nad": "2omWsSGspY7zhxaG6uHyoGtcYxoGeeohQXz",
-  "req":
-"eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiIyb3BpTnJHU3hUVzZzRm82ZXJ2SFpuRWVFWEdOR0FvdXBGTiIsImlhdCI6MTUyMDQ2OTYzMCwidmVyaWZpZWQiOlsiTXkgVGl0bGUiXSwiY2FsbGJhY2siOiJodHRwOi8vMTkyLjE2OC4xLjE5OTo4MDgxL2NhbGxiYWNrIiwiZXhwIjoxNTIwNDY5OTMwLCJ0eXBlIjoic2hhcmVSZXEifQ.54K3IHiCkgjigTSnUiVqAQZ575vpSMNcGlaKeCxo8ZeghObvaVuvDaE7ToWDiJK8VtQUAOj3pY40tRomon8zAA", // This is a copy of the Request (this is to support a stateless architecture on the server side)
-  "exp": 1520556045
+  "nad": "2osC1TQ52MRTiRih1LP2tSB7R5FAibR3Ftr",
+  "own": {
+    "name": "Markus",
+    "phone": "+436643154848",
+    "country": "AT"
+  },
+  "req": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiIyb2VYdWZIR0RwVTUxYmZLQnNaRGR1N0plOXdlSjNyN3NWRyIsImlhdCI6MTUyNTg2NTM5OCwicmVxdWVzdGVkIjpbIm5hbWUiLCJwaG9uZSIsImNvdW50cnkiLCJhdmF0YXIiXSwicGVybWlzc2lvbnMiOlsibm90aWZpY2F0aW9ucyJdLCJjYWxsYmFjayI6Imh0dHBzOi8vY2hhc3F1aS51cG9ydC5tZS9hcGkvdjEvdG9waWMvR29EVGtmV2hvQmZ0N1BaOSIsIm5ldCI6IjB4NCIsImV4cCI6MTUyNTg2NTk5OCwidHlwZSI6InNoYXJlUmVxIn0.sQnZv63KaiWj7uQzLHLZ2jfZCZTOPz-ei7zqiUeDpjCmAdrKhO_uBujYhERJ6m-vuHcoAKuibXAPoBVHI7_H4A",
+  "capabilities": [
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpYXQiOjE1MjU4NjU0NTEsImV4cCI6MTUyNzE2MTQ1MSwiYXVkIjoiMm9lWHVmSEdEcFU1MWJmS0JzWkRkdTdKZTl3ZUozcjdzVkciLCJ0eXBlIjoibm90aWZpY2F0aW9ucyIsInZhbHVlIjoiYXJuOmF3czpzbnM6dXMtd2VzdC0yOjExMzE5NjIxNjU1ODplbmRwb2ludC9HQ00vdVBvcnQvNTcxNzViMDgtMzc3Mi0zNDY5LWEzZDEtYzhhYzg2MzkyNTQ3IiwiaXNzIjoiMm9zQzFUUTUyTVJUaVJpaDFMUDJ0U0I3UjVGQWliUjNGdHIifQ.Ldy1Ficyxo9gFM6dwpz8IanNDjHbqTKmbn-bI7GOAA9QlWaTaMiha0GnTBFewWeam1ioZKSTbbaoRILQI8FysA"
+  ],
+  "publicEncKey": "PZyTtN0EKJLFJyC/hqbYhz/UCUSYk9l1eFTd9cp4Tj8=",
+  "iss": "2osC1TQ52MRTiRih1LP2tSB7R5FAibR3Ftr"
 }
 ```
+
+References:
+
+ * https://github.com/uport-project/specs/blob/develop/messages/shareresp.md
 
 ## Example DID Auth response (in JSON-LD Verifiable Credentials format)
 
@@ -297,7 +353,7 @@ A mobile app or webpage may itself be a _relying party_ and deliver a DID Auth c
 Example:
 
 ```
-didauth:?challenge=...
+didauth:jwt/...
 ```
 
 ## Custom protocol handler
@@ -307,7 +363,7 @@ Similar to a mobile deep link, a web page can contain a web-based protocol link 
 Example:
 
 ```
-<a href="web+didauth:challenge=?...">Login with DID Auth</a>
+<a href="web+didauth:jwt/...">Login with DID Auth</a>
 ```
 
 ## Device-to-device communication
