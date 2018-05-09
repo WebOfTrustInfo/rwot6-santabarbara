@@ -70,18 +70,6 @@ The term DID Auth has been used in different ways and is currently not well-defi
 
 # Introduction
 
-**TODO** Review diagrams.
-
-Diagrams by Markus:
-
-[DID Auth Diagrams](./media/DID_Auth_Diagrams.odg)
-
-![DID Auth Diagrams](./media/DID_Auth_Diagrams.png)
-
-Original drawing by Cedric:
-
-![DID Auth scope](./media/DID_Auth.jpg)
-
 ## Scope
 
 DID Auth defines data formats and challenge and response transports allowing an _identity owner_ to prove control over a DID to a _relying party_. A successful DID Auth interaction may create the required conditions to allow the parties to exchange further data in a trustworthy way. This further data could include streams of raw data from sensors to the exchange of Verifiable Credentials. This further exchange of data is out of scope of the DID Auth exchange and specification. 
@@ -178,7 +166,7 @@ In a DID Auth interaction, a challenge is transmitted by a _relying party_ to an
 
  * The _relying party_ may or may not know the _identity owner_'s DID at the time the challenge is constructed, and therefore the _identity owner_'s DID may or may not be included in the challenge.
  * The challenge that is sent by the _relying party_ may or may not itself contain a proof of the _relying party_'s control of a DID.
- * The _relying party_ may or may not need additional transport-specific information about the _identity owner_ in order to be able to deliver the challenge (e.g. a DID Auth service endpoint). This additional protocol-specific information may be discoverable from the _identity owner's_ DID that is known to the relying party.
+ * The _relying party_ may or may not need additional transport-specific information about the _identity owner_ in order to be able to deliver the challenge (e.g. a DID Auth service endpoint). This additional protocol-specific information may be discoverable from the _identity owner's_ DID if it is known to the _relying party_.
  * The _identity owner_ may or may not need additional transport-specific information about the _relying party_ in order to be able to deliver the response (e.g. a callback URL). This additional protocol-specific information may be included in the challenge, or it may be discoverable from the _relying party_'s DID that is included in the challenge.
 
 ## Example DID Auth challenge (uPort, in JWT format)
@@ -439,7 +427,9 @@ https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/mas
 
 **TODO**: Explain use of biometrics for unlocking private keys on a local device. Also explain use of a BOPS (or similar) service endpoint.
 
-https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/Biometrics.md
+References:
+
+* https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/Biometrics.md
 
 ## WebAuthn
 
@@ -485,6 +475,10 @@ Even after a DID Auth interaction has been completed, a _relying party_ may requ
 ## DID resolution
 
 DID Auth depends on the ability to resolve a DID to its associated DID Document. Therefore all security considerations associated with DID resolution must be taken into account. Among other topics, this includes caching behavior of a DID resolver, as well as metadata about the DID resolution process (e.g. has the DID Document been retrieved via a blockchain full node, or via an untrusted intermediary lookup service).
+
+## Hardware wallet
+
+The DID Auth challenge may be forwarded to a hardware wallet, that upon an _identity owner_'s physical interaction, will create a response and send it back to the _relying party_.
 
 ## Single log-out
 
