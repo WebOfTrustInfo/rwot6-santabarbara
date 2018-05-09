@@ -451,10 +451,13 @@ IIW #26 Session Notes "DID Auth Workflows (Part 2)": http://iiw.idcommons.net/DI
 
 ## Verifiable Credentials Exchange
 
-**TODO:** Explain possible relationship between DID Auth and Verifiable Credentials Exchange protocols. Maybe include Markus' three ways of thinking about it:
+Even though DID Auth is about proving control over a DID, the exchange of Verifiable Credentials associated with a DID is closely related to DID Auth. There are three approaches how DID Auth and Verifiable Credentials can work together:
 
-https://lists.w3.org/Archives/Public/public-credentials/2018Mar/0077.html
+1. DID Auth and Verifiable Claims exchange are separate: At the beginning of an interaction between two parties, they need to authenticate (mutually, or just in one direction). Then after this is done, a protocol for Verifiable Credentials exchange can be executed, so that the two parties can learn more about each other (and then perhaps make authorization decisions).
 
+2. Verifiable Credentials exchange is an extension to DID Auth: In this approach, proving control of an identifier, and proving possession of Verifiable Credentials are closely related, and a single protocols is used for both purposes. The Verifiable Credentials are an "optional field" in the protocol. In order to "only" prove control of an identifier, then the Verifiable Credentials that are exchanged are an empty list.
+
+3. DID Auth is a certain kind of Verifiable Credential: It is possible to think of DID Auth as an exchange of the most trivial Verifiable Credential imaginable. A self-issued Verifiable Credential that states "I am me". From this perspective, the separation between DID Auth and exchange of "other" Verifiable Credentials is very vague, and both are part of the same protocol.
 
 # Security and Privacy Considerations
 
