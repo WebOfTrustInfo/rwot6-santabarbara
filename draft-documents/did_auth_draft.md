@@ -169,9 +169,9 @@ In a DID Auth interaction, a challenge is transmitted by a _relying party_ to an
  * The _relying party_ may or may not need additional transport-specific information about the _identity owner_ in order to be able to deliver the challenge (e.g. a DID Auth service endpoint). This additional protocol-specific information may be discoverable from the _identity owner's_ DID if it is known to the _relying party_.
  * The _identity owner_ may or may not need additional transport-specific information about the _relying party_ in order to be able to deliver the response (e.g. a callback URL). This additional protocol-specific information may be included in the challenge, or it may be discoverable from the _relying party_'s DID that is included in the challenge.
 
-## Example DID Auth challenge (uPort, in JWT format)
+## JWT format
 
-JWT:
+Example: uPort
 
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiIyb2VYdWZIR0RwVTUxYmZLQnNaRGR1N0plOXdlSjNyN3NWRyIsImlhdCI6MTUyNTg2NTM5OCwicmVxdWVzdGVkIjpbIm5hbWUiLCJwaG9uZSIsImNvdW50cnkiLCJhdmF0YXIiXSwicGVybWlzc2lvbnMiOlsibm90aWZpY2F0aW9ucyJdLCJjYWxsYmFjayI6Imh0dHBzOi8vY2hhc3F1aS51cG9ydC5tZS9hcGkvdjEvdG9waWMvR29EVGtmV2hvQmZ0N1BaOSIsIm5ldCI6IjB4NCIsImV4cCI6MTUyNTg2NTk5OCwidHlwZSI6InNoYXJlUmVxIn0.sQnZv63KaiWj7uQzLHLZ2jfZCZTOPz-ei7zqiUeDpjCmAdrKhO_uBujYhERJ6m-vuHcoAKuibXAPoBVHI7_H4A
@@ -203,13 +203,7 @@ Header and payload decodes to:
 }
 ```
 
-References:
-
- * https://github.com/uport-project/specs/blob/develop/messages/sharereq.md
-
-## Example DID Auth challenge (Jolocom, in JWT format)
-
-JWT:
+Example: Jolocom
 
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6am9sbzo2eEV4S2ZnZzJXUkdCUExKZVVobVlrIiwicHViS2V5SXNzIjoiMDIzZTFjNGJkYTM4YmJhNGIzMmZkOTg2YjY5NjAyNmQ1NDUzMGQ4YjJiNjNhNmIzYzdjZDhjMzI0ZWQ3ZDhkMWUyIiwiY2FsbGJhY2tVcmwiOiJodHRwczovL2RlbW8tc3NvLmpvbG9jb20uY29tL3Byb3h5L2F1dGhlbnRpY2F0aW9uIiwicmVxQ2xhaW1zIjpbIm5hbWUiLCJlbWFpbCJdLCJjbGllbnRJZCI6IjAuYWE4NjF2ZjZrYW8iLCJpYXQiOiIyMDE4LTA1LTA5VDEwOjUzOjUwLjkxOFoiLCJleHAiOiIyMDE4LTA1LTA5VDExOjQzOjUwLjkxOFoiLCJqdGkiOiIwLmFhODYxdmY2a2FvIn0.ks9P6P0HqAhb3Ol3xwJdtxTPPm7Gy_EYYyclqI2azVesPrm61qLAV7oqqm7OqcUHqL1G1bHoqEC8KydDgYbrxg
@@ -239,9 +233,12 @@ Header and payload decodes to:
 
 References:
 
-* https://demo-sso.jolocom.com/
+ * https://github.com/uport-project/specs/blob/develop/messages/sharereq.md
+ * https://demo-sso.jolocom.com/
 
-## Example DID Auth challenge (in JSON-LD format)
+## JSON-LD Verifiable Credentials format
+
+Example: Verifiable Credentials
 
 ```
 {
@@ -268,7 +265,9 @@ In order to validate the response and therefore complete a DID Auth flow, the _r
  * The _relying party_ resolves the _identity owner_'s DID to its DID Document and interprets the `authentication` and `publicKey` objects in that DID Document to determine how to verify the proof.
  * The _relying party_ must be able to internally link a response to a prior challenge. This can be done with a nonce or message identifier in the challenge that must also be included in the response. It can also be done by including the entire original challenge in the response.
 
-## Example DID Auth response (uPort, in JWT format)
+## JWT format
+
+Example: uPort
 
 ```
 {
@@ -295,7 +294,7 @@ References:
 
  * https://github.com/uport-project/specs/blob/develop/messages/shareresp.md
 
-## Example DID Auth response (in JSON-LD Verifiable Credentials format)
+## JSON-LD Verifiable Credentials format
 
 The following Verifiable Credential contains a claim of a certain public key as a property of the _identity owner_.
 
