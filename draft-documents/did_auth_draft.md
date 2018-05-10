@@ -341,7 +341,7 @@ A mobile app or webpage may itself be a _relying party_ and deliver a DID Auth c
 Example:
 
 ```
-didauth:jwt/...
+did-auth:jwt/...
 ```
 
 ## Custom protocol handler
@@ -351,20 +351,46 @@ Similar to a mobile deep link, a web page can contain a web-based protocol link 
 Example:
 
 ```
-<a href="web+didauth:jwt/...">Login with DID Auth</a>
+<a href="did-auth:jwt/...">Login with DID Auth</a>
 ```
-
-## Device-to-device communication
-
-If both the _relying party_ and _identity owner_ meet physically with devices they control, a DID Auth challenge can be delivered via direct communication between devices, using Bluetooth, NFC, WiFi, etc.
 
 ## Invoke user agent's JavaScript API
 
 A _relying party_ web site may deliver a DID Auth challenge to the _identity owner_ by invoking an API via a JavaScript function in the _identity owner_'s user agent.
 
-**TODO:** Add example from Browser Credential Handler API
+Example: Browser Credential Handler API
 
-**TODO:** Add example from WebAuthn
+```
+	const credential = await navigator.credentials.get({
+	  web: {
+	    VerifiableProfile: {
+	      name: true
+	    }
+	  }
+	});
+	console.log('credential received', credential);
+```
+
+References:
+
+ * https://credential-verifier.demo.digitalbazaar.com/
+
+## Form redirect
+
+A _relying party_ web site may deliver a DID Auth challenge to the _identity owner_ by redirecting to a DID Auth web site that acts on the _identity owner_'s behalf (similar to a classic IdP in OpenID Connect or SAML protocols).
+
+Example:
+
+```
+	<form action="https://auth.example.com/did:example:123456789abcdefg" method="post">
+		<input type="hidden" name="challenge" value="...">
+		<input type="submit" value="Submit!">
+	</form>
+```
+
+## Device-to-device communication
+
+If both the _relying party_ and _identity owner_ meet physically with devices they control, a DID Auth challenge can be delivered via direct communication between devices, using Bluetooth, NFC, WiFi, etc.
 
 
 # Response Transports
@@ -377,9 +403,9 @@ The DID Auth response may be delivered to the _relying party_ in the form of an 
 
 The _identity owner_ may encode a DID Auth response as a QR code, which is delivered to the _relying party_ by scanning it with a DID Auth compatible mobile app.
 
-## Hardware wallet
+## Fulfill JavaScript promise
 
-The DID Auth challenge may be forwarded to a hardware wallet, that upon an _identity owner_'s physical interaction, will create a response and send it back to the _relying party_ via the forwarder.
+If the DID Auth challenge was delivered to the _identity owner_ via a JavaScript API, then the response may be returned to the _relying party_ via fulfillment of a JavaScript promise.
 
 
 # Architectures
