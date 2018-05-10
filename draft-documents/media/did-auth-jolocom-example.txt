@@ -1,0 +1,25 @@
+eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6am9sbzo2eEV4S2ZnZzJXUkdCUExKZVVobVlrIiwicHViS2V5SXNzIjoiMDIzZTFjNGJkYTM4YmJhNGIzMmZkOTg2YjY5NjAyNmQ1NDUzMGQ4YjJiNjNhNmIzYzdjZDhjMzI0ZWQ3ZDhkMWUyIiwiY2FsbGJhY2tVcmwiOiJodHRwczovL2RlbW8tc3NvLmpvbG9jb20uY29tL3Byb3h5L2F1dGhlbnRpY2F0aW9uIiwicmVxQ2xhaW1zIjpbIm5hbWUiLCJlbWFpbCJdLCJjbGllbnRJZCI6IjAuYWE4NjF2ZjZrYW8iLCJpYXQiOiIyMDE4LTA1LTA5VDEwOjUzOjUwLjkxOFoiLCJleHAiOiIyMDE4LTA1LTA5VDExOjQzOjUwLjkxOFoiLCJqdGkiOiIwLmFhODYxdmY2a2FvIn0.ks9P6P0HqAhb3Ol3xwJdtxTPPm7Gy_EYYyclqI2azVesPrm61qLAV7oqqm7OqcUHqL1G1bHoqEC8KydDgYbrxg
+
+
+GET  XHR  https://demo-sso.jolocom.com/proxy/sso-status/0.aa861vf6kao
+
+
+{
+  "typ": "JWT",
+  "alg": "ES256K"
+}
+
+
+{
+  "iss": "did:jolo:6xExKfgg2WRGBPLJeUhmYk",
+  "pubKeyIss": "023e1c4bda38bba4b32fd986b696026d54530d8b2b63a6b3c7cd8c324ed7d8d1e2",
+  "callbackUrl": "https://demo-sso.jolocom.com/proxy/authentication",
+  "reqClaims": [
+    "name",
+    "email"
+  ],
+  "clientId": "0.aa861vf6kao",
+  "iat": "2018-05-09T10:53:50.918Z",
+  "exp": "2018-05-09T11:43:50.918Z",
+  "jti": "0.aa861vf6kao"
+}
