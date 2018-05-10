@@ -22,22 +22,11 @@ John Jordan (john.jordan@gov.bc.ca)
 
 # Resources
 
-Markus' topic paper "DID Auth: Scope, Formats, and Protocols":
+This paper is a continuation of ongoing work by the Rebooting-the-Web-of-Trust and other communities. Previous work includes:
 
-[https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID%20Auth:%20Scope,%20Formats,%20and%20Protocols.md](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID%20Auth:%20Scope,%20Formats,%20and%20Protocols.md)
-
-Kyle's topic paper "DID-Auth protocol":
-
-[https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md)
-
-Uport specification for Selective Disclosure request/response protocol:
-
-[https://github.com/uport-project/specs/blob/develop/flows/selectivedisclosure.md](https://github.com/uport-project/specs/blob/develop/flows/selectivedisclosure.md)
-
-[https://github.com/uport-project/specs/blob/develop/messages/sharereq.md](https://github.com/uport-project/specs/blob/develop/messages/sharereq.md)
-
-[https://github.com/uport-project/specs/blob/develop/messages/shareresp.md \
-](https://github.com/uport-project/specs/blob/develop/messages/shareresp.md)
+* [RWoT #4: James Monaghan's topic paper "DID Auth"](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2017/blob/master/topics-and-advance-readings/did-auth.md)
+* [RWoT #6: Markus Sabadello's topic paper "DID Auth: Scope, Formats, and Protocols"](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID%20Auth:%20Scope,%20Formats,%20and%20Protocols.md)
+* [RWoT #6: Kyle Den Hartog's topic paper "DID-Auth protocol"](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md)
 
 
 # Abstract
