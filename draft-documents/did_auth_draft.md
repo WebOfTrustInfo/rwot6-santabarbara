@@ -393,7 +393,7 @@ The DID Auth response may be delivered to the _relying party_ in the form of an 
 
 The _identity owner_ may encode a DID Auth response as a QR code, which is delivered to the _relying party_ by scanning it with a DID Auth compatible mobile app.
 
-## Fulfill JavaScript promise
+## Fulfill JavaScript promise
 
 If the DID Auth challenge was delivered to the _identity owner_ via a JavaScript API, then the response may be returned to the _relying party_ via fulfillment of a JavaScript promise.
 
@@ -505,7 +505,7 @@ References:
 
 ![DID Auth Diagram 9](./media/DID_Auth_Diagrams9.png)
 
- 1. _Identity owner's_ service (or agent, or hub, etc.) sends an HTTP request to _relying party_'s service (or agent, or hub, etc.) and includes an HTTP Signature.
+ 1. _Identity owner's_ **service (or agent, or hub, etc.)** sends an HTTP request to _relying party_'s **service (or agent, or hub, etc.)** and includes an HTTP Signature.
 
 References:
 
@@ -539,17 +539,17 @@ References:
 References:
 
  * [IIW #26 Session Notes "Open ID v. FIDO v. SSI"](http://iiw.idcommons.net/Open_ID_v._FIDO_v._SSI)
- * [IIW #26 Session Notes "DID Auth Workflows (Part 2)[http://iiw.idcommons.net/DID_Auth_Workflows_(Part_2)]
+ * [IIW #26 Session Notes "DID Auth Workflows (Part 2)"](http://iiw.idcommons.net/DID_Auth_Workflows_(Part_2))
 
 ## Verifiable Credentials Exchange
 
 Even though DID Auth is about proving control over a DID, the exchange of Verifiable Credentials associated with a DID is closely related to DID Auth. There are three approaches how DID Auth and Verifiable Credentials can work together:
 
-1. DID Auth and Verifiable Claims exchange are separate: At the beginning of an interaction between two parties, they need to authenticate (mutually, or just in one direction). Then after this is done, a protocol for Verifiable Credentials exchange can be executed, so that the two parties can learn more about each other (and then perhaps make authorization decisions).
+1. **DID Auth and Verifiable Claims exchange are separate:** At the beginning of an interaction between two parties, they need to authenticate (mutually, or just in one direction). Then after this is done, a protocol for Verifiable Credentials exchange can be executed, so that the two parties can learn more about each other (and then perhaps make authorization decisions).
 
-2. Verifiable Credentials exchange is an extension to DID Auth: In this approach, proving control of an identifier, and proving possession of Verifiable Credentials are closely related, and a single protocols is used for both purposes. The Verifiable Credentials are an "optional field" in the protocol. In order to "only" prove control of an identifier, then the Verifiable Credentials that are exchanged are an empty list.
+2. **Verifiable Credentials exchange is an extension to DID Auth:** In this approach, proving control of an identifier, and proving possession of Verifiable Credentials are closely related, and a single protocols is used for both purposes. The Verifiable Credentials are an "optional field" in the protocol. In order to "only" prove control of an identifier, then the Verifiable Credentials that are exchanged are an empty list.
 
-3. DID Auth is a certain kind of Verifiable Credential: It is possible to think of DID Auth as an exchange of the most trivial Verifiable Credential imaginable. A self-issued Verifiable Credential that states "I am me". From this perspective, the separation between DID Auth and exchange of "other" Verifiable Credentials is very vague, and both are part of the same protocol.
+3. **DID Auth is a certain kind of Verifiable Credential:** It is possible to think of DID Auth as an exchange of the most trivial Verifiable Credential imaginable. A self-issued Verifiable Credential that states "I am me". From this perspective, the separation between DID Auth and exchange of "other" Verifiable Credentials is very vague, and both are part of the same protocol.
 
 
 # Security and Privacy Considerations
