@@ -386,39 +386,115 @@ The DID Auth challenge may be forwarded to a hardware wallet, that upon an _iden
 
 Based on the above data format and transport options for DID Auth challenges and responses, this section describes example overall architectures that can be realized.
 
-**TODO**: In this section, add flows from Markus' topic paper
+## DID-Auth Architecture 1: Web page and mobile app
 
-[https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID%20Auth:%20Scope,%20Formats,%20and%20Protocols.md](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID%20Auth:%20Scope,%20Formats,%20and%20Protocols.md)
+![DID Auth Diagram 1](./media/DID_Auth_Diagrams1.png)
 
-**TODO**: In this section, add scenarios from BCGov DID Auth opportunity:
+ 1. _Relying party's_ **web page** displays a QR code (with challenge) to _identity owner's_ **web browser**.
+ 1. { _Identity owner's_ **mobile app** scans QR code (with challenge) from _identity owner's **web browser**. }
+ 1. _Identity owner's_ **mobile app** sends HTTP POST (with response) to _relying party's_ **web server**.
+ 1. { _Relying party's_ **web server** is polled with HTTP GET (with response) by _relying party's_ **web page**. }
 
-[http://bit.ly/2I86vvR](http://bit.ly/2I86vvR)
+References:
 
-1.  **System to System:** Services that generate verifiable claims about organizations and write them to TheOrgBook need to be authenticated. Such Services must have a DID known to TheOrgBook and use that DID to access the Issuer API for writing verifiable claims to TheOrgBook. This would be a generic authentication method between two services at the API level.
-1.  **Administrative:** There is an administrative element of TheOrgBook that should be limited to authorized users who would have a DID.
-    1.  This use case could (should) be expandable into the use case where an arbitrary user can connect to a service for the purposes of "enrolling" and subsequently re-connecting once they are known to the service 
+ * https://github.com/uport-project/specs/blob/develop/messages/sharereq.md
+ * https://demo-sso.jolocom.com/
 
-**TODO**: In this section, add info on DID-TLS and TLS Felx
+## DID Auth Architecture 2: Mobile web page and mobile app
 
-**TODO**: In this section, add info on HTTP Signatures.
+![DID Auth Diagram 2](./media/DID_Auth_Diagrams2.png)
 
-**TODO**: In this section, add Kyle's DID Auth protocol.
+ 1. _Relying party's_ **mobile web page** redirects via deep link (with challenge) to _identity owner's_ **mobile app**.
+ 1. _Identity owner's_ **mobile app** opens return link (with response) to _relying party's_ **web server**.
+ 1. { _Relying party's_ **web server** updates _relying party's_ **mobile web page**. }
 
-[https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md)
+References:
 
-**TODO**: In this section, add Identity Hub Attestation Flows and Components
+ * https://github.com/uport-project/specs/blob/develop/messages/sharereq.md
 
-https://hackmd.io/9TuwUcHFTUq6Su_WYUH46Q#
+## DID Auth Architecture 3: Web page and DID Auth service (1)
 
-https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/Identity%20Hub%20Attestation%20Handling.md
+![DID Auth Diagram 3](./media/DID_Auth_Diagrams3.png)
 
-## Peer to Server
+ 1. { _Relying party's_ **web page** contains a link or button that calls the _relying party's_ **web server**. }
+ 1. _Relying party's_ **web server** sends HTTP POST (with challenge) to _identity owner's_ **DID Auth service**.
+ 1. { _Identity owner's_ **DID Auth service** sends push notification (with challenge) to _identity owner's_ **mobile app**. }
+ 1. _Identity owner's_ **mobile app** sends HTTP POST (with response) to _relying party's_ **web server**.
+ 1. { _Relying party's_ **web server** is polled with HTTP GET (with response) by _relying party's_ **web page**. }
 
-(also known as "Button on Website")
+References:
 
-## Peer to Peer
+ * https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/Identity%20Hub%20Attestation%20Handling.md
 
-## Server to Server (DID-TLS)
+## DID Auth Architecture 4: Web page and DID Auth service (2)
+
+![DID Auth Diagram 4](./media/DID_Auth_Diagrams4.png)
+
+ 1. { _Relying party's_ **web page** contains a link or button that calls the _relying party's_ **web server**. }
+ 1. _Relying party's_ **web server** sends HTTP POST (with challenge) to _identity owner's_ **DID Auth service**.
+ 1. { _Identity owner's_ **DID Auth service** sends push notification (with challenge) to _identity owner's_ **mobile app**. }
+ 1. { _Identity owner's_ **mobile app** sends HTTP POST (with response) to _identity owner's_ **DID Auth service**. }
+ 1. _Identity owner's_ **DID Auth service** sends HTTP POST (with response) to _relying party's_ **web server**.
+ 1. { _Relying party's_ **web server** is polled with HTTP GET (with response) by _relying party's_ **web page**. }
+
+## DID-Auth Architecture 5: Web page and DID Auth web page
+
+![DID Auth Diagram 5](./media/DID_Auth_Diagrams5.png)
+
+ 1. { _Relying party's_ **web page** contains a link or button that calls the _relying party's_ **web server**. }
+ 1. _Relying party's_ **web server** sends HTTP Redirect (with challenge) to _identity owner's_ **web browser**.
+ 1. { _Identity owner's_ **web browser** follows HTTP Redirect (with challenge) to _identity owner's_ **DID Auth web page**. }
+ 1. { _Identity owner's_ **DID Auth web page** optionally interacts (with challenge and response) with _identity owner's_ **mobile app or other device**. }
+ 1. _Identity owner's_ **DID Auth web page** follows HTTP Redirect (with response) to _relying party's_ **web server**.
+ 1. { _Relying party's_ **web server** updates _relying party's_ **web page**. }
+
+## DID-Auth Architecture 6: Web page and web browser
+
+![DID Auth Diagram 6](./media/DID_Auth_Diagrams6.png)
+
+ 1. _Relying party's_ **web page** calls JavaScript function (with challenge) on _identity owner's_ **web browser**.
+ 1. { _Identity owner's_ **web browser** optionally interacts (with challenge and response) with _identity owner's_ **mobile app or other device**. }
+ 1. _Identity owner's_ **web browser** triggers JavaScript promise (with response) on _relying party's_ **web page**.
+ 1. { _Relying party's_ **web page** sends HTTP POST (with response) to _relying party's_ **web server**. }
+
+References:
+
+ * [Credential Handler API](https://w3c-ccg.github.io/credential-handler-api/)
+ * [DID Auth browser add-on](https://github.com/bcgov/did-auth-extension)
+
+## DID Auth Architecture 7: Mobile apps and DID Auth service
+
+![DID Auth Diagram 7](./media/DID_Auth_Diagrams7.png)
+
+ 1. _Relying party's_ **mobile app** displays a QR code (with challenge) that is scanned by _identity owner's_ **mobile app**.
+ 1. _Identity owner's_ **mobile app** sends HTTP POST (with response) to _relying party's_ **DID Auth service**.
+ 1. { _Relying party's_ **DID Auth service** sends push notification (with response) to _relying party's_ **mobile app**. }
+
+## DID-Auth Architecture 8: DID-TLS
+
+![DID Auth Diagram 8](./media/DID_Auth_Diagrams8.png)
+
+ 1. Two **services** (or agents, or hubs, etc.) act as both _identity owner_ and _relying party_ and engage in TLS handshake where mutual challenges and responses are exchanged and verified.
+
+Note that while TLS specifications support mutual authentication handshakes, in practice some implementations are not well-suited for trust models that are not based on traditional certificate authorities..
+
+Besides TLS, other protocols can also be used to establish secure channels with mutual authentication based on DIDs, such as CurveZMQ, or custom handshake protocols.
+
+References:
+
+ * [TLS Flex](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/TLS-Flex.md)
+ * [DID-Auth Protocol](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md)
+
+## DID Auth Architecture 9: HTTP Signatures
+
+![DID Auth Diagram 9](./media/DID_Auth_Diagrams9.png)
+
+ 1. _Identity owner's_ service (or agent, or hub, etc.) sends an HTTP request to _relying party_'s service (or agent, or hub, etc.) and includes an HTTP Signature.
+
+References:
+
+ * [HTTP Signatures](https://tools.ietf.org/html/draft-cavage-http-signatures-06)
+ * [DID Auth HTTP Proxy](https://github.com/bcgov/http-did-auth-proxy)
 
 
 # Relation to other Technologies
