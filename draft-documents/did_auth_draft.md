@@ -73,13 +73,13 @@ Implementers may decide to subsume a DID Auth interaction within a higher layer 
 
 This section describes a conceptual authentication framework elaborating the specific flows of the DID Auth protocol. It relates general concepts of authentication to specific concepts of DID Auth.
 
-**Authentication of a DID means:** An identity owner demonstrates knowledge or possession or control of the entity's authentication material that was generated and distributed during DID Record Creation through execution of the authentication proof mechanism.
+**Authentication of a DID means:** An identity owner demonstrates control of the entity's authentication material that was generated and distributed during DID Record Creation through execution of the authentication proof mechanism.
 
 There are two main phases in DID Auth: **DID Record Creation**, and **Authentication of a DID**.
 
 ## DID Record Creation
 
-As stated in the DID Spec, the steps to create a DID Record are:
+DID Auth requires authentication material that is generated during DID Record Creation. As stated in the DID Spec, the steps to create a DID Record compliant with DID Auth are:
 
 1.  Generate a NEW_DID as specified in the relevant DID Method Specification.
 1.  Generate a NEW_DID_DOCUMENT as specified in the relevant DID Method Specification.
@@ -143,7 +143,7 @@ This generic flow describes a _relying party_ authenticating the DID of an _iden
 1.  Send challenge to identity owner over established transport mechanism. Must include a nonce (to prevent replay attacks), and selected authentication method as a minimum and optionally a callback transport mechanism.
 1.  Identity owner signs challenge using the selected method and produces a signed response.
 1.  Identity owner sends the signed response back to relying party.
-1.  Initiator using the public key of THE_DID_DOCUMENT and verifies the signed response of the identity owner.
+1.  Relying party uses the public key of THE_DID_DOCUMENT and verifies the signed response of the identity owner.
 1.  Optionally use the other content of the DID Document to perform other steps.
 
 Note: Steps 7,8,9 make the assumption that asymmetric keys are used for the proof mechanism.
@@ -380,7 +380,7 @@ Example:
 
 ## Device-to-device communication
 
-If both the _relying party_ and _identity owner_ meet physically with devices they control, a DID Auth challenge can be delivered via direct communication between devices, using Bluetooth, NFC, WiFi, etc.
+If both the _relying party_ and _identity owner_ meet physically with devices they control, the _relying party_ can deliver a DID Auth challenge to the _identity owner_ via direct communication between devices, using Bluetooth, NFC, WiFi, etc.
 
 
 # Response Transports
@@ -396,6 +396,11 @@ The _identity owner_ may encode a DID Auth response as a QR code, which is deliv
 ## Fulfill JavaScript promise
 
 If the DID Auth challenge was delivered to the _identity owner_ via a JavaScript API, then the response may be returned to the _relying party_ via fulfillment of a JavaScript promise.
+
+
+## Device-to-device communication
+
+If both the _relying party_ and _identity owner_ meet physically with devices they control, the _identity owner_ can deliver a DID Auth response to the _relying party_ via direct communication between devices, using Bluetooth, NFC, WiFi, etc.
 
 
 # Architectures
