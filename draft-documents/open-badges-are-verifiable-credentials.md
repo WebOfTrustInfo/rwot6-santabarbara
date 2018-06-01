@@ -1,4 +1,4 @@
-# Open Badges are Verifible Credentials
+# Open Badges are Verifiable Credentials
 By Nate Otto (Concentric Sky), Kim Hamilton Duffy (Learning Machine)
 
 Contributors:
@@ -17,19 +17,19 @@ We identify use cases and requirements that connect threads of work happening in
 ## Introduction
 The Open Badges Specification is a vocabulary and set of protocols that describes credentials. The vocabulary can describe any achievement in terms of a common set of attributes and is most often used for educational or occupational credentials. At present in version 2.0, Open Badges defines two verification methods: `HostedBadge` (requiring resources hosted on HTTP in specific locations) and `SignedBadge` (using a JSON Web Signature, which references hosted Issuer Profile and CryptographicKey information). 
 
-The Blockcerts Open Badges Draft Extension introduced a verification method based on those used by Verifiable Credentials for the specific use case of Bloackchain-anchored credentials. This paper expands that work and proposes a new option that can reside alongside existing Open Badges verification methods. 
+The Blockcerts Open Badges Draft Extension introduced a verification method based on those used by Verifiable Credentials for the specific use case of blockchain-anchored credentials. This paper expands that work and proposes a new option that can reside alongside existing Open Badges verification methods. 
 
 This paper also explores new capabilities that the Open Badges ecosystem could gain by adopting some of the emerging technologies and conventions from the Verifiable Credentials specification and its communities of implementers. It will inform the authors' development of working prototypes to demonstrate the viability and utility of these methods for publishing and circulating Open Badges.
 
 ## Motivation
-In this section we provide the motivation for supporting Verfiable Credentials Specifications in Open Badges implementations. There are three key reasons for our work, and we describe them next.
+In this section we provide the motivation for supporting Verifiable Credentials Specifications in Open Badges implementations. There are three key reasons for our work: these models are compatible in purpose; their data models are complementary; and there are benefits in alignment for the existing communities around both specifications.
 
-### Open Badges and Verifiable Credentials are Complementary
+### Open Badges and Verifiable Credentials are compatible in purpose
 Both Open Badges (OB) and Verifiable Credentials (VC) are capable of expressing a cryptographically verifiable statement about the subject, issuer, evidence, and status of a credential.
 
-A Verifiable Credentials provides a lightweight structure for expressing a wide range of credentials — including driver's licenses or passports. A VC implementer chooses which schema/vocabulary to use, depending on the use case or domain. 
+Verifiable Credentials provides a lightweight structure for expressing a wide range of credentials — including driver's licenses or passports. A VC implementer chooses which schema/vocabulary to use, depending on the use case or domain. 
 
-The strength of Verifiable Credentials is its flexibility across a wide variety of use cases. At the same time, there is not yet general agreement on schemas and vocabulary sets to use with Verifiable Credentials that will allow them to serve their varied purposes. 
+The strength of Verifiable Credentials is its flexibility across a wide variety of use cases. At the same time, there is not yet general agreement on schema and vocabulary sets to use with Verifiable Credentials that will allow them to serve their varied purposes. 
 
 In comparison, Open Badges have been used in production deployments for nearly a decade. This has established fitness-of-purpose for real-world educational/occupational scenarios, and has led to a rich set of conventions and vocabularies. Successful deployments range from low to high stakes contexts, including informal recognition of a valuable contribution, completion of training, or completion of coursework or a university degrees.
 
@@ -41,8 +41,7 @@ There is significant cross-pollination in the development of Open Badges and Ver
 - Open Badges and Verifiable Credentials Issuer Profiles are aligned.
 - Open Badges and Verifiable Credentials both use JSON Linked Data (JSON-LD), allowing reuse among different contexts. They both allow the addition of terms beyond their own vocabulary, meaning components of each specification may be used in the other.
 
-### Aligned signature and verification methods through Blockcerts Open Badge Extension
-Blockcerts/Open Badge signing and verification processes use the same methods as Verifiable Credentials to establish the authenticity and integrity of claims. This is because the [Blockcerts extension draft](https://github.com/IMSGlobal/cert-schema) for Open Badges v2 uses the JSON-LD signatures/verification method (the same used by Verifiable Credentials) to anchor an Open Badge to a blockchain.
+Blockcerts/Open Badge signing and verification processes use the same methods as Verifiable Credentials to establish the authenticity and integrity of claims. This is because the [Blockcerts extension draft](https://github.com/IMSGlobal/cert-schema) for Open Badges 2.0 uses the JSON-LD signatures/verification method (the same used by Verifiable Credentials) to anchor an Open Badge to a blockchain.
 
 ### Benefits of continued alignment to both communities
 Further alignment of Open Badges and Verifiable Credentials provides benefits to the communities and recipients:
@@ -73,7 +72,7 @@ Going forward from 2.0, community members are interested in increased flexibilit
 
 Verifiable Credentials has a vibrant community of interested implementers, including several who are using draft versions of the specification in production systems. The Verifiable Credentials specification is a general purpose technology with a wide range of potential use cases. The specification's focus is not on a particular type of credential or specific set of terms and it does not have an inherent concept of a defined achievement, like Open Badges does. 
 
-The strength for Verifiable Credentials as a specification is to enable innovation in different types of proofs, claims, and methods of identifying credential subjects. Examples of these efforts include the use of blockchain pointers in proofs and Decentralized Identifers (DIDs) for identifying subjects.
+The strength for Verifiable Credentials as a specification is to enable innovation in different types of proofs, claims, and methods of identifying credential subjects. Examples of these efforts include the use of blockchain pointers in proofs and Decentralized Identifiers (DIDs) for identifying subjects.
 
 There may be a clean fit between the focus of Open Badges as a controlled vocabulary for defined achievements and the innovation around proofs and subject identifiers occurring in the community of Verifiable Credentials implementers. 
 
