@@ -27,7 +27,7 @@ In this section we provide the motivation for supporting Verfiable Credentials S
 ### Open Badges and Verifiable Credentials are Complementary
 Both Open Badges (OB) and Verifiable Credentials (VC) are capable of expressing a cryptographically verifiable statement about the subject, issuer, evidence, and status of a credential.
 
-A Verifiable Credentials provides a lightweight structure for expressing a wide range of credentials — including driver's licenses or passports. A VC implementer chooses which schema/vocabulary to use, depending on the use case or domain. 
+A Verifiable Credential provides a lightweight structure for expressing a wide range of credentials — including driver's licenses or passports. A VC implementer chooses which schema/vocabulary to use, depending on the use case or domain. 
 
 The strength of Verifiable Credentials is its flexibility across a wide variety of use cases. At the same time, there is not yet general agreement on schemas and vocabulary sets to use with Verifiable Credentials that will allow them to serve their varied purposes. 
 
