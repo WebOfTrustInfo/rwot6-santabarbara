@@ -527,11 +527,20 @@ References:
 
 ## Biometrics
 
-**TODO**: Explain use of biometrics for unlocking private keys on a local device. Also explain use of a BOPS (or similar) service endpoint.
+Biometrics are recognizable and verifiable data, which are unique, specific to an _identity owner_, and available to every human being. Authentication with biometrics involves matching a non-reversible biometric template (or IBV - Initial Biometric Vector) against biometric input data (or CBV - Candidate Biometric Vector).
+
+Biometrics can be used in several ways in conjunction with DID Auth:
+
+ 1. Biometrics such as fingerprints or voice can protect secret authentication material (such as a private key) on an _identity owner_'s physical device, which is used to construct a response to the _relying party_'s challenge. In this case, biometrics are only used locally to protect the _identity owner_'s part of the DID Auth challenge-response interaction; the proof mechanism listed in a DID Document does not directly involve biometrics.
+ 1. Biometric protocols such as [IEEE 2410-2015 "BOPS"](https://standards.ieee.org/findstds/standard/2410-2017.html) or [Web Authentication](https://www.w3.org/TR/webauthn/) can be adapted to augment DID Auth flows by using biometrics in a standard way. In both protocols, no biometric data is exchanged between the _relying party_ and _identity owner_.
+ 1. Biometrics can also play a more direct role as a proof mechanism that is listed in a DID Document and used during a DID Auth challenge-response interaction to prove control over a DID. In this case, certain biometric data may be exchanged between a _relying party_ and an _identity owner_, and biometric service providers such as [iRespond](http://irespond.org/) can assist the process by offering to perform the biometric matching procedure via a remote service.
+
+In any case, since biometrics are sensitive data with special properties (i.e. their semi-public nature and inability to revoke them), certain principles must be carefully followed, e.g.: No storage of biometrics in centralized silos, no storage of biometrics on the blockchain.
 
 References:
 
-* [Six Principles for Self-Sovereign Biometrics](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/Biometrics.md)
+ * [Six Principles for Self-Sovereign Biometrics](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/Biometrics.md)
+ * [Remove biometric templates from DID spec elements #62](https://github.com/w3c-ccg/did-spec/issues/62)
 
 ## WebAuthn
 
