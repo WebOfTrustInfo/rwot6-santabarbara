@@ -27,6 +27,8 @@ This paper is a continuation of ongoing work by the Rebooting-the-Web-of-Trust a
 * [RWoT #6: Markus Sabadello's topic paper "DID Auth: Scope, Formats, and Protocols"](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID%20Auth:%20Scope,%20Formats,%20and%20Protocols.md)
 * [RWoT #6: Kyle Den Hartog's topic paper "DID-Auth protocol"](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md)
 
+Portions of the work on this paper have been funded by the Ministry of Finance of Citizens Services of the Province of British Columbia under a BCDevEx Contract.
+
 Slack: [https://weboftrustinfo.slack.com/messages/C9N0M37ST](https://weboftrustinfo.slack.com/messages/C9N0M37ST) (#did-auth)
 
 
