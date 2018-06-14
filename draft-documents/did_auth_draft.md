@@ -204,28 +204,51 @@ Header and payload decodes to:
 Example: Jolocom
 
 ```
-eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6am9sbzo2eEV4S2ZnZzJXUkdCUExKZVVobVlrIiwicHViS2V5SXNzIjoiMDIzZTFjNGJkYTM4YmJhNGIzMmZkOTg2YjY5NjAyNmQ1NDUzMGQ4YjJiNjNhNmIzYzdjZDhjMzI0ZWQ3ZDhkMWUyIiwiY2FsbGJhY2tVcmwiOiJodHRwczovL2RlbW8tc3NvLmpvbG9jb20uY29tL3Byb3h5L2F1dGhlbnRpY2F0aW9uIiwicmVxQ2xhaW1zIjpbIm5hbWUiLCJlbWFpbCJdLCJjbGllbnRJZCI6IjAuYWE4NjF2ZjZrYW8iLCJpYXQiOiIyMDE4LTA1LTA5VDEwOjUzOjUwLjkxOFoiLCJleHAiOiIyMDE4LTA1LTA5VDExOjQzOjUwLjkxOFoiLCJqdGkiOiIwLmFhODYxdmY2a2FvIn0.ks9P6P0HqAhb3Ol3xwJdtxTPPm7Gy_EYYyclqI2azVesPrm61qLAV7oqqm7OqcUHqL1G1bHoqEC8KydDgYbrxg
+eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpYXQiOjE1Mjg5Njg0MzY1MzUsInJlcXVlc3RlZENyZWRlbnRpYWxzIjpbeyJ0eXBlIjpbIkNyZWRlbnRpYWwiLCJQcm9vZk9mTW9iaWxlUGhvbmVOdW1iZXJDcmVkZW50aWFsIl0sImNvbnN0cmFpbnRzIjp7ImFuZCI6W3siPT0iOlt0cnVlLHRydWVdfSx7IiE9IjpbeyJ2YXIiOiJpc3N1ZXIifSx7InZhciI6ImNsYWltLmlkIn1dfV19fSx7InR5cGUiOlsiQ3JlZGVudGlhbCIsIlByb29mT2ZFbWFpbENyZWRlbnRpYWwiXSwiY29uc3RyYWludHMiOnsiYW5kIjpbeyI9PSI6W3RydWUsdHJ1ZV19LHsiPT0iOlt7InZhciI6Imlzc3VlciJ9LHsidmFyIjoiY2xhaW0uaWQifV19XX19LHsidHlwZSI6WyJDcmVkZW50aWFsIiwiUHJvb2ZPZk5hbWVDcmVkZW50aWFsIl0sImNvbnN0cmFpbnRzIjp7ImFuZCI6W3siPT0iOlt0cnVlLHRydWVdfV19fV0sInJlcXVlc3RlcklkZW50aXR5IjoiZGlkOmpvbG86YjMxMGQyOTNhZWFjOGE1Y2E2ODAyMzJiOTY5MDFmZTg1OTg4ZmRlMjg2MGExYTVkYjY5YjQ5NzYyOTIzY2M4OCIsImNhbGxiYWNrVVJMIjoiaHR0cHM6Ly9kZW1vLXNzby5qb2xvY29tLmNvbS9wcm94eS9hdXRoZW50aWNhdGlvbi9yOHNzYyJ9.a6bRdpZL3plsCc7w3LwtOss2y6tg6KykbSVso9KrGKbCZkW85gKds23FTekWuBmGUUms1wCzp8qAI4T4wFkBmQ
 ```
 
 Header and payload decodes to:
 
 ```
 {
-  "typ": "JWT",
-  "alg": "ES256K"
-}
-{
-  "iss": "did:jolo:6xExKfgg2WRGBPLJeUhmYk",
-  "pubKeyIss": "023e1c4bda38bba4b32fd986b696026d54530d8b2b63a6b3c7cd8c324ed7d8d1e2",
-  "callbackUrl": "https://demo-sso.jolocom.com/proxy/authentication",
-  "reqClaims": [
-    "name",
-    "email"
+  "iat": 1528968436535,
+  "requestedCredentials": [
+    {
+      "type": [
+        "Credential",
+        "ProofOfMobilePhoneNumberCredential"
+      ],
+      "constraints": {
+        "and": [
+          { "==": [ true, true ] },
+          { "!=": [ { "var": "issuer" }, { "var": "claim.id" } ] }
+        ]
+      }
+    },
+    {
+      "type": [
+        "Credential",
+        "ProofOfEmailCredential"
+      ],
+      "constraints": {
+        "and": [
+          { "==": [ true, true ] },
+          { "==": [ { "var": "issuer" }, { "var": "claim.id" } ] }
+        ]
+      }
+    },
+    {
+      "type": [
+        "Credential",
+        "ProofOfNameCredential"
+      ],
+      "constraints": {
+        "and": [ { "==": [ true, true ] } ]
+      }
+    }
   ],
-  "clientId": "0.aa861vf6kao",
-  "iat": "2018-05-09T10:53:50.918Z",
-  "exp": "2018-05-09T11:43:50.918Z",
-  "jti": "0.aa861vf6kao"
+  "requesterIdentity": "did:jolo:b310d293aeac8a5ca680232b96901fe85988fde2860a1a5db69b49762923cc88",
+  "callbackURL": "https://demo-sso.jolocom.com/proxy/authentication/r8ssc"
 }
 ```
 
