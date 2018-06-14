@@ -211,6 +211,10 @@ Header and payload decodes to:
 
 ```
 {
+  "typ": "JWT",
+  "alg": "ES256K"
+}
+{
   "iat": 1528968436535,
   "requestedCredentials": [
     {
