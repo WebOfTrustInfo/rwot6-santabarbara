@@ -218,10 +218,7 @@ Header and payload decodes to:
   "iat": 1528997842275,
   "requestedCredentials": [
     {
-      "type": [
-        "Credential",
-        "ProofOfEmailCredential"
-      ],
+      "type": ["Credential", "ProofOfEmailCredential"],
       "constraints": {
         "and": [
           { "==": [ true, true ] },
