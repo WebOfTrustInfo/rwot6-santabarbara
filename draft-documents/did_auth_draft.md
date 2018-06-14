@@ -204,7 +204,7 @@ Header and payload decodes to:
 Example: Jolocom
 
 ```
-eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpYXQiOjE1Mjg5Njg0MzY1MzUsInJlcXVlc3RlZENyZWRlbnRpYWxzIjpbeyJ0eXBlIjpbIkNyZWRlbnRpYWwiLCJQcm9vZk9mTW9iaWxlUGhvbmVOdW1iZXJDcmVkZW50aWFsIl0sImNvbnN0cmFpbnRzIjp7ImFuZCI6W3siPT0iOlt0cnVlLHRydWVdfSx7IiE9IjpbeyJ2YXIiOiJpc3N1ZXIifSx7InZhciI6ImNsYWltLmlkIn1dfV19fSx7InR5cGUiOlsiQ3JlZGVudGlhbCIsIlByb29mT2ZFbWFpbENyZWRlbnRpYWwiXSwiY29uc3RyYWludHMiOnsiYW5kIjpbeyI9PSI6W3RydWUsdHJ1ZV19LHsiPT0iOlt7InZhciI6Imlzc3VlciJ9LHsidmFyIjoiY2xhaW0uaWQifV19XX19LHsidHlwZSI6WyJDcmVkZW50aWFsIiwiUHJvb2ZPZk5hbWVDcmVkZW50aWFsIl0sImNvbnN0cmFpbnRzIjp7ImFuZCI6W3siPT0iOlt0cnVlLHRydWVdfV19fV0sInJlcXVlc3RlcklkZW50aXR5IjoiZGlkOmpvbG86YjMxMGQyOTNhZWFjOGE1Y2E2ODAyMzJiOTY5MDFmZTg1OTg4ZmRlMjg2MGExYTVkYjY5YjQ5NzYyOTIzY2M4OCIsImNhbGxiYWNrVVJMIjoiaHR0cHM6Ly9kZW1vLXNzby5qb2xvY29tLmNvbS9wcm94eS9hdXRoZW50aWNhdGlvbi9yOHNzYyJ9.a6bRdpZL3plsCc7w3LwtOss2y6tg6KykbSVso9KrGKbCZkW85gKds23FTekWuBmGUUms1wCzp8qAI4T4wFkBmQ
+eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpYXQiOjE1Mjg5OTc4NDIyNzUsInJlcXVlc3RlZENyZWRlbnRpYWxzIjpbeyJ0eXBlIjpbIkNyZWRlbnRpYWwiLCJQcm9vZk9mRW1haWxDcmVkZW50aWFsIl0sImNvbnN0cmFpbnRzIjp7ImFuZCI6W3siPT0iOlt0cnVlLHRydWVdfSx7IiE9IjpbeyJ2YXIiOiJpc3N1ZXIifSx7InZhciI6ImNsYWltLmlkIn1dfV19fV0sInJlcXVlc3RlcklkZW50aXR5IjoiZGlkOmpvbG86YjMxMGQyOTNhZWFjOGE1Y2E2ODAyMzJiOTY5MDFmZTg1OTg4ZmRlMjg2MGExYTVkYjY5YjQ5NzYyOTIzY2M4OCIsImNhbGxiYWNrVVJMIjoiaHR0cHM6Ly9kZW1vLXNzby5qb2xvY29tLmNvbS9wcm94eS9hdXRoZW50aWNhdGlvbi9hd3M2aSJ9.TZwB6_XMXFm_SjIv_PSangYNb9ldAQPzlEln8iBdcaSPDyU1A7kuJzJIaI0ykZnJED_vagvLB3TMMHQYPXmxOA
 ```
 
 Header and payload decodes to:
@@ -215,20 +215,8 @@ Header and payload decodes to:
   "alg": "ES256K"
 }
 {
-  "iat": 1528968436535,
+  "iat": 1528997842275,
   "requestedCredentials": [
-    {
-      "type": [
-        "Credential",
-        "ProofOfMobilePhoneNumberCredential"
-      ],
-      "constraints": {
-        "and": [
-          { "==": [ true, true ] },
-          { "!=": [ { "var": "issuer" }, { "var": "claim.id" } ] }
-        ]
-      }
-    },
     {
       "type": [
         "Credential",
@@ -237,22 +225,13 @@ Header and payload decodes to:
       "constraints": {
         "and": [
           { "==": [ true, true ] },
-          { "==": [ { "var": "issuer" }, { "var": "claim.id" } ] }
+          { "!=": [ { "var": "issuer" }, { "var": "claim.id" } ] }
         ]
-      }
-    },
-    {
-      "type": [
-        "Credential",
-        "ProofOfNameCredential"
-      ],
-      "constraints": {
-        "and": [ { "==": [ true, true ] } ]
       }
     }
   ],
   "requesterIdentity": "did:jolo:b310d293aeac8a5ca680232b96901fe85988fde2860a1a5db69b49762923cc88",
-  "callbackURL": "https://demo-sso.jolocom.com/proxy/authentication/r8ssc"
+  "callbackURL": "https://demo-sso.jolocom.com/proxy/authentication/aws6i"
 }
 ```
 
