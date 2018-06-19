@@ -547,7 +547,39 @@ References:
 
 ## OpenID Connect
 
-**TODO**
+OpenID Connect is an authentication protocol built on the OAuth 2.0 protocol. In its most common web-based form, an end-user's user agent is redirected by a _relying party_ (OAuth 2.0 client) to an OpenID Provider (OAuth 2.0 authorization server), which authenticates the end-user and redirects them back to the _relying party_. The architecture resembles **DID Auth Architecture 5** in this paper.
+
+OpenID Connect however is highly modular and customizable. It can potentially relate to DID Auth in the following ways.
+
+##### DID Auth as OIDC Local Authentication Method
+
+Within established OIDC deployments, DID Auth can serve as a drop-in "local authentication method", i.e. a method that determines how the OpenID Provider authenticates the end-user (to replace username and password). (See [Authentication Context Class](http://ldapwiki.com/wiki/Authentication%20Context%20Class) for the OAuth2 family of specs.)
+
+##### DID Auth as Alternative OIDC Provider Discovery
+
+For use cases where the DID is known beforehand, DID resolution can serve as an alternative mechanism for provider discovery (alternative to [OpenID Connect Discovery](http://openid.net/specs/openid-connect-discovery-1_0.html) / [WebFinger](https://tools.ietf.org/html/rfc7033)) via service endpoint.
+
+Example OpenID Connect service endpoint in DID document:
+
+```
+{
+  "service": [{
+    "id": "did:example:123456789abcdefghi;openid",
+    "type": "OpenIdConnectVersion1.0Service",
+    "serviceEndpoint": "https://openid.example.com/"
+  }]
+}
+```
+
+##### DID Auth as Token Endpoint Authentication Method
+
+As part of the OAuth2/OIDC workflow, relying party clients must authenticate themselves to the authorization server (such as the token issuing endpoint) using a variety of methods. Since a PKI based authentication method is already supported by OIDC (such as the `private_key_jwt` method), DID Auth can easily play a role as a secure client authentication mechanism during this step.
+
+##### Reusing OIDC Session Management and JWT Attributes
+
+Although session management (and the User Consent step) is mostly out of scope for this document, DID Auth implementers might find the OIDC Session Management specs to be helpful (in terms of establishing a long-lived session _after_ the DID Auth ceremony).
+
+In addition, as a format for the DID Auth challenge-response cycle, DID Auth could re-use the well-specified JWT attributes used in OAuth2 and OIDC (such as `exp`, `iat`, and others).
 
 References:
 
