@@ -59,7 +59,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>DID-Auth</i></b></td>
     <td>Markus</td>
     <td><a href="did_auth_draft.md">Draft</a></td>
-    <td>4/27</td>
+    <td>June Query</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -70,7 +70,7 @@ This directory continues the drafts of the white papers and specs that are comin
      <td><b><i>Identity Hubs</i></b></td>
     <td>Daniel</td>
     <td><a href="Identity%20Hub%20Attestation%20Handling.md">Draft</a></td>
-     <td>Queried</td>
+     <td>June Query</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -103,7 +103,7 @@ This directory continues the drafts of the white papers and specs that are comin
      <td><b><i>Roadmap: Let's Go Exponential</i></b></td>
     <td>Moses</td>
     <td><a href="a-roadmap-for-ssi.md">Draft</a></td>
-          <td>Queried</td>
+          <td>June Query</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -114,7 +114,7 @@ This directory continues the drafts of the white papers and specs that are comin
        <td><b><i>Six Truths About Biometrics</i></b></td>
     <td>Jack C.</td>
     <td><a href="Biometrics.md">Draft</a></td>
-                 <td>Queried</td>
+                 <td>June Query</td>
   </tr>
   <tr>
     <td colspan=4>
