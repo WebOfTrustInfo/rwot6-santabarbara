@@ -549,7 +549,27 @@ References:
 
 ## WebAuthn
 
-**TODO**
+WebAuthn is a specification for a JavaScript API that enables FIDO Authentication in the browser. The architecture resembles **DID Auth Architecture 6** in this paper.
+
+In WebAuthn, a _relying party_ associates a public key with an _identity owner_ during a registration process. In subsequent login processes, the _identity owner_ proves control over that same public key. Different public keys can be used for different _relying parties_ based on an "origin".
+
+**WebAuthn Registration:** `Register(Account, Origin)`
+**WebAuthn Registration Response :** `RegisterResponse(PublicKeyCredential, Attestation, Origin)`
+**WebAuthn Login:** `Sign(Challenge, Origin)`
+**WebAuthn Login Response:** `SignResponse(SignedChallenge, Origin)`
+
+In order to adapt WebAuthn to support DIDs, a _relying party_ should associate DIDs rather than public keys with _identity owners_ (use a "DIDCredential" instead of a "PublicKeyCredential"). During the login process, the _identity owner_ includes their DID in the login response, which the _relying party_ uses to look up the current public key from the DID Document.
+
+**WebAuthn+DID Registration:** `Register(Account, Origin)`
+**WebAuthn+DID Registration Response:** `RegisterResponse(DIDCredential, Attestation, Origin)`
+**WebAuthn+DID Login:** `Sign(Challenge, Origin)`
+**WebAuthn+DID Login Response:** `SignResponse(DID, SignedChallenge, Origin)`
+
+Additional Notes:
+
+ * WebAuthn+DID must ensure that the `publicKey` objects in the DID document correspond to the keys used by the FIDO authenticators.
+ * WebAuthn+DID requires no service endpoints in the DID document.
+ * Ideally, a different DID should be used for each WebAuthn "origin".
 
 References:
 
