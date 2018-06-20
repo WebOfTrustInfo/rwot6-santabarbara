@@ -25,8 +25,8 @@ This directory continues the drafts of the white papers and specs that are comin
    <tr>
      <td><b><i>Introducing the BTCR DID Method Spec</i></b></td>
     <td>Kim</td>
-    <td><a href="introducing_btcr.md">Outline</a></td>
-     <td>4/12</td>
+    <td><a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/btcr-resolver.pdf">Final</a></td>
+     <td>DONE</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -36,8 +36,8 @@ This directory continues the drafts of the white papers and specs that are comin
   <tr>
     <td><b><i>DAD: Decentralized Autonomic Data</i></b></td>
     <td>Sam S.</td>
-    <td></td>
-    <td>3/19</td>
+    <td><a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/DecentralizedAutonomicData.pdf">Final</a></td>
+    <td>DONE</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -47,8 +47,8 @@ This directory continues the drafts of the white papers and specs that are comin
   <tr>
     <td><b><i>DID v1.0</i></b></td>
     <td>Manu</td>
-    <td></td>
-     <td><a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/did-spec-1.0.md">Update</a></td>    
+    <td><a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/did-spec-1.0.pdf">Update</a></td>
+     <td>DONE</td>    
   </tr>
   <tr>
     <td colspan=4>
@@ -59,7 +59,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>DID-Auth</i></b></td>
     <td>Markus</td>
     <td><a href="did_auth_draft.md">Draft</a></td>
-    <td>4/27</td>
+    <td>June Query</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -70,7 +70,7 @@ This directory continues the drafts of the white papers and specs that are comin
      <td><b><i>Identity Hubs</i></b></td>
     <td>Daniel</td>
     <td><a href="Identity%20Hub%20Attestation%20Handling.md">Draft</a></td>
-     <td>Queried</td>
+     <td>June Query</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -103,7 +103,7 @@ This directory continues the drafts of the white papers and specs that are comin
      <td><b><i>Roadmap: Let's Go Exponential</i></b></td>
     <td>Moses</td>
     <td><a href="a-roadmap-for-ssi.md">Draft</a></td>
-          <td>Queried</td>
+          <td>June Query</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -112,9 +112,9 @@ This directory continues the drafts of the white papers and specs that are comin
   </tr>
      <tr>
        <td><b><i>Six Truths About Biometrics</i></b></td>
-    <td>John C.</td>
+    <td>Jack C.</td>
     <td><a href="Biometrics.md">Draft</a></td>
-                 <td>Queried</td>
+                 <td>June Query</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -135,8 +135,8 @@ This directory continues the drafts of the white papers and specs that are comin
   <tr>
     <td><b><i>Towards a Sustainable Technology Commons</i></b></td>
     <td>Heather</td>
-    <td><a href="Towards a Sustainable Technology Commons.md">Outline</a></td>
-              <td>Queried</td>
+    <td><a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/sustainable-commons.pdf">Final</a></td>
+              <td>DONE</td>
   </tr>
   <tr>
     <td colspan=4>

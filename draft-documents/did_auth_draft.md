@@ -17,6 +17,7 @@ Andrew Hughes (AndrewHughes3000@gmail.com)
 
 John Jordan (john.jordan@gov.bc.ca)
 
+Dmitri Zagidulin (dzagidulin@gmail.com)
 
 # Resources
 
@@ -52,7 +53,7 @@ The term DID Auth has been used in different ways and is currently not well-defi
 
 **Identity subject**: Individual, organization or thing whom a DID identifies.
 
-**Relying party**: Individual, organization or thing that authenticates an Identity Owner using the DID Auth protocol. Also called "Verifier" in other specifications. 
+**Relying party**: Individual, organization or thing that authenticates an Identity Owner using the DID Auth protocol. Also called "Verifier" in other specifications.
 
 **Verifiable Credentials**: A set of one or more claims which are statements made by an issuer about a subject that is tamper-resistant and whose authorship can be cryptographically verified (see [here](https://w3c.github.io/vc-data-model/#terminology)).
 
@@ -61,21 +62,23 @@ The term DID Auth has been used in different ways and is currently not well-defi
 
 ## Scope
 
-DID Auth defines data formats and challenge and response transports allowing an _identity owner_ to prove control over a DID to a _relying party_. A successful DID Auth interaction may create the required conditions to allow the parties to exchange further data in a trustworthy way. This further data could include streams of raw data from sensors to the exchange of Verifiable Credentials. This further exchange of data is out of scope of the DID Auth exchange and specification. 
+DID Auth defines data formats and challenge and response transports allowing an _identity owner_ to prove control over a DID to a _relying party_. A successful DID Auth interaction may create the required conditions to allow the parties to exchange further data in a trustworthy way. This further data could include streams of raw data from sensors to the exchange of Verifiable Credentials. This further exchange of data is out of scope of the DID Auth exchange and specification.
 
 Proof of control over a DID is a technical action which may be a precursor to establishing a trustworthy relationship between two parties. The DID Auth interaction may be a one way interaction where A proves control over a DID<sub>A</sub> to B, or a two way interaction where mutual proof of control over DIDs is achieved. Two way control is a situation where A proves control over DID<sub>A</sub> to B and B proves control over DID<sub>B</sub> to A.
 
-It is in the purview of the two parties engaged in the interaction to determine the need to have a one way or two way DID Auth interaction. It is also in the purview of the two parties to determine if further exchanges of data may be necessary to establish the nature of the relationship between the two parties. 
+It is in the purview of the two parties engaged in the interaction to determine the need to have a one way or two way DID Auth interaction. It is also in the purview of the two parties to determine if further exchanges of data may be necessary to establish the nature of the relationship between the two parties.
 
 Implementers may decide to subsume a DID Auth interaction within a higher layer interaction such as the exchange of a Verifiable Credential which could simultaneously prove control over a DID and offer some other Verifiable Credentials for some specific transaction specific purpose.
 
-## Generic Ceremony
+## DID Auth and Verifiable Credentials
 
-This section describes a conceptual authentication framework elaborating the specific flows of the DID Auth protocol. It relates general concepts of authentication to specific concepts of DID Auth.
+Even though DID Auth is about proving control over a DID, the exchange of Verifiable Credentials associated with a DID is closely related to DID Auth. There are three approaches how DID Auth and Verifiable Credentials can work together:
 
-**Authentication of a DID means:** An identity owner demonstrates control of the entity's authentication material that was generated and distributed during DID Record Creation through execution of the authentication proof mechanism.
+1. **DID Auth and Verifiable Claims exchange are separate:** At the beginning of an interaction between two parties, they need to authenticate (mutually, or just in one direction). Then after this is done, a protocol for Verifiable Credentials exchange can be executed, so that the two parties can learn more about each other (and then perhaps make authorization decisions).
 
-There are two main phases in DID Auth: **DID Record Creation**, and **Authentication of a DID**.
+2. **Verifiable Credentials exchange is an extension to DID Auth:** In this approach, proving control of an identifier, and proving possession of Verifiable Credentials are closely related, and a single protocols is used for both purposes. The Verifiable Credentials are an "optional field" in the protocol. In order to "only" prove control of an identifier, then the Verifiable Credentials that are exchanged are an empty list.
+
+3. **DID Auth is a certain kind of Verifiable Credential:** It is possible to think of DID Auth as an exchange of the most trivial Verifiable Credential imaginable. A self-issued Verifiable Credential that states "I am me". From this perspective, the separation between DID Auth and exchange of "other" Verifiable Credentials is very vague, and both are part of the same protocol.
 
 ## DID Record Creation
 
@@ -133,20 +136,29 @@ Example DID Auth service endpoint in a DID Document:
 
 ## Authentication of a DID
 
-This generic flow describes a _relying party_ authenticating the DID of an _identity owner_. 
+This section describes a conceptual authentication framework of the DID Auth protocol. It relates general concepts of authentication to specific concepts of DID Auth.
 
-1.  Determine which DID requires authentication (THE_DID).
-1.  Resolve THE_DID to THE_DID_DOCUMENT using a DID resolver that implements the DID Method Specification relevant to THE_DID.
-1.  Confirm that the id property of THE_DID_DOCUMENT equals THE_DID.
-1.  Select the authentication method to use for DID Auth from the list contained in THE_DID_DOCUMENT. The authentication method chosen must be supported by the relying party.
-1.  Establish a transport mechanism between the identity owner and the relying party over which DID Auth will happen (e.g. DID Auth service endpoint lookup, QR code scan, etc).
-1.  Send challenge to identity owner over established transport mechanism. Must include a nonce (to prevent replay attacks), and selected authentication method as a minimum and optionally a callback transport mechanism.
-1.  Identity owner signs challenge using the selected method and produces a signed response.
-1.  Identity owner sends the signed response back to relying party.
-1.  Relying party uses the public key of THE_DID_DOCUMENT and verifies the signed response of the identity owner.
-1.  Optionally use the other content of the DID Document to perform other steps.
+**Authentication of a DID:** Similar to other authentication methods, DID Auth relies on a challenge-response cycle in which a _relying party_ authenticates the DID of an _identity owner_. During this cycle, an _identity owner_ demonstrates control of their authentication material that was generated and distributed during DID Record Creation through execution of the authentication proof mechanism.
 
-Note: Steps 7,8,9 make the assumption that asymmetric keys are used for the proof mechanism.
+**Challenge:** The way an identity owner or their agent encounters an auth challenge will vary on the context. For example, they can come across a 'Sign in with DID-Auth' button or a QR code. Or, in the context of an API call, the relying party may respond to a request by asking for authentication (the HTTP `401 Unauthorized` response is a classic example, although DID Auth covers many use cases beyond HTTP).
+
+Challenge principles:
+
+ * The _relying party_ may or may not know the _identity owner_'s DID at the time the challenge is constructed, and therefore the _identity owner_'s DID may or may not be included in the challenge.
+ * If the DID is known at the time of challenge construction, then the relying party may use the contents of the DID Document to selec preferred authentication methods or service endpoints.
+ * The challenge that is sent by the _relying party_ may or may not itself contain a proof of the _relying party_'s control of a DID.
+ * The _relying party_ may or may not need additional transport-specific information about the _identity owner_ in order to be able to deliver the challenge (e.g. a DID Auth service endpoint). This additional protocol-specific information may be discoverable from the _identity owner's_ DID if it is known to the _relying party_.
+* The _relying party_ should include a *nonce*, to prevent replay attacks and to help link the challenge to a subsequent response.
+
+**Response:** Based on the challenge, the _identity owner_ then constructs a response that proves control of their DID. This often involves a cryptographic signature, but can include other proof mechanisms. (As mentioned earlier, the response may also contain some credentials or _identity owner_ attributes that the _relying party_ asked for in the challenge.) After receiving the response, the _relying party_ resolves the _identity owner_'s DID, and verifies that the response is valid for a prior challenge (for example, verifying the response signature based on a `publicKey` object contained in the DID Document).
+
+Response principles:
+
+ * The _identity owner_ may or may not need additional transport-specific information about the _relying party_ in order to be able to deliver the response (e.g. a callback URL). This additional protocol-specific information may be included in the challenge, or it may be discoverable from the _relying party_'s DID that is included in the challenge.
+ * The _relying party_ must be able to internally link a response to a prior challenge. This can be done with a nonce or message identifier in the challenge that must also be included in the response. It can also be done by including the entire original challenge in the response.
+ * Multiple devices, user agents, and other technical components may act on behalf of the _identity owner_ to receive and process the challenge. For example, an identity owner's DID Auth service endpoint may receive the challenge and relay it to the _identity owner_'s mobile app.
+ * The _identity owner's_ component that sends the response may or may not be the same component as the one that received the challenge. E.g. the challenge may be received as HTTP POST by a **DID Auth service**, but the response may be sent as HTTP POST by a **mobile app** (see DID Auth Architecture 3).
+ * The _relying party's_ component that receives the response may or may not be the same component as the one that sent the challenge. E.g. the challenge may be sent as deep link by a **mobile web page**, but the response may be received as HTTP POST by a **web server** (see DID Auth Architecture 2).
 
 ![DID Auth Diagram 0](./media/DID_Auth_Diagrams0.png)
 
@@ -154,11 +166,6 @@ Note: Steps 7,8,9 make the assumption that asymmetric keys are used for the proo
 # Challenge Formats
 
 In a DID Auth interaction, a challenge is transmitted by a _relying party_ to an _identity owner_, asking the _identity owner_ to return a response that proves their control of a DID. This section documents data formats for such challenges.
-
- * The _relying party_ may or may not know the _identity owner_'s DID at the time the challenge is constructed, and therefore the _identity owner_'s DID may or may not be included in the challenge.
- * The challenge that is sent by the _relying party_ may or may not itself contain a proof of the _relying party_'s control of a DID.
- * The _relying party_ may or may not need additional transport-specific information about the _identity owner_ in order to be able to deliver the challenge (e.g. a DID Auth service endpoint). This additional protocol-specific information may be discoverable from the _identity owner's_ DID if it is known to the _relying party_.
- * The _identity owner_ may or may not need additional transport-specific information about the _relying party_ in order to be able to deliver the response (e.g. a callback URL). This additional protocol-specific information may be included in the challenge, or it may be discoverable from the _relying party_'s DID that is included in the challenge.
 
 ## JWT format
 
@@ -197,7 +204,7 @@ Header and payload decodes to:
 Example: Jolocom
 
 ```
-eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpc3MiOiJkaWQ6am9sbzo2eEV4S2ZnZzJXUkdCUExKZVVobVlrIiwicHViS2V5SXNzIjoiMDIzZTFjNGJkYTM4YmJhNGIzMmZkOTg2YjY5NjAyNmQ1NDUzMGQ4YjJiNjNhNmIzYzdjZDhjMzI0ZWQ3ZDhkMWUyIiwiY2FsbGJhY2tVcmwiOiJodHRwczovL2RlbW8tc3NvLmpvbG9jb20uY29tL3Byb3h5L2F1dGhlbnRpY2F0aW9uIiwicmVxQ2xhaW1zIjpbIm5hbWUiLCJlbWFpbCJdLCJjbGllbnRJZCI6IjAuYWE4NjF2ZjZrYW8iLCJpYXQiOiIyMDE4LTA1LTA5VDEwOjUzOjUwLjkxOFoiLCJleHAiOiIyMDE4LTA1LTA5VDExOjQzOjUwLjkxOFoiLCJqdGkiOiIwLmFhODYxdmY2a2FvIn0.ks9P6P0HqAhb3Ol3xwJdtxTPPm7Gy_EYYyclqI2azVesPrm61qLAV7oqqm7OqcUHqL1G1bHoqEC8KydDgYbrxg
+eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpYXQiOjE1Mjg5OTc4NDIyNzUsInJlcXVlc3RlZENyZWRlbnRpYWxzIjpbeyJ0eXBlIjpbIkNyZWRlbnRpYWwiLCJQcm9vZk9mRW1haWxDcmVkZW50aWFsIl0sImNvbnN0cmFpbnRzIjp7ImFuZCI6W3siPT0iOlt0cnVlLHRydWVdfSx7IiE9IjpbeyJ2YXIiOiJpc3N1ZXIifSx7InZhciI6ImNsYWltLmlkIn1dfV19fV0sInJlcXVlc3RlcklkZW50aXR5IjoiZGlkOmpvbG86YjMxMGQyOTNhZWFjOGE1Y2E2ODAyMzJiOTY5MDFmZTg1OTg4ZmRlMjg2MGExYTVkYjY5YjQ5NzYyOTIzY2M4OCIsImNhbGxiYWNrVVJMIjoiaHR0cHM6Ly9kZW1vLXNzby5qb2xvY29tLmNvbS9wcm94eS9hdXRoZW50aWNhdGlvbi9hd3M2aSJ9.TZwB6_XMXFm_SjIv_PSangYNb9ldAQPzlEln8iBdcaSPDyU1A7kuJzJIaI0ykZnJED_vagvLB3TMMHQYPXmxOA
 ```
 
 Header and payload decodes to:
@@ -208,17 +215,20 @@ Header and payload decodes to:
   "alg": "ES256K"
 }
 {
-  "iss": "did:jolo:6xExKfgg2WRGBPLJeUhmYk",
-  "pubKeyIss": "023e1c4bda38bba4b32fd986b696026d54530d8b2b63a6b3c7cd8c324ed7d8d1e2",
-  "callbackUrl": "https://demo-sso.jolocom.com/proxy/authentication",
-  "reqClaims": [
-    "name",
-    "email"
+  "iat": 1528997842275,
+  "requestedCredentials": [
+    {
+      "type": ["Credential", "ProofOfEmailCredential"],
+      "constraints": {
+        "and": [
+          { "==": [ true, true ] },
+          { "!=": [ { "var": "issuer" }, { "var": "claim.id" } ] }
+        ]
+      }
+    }
   ],
-  "clientId": "0.aa861vf6kao",
-  "iat": "2018-05-09T10:53:50.918Z",
-  "exp": "2018-05-09T11:43:50.918Z",
-  "jti": "0.aa861vf6kao"
+  "requesterIdentity": "did:jolo:b310d293aeac8a5ca680232b96901fe85988fde2860a1a5db69b49762923cc88",
+  "callbackURL": "https://demo-sso.jolocom.com/proxy/authentication/aws6i"
 }
 ```
 
@@ -248,13 +258,6 @@ Example: Verifiable Credentials
 # Response Formats
 
 A DID Auth response is constructed by an _identity owner_ after reception of a DID Auth challenge. This section documents data formats for such responses.
-
-A DID Auth response includes the _identity owner_'s DID together with proof of the identity owner's control of that DID.
-
-In order to validate the response and therefore complete a DID Auth flow, the _relying party_ performs the following steps:
-
- * The _relying party_ resolves the _identity owner_'s DID to its DID Document and interprets the `authentication` and `publicKey` objects in that DID Document to determine how to verify the proof.
- * The _relying party_ must be able to internally link a response to a prior challenge. This can be done with a nonce or message identifier in the challenge that must also be included in the response. It can also be done by including the entire original challenge in the response.
 
 ## JWT format
 
@@ -313,8 +316,6 @@ The following Verifiable Credential contains a claim of a certain public key as 
 # Challenge Transports
 
 A DID Auth challenge may be delivered by a _relying party_ to an _identity owner_ in different ways. DID Auth defines a few common ways this can be done.
-
- * Multiple devices, user agents, and other technical components may act on behalf of the _identity owner_ to receive and process the challenge. For example, an identity owner's DID Auth service endpoint may receive the challenge and relay it to the _identity owner_'s mobile app.
 
 ## DID Auth service endpoint
 
@@ -405,7 +406,14 @@ If both the _relying party_ and _identity owner_ meet physically with devices th
 
 # Architectures
 
-Based on the above data format and transport options for DID Auth challenges and responses, this section describes example overall architectures that can be realized.
+When selecting an appropriate architecture, it may be useful to keep in mind that the workflows below mainly differ along four dimensions.
+
+1. Is the DID known to the relying party at the time of challenge construction
+1. Transport mechanism of the challenge
+1. The location of authentication material (i.e. where are the secrets stored?)
+1. Transport mechanism of the response
+
+Therefore, the following DID Auth architecture are only some examples of possible combinations of design options.
 
 ## DID Auth Architecture 1: Web page and mobile app
 
@@ -545,16 +553,6 @@ References:
 
  * [IIW #26 Session Notes "Open ID v. FIDO v. SSI"](http://iiw.idcommons.net/Open_ID_v._FIDO_v._SSI)
  * [IIW #26 Session Notes "DID Auth Workflows (Part 2)"](http://iiw.idcommons.net/DID_Auth_Workflows_(Part_2))
-
-## Verifiable Credentials Exchange
-
-Even though DID Auth is about proving control over a DID, the exchange of Verifiable Credentials associated with a DID is closely related to DID Auth. There are three approaches how DID Auth and Verifiable Credentials can work together:
-
-1. **DID Auth and Verifiable Claims exchange are separate:** At the beginning of an interaction between two parties, they need to authenticate (mutually, or just in one direction). Then after this is done, a protocol for Verifiable Credentials exchange can be executed, so that the two parties can learn more about each other (and then perhaps make authorization decisions).
-
-2. **Verifiable Credentials exchange is an extension to DID Auth:** In this approach, proving control of an identifier, and proving possession of Verifiable Credentials are closely related, and a single protocols is used for both purposes. The Verifiable Credentials are an "optional field" in the protocol. In order to "only" prove control of an identifier, then the Verifiable Credentials that are exchanged are an empty list.
-
-3. **DID Auth is a certain kind of Verifiable Credential:** It is possible to think of DID Auth as an exchange of the most trivial Verifiable Credential imaginable. A self-issued Verifiable Credential that states "I am me". From this perspective, the separation between DID Auth and exchange of "other" Verifiable Credentials is very vague, and both are part of the same protocol.
 
 
 # Security and Privacy Considerations
