@@ -18,7 +18,7 @@ After we have these main components, internet has no backbone anymore. Internet 
 
 ## Decentralized Interfaces
 
-One of the most important part of this new economy are entities signaling their character, offerings and needs. Decentralized Interfaces are doing exactly that work.
+One of the most important parts of this new economy are entities signaling their character, offerings and needs. Decentralized Interfaces are doing exactly that work.
 
 Decentralized Interfaces enable anyone to describe the atomic character of an entity. For instance, one single interface can describe what attributes the entity has, what actions (possible interactions) it accepts, what kind of messages it can process and return. It can be also imagined like API to any object.
 
