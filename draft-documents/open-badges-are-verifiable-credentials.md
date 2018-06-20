@@ -1,4 +1,4 @@
-# Open Badges are Verifible Credentials
+# Open Badges are Verifiable Credentials
 By Nate Otto (Concentric Sky), Kim Hamilton Duffy (Learning Machine)
 
 Contributors:
@@ -17,19 +17,19 @@ We identify use cases and requirements that connect threads of work happening in
 ## Introduction
 The Open Badges Specification is a vocabulary and set of protocols that describes credentials. The vocabulary can describe any achievement in terms of a common set of attributes and is most often used for educational or occupational credentials. At present in version 2.0, Open Badges defines two verification methods: `HostedBadge` (requiring resources hosted on HTTP in specific locations) and `SignedBadge` (using a JSON Web Signature, which references hosted Issuer Profile and CryptographicKey information). 
 
-The Blockcerts Open Badges Draft Extension introduced a verification method based on those used by Verifiable Credentials for the specific use case of Bloackchain-anchored credentials. This paper expands that work and proposes a new option that can reside alongside existing Open Badges verification methods. 
+The Blockcerts Open Badges Draft Extension introduced a verification method based on those used by Verifiable Credentials for the specific use case of blockchain-anchored credentials. This paper expands that work and proposes a new option that can reside alongside existing Open Badges verification methods. 
 
 This paper also explores new capabilities that the Open Badges ecosystem could gain by adopting some of the emerging technologies and conventions from the Verifiable Credentials specification and its communities of implementers. It will inform the authors' development of working prototypes to demonstrate the viability and utility of these methods for publishing and circulating Open Badges.
 
 ## Motivation
-In this section we provide the motivation for supporting Verfiable Credentials Specifications in Open Badges implementations. There are three key reasons for our work, and we describe them next.
+In this section we provide the motivation for supporting Verifiable Credentials Specifications in Open Badges implementations. There are three key reasons for our work: these models are compatible in purpose; their data models are complementary; and there are benefits in alignment for the existing communities around both specifications.
 
-### Open Badges and Verifiable Credentials are Complementary
+### Open Badges and Verifiable Credentials are compatible in purpose
 Both Open Badges (OB) and Verifiable Credentials (VC) are capable of expressing a cryptographically verifiable statement about the subject, issuer, evidence, and status of a credential.
 
-A Verifiable Credential provides a lightweight structure for expressing a wide range of credentials — including driver's licenses or passports. A VC implementer chooses which schema/vocabulary to use, depending on the use case or domain. 
+The Verifiable Credentials specification provides a lightweight structure for expressing a wide range of credentials — including driver's licenses or passports. A VC implementer chooses which schema/vocabulary to use, depending on the use case or domain. 
 
-The strength of Verifiable Credentials is its flexibility across a wide variety of use cases. At the same time, there is not yet general agreement on schemas and vocabulary sets to use with Verifiable Credentials that will allow them to serve their varied purposes. 
+The strength of Verifiable Credentials is its flexibility across a wide variety of use cases. At the same time, there is not yet general agreement on schema and vocabulary sets to use with Verifiable Credentials that will allow them to serve their varied purposes. 
 
 In comparison, Open Badges have been used in production deployments for nearly a decade. This has established fitness-of-purpose for real-world educational/occupational scenarios, and has led to a rich set of conventions and vocabularies. Successful deployments range from low to high stakes contexts, including informal recognition of a valuable contribution, completion of training, or completion of coursework or a university degrees.
 
@@ -41,8 +41,7 @@ There is significant cross-pollination in the development of Open Badges and Ver
 - Open Badges and Verifiable Credentials Issuer Profiles are aligned.
 - Open Badges and Verifiable Credentials both use JSON Linked Data (JSON-LD), allowing reuse among different contexts. They both allow the addition of terms beyond their own vocabulary, meaning components of each specification may be used in the other.
 
-### Aligned signature and verification methods through Blockcerts Open Badge Extension
-Blockcerts/Open Badge signing and verification processes use the same methods as Verifiable Credentials to establish the authenticity and integrity of claims. This is because the [Blockcerts extension draft](https://github.com/IMSGlobal/cert-schema) for Open Badges v2 uses the JSON-LD signatures/verification method (the same used by Verifiable Credentials) to anchor an Open Badge to a blockchain.
+Blockcerts/Open Badge signing and verification processes use the same methods as Verifiable Credentials to establish the authenticity and integrity of claims. This is because the [Blockcerts extension draft](https://github.com/IMSGlobal/cert-schema) for Open Badges 2.0 uses the JSON-LD signatures/verification method (the same used by Verifiable Credentials) to anchor an Open Badge to a blockchain.
 
 ### Benefits of continued alignment to both communities
 Further alignment of Open Badges and Verifiable Credentials provides benefits to the communities and recipients:
@@ -65,21 +64,21 @@ The Assertion does not currently identify its issuer directly, but only that the
 Members of the W3C and Rebooting Web of Trust community have been developing the idea of Verifiable Credentials (formerly Verifiable Claims) for several years, and it has now been picked up as official work of the W3C [Verifiable Credentials Working Group](https://www.w3.org/2017/vc/WG/). The current [editor's draft of the VC Data Model](https://w3c.github.io/vc-data-model/) describes that a *Credential* is a set of one or more *claims* about a *subject*. All of the claims made by traditional credentials such as driver's licenses may be made by a digital Verifiable Credential, and many novel claims may also be made. VCs become verifiable through *proofs*, such as cryptographic signatures.
 
 ## Implementation, present and future
-Open Badges define everything needed to create an ecosystem where credentials circulate. The core vocabulary allows issuers to describe their profiles and achievements (available and awarded) in JSON-LD. The verification protocols for hosted and signed badges describe how to establish that a particular Assertion is the valid expression of a badge award published by an Issuer Profile, while the Baking Specification describes a method by which Assertion data may be embedded within a PNG or SVG image file, which is portable across many file systems and publishable on websites. 
+The Open Badges Specification defines everything needed to create an ecosystem where credentials circulate. The core vocabulary allows issuers to describe their profiles and achievements (available and awarded) in JSON-LD. The verification protocols for hosted and signed badges describe how to establish that a particular Assertion is the valid expression of a badge award published by an Issuer Profile, while the Baking Specification describes a method by which Assertion data may be embedded within a PNG or SVG image file, which is portable across many file systems and publishable on websites. 
 
 There are dozens of implementers of Open Badges across the roles of Issuer, Host (commonly known as a "backpack"), and Displayer, including several platforms that are certified by IMS Global as compliant implementers of the 2.0 specification in these roles. Over 10 million credentials have been awarded as Open Badges. 
 
 Going forward from 2.0, community members are interested in increased flexibility to describe credentials, better information about how specific badges and issuers are situated in networks of trust, and a growing ecosystem of adopters with good complementary integration with other specifications. The natural focus of the Open Badges Specification is as *a vocabulary to describe defined achievements*. There are advantages to be gained in consistent implementation of a common vocabulary for achievement credentials. 
 
-Verifiable Credentials has a vibrant community of interested implementers, including several who are using draft versions of the specification in production systems. The Verifiable Credentials specification is a general purpose technology with a wide range of potential use cases. The specification's focus is not on a particular type of credential or specific set of terms and it does not have an inherent concept of a defined achievement, like Open Badges does. 
+Verifiable Credentials has a vibrant community of interested implementers, including several who are using draft versions of the specification in production systems. The Verifiable Credentials specification is a general purpose technology with a wide range of potential use cases. The specification's focus is not on a particular type of credential or specific set of terms and it does not have an inherent concept of a defined achievement like Open Badges does. 
 
-The strength for Verifiable Credentials as a specification is to enable innovation in different types of proofs, claims, and methods of identifying credential subjects. Examples of these efforts include the use of blockchain pointers in proofs and Decentralized Identifers (DIDs) for identifying subjects.
+The strength for Verifiable Credentials as a specification is to enable innovation in different types of proofs, claims, and methods of identifying credential subjects. Examples of these efforts include the use of blockchain pointers in proofs and Decentralized Identifiers (DIDs) for identifying subjects.
 
 There may be a clean fit between the focus of Open Badges as a controlled vocabulary for defined achievements and the innovation around proofs and subject identifiers occurring in the community of Verifiable Credentials implementers. 
 
 This paper illustrates how these technologies may move closer to full compatibility by making careful choices at the integration surface. Effectively, the Open Badges ecosystem can implement the Verifiable Credentials data model as an option alongside its existing hosted and signed delivery/verification methods with minimal changes to specification and software in the Issuer, Host, and Displayer roles. 
 
-Open Badges validation/verification software is most significantly affected, but the open source and shared nature of the official IMS Global Open Badges validator library means very few actual pieces of software must be updated in order to obtain wide-reaching availability of the techniques shown here across the Host and Displayer roles. Services in the Issuer Role have an easier and less critical adoption process, especially as long as existing verification methods remain in place as an option.
+Open Badges validation/verification software is most significantly affected, but the open source and shared nature of [the official IMS Global Open Badges validator library](https://github.com/IMSGlobal/openbadges-validator-core/pull/167#reports) means very few actual pieces of software must be updated in order to obtain wide-reaching availability of the techniques shown here across the Host and Displayer roles. Services in the Issuer Role have an easier and less critical adoption process, especially as long as existing verification methods remain in place as an option.
 
 ## Implementation Options
 We have identified two possible ways to connect the Open Badges and Verifiable Credentials specifications. We will circulate and compare the core options here and choose which to base our prototypes upon.
@@ -138,7 +137,7 @@ Here is an example of a Verifiable Credential/Assertion that a recipient identif
 
 Values for the claim may vary in two meaningful cases:
 
-1. The issuer wishes to take advantage of the light anti-correlation mechanism enabled by Open Badges hashed recipient identifiers for a recipient identified by `id`.
+1. The issuer wishes to take advantage of the light anti-correlation mechanism enabled by Open Badges hashed recipient identifiers for a recipient who is identified by an `id` string.
 2. The issuer wishes to identify the recipient by a profile identifier property other than `id`, such as `email`. Use of hashed identifier may or may not be used.
 
 In either case, the implementation option is to make an additional claim about the recipient. In addition to the above claim that "a recipient holds or has met the criteria of a BadgeClass definition", the issuer makes a claim that the recipient "holds an identifier of a particular type" using the Open Badges [IdentityObject](https://openbadgespec.org/#IdentityObject):
@@ -219,7 +218,7 @@ The example above illustrates the following salient features:
 
 Option 1 uses a recipient subject identifier in the same way as other claims, which is expected to increase compatibility with VC-native tooling. On the other hand, Option 2 requires significantly less work on the part of the Open Badges validator(s) to return a result graph that matches its existing format implemented based on Open Badges 2.0.
  
-Option 2, in which the claim is roughly the same as the existing Assertion class, is a valid Verifiable Credential. But because the claim subject is the Assertion itself, this is not assumed to be a very strong integration path that would allow Open Badges Verifiable Credentials to be circulated among general purpose Verifiable Credential "wallet" tools.
+Option 2, in which the claim is roughly the same as the existing Assertion class, is a valid Verifiable Credential. But because the claim subject is the Assertion itself instead of the recipient, this is not assumed to be a very strong integration path that would allow Open Badges Verifiable Credentials to be circulated among general purpose Verifiable Credential "wallet" tools. These tools expect claims to be made about their users, not about entities that have relationships to their users.
 
 
 ## An Assertion Awarded to a Recipient Identified by a DID
@@ -247,7 +246,7 @@ As Open Badges can be awarded to other string-type identifiers, like `@id` (alia
 }
 ```
 
-This is all that must be done to award an Assertion to a DID as recipient identifier. The verification that an assertion is awarded to the expected DID is already supported in the Open Badges Validator. The Specification can be clarified to add "id" to the list of identifier types "considered servicable", but that will constitute a clarification rather than a change.
+This is all that must be done to award an Assertion to a DID as recipient identifier. The verification that an assertion is awarded to the expected DID is already supported in the Open Badges Validator. The Specification can be clarified to add "id" to the list of identifier types "considered serviceable", but that will constitute a clarification rather than a change.
 
 ## An Assertion Awarded by an Issuer identified with a DID
 
@@ -284,7 +283,7 @@ We now show an example DID document for the `did:example:issuer_did` issuer desc
 }
 ```
 
-Within such a DID Document, one or more public keys can be identified. In the example above, a single RSA key is described. An Open Badges verifier that supports the required DID resolver method discovers keys that can be trusted to be under the control of the entity. The resolver then verifies that a particular Open Badges Verifiable Claim is signed by a keypair belonging to the entity. Here is an example of what such a signed Assertion looks like for this issuer:
+Within such a DID Document, one or more public keys can be identified. In the example above, a single RSA key is described. An Open Badges verifier that supports the required DID resolver method discovers keys that can be trusted to be under the control of the entity. The resolver then verifies that a particular Open Badges Verifiable Claim is signed by a key pair belonging to the entity. Here is an example of what such a signed Assertion looks like for this issuer:
 
 ```json
 {
@@ -353,7 +352,7 @@ A version of the claim using Option 1 looks very similar to non-DID-approach for
 	"claim": {
 		"id": "did:example:recipient_did",
 		"obi:holds": {
-			"id": ""urn:uuid:7aad3c57-3bfb-45ea-ae79-5a6023cc62e4",
+			"id": "urn:uuid:7aad3c57-3bfb-45ea-ae79-5a6023cc62e4",
 			"type": "BadgeClass",
 			"name": "Certificate of Accomplishment",
 			"image": "data:image/png;base64,...",
@@ -389,14 +388,14 @@ A version of the claim using Option 1 looks very similar to non-DID-approach for
 
 An important capability enabled by using a DID instead of an HTTP URI as an Issuer `id` is that the issuer entity can authenticate into multiple applications that will then have equal ability to act on behalf of the issuer entity. There will be no implied primary/secondary distinction between these applications, because none of them will "own" the identifier the way DNS allows only one entity to authoritatively own an HTTP identifier.
 
-The DID Document doesn't have any ability to describe in a verifiable sense the issuer's name, url or email, but these properties are desirable to display within badging systems as part of the Open Badges [Profile](https://openbadgespec.org/#Profile) class, so they are embedded in the claim in these examples. Open Badges ecosystem tools need to determine for themselves when and why they trust these values to be correctly associated with an issuer ID. We can authenticate the DID, but not these properties directly. However, they may be the claims of other Verifiable Credentials where the Issuer is the subject. If a consumer trusts one or more of these claims, they could trust this data wherever it is presented associated with the issuer. This is likely a case where an issuer would want to reference [Endorsements](https://openbadgespec.org/#Endorsement) (the Open Badges Vocabulary term for "plain" Verifiable Credentials) they have received within the Issuer Profile that gets embedded in claims like the above example.
+The DID Document doesn't have any ability to describe in a verifiable sense the issuer's name, URL or email, but these properties are desirable to display within badging systems as part of the Open Badges [Profile](https://openbadgespec.org/#Profile) class, so they are embedded in the claim in these examples. Open Badges ecosystem tools need to determine for themselves when and why they trust these values to be correctly associated with an issuer ID. We can authenticate the DID, but not these properties directly. However, they may be the claims of other Verifiable Credentials where the Issuer is the subject. If a consumer trusts one or more of these claims, they could trust this data wherever it is presented associated with the issuer. This is likely a case where an issuer would want to reference [Endorsements](https://openbadgespec.org/#Endorsement) (the Open Badges Vocabulary term for "plain" Verifiable Credentials) they have received within the Issuer Profile that gets embedded in claims like the above example.
 
 ## Blockchain proof of existence with Blockcerts
-Blockchain-tethered issuance of Open Badges / Verifiable Credentials is enabled by the same JSON-LD signature and verification framework described here. The [MerkleProof2017](https://github.com/IMSGlobal/cert-schema/blob/e0ef2203af5eb01a8efc22dc6ced766ec2773cb8/cert_schema/2.0/merkleProof2017Schema.json) LD signature suite allows verification of data anchored to a blockchain. This is the same signature suite used by Blockcerts, The above Option 1 example modified to use this MerkleProof2017 signature suite looks the following:
+Blockchain-tethered issuance of Open Badges/Verifiable Credentials is enabled by the same JSON-LD signature and verification framework described here. The [MerkleProof2017](https://github.com/IMSGlobal/cert-schema/blob/e0ef2203af5eb01a8efc22dc6ced766ec2773cb8/cert_schema/2.0/merkleProof2017Schema.json) LD signature suite allows verification of data anchored to a blockchain. This is the same signature suite used by the current version of Blockcerts, The above Option 1 example modified to use this MerkleProof2017 signature suite looks the following:
 
 ```json
 {
-	"@context": ["https://w3id.org/credentials/v1", "https://w3id.org/openbadges/v2"],
+	"@context": ["https://w3id.org/credentials/v1", "https://w3id.org/openbadges/v2", "https://w3id.org/blockcerts/v2"],
 	"id": "https://example.com/assertions/1001",
 	"type": ["Credential", "Assertion"],
 	"issuer": "did:example:issuer_did",
@@ -404,7 +403,7 @@ Blockchain-tethered issuance of Open Badges / Verifiable Credentials is enabled 
 	"claim": {
 		"id": "did:example:recipient_did",
 		"obi:holds": {
-			"id": ""urn:uuid:7aad3c57-3bfb-45ea-ae79-5a6023cc62e4",
+			"id": "urn:uuid:7aad3c57-3bfb-45ea-ae79-5a6023cc62e4",
 			"type": "BadgeClass",
 			"name": "Certificate of Accomplishment",
 			"image": "data:image/png;base64,...",
@@ -443,18 +442,18 @@ Blockchain-tethered issuance of Open Badges / Verifiable Credentials is enabled 
 }
 ```
 
-This demonstrates a special form of proof, applying to the transaction containing the data. This proof technique is known as a "Merkle proof" — a cryptographic data structure used to show that the present credential belongs to a structure that is anchored to a blockchain transaction. This provides proof of existence through confidence in the timestamp of the Assertion, via the  timestamp (if supported by the blockchain) associated with the block's addition to the ledger (according to the blockchain's consensus protocol and confirmation thresgold). This also allows more than one credential to be part of a single blockchain transaction; batching of credentials is commonly performed for cost savings alongside natural logical groupings of credentials (e.g. "Graduates of 2018").
+This demonstrates a special form of proof, applying to the transaction containing the data. This proof technique is known as a "Merkle proof" — a cryptographic data structure used to show that the present credential belongs to a structure that is anchored to a blockchain transaction. This provides proof of existence through confidence in the timestamp of the Assertion, via the timestamp (if supported by the blockchain) associated with the block's addition to the ledger (according to the blockchain's consensus protocol and confirmation threshold). This also allows more than one credential to be part of a single blockchain transaction; batching of credentials is commonly performed for cost savings alongside natural logical groupings of credentials (e.g. "Graduates of 2018").
 
 Informally, the Merkle proof, along with JSON-LD normalization, allows you to confirm that the local data matches an expected hash, and that hash combined with redacted data (and functions of redacted data), combine to a value that matches the value on the blockchain.
 
 More precisely, during verification, the hash of the present credential is calculated to ensure it matches `targetHash`. The `proof` section is how to merge this local credential with one-way hashes of other credentials (to avoid revealing the contents) into a tree structure, the base of which should equal `merkleRoot`. Lastly, the `merkleRoot` value is the expected value on the blockchain, which we can independently confirm. In the `anchors` part of the proof, the `type` and `sourceId` incidate which blockchain, transaction id, and transaction field to fetch; this value should equal the `merkleRoot` value.
 
-This example shows an issuer identitied with a DID (`did:example:issuer_did`). This enables an improved authenticity check during the Blockcerts verification process, which will ensure the public key that signed the issuing transaction is authorized by the DID document associated with the issuer's DID.
+This example shows an issuer identified with a DID (`did:example:issuer_did`). This enables an improved authenticity check during the Blockcerts verification process, which will ensure the public key that signed the issuing transaction is authorized by the DID document associated with the issuer's DID.
 
-This format is proposed for Blockcerts v3, and has the advantage of unifying Blockcerts more tighly into Verifiable Credentials / Open Badges, as opposed to a separate Open Badge extension.
+This format is proposed for Blockcerts v3, and has the advantage of unifying Blockcerts more tightly into Verifiable Credentials / Open Badges, as opposed to a separate Open Badge extension.
 
 ## Implementing User Stories for Open Badges Tools
-The two different options outlined in this paper pose different distributions of cost and complexity on Open Badges Applications in the core roles of Validator, Isser, Host, and Displayer. When choosing which option to pursue to implement the capabilities described above, understanding the implementation path for each option enables cost/benefit analysis.
+The two different options outlined in this paper pose different distributions of cost and complexity on Open Badges Applications in the core roles of Validator, Issuer, Host, and Displayer. When choosing which option to pursue to implement the capabilities described above, understanding the implementation path for each option enables cost/benefit analysis.
 
 ### Validator
 The [Open Badges Validator](https://github.com/IMSGlobal/openbadges-validator-core) is the main application that needs to be updated to support these features. The validator will need to be modified to detect that an input string is valid JSON-LD and of type `Credential`. The validator then queues a relevant procedure to intake the document that will be an alternative path to the existing procedures for intake based on a hosted URL input, image input, JWS string input, and existing JSON strings of Assertion, BadgeClass or Profile.
@@ -477,7 +476,7 @@ Option 1 requires some changes to the Validator in addition to the DID resolutio
 3. For convenience, the validator should be able to deliver a version of the VC translated into the 2.0 Assertion style to serve Backpacks and Displayers that cannot yet adapt to the Option 2 VC as Assertion model. This legacy version should be set as the "validationSubject" in the validation report. 
 
 ### Issuer
-The OpenBadgeCredential wrapper is an optional verification type for Open Badges. That means issuers don't need to implement it in order to continue to issue valid Open Badges. Once the validator is updated, issuers can publish badges using these options, with very little distinction between them.
+The `OpenBadgeCredential` wrapper is an optional verification type for Open Badges. That means issuers don't need to implement it in order to continue to issue valid Open Badges. Once the validator is updated, issuers can publish badges using these options, with very little distinction between them.
 
 To use a DID as a recipient identifier, badges can be published with any method supported by the validator that uses the DID for recipient identification. It may be the subject identifier of a claim (as in Option 1) or it may be hashed in an IdentityObject (Option 1 or 2), for instance.
 
@@ -486,6 +485,8 @@ In order to use a DID as an issuer identifier, the Issuer Service will need to c
 Extending the possibilities explored by example above, one emerging complementary technology is [Linked Data Object Capabilities](https://w3c-ccg.github.io/ld-ocap/). Under a system that uses this, Alice will act as her own DID Owner and will grant the Issuer Service the capabilities to perform several relevant Open Badges actions on her behalf, such as Issuing. When the issuing system invokes these capabilities, it will reference the capability chain in its proof. 
 
 Capabilities are safer than adding an external service's key to your DID Document as if it were your own, because Capabilities may be attenuated to only grant specific actions to the capability holder. To the validator, if the Validator supported Linked Data Capabilities, it would appear as if Alice issued a signed Verifiable Credential Open Badge herself, though the audit trail would be available to determine that a key held by the Issuer Service invoked an `Issue` capability in order to sign the valid proof. This topic is explored in more detail in a complementary paper about [Open Badges Peer Claims](https://bit.ly/peerclaims-rwot6).
+
+Another alternative would be for Alice to sign new Assertions interactively, using a private key held only on a trusted device. The issuer service could prepare the Assertions for signature and then obtain the signature from Alice directly.
 
 ### Host/Backpack
 Backpacks mostly rely on the verification information returned from a validator, so if the validator can be updated to present the Open Badges data in a predictable supported format, hosts don't need to specially support the Verifiable Credentials wrapper.
@@ -511,7 +512,7 @@ An implementation of these capabilities will be best informed by prototypes of e
 Our primary goal with this proposal is to gain feedback from the Open Badges and Verifiable Credentials communities. We have planned implementations to prove out these concepts, including:
 - Open Badges Validator support for JSON-LD signature verification using Option 1 with Option 2 as a fallback.
 - Issuing Blockerts credentials that can be validated in the format described here.
-- Adding support for blockcerts blockchain pointer in validator. 
+- Adding support for Blockcerts blockchain pointer in validator. 
 - Collaborating with those in the Rebooting Web of Trust Community to integrate at least one method of DID Authentication into an Open Badges Host to connect reliably.
 
 The lessons learned from these prototypes will feed use cases to submit in the next stages of standardization of Open Badges  and related technologies.
