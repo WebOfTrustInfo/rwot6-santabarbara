@@ -527,6 +527,12 @@ References:
  * [HTTP Signatures](https://tools.ietf.org/html/draft-cavage-http-signatures-06)
  * [DID Auth HTTP Proxy](https://github.com/bcgov/http-did-auth-proxy)
 
+## DID Auth Architecture 10: Authenticated Encryption
+
+![DID Auth Diagram 10](./media/Did_Auth_Diagrams10.png)
+
+_Identity owner's_ **service (or agent, or hub, etc.)** sends an Auth-Encrypted Message to _relying party_'s **service (or agent, or hub, etc.)**. This message is then decrypted and authenticated by relying party_'s **service (or agent, or hub, etc.)** as a part of the decryption process.
+
 
 # Relation to other Technologies
 
