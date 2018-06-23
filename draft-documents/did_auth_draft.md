@@ -531,7 +531,7 @@ References:
 
 ![DID Auth Diagram 10](./media/Did_Auth_Diagrams10.png)
 
-_Identity owner's_ **service (or agent, or hub, etc.)** sends an Auth-Encrypted Message to _relying party_'s **service (or agent, or hub, etc.)**. This message is then decrypted and authenticated by relying party_'s **service (or agent, or hub, etc.)** as a part of the decryption process.
+_Identity owner's_ **service (or agent, or hub, etc.)** sends an Auth-Encrypted challenge to _relying party_'s **service (or agent, or hub, etc.)**. This challenge is then decrypted and authenticated by relying party_'s **service (or agent, or hub, etc.)** as a part of the decryption process. relying party_'s **service (or agent, or hub, etc.)** then encrypts a response message with Authenticated encryption and sends to _Identity owner's_ **service (or agent, or hub, etc.)** which decrypts and authenticates the response of the challenge.
 
 
 # Relation to other Technologies
