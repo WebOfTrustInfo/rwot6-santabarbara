@@ -520,6 +520,7 @@ References:
 
 ![DID Auth Diagram 9](./media/DID_Auth_Diagrams9.png)
 
+ 1. _Relying party's_ **service (or agent, or hub, etc.)** answers an HTTP request by returning HTTP code 401 with a WWW-Authenticate header to _identity owner's_ **service (or agent, or hub, etc.)**.
  1. _Identity owner's_ **service (or agent, or hub, etc.)** sends an HTTP request to _relying party_'s **service (or agent, or hub, etc.)** and includes an HTTP Signature.
 
 References:
