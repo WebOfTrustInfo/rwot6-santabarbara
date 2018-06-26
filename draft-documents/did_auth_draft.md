@@ -147,7 +147,7 @@ This section describes a conceptual authentication framework of the DID Auth pro
 Challenge principles:
 
  * The _relying party_ may or may not know the _identity owner_'s DID at the time the challenge is constructed, and therefore the _identity owner_'s DID may or may not be included in the challenge.
- * If the DID is known at the time of challenge construction, then the relying party may use the contents of the DID Document to selec preferred authentication methods or service endpoints.
+ * If the DID is known at the time of challenge construction, then the relying party may use the contents of the DID Document to select preferred authentication methods or service endpoints.
  * The challenge that is sent by the _relying party_ may or may not itself contain a proof of the _relying party_'s control of a DID.
  * The _relying party_ may or may not need additional transport-specific information about the _identity owner_ in order to be able to deliver the challenge (e.g. a DID Auth service endpoint). This additional protocol-specific information may be discoverable from the _identity owner's_ DID if it is known to the _relying party_.
 * The _relying party_ should include a *nonce*, to prevent replay attacks and to help link the challenge to a subsequent response.
