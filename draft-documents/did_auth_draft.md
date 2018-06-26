@@ -529,9 +529,14 @@ References:
 
 ## DID Auth Architecture 10: Authenticated Encryption
 
-![DID Auth Diagram 10](./media/Did_Auth_Diagrams10.png)
+![DID Auth Diagram 10](./media/DID_Auth_Diagrams10.png)
 
-_Identity owner's_ **service (or agent, or hub, etc.)** sends an Auth-Encrypted challenge to _relying party_'s **service (or agent, or hub, etc.)**. This challenge is then decrypted and authenticated by relying party_'s **service (or agent, or hub, etc.)** as a part of the decryption process. relying party_'s **service (or agent, or hub, etc.)** then encrypts a response message with Authenticated encryption and sends to _Identity owner's_ **service (or agent, or hub, etc.)** which decrypts and authenticates the response of the challenge.
+ 1. _Identity owner's_ **service (or agent, or hub, etc.)** sends an auth-encrypted challenge to _relying party_'s **service (or agent, or hub, etc.)**. This challenge is then decrypted and authenticated by _relying party_'s **service (or agent, or hub, etc.)** as part of the decryption process.
+ 1. _Relying party_'s **service (or agent, or hub, etc.)** then auth-encrypts a response message and sends it to _identity owner's_ **service (or agent, or hub, etc.)**, which decrypts and authenticates the response of the challenge.
+
+References:
+
+ * [NaCl crypto_box based on Curve25519, Salsa20, and Poly1305](https://nacl.cr.yp.to/box.html)
 
 
 # Relation to other Technologies
