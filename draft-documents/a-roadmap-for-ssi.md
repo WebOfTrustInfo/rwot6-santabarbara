@@ -12,7 +12,7 @@ We wrote this paper to find more people who value a healthy SSI market. By worki
 
 # 1 Self-Sovereign Identity Group Charter
 
-This section describes the mission, stakeholders, goals, and initial organizational structure of the proposed [Self-Sovereign Identity Group](http://selfsovereign.id).
+This section describes the mission, stakeholders, goals, and initial structure of the proposed [Self-Sovereign Identity Group](http://selfsovereign.id).
 
 ## Mission
 We improve social stability, economic productivity, and individual freedom by promoting broad use of self-sovereign identity. 
@@ -39,7 +39,7 @@ We expect the team to ultimately self-organize to maximize market expansion. Ini
 These focus areas will likely dominate our activities.
 
 * **Content**: Create informational content (presentation, videos, etc) suitable for stakeholders
-* **Portal**: Create and maintain the organization's website
+* **Portal**: Create and maintain the team's website
 * **Communications**: Propagate SSI messaging to passive stakeholders
 
 Contact [Moses Ma](mailto:moses@futurelab.com) or [Dan Greening](mailto:dan@senexrex.com) to become a member.
@@ -86,7 +86,7 @@ Contact [Moses Ma](mailto:moses@futurelab.com) or [Dan Greening](mailto:dan@sene
 
 This document was developed at RWOT6 (Rebooting Web of Trust, Spring 2018) group. Document source is [HERE](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/a-roadmap-for-ssi.md)
 
-An organizational web site has been created at [selfsovereign.id]().
+An team web site has been created at [selfsovereign.id]().
 
 An initial glossary is here [SSI Glossary](https://docs.google.com/document/d/17pt9ExTIETXTKXOgHmuljj6NI9hpDv3A_f7ptMK2HpQ/view)
 
@@ -108,7 +108,7 @@ Some people have contributed substantially so far. They are
 
 ## Possible volunteers
 
-People who have expressed interest in the organization include:
+People who have expressed interest in the team include:
 
 | Person | Company | Possible Role |
 | --- | --- | --- | 
@@ -244,7 +244,7 @@ We seek your help.
 
 # Appendix A: WOWs to Consider
 
-**(Incorporate into roadmap or organization Backlog)**
+**(Incorporate into roadmap or team Backlog)**
 
 Another requirement for success is to create a design process that would lead to a sustainable flow of compelling technologies that provide a “wow” factor, that can form a pipeline of compelling functionality to fortify the value proposition for decentralized identity. An initial set of projects and ideas for “wow prototypes” include:
 
