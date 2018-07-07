@@ -245,13 +245,9 @@ Example: Verifiable Credentials
 
 ```
 {
-	"id": "???",
 	"type": ["Credential"],
-	"issuer": "???",
-	"issued": "2018-03-07",
 	"claim": {
-		"id": "???",
-		"publicKey": ""
+		"publicKey"
 	}
 }
 ```
@@ -296,8 +292,7 @@ The following Verifiable Credential contains a claim of a certain public key as 
 
 ```
 {
-	"id": "...",
-	"type": ["Credential", "DIDAuthCredential"],
+	"type": ["VerifiablePresentation"],
 	"issuer": "did:example:123456789abcdefghi",
 	"issued": "2018-03-07",
 	"claim": {
