@@ -543,6 +543,13 @@ References:
  * [Six Principles for Self-Sovereign Biometrics](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/draft-documents/Biometrics.md)
  * [Remove biometric templates from DID spec elements #62](https://github.com/w3c-ccg/did-spec/issues/62)
 
+## Other Public Key Infrastructure (PGP, SSH, etc.)
+
+Many existing applications and services that today depend on Public-key cryptography for authentication could be modified to use DIDs as identifiers, and to use DID resolution for retrieving a DID's associated public key, instead of registering public keys as identifiers directly, e.g.:
+
+ * An e-mail may be signed using MIME Security and OpenPGP formats, but using key material associated with DIDs, instead of static public keys that are exchanged in advance.
+ * An SSH server may rely on a list of DIDs in a `~/.ssh/authorized_dids` file instead of relying on a list of public keys in the traditional `~/.ssh/authorized_keys` file.
+
 ## WebAuthn
 
 WebAuthn is a specification for a JavaScript API that enables FIDO Authentication in the browser. The architecture resembles **DID Auth Architecture 6** in this paper.
@@ -637,6 +644,8 @@ As part of the OAuth2 / OIDC workflow, _relying party_ clients must authenticate
 During a DID Auth interaction, a _relying party_ may request that the _identity owner_'s user agent display a DID selection dialog where the _identity owner_ is able to pick the DID to authenticate with to the _relying party_. The DID Auth challenge and response are then done using that DID.
 
 An _identity owner_'s user agent may also automatically choose (or even dynamically create) different DIDs for each _relying party_. This idea is also known as directed identity. If a different DID is used for each _relying party_, then they are called pairwise-pseudonymous DIDs. This measure is helpful (but not always sufficient) to avoid correlation of the _identity owner_.
+
+An _identity owner_ may also choose to use different DIDs for the same _relying party_ depending on context.
 
 ## Automatic authentication
 
