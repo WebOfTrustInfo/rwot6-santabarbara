@@ -3,21 +3,15 @@
 
 # Authors
 
-Markus Sabadello (markus@danubetech.com)
+**Authors:** Markus Sabadello (markus@danubetech.com), Kyle Den Hartog (kyle.denhartog@evernym.com), Christian Lundkvist (christian.lundkvist@consensys.net), Cedric Franz (cedric.franz@gmail.com), Alberto Elias (hi@albertoelias.me), Andrew Hughes (AndrewHughes3000@gmail.com), John Jordan (john.jordan@gov.bc.ca), Dmitri Zagidulin (dzagidulin@gmail.com)
 
-Kyle Den Hartog (kyle.denhartog@evernym.com)
+**Contributors:** Eugeniu Rusu (eugeniu@jolocom.com), Adam Powers (adam@fidoalliance.org), John Callahan (jcallahan@acm.org), Joe Andrieu (joe@joeandrieu.com)
 
-Christian Lundkvist (christian.lundkvist@consensys.net)
 
-Cedric Franz (cedric.franz@gmail.com)
+# Abstract
 
-Alberto Elias (hi@albertoelias.me)
+The term DID Auth has been used in different ways and is currently not well-defined. We define DID Auth as a ceremony where an _identity owner_, with the help of various components such as web browsers, mobile devices, and other agents, proves to a _relying party_ that they are in control of a DID. This means demonstrating control of the DID using the mechanism specified in the DID Document's "authentication" object. This could take place using a number of different data formats, protocols, and flows. DID Auth includes the ability to establish mutually authenticated communication channels, and to authenticate to web sites and applications. Authorization, Verifiable Credentials, and Capabilities are built on top of DID Auth and out of scope for this document. This paper gives on overview of the scope of DID Auth, supported protocols and flows, the use of components of the DID Documents which are relevant to authentication, as well as formats for challenges and responses.
 
-Andrew Hughes (AndrewHughes3000@gmail.com)
-
-John Jordan (john.jordan@gov.bc.ca)
-
-Dmitri Zagidulin (dzagidulin@gmail.com)
 
 # Resources
 
@@ -27,35 +21,24 @@ This paper is a continuation of ongoing work by the Rebooting-the-Web-of-Trust a
 * [RWoT #6: Markus Sabadello's topic paper "DID Auth: Scope, Formats, and Protocols"](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID%20Auth:%20Scope,%20Formats,%20and%20Protocols.md)
 * [RWoT #6: Kyle Den Hartog's topic paper "DID-Auth protocol"](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/topics-and-advance-readings/DID-Auth%20protocol.md)
 
-Portions of the work on this paper have been funded through a Code With Us contract awarded by the BC Developers' Exchange (https://bcdevexchange.org) of the Province of British Columbia, Canada.
-
-Slack: [https://weboftrustinfo.slack.com/messages/C9N0M37ST](https://weboftrustinfo.slack.com/messages/C9N0M37ST) (#did-auth)
-
-
-# Abstract
-
-The term DID Auth has been used in different ways and is currently not well-defined. We define DID Auth as a ceremony where an _identity owner_, with the help of various components such as web browsers, mobile devices, and other agents, proves to a _relying party_ that they are in control of a DID. This means demonstrating control over the DID using the mechanism specified in the DID Document's "authentication" object. This could take place using a number of different data formats, protocols, and flows. DID Auth includes the ability to establish mutually authenticated communication channels, and to authenticate to web sites and applications. Authorization, Verifiable Credentials, and Capabilities are built on top of DID Auth and out of scope for this document. This paper gives on overview of the scope of DID Auth, supported protocols and flows, the use of components of the DID Documents which are relevant to authentication, as well as formats for challenges and responses.
+Portions of the work on this paper have been funded through a Code With Us contract awarded by the BC Developers' Exchange (https://bcdevexchange.org/) of the Province of British Columbia, Canada.
 
 
 # Definitions
 
-**TODO:** Review this a bit more.
-
-**Authentication**: The ceremony where an identity owner proves to a _relying party_ that the _identity owner_ controls a DID, by a mechanism that is described in the DID's associated DID Document.
+**Authentication**: The ceremony where an _identity owner_ proves to a _relying party_ that the _identity owner_ controls a DID, by a mechanism that is described in the DID's associated DID Document.
 
 **Authorization**: Method of verifying the rights and privileges of an individual to perform certain actions upon a DID that is not proving its ownership.
 
 **Decentralized Identifier (DID)**: A globally unique identifier that does not require a centralized registration authority because it is registered with distributed ledger technology or other form of decentralized network. (see [here](https://w3c-ccg.github.io/did-spec/#terminology))
 
-**DID Document**: A set of data that describes a DID, including mechanisms, such as public keys and pseudonymous biometrics, that an entity can use to authenticate itself as the DID. A DID Document may also contain other attributes or claims describing the entity. (see [here](https://w3c-ccg.github.io/did-spec/#terminology))
+**DID Document**: A structured document containing metadata that describes a DID, including authentication materials, such as public keys and pseudonymous biometrics, that an entity can use to authenticate, i.e. to prove control of the DID. A DID Document may also contain other attributes or claims describing the entity. (see [here](https://w3c-ccg.github.io/did-spec/#terminology))
 
 **DID Record**: The combination of a DID and its associated DID Document.
 
-**Identity owner**: Individual, organization or thing who has rights and privileges to perform certain actions upon a DID.
+**Identity Owner**: Individual, organization or thing who created the DID, is identified by the DID that is the subject of the DID Document, and who has the ultimate authority to update or revoke the DID.
 
-**Identity subject**: Individual, organization or thing whom a DID identifies.
-
-**Relying party**: Individual, organization or thing that authenticates an Identity Owner using the DID Auth protocol. Also called "Verifier" in other specifications.
+**Relying Party**: Individual, organization or thing that authenticates an _identity owner_ using a DID Auth protocol. Also called "Verifier" in other specifications.
 
 **Verifiable Credentials**: A set of one or more claims which are statements made by an issuer about a subject that is tamper-resistant and whose authorship can be cryptographically verified (see [here](https://w3c.github.io/vc-data-model/#terminology)).
 
@@ -64,35 +47,35 @@ The term DID Auth has been used in different ways and is currently not well-defi
 
 ## Scope
 
-DID Auth defines data formats and challenge and response transports allowing an _identity owner_ to prove control over a DID to a _relying party_. A successful DID Auth interaction may create the required conditions to allow the parties to exchange further data in a trustworthy way. This further data could include streams of raw data from sensors to the exchange of Verifiable Credentials. This further exchange of data is out of scope of the DID Auth exchange and specification.
+This paper defines data formats and challenge and response transports allowing an _identity owner_ to prove control of a DID to a _relying party_. Proof of control of a DID is a technical interaction which may be a precursor to establishing a longer term relationship between two parties. A successful DID Auth interaction may create the required conditions to allow the parties to exchange further data in a trustworthy way. This further data could include streams of raw data from sensors to the exchange of Verifiable Credentials. This further exchange of data is out of scope of the DID Auth protocol itself.
 
-Proof of control over a DID is a technical action which may be a precursor to establishing a trustworthy relationship between two parties. The DID Auth interaction may be a one way interaction where A proves control over a DID<sub>A</sub> to B, or a two way interaction where mutual proof of control over DIDs is achieved. Two way control is a situation where A proves control over DID<sub>A</sub> to B and B proves control over DID<sub>B</sub> to A.
+This DID Auth interaction may be a one way interaction where A proves control of a DID<sub>A</sub> to B, or a two way interaction where mutual proof of control of DIDs is achieved. In the latter case, A proves control of DID<sub>A</sub> to B and B proves control of DID<sub>B</sub> to A.
 
-It is in the purview of the two parties engaged in the interaction to determine the need to have a one way or two way DID Auth interaction. It is also in the purview of the two parties to determine if further exchanges of data may be necessary to establish the nature of the relationship between the two parties.
+It is in the purview of the two parties engaged in the interaction to determine the need to have a one way or two way DID Auth interaction. It is also in the purview of the two parties to determine if further exchanges of data such as Verifiable Credentials may be necessary to establish the nature of the relationship between the two parties.
 
-Implementers may decide to subsume a DID Auth interaction within a higher layer interaction such as the exchange of a Verifiable Credential which could simultaneously prove control over a DID and offer some other Verifiable Credentials for some specific transaction specific purpose.
+Implementers may decide to subsume a DID Auth interaction within a higher layer interaction such as the exchange of Verifiable Credentials which could simultaneously prove control of a DID and offer some other Verifiable Credentials for some specific transaction specific purpose.
 
 ## DID Auth and Verifiable Credentials
 
-Even though DID Auth is about proving control over a DID, the exchange of Verifiable Credentials associated with a DID is closely related to DID Auth. There are three approaches how DID Auth and Verifiable Credentials can work together:
+Even though DID Auth is about proving control of a DID, the exchange of Verifiable Credentials associated with a DID is related to DID Auth. There are several conceptual ways how the relationship between DID Auth and Verifiable Credentials could be thought of:
 
-1. **DID Auth and Verifiable Claims exchange are separate:** At the beginning of an interaction between two parties, they need to authenticate (mutually, or just in one direction). Then after this is done, a protocol for Verifiable Credentials exchange can be executed, so that the two parties can learn more about each other (and then perhaps make authorization decisions).
+1. **DID Auth and Verifiable Claims exchange are separate:** At the beginning of an interaction between two parties, they need to authenticate (mutually, or just in one direction). Then after this is done, a protocol for exchange of Verifiable Credentials can be executed, so that the two parties can learn more about each other (and then perhaps make authorization decisions).
 
-2. **Verifiable Credentials exchange is an extension to DID Auth:** In this approach, proving control of an identifier, and proving possession of Verifiable Credentials are closely related, and a single protocols is used for both purposes. The Verifiable Credentials are an "optional field" in the protocol. In order to "only" prove control of an identifier, then the Verifiable Credentials that are exchanged are an empty list.
+2. **Verifiable Credentials exchange is an extension to DID Auth:** In this approach, proving control of an identifier, and proving possession of Verifiable Credentials are closely related, and a single protocol is used for both purposes. The Verifiable Credentials are an "optional field" in the protocol. In order to "only" prove control of an identifier, the Verifiable Credentials that are exchanged are simply an empty set.
 
-3. **DID Auth is a certain kind of Verifiable Credential:** It is possible to think of DID Auth as an exchange of the most trivial Verifiable Credential imaginable. A self-issued Verifiable Credential that states "I am me". From this perspective, the separation between DID Auth and exchange of "other" Verifiable Credentials is very vague, and both are part of the same protocol.
+3. **DID Auth is a certain kind of Verifiable Credential:** It is possible to think of DID Auth as an exchange of the most trivial Verifiable Credential imaginable. A self-issued Verifiable Credential that states "I am me". From this perspective, the separation between DID Auth and exchange of "other" Verifiable Credentials is blurred, and both are part of the same protocol.
 
 ## DID Record Creation
 
-DID Auth requires authentication material that is generated during DID Record Creation. As stated in the DID Spec, the steps to create a DID Record compliant with DID Auth are:
+DID Auth requires authentication material that is generated during DID Record Creation. As stated in the DID specification, the steps to create a DID Record compliant with DID Auth are:
 
-1.  Generate a NEW_DID as specified in the relevant DID Method Specification.
-1.  Generate a NEW_DID_DOCUMENT as specified in the relevant DID Method Specification.
-    1.  The id property must have the value of NEW_DID.
+1.  Generate a **NEW_DID** as specified in the relevant DID method specification.
+1.  Generate a **NEW_DID_DOCUMENT** as specified in the relevant DID method specification.
+    1.  Set the `id` property to the value of **NEW_DID** (the DID subject).
 1.  Choose one or more authentication type(s) from the array of proof mechanisms.
-    1.  Record the type property in an `authentication` object of the NEW_DID_DOCUMENT.
-1.  Generate authentication material for use at a later time during Authentication of a DID. The authentication type determines how to generate authentication material for a proof mechanism.
-1.  Communicate and store the authentication material, either directly or as derived material, in the NEW_DID_DOCUMENT and for storage by the Identity Owner. If the chosen proof mechanism is based on asymmetric keys, the authentication material in the NEW_DID_DOCUMENT is recorded in a `publicKey` object in the DID Document.
+    1.  Record the `type` property in an `authentication` object of the **NEW_DID_DOCUMENT**.
+1.  Generate authentication material for use at a later time during authentication of the **NEW_DID**. The authentication type determines how to generate authentication material for a proof mechanism.
+1.  Communicate and store the authentication material, either directly or as derived material, in the **NEW_DID_DOCUMENT** and for storage by the _identity owner_. If the chosen proof mechanism is based on asymmetric keys, the authentication material in the **NEW_DID_DOCUMENT** is recorded in a `publicKey` object in the DID Document.
 
 Example `authentication` and `publicKey` objects in a DID Document:
 
@@ -142,25 +125,27 @@ This section describes a conceptual authentication framework of the DID Auth pro
 
 **Authentication of a DID:** Similar to other authentication methods, DID Auth relies on a challenge-response cycle in which a _relying party_ authenticates the DID of an _identity owner_. During this cycle, an _identity owner_ demonstrates control of their authentication material that was generated and distributed during DID Record Creation through execution of the authentication proof mechanism.
 
-**Challenge:** The way an identity owner or their agent encounters an auth challenge will vary on the context. For example, they can come across a 'Sign in with DID-Auth' button or a QR code. Or, in the context of an API call, the relying party may respond to a request by asking for authentication (the HTTP `401 Unauthorized` response is a classic example, although DID Auth covers many use cases beyond HTTP).
+**Challenge:** The way an _identity owner_ or their agent encounters an authentication challenge, as well as the format of the challenge, will vary depending on the context. For example, they can come across a 'Sign in with DID Auth' button or a QR code on a website. Or, in the context of an API call, the _relying party_ may respond to a request by asking for authentication (the HTTP `401 Unauthorized` response is a classic example, although DID Auth covers many use cases beyond HTTP).
 
 Challenge principles:
 
  * The _relying party_ may or may not know the _identity owner_'s DID at the time the challenge is constructed, and therefore the _identity owner_'s DID may or may not be included in the challenge.
- * If the DID is known at the time of challenge construction, then the relying party may use the contents of the DID Document to select preferred authentication methods or service endpoints.
+ * If the DID is known at the time of challenge construction, then the _relying party_ may use the contents of the DID Document to select preferred authentication methods or service endpoints.
  * The challenge that is sent by the _relying party_ may or may not itself contain a proof of the _relying party_'s control of a DID.
  * The _relying party_ may or may not need additional transport-specific information about the _identity owner_ in order to be able to deliver the challenge (e.g. a DID Auth service endpoint). This additional protocol-specific information may be discoverable from the _identity owner's_ DID if it is known to the _relying party_.
-* The _relying party_ should include a *nonce*, to prevent replay attacks and to help link the challenge to a subsequent response.
+* The _relying party_ should include a nonce, to prevent replay attacks and to help link the challenge to a subsequent response.
 
-**Response:** Based on the challenge, the _identity owner_ then constructs a response that proves control of their DID. This often involves a cryptographic signature, but can include other proof mechanisms. (As mentioned earlier, the response may also contain some credentials or _identity owner_ attributes that the _relying party_ asked for in the challenge.) After receiving the response, the _relying party_ resolves the _identity owner_'s DID, and verifies that the response is valid for a prior challenge (for example, verifying the response signature based on a `publicKey` object contained in the DID Document).
+**Response:** Based on the challenge, the _identity owner_ then constructs a response that proves control of their DID. This often involves a cryptographic signature, but can include other proof mechanisms. (As mentioned earlier, the response may also contain Verifiable Credentials that the _relying party_ asked for in the challenge.) After receiving the response, the _relying party_ resolves the _identity owner_'s DID, and verifies that the response is valid for a prior challenge (for example, verifying the response signature based on a `publicKey` object contained in the DID Document).
 
 Response principles:
 
  * The _identity owner_ may or may not need additional transport-specific information about the _relying party_ in order to be able to deliver the response (e.g. a callback URL). This additional protocol-specific information may be included in the challenge, or it may be discoverable from the _relying party_'s DID that is included in the challenge.
  * The _relying party_ must be able to internally link a response to a prior challenge. This can be done with a nonce or message identifier in the challenge that must also be included in the response. It can also be done by including the entire original challenge in the response.
  * Multiple devices, user agents, and other technical components may act on behalf of the _identity owner_ to receive and process the challenge. For example, an identity owner's DID Auth service endpoint may receive the challenge and relay it to the _identity owner_'s mobile app.
- * The _identity owner's_ component that sends the response may or may not be the same component as the one that received the challenge. E.g. the challenge may be received as HTTP POST by a **DID Auth service**, but the response may be sent as HTTP POST by a **mobile app** (see DID Auth Architecture 3).
- * The _relying party's_ component that receives the response may or may not be the same component as the one that sent the challenge. E.g. the challenge may be sent as deep link by a **mobile web page**, but the response may be received as HTTP POST by a **web server** (see DID Auth Architecture 2).
+ * The _identity owner's_ component that sends the response may or may not be the same component as the one that received the challenge. E.g. the challenge may be received as HTTP POST by a DID Auth service, but the response may be sent as HTTP POST by a mobile app (see **DID Auth Architecture 3**).
+ * The _relying party's_ component that receives the response may or may not be the same component as the one that sent the challenge. E.g. the challenge may be sent as deep link by a mobile web page, but the response may be received as HTTP POST by a web server (see **DID Auth Architecture 2**).
+
+**Generic DID Auth architecture:**
 
 ![DID Auth Diagram 0](./media/DID_Auth_Diagrams0.png)
 
@@ -400,7 +385,6 @@ The _identity owner_ may encode a DID Auth response as a QR code, which is deliv
 
 If the DID Auth challenge was delivered to the _identity owner_ via a JavaScript API, then the response may be returned to the _relying party_ via fulfillment of a JavaScript promise.
 
-
 ## Device-to-device communication
 
 If both the _relying party_ and _identity owner_ meet physically with devices they control, the _identity owner_ can deliver a DID Auth response to the _relying party_ via direct communication between devices, using Bluetooth, NFC, WiFi, etc.
@@ -408,14 +392,14 @@ If both the _relying party_ and _identity owner_ meet physically with devices th
 
 # Architectures
 
-When selecting an appropriate architecture, it may be useful to keep in mind that the workflows below mainly differ along four dimensions.
+Based on the above challenge and response formats and transports, it is possible to construct architectures for various complete DID Auth interactions. When selecting an appropriate combination, it may be useful to keep in mind that the example architectures in this section mainly differ along four dimensions:
 
-1. Is the DID known to the relying party at the time of challenge construction
-1. Transport mechanism of the challenge
-1. The location of authentication material (i.e. where are the secrets stored?)
-1. Transport mechanism of the response
+1. Is the DID known to the _relying party_ at the time of challenge construction?
+1. What is the transport mechanism of the DID Auth challenge?
+1. What is the location of authentication material? (I.e. where are the secrets stored?)
+1. What is the transport mechanism of the DID Auth response?
 
-Therefore, the following DID Auth architecture are only some examples of possible combinations of design options.
+Therefore, the following DID Auth architectures should be understood only as some examples of possible combinations of design options.
 
 ## DID Auth Architecture 1: Web page and mobile app
 
@@ -548,11 +532,11 @@ Biometrics are recognizable and verifiable data, which are unique, specific to a
 
 Biometrics can be used in several ways in conjunction with DID Auth:
 
- 1. Biometrics such as fingerprints or voice can protect secret authentication material (such as a private key) on an _identity owner_'s physical device, which is used to construct a response to the _relying party_'s challenge. In this case, biometrics are only used locally to protect the _identity owner_'s part of the DID Auth challenge-response interaction; the proof mechanism listed in a DID Document does not directly involve biometrics.
+ 1. Biometrics such as fingerprints or voice can protect secret authentication material (such as a private key) on an _identity owner_'s physical device, which is used to construct a response to the _relying party_'s challenge. In this case, biometrics are only used locally to protect the _identity owner_'s part of the DID Auth challenge-response cycle; the proof mechanism listed in a DID Document does not directly involve biometrics.
  1. Biometric protocols such as [IEEE 2410-2015 "BOPS"](https://standards.ieee.org/findstds/standard/2410-2017.html) or [Web Authentication](https://www.w3.org/TR/webauthn/) can be adapted to augment DID Auth flows by using biometrics in a standard way. In both protocols, no biometric data is exchanged between the _relying party_ and _identity owner_.
- 1. Biometrics can also play a more direct role as a proof mechanism that is listed in a DID Document and used during a DID Auth challenge-response interaction to prove control over a DID. In this case, certain biometric data may be exchanged between a _relying party_ and an _identity owner_, and biometric service providers such as [iRespond](http://irespond.org/) can assist the process by offering to perform the biometric matching procedure via a remote service.
+ 1. Biometrics can also play a more direct role as a proof mechanism that is listed in a DID Document and used during a DID Auth challenge-response cycle to prove control of a DID. In this case, certain biometric data may be exchanged between a _relying party_ and an _identity owner_, and biometric service providers such as [iRespond](http://irespond.org/) can assist the process by offering to perform the biometric matching procedure via a remote service.
 
-In any case, since biometrics are sensitive data with special properties (i.e. their semi-public nature and inability to revoke them), certain principles must be carefully followed, e.g.: No storage of biometrics in centralized silos, no storage of biometrics on the blockchain.
+In any case, since biometrics are sensitive data with special properties (i.e. their semi-public nature and inability to revoke them), certain principles must be carefully followed, e.g.: No storage of biometrics in centralized silos, no storage of biometrics on a blockchain.
 
 References:
 
@@ -563,18 +547,24 @@ References:
 
 WebAuthn is a specification for a JavaScript API that enables FIDO Authentication in the browser. The architecture resembles **DID Auth Architecture 6** in this paper.
 
-In WebAuthn, a _relying party_ associates a public key with an _identity owner_ during a registration process. In subsequent login processes, the _identity owner_ proves control over that same public key. Different public keys can be used for different _relying parties_ based on an "origin".
+In WebAuthn, a _relying party_ associates a public key with an _identity owner_ during a registration process. In subsequent login processes, the _identity owner_ proves control of that same public key. Different public keys can be used for different _relying parties_ based on an "origin".
 
 **WebAuthn Registration:** `Register(Account, Origin)`
-**WebAuthn Registration Response :** `RegisterResponse(PublicKeyCredential, Attestation, Origin)`
+
+**WebAuthn Registration Response:** `RegisterResponse(PublicKeyCredential, Attestation, Origin)`
+
 **WebAuthn Login:** `Sign(Challenge, Origin)`
+
 **WebAuthn Login Response:** `SignResponse(SignedChallenge, Origin)`
 
-In order to adapt WebAuthn to support DIDs, a _relying party_ should associate DIDs rather than public keys with _identity owners_ (use a "DIDCredential" instead of a "PublicKeyCredential"). During the login process, the _identity owner_ includes their DID in the login response, which the _relying party_ uses to look up the current public key from the DID Document.
+In order to adapt WebAuthn to support DIDs, a _relying party_ should associate DIDs rather than public keys with _identity owners_ (by using a `DIDCredential` instead of a `PublicKeyCredential`). During the login process, the _identity owner_ includes their DID in the login response, which the _relying party_ uses to look up the current public key from the DID Document.
 
 **WebAuthn+DID Registration:** `Register(Account, Origin)`
+
 **WebAuthn+DID Registration Response:** `RegisterResponse(DIDCredential, Attestation, Origin)`
+
 **WebAuthn+DID Login:** `Sign(Challenge, Origin)`
+
 **WebAuthn+DID Login Response:** `SignResponse(DID, SignedChallenge, Origin)`
 
 Additional Notes:
@@ -590,17 +580,21 @@ References:
 
 ## OpenID Connect
 
-OpenID Connect is an authentication protocol built on the OAuth 2.0 protocol. In its most common web-based form, an end-user's user agent is redirected by a _relying party_ (OAuth 2.0 client) to an OpenID Provider (OAuth 2.0 authorization server), which authenticates the end-user and redirects them back to the _relying party_. The architecture resembles **DID Auth Architecture 5** in this paper.
+OpenID Connect (OIDC) is an authentication protocol built on the OAuth 2.0 protocol. In its most common web-based form, an end-user's user agent is redirected by a _relying party_ (OAuth 2.0 client) to an OpenID Provider (OAuth 2.0 authorization server), which authenticates the end-user and redirects them back to the _relying party_. The architecture resembles **DID Auth Architecture 5** in this paper.
 
-OpenID Connect however is highly modular and customizable. It can potentially relate to DID Auth in the following ways.
+OpenID Connect is highly modular and customizable. It can potentially relate to DID Auth in the following ways:
 
-##### DID Auth as OIDC Local Authentication Method
+### DID Auth as OIDC Local Authentication Method
 
-Within established OIDC deployments, DID Auth can serve as a drop-in "local authentication method", i.e. a method that determines how the OpenID Provider authenticates the end-user (to replace username and password). (See [Authentication Context Class](http://ldapwiki.com/wiki/Authentication%20Context%20Class) for the OAuth2 family of specs.)
+Within established OIDC deployments, DID Auth can serve as a drop-in "local authentication method", i.e. a method that determines how the OpenID Provider authenticates the end-user (to replace username and password).
 
-##### DID Auth as Alternative OIDC Provider Discovery
+References:
 
-For use cases where the DID is known beforehand, DID resolution can serve as an alternative mechanism for provider discovery (alternative to [OpenID Connect Discovery](http://openid.net/specs/openid-connect-discovery-1_0.html) / [WebFinger](https://tools.ietf.org/html/rfc7033)) via service endpoint.
+ * [Authentication Context Class](http://ldapwiki.com/wiki/Authentication%20Context%20Class)
+
+### DID Auth as Alternative OIDC Provider Discovery
+
+For use cases where the DID is known beforehand, DID resolution can serve as an alternative mechanism for OIDC provider discovery (alternative to OpenID Connect Discovery / WebFinger) via service endpoint.
 
 Example OpenID Connect service endpoint in DID document:
 
@@ -614,20 +608,26 @@ Example OpenID Connect service endpoint in DID document:
 }
 ```
 
-##### DID Auth as Token Endpoint Authentication Method
+References:
 
-As part of the OAuth2/OIDC workflow, relying party clients must authenticate themselves to the authorization server (such as the token issuing endpoint) using a variety of methods. Since a PKI based authentication method is already supported by OIDC (such as the `private_key_jwt` method), DID Auth can easily play a role as a secure client authentication mechanism during this step.
+ * [OpenID Connect Discovery](http://openid.net/specs/openid-connect-discovery-1_0.html)
+ * [WebFinger](https://tools.ietf.org/html/rfc7033)
 
-##### Reusing OIDC Session Management and JWT Attributes
+### DID Auth with JWT Attributes and OIDC Session Management
 
-Although session management (and the User Consent step) is mostly out of scope for this document, DID Auth implementers might find the OIDC Session Management specs to be helpful (in terms of establishing a long-lived session _after_ the DID Auth ceremony).
+As a format for the DID Auth challenge-response cycle, DID Auth could re-use the well-specified JWT attributes used in OAuth2 and OIDC (such as `exp`, `iat`, and others) as well as the concept of OIDC request objects where an authentication request is expressed as a self-contained JWT.
 
-In addition, as a format for the DID Auth challenge-response cycle, DID Auth could re-use the well-specified JWT attributes used in OAuth2 and OIDC (such as `exp`, `iat`, and others).
+In addition, although session management is not a focus of this document, DID Auth implementers might find the OIDC Session Management specification and the OIDC User Consent step helpful (in terms of establishing a long-lived session _after_ the DID Auth ceremony).
 
 References:
 
+ * [OIDC: Passing Request Parameters as JWTs](http://openid.net/specs/openid-connect-core-1_0.html#JWTRequests)
  * [IIW #26 Session Notes "Open ID v. FIDO v. SSI"](http://iiw.idcommons.net/Open_ID_v._FIDO_v._SSI)
  * [IIW #26 Session Notes "DID Auth Workflows (Part 2)"](http://iiw.idcommons.net/DID_Auth_Workflows_(Part_2))
+
+### DID Auth as Token Endpoint Authentication Method
+
+As part of the OAuth2 / OIDC workflow, _relying party_ clients must authenticate themselves to the authorization server (such as the token issuing endpoint) using a variety of methods. Since a PKI based authentication method is already supported by OIDC (such as the `private_key_jwt` method), DID Auth can fulfill a role as a secure client authentication mechanism during this step.
 
 
 # Security and Privacy Considerations
@@ -640,24 +640,27 @@ An _identity owner_'s user agent may also automatically choose (or even dynamica
 
 ## Automatic authentication
 
-Depending on the challenge and response transports, and depending on the user agents, it may be possible to automate some steps in a DID Auth interaction. For example, a DID Auth browser extension can automatically complete a DID Auth interaction to log in to a website using a single click on a button.
+Depending on the challenge and response transports, and depending on an _identity owner's_ user agent, it may be possible to automate some steps in a DID Auth interaction. For example, a DID Auth browser extension can automatically complete a DID Auth interaction to log in to a website using a single click on a button.
 
-## Re-authentication
+## Re-authentication and Step-up
 
-Even after a DID Auth interaction has been completed, a _relying party_ may require an _identity owner_ to re-authenticate in certain cases, e.g. when a high-value transaction such as transferring money is initiated.
+Even after a DID Auth challenge-response cycle has been completed, a _relying party_ may require an _identity owner_ to re-authenticate in certain cases, e.g. when a high-value transaction such as transferring money is initiated.
+
+In such cases, subsequent protocol interactions may also require the exchange of Verifiable Credentials in addition to basic DID Auth, in order to establish the desired level of trust.
 
 ## DID resolution
 
 DID Auth depends on the ability to resolve a DID to its associated DID Document. Therefore all security considerations associated with DID resolution must be taken into account. Among other topics, this includes caching behavior of a DID resolver, as well as metadata about the DID resolution process (e.g. has the DID Document been retrieved via a blockchain full node, or via an untrusted intermediary lookup service).
 
-## Hardware wallet
-
-The DID Auth challenge may be forwarded to a hardware wallet, that upon an _identity owner_'s physical interaction, will create a response and send it back to the _relying party_.
-
 ## Single log-out
 
-DID Auth should provide ways to end all sessions and channels that have been established for an authenticated DID. An _identity owner_ should be able to trigger single log-out manually using their user agent. Single log-out should also happen automatically if a DID is revoked, which means that _relying parties_ must monitor authenticated DIDs for revocation.
+DID Auth should provide ways to end all sessions and relationships that have been established for an authenticated DID. An _identity owner_ should be able to trigger single log-out manually using their user agent. Single log-out should also happen automatically if a DID is revoked, which means that _relying parties_ must monitor authenticated DIDs for revocation.
+
+## Hardware wallet
+
+The DID Auth challenge may be processed by a hardware wallet, which upon an _identity owner_'s physical interaction, will create a response and send it back to the _relying party_.
 
 ## DID Auth gateway services
 
-In order to ease adoption of DID Auth, gateway services could be developed that expose the OpenID Connect and/or OAuth2 protocols and perform (parts of) a DID Auth _relying party_. In such cases, the privacy and trust implications of the use of a gateway service must be carefully considered.
+In order to ease adoption of DID Auth through the use of standard protocols, gateway services could be developed that expose the OpenID Connect and/or OAuth2 protocols and perform (parts of) a DID Auth _relying party_. In such cases, the privacy and trust implications of the use of a gateway service must be carefully considered.
+
