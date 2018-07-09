@@ -658,6 +658,10 @@ In such cases, subsequent protocol interactions may also require the exchange of
 
 DID Auth depends on the ability to resolve a DID to its associated DID Document. Therefore all security considerations associated with DID resolution must be taken into account. Among other topics, this includes caching behavior of a DID resolver, as well as metadata about the DID resolution process (e.g. has the DID Document been retrieved via a blockchain full node, or via an untrusted intermediary lookup service).
 
+## Owner vs. controller
+
+This paper heavily uses the term _identity owner_. This helps to emphasize clearly how DID Auth is fundamentally different from earlier authentication protocols, which have traditionally revolved around "identity providers". Note however that the _identity owner_ (the entity identified by the DID) may in some situations not be the same entity who controls the DID and who is able to perform authentication. This may happen in cases of security breaches (e.g. theft of a private key that controls the DID), or in intentional situations such as digital guardianship, where for some reason the _identity owner_ is not able to control their own DID.
+
 ## Single log-out
 
 DID Auth should provide ways to end all sessions and relationships that have been established for an authenticated DID. An _identity owner_ should be able to trigger single log-out manually using their user agent. Single log-out should also happen automatically if a DID is revoked, which means that _relying parties_ must monitor authenticated DIDs for revocation.
