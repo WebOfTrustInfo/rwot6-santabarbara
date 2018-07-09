@@ -1,11 +1,8 @@
 # Introduction to DID Auth
 
+**Authors:** Markus Sabadello, Kyle Den Hartog, Christian Lundkvist, Cedric Franz, Alberto Elias, Andrew Hughes, John Jordan, Dmitri Zagidulin
 
-# Authors
-
-**Authors:** Markus Sabadello (markus@danubetech.com), Kyle Den Hartog (kyle.denhartog@evernym.com), Christian Lundkvist (christian.lundkvist@consensys.net), Cedric Franz (cedric.franz@gmail.com), Alberto Elias (hi@albertoelias.me), Andrew Hughes (AndrewHughes3000@gmail.com), John Jordan (john.jordan@gov.bc.ca), Dmitri Zagidulin (dzagidulin@gmail.com)
-
-**Contributors:** Eugeniu Rusu (eugeniu@jolocom.com), Adam Powers (adam@fidoalliance.org), John Callahan (jcallahan@acm.org), Joe Andrieu (joe@joeandrieu.com)
+**Contributors:** Eugeniu Rusu, Adam Powers, John Callahan, Joe Andrieu
 
 
 # Abstract
