@@ -22,4 +22,10 @@ _This is a listing for the RWOT6 papers to date. [Several more](https://github.c
 
 > Technology commons come in a variety of flavors and have achieved varying levels of financial success. For-profit corporate activities have in few historical cases been set up with a financial feedback mechanism to support the commons upon which they depend and capitalize. Why do the commons and the technology sectors’ available forms of capitalism act as incompatible as oil and water, even though they support each other’s aims? When capitalist benefactors support the technology commons that they utilize, it creates a sustainable and thriving commons which enables and supports additional capitalistic technology innovation. Having worked on both sides of the equation, the authors of this piece propose a vocabulary to nourish these interactions between the two sides; identified characteristics of a sustainable technology commons; identified commons models and variations; applied Appreciative Inquiry principles to one commons model; and identified future research areas.
 
+## [*Open Badges are Verifiable Credentials*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/open-badges-are-verifiable-credentials.pdf) [(Text)](Open Badges are Verifiable Credentials)
+#### By Nate Otto & Kim Hamilton Duffy
+
+> We identify use cases and requirements that connect threads of work happening in the Rebooting Web of Trust community around: educational achievement claims (particularly using the Open Badges vocabulary); use of decentralized identifiers (DIDs) within web services where educational claims circulate; and integrating blockchain-reliant verification layers. We illustrate each of these cases with a set of example documents and describe user stories for Open Badges ecosystem software in the roles of Issuer, Host/Backpack, Displayer, and Verifier that need to be implemented in order to enable the capabilities described.
+
+
 
