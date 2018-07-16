@@ -499,6 +499,16 @@ References:
  1. _Relying party's_ **service (or agent, or hub, etc.)** answers an HTTP request by returning HTTP code 401 with a WWW-Authenticate header to _identity owner's_ **service (or agent, or hub, etc.)**.
  1. _Identity owner's_ **service (or agent, or hub, etc.)** sends an HTTP request to _relying party_'s **service (or agent, or hub, etc.)** and includes an HTTP Signature.
 
+Example:
+
+```
+	POST /api/v1/issuerservices HTTP/1.1
+	Host: testhost.gov.bc.ca
+	Accept: */*
+	Authorization: Signature keyId="did:example:123456789abcdefghi#keys-1",algorithm="rsa-sha256",headers="(request-target) accept user-agent",signature="214BeK0YJ9P2wmMXBjZNNXDMT4prNlc32ZkslillkJYkJeLp3zbz4r1WfgCltd103m7AyY734qbau+GsWENDXaqxeTaP6LSMLWr6FexWMVgBbMzH1KDMhJlozTMFPkMsGlbuDpRKwEPqnX1Yy6ldHLe8mIJfSAEUy5P/Hf3y1b1kI8XyHNVbChFJLiUkOocF7XsFuTfoB+MJSEUqJDnuKibiF+Ap9rxI7J7Uroe6EjaVYqLXnGbpu8j8Oxn5QzGBZFCA/j6XgHy4NK9fG9pcCyyAPGzSYi1RWjDWFyS0RDQAXFBBNgyskXAgssKuVS2AFwPvXcHb5mhvKFUYMvMESg=="
+```
+
+
 References:
 
  * [HTTP Signatures](https://tools.ietf.org/html/draft-cavage-http-signatures-06)
