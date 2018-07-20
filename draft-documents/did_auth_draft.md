@@ -475,7 +475,6 @@ References:
 ## DID Auth Architecture 8: DID-TLS
 
 ![DID Auth Diagram 8](./media/DID_Auth_Diagrams8.png)
-[[EDITME: This diagram should have its headers for identity owner and relying party adjusted. Maybe a person instead of a building on the right, too?]]
 
  1. Two **services** (or agents, or hubs, etc.) act as both _identity owner_ and _relying party_ and engage in TLS handshake where mutual challenges and responses are exchanged and verified.
 
