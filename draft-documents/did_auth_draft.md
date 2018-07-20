@@ -23,7 +23,7 @@ Portions of the work on this paper have been funded through a Code With Us contr
 
 **Authentication**: The ceremony where an _identity owner_ proves to a _relying party_ that the _identity owner_ controls a DID, using a mechanism that is described in the DID's associated DID Document.
 
-**Authorization**:  The method of verifying the rights and privileges of an individual to perform certain actions upon a DID that is not proving its ownership.[[EDITME: I couldn't tell if this meant a DID that hadn't previously proved its ownership or that the method didn't prove ownership; please clarify and remove this comment. --SA]]
+**Authorization**: A process of establishing the rights and privileges of an _identity owner_ to perform certain actions, including operations on a DID itself, or in another context.
 
 **Decentralized Identifier (DID)**: A globally unique identifier that does not require a centralized registration authority because it is registered with distributed ledger technology or another form of decentralized network. (see [here](https://w3c-ccg.github.io/did-spec/#terminology))
 
