@@ -144,7 +144,7 @@ Our own complacency could derail or delay SSI adoption.
 * Self-sovereign identity concepts can be confusing, especially when we lead with technology and not societal benefits.
 * We do not discuss deployment schedules for SSI networks and APIs, so many application developers refrain from investing effort.
 * We do not broadly discuss expected costs for DIDs and for SSI services, which creates financial risk for startups.
-* We provide no SSI reference applications and libraries, which limits developers's ability to produce compelling applications.
+* We provide no SSI reference applications and libraries, which limits developers ability to produce compelling applications.
 * We don't list SSI network and wallet vendors, and so application developers worry that they will be locked in.
 * Our narrow focus on technical and philosophical exploration is distracting us and delaying the societal and individual benefits of SSI. 
 * Our individual non-specific identity concerns — such as whether biometric data might enable despotic states to track our movements — distract us from solving clear and present dangers, such as putting development work toward eliminating non-state-originated financial, identity, and privacy theft (which will actually help us to better understand and address the challenges of despotic states);
@@ -244,7 +244,7 @@ Another requirement for success is the creation of a design process that would l
 
 2. **Community Badges Toolkit**: Produce a Starter Kit that would allow any small or large community to begin to issue verifiable credentials in the form of [OpenBadges](https://openbadges.org). Such a toolkit would be a perfect *Getting Started* toolkit for a go-to-market (GTM) package of resources.  
 
-	>NOTE:  The final paper submitted by the [Open Badges are Verifiable Credentials](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/open-badges-are-verifiable-credentials.pdf) RWOT Workgroup is supposed to produced a working prototype that can be used to seed this toolkit.
+	>NOTE:  The final paper submitted by the [Open Badges are Verifiable Credentials](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/open-badges-are-verifiable-credentials.pdf) RWOT Workgroup is supposed to produce a working prototype that can be used to seed this toolkit.
 
 	
 3. **Other Interesting Concepts**: There are a number of other potential reference applications that could be interesting to develop and deploy. 
