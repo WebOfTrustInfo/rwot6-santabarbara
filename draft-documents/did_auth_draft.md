@@ -573,8 +573,8 @@ In order to adapt WebAuthn to support DIDs, a _relying party_ should associate D
 
 Additional Notes:
 
- * WebAuthn+DID must ensure that the `publicKey` objects in the DID document correspond to the keys used by the FIDO authenticators.
- * WebAuthn+DID requires no service endpoints in the DID document.
+ * WebAuthn+DID must ensure that the `publicKey` objects in the DID Document correspond to the keys used by the FIDO authenticators.
+ * WebAuthn+DID requires no service endpoints in the DID Document.
  * Ideally, a different DID should be used for each WebAuthn "origin".
 
 References:
@@ -600,7 +600,7 @@ References:
 
 For use cases where the DID is known beforehand, DID resolution can serve as an alternative mechanism for OIDC provider discovery (alternative to OpenID Connect Discovery / WebFinger) via service endpoint.
 
-Example OpenID Connect service endpoint in DID document:
+Example OpenID Connect service endpoint in DID Document:
 
 ```
 {
