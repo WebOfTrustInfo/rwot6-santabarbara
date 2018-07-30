@@ -17,7 +17,6 @@ Please see the [Topics & Advance Readings directory](topics-and-advance-readings
 
 The goal for each Rebooting the Web of Trust workshop is publication of three to five white papers:
 
-
 ## [*BTCR DID Resolver Specification*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/btcr-resolver.pdf) [(Text)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/btcr-resolver.md)
 #### Kim Hamilton Duffy, Christopher Allen, Ryan Grant, and Dan Pape
 
@@ -37,6 +36,11 @@ The goal for each Rebooting the Web of Trust workshop is publication of three to
 #### by Heather Vescent, Kaliya “Identity Woman” Young, Adrian Gropper, and Juan Caballero
 
 > Technology commons come in a variety of flavors and have achieved varying levels of financial success. For-profit corporate activities have in few historical cases been set up with a financial feedback mechanism to support the commons upon which they depend and capitalize. Why do the commons and the technology sectors’ available forms of capitalism act as incompatible as oil and water, even though they support each other’s aims? When capitalist benefactors support the technology commons that they utilize, it creates a sustainable and thriving commons which enables and supports additional capitalistic technology innovation. Having worked on both sides of the equation, the authors of this piece propose a vocabulary to nourish these interactions between the two sides; identified characteristics of a sustainable technology commons; identified commons models and variations; applied Appreciative Inquiry principles to one commons model; and identified future research areas.
+
+## [*Introduction to DID Auth*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/did-auth.pdf) [(Text)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/did-auth.md)
+#### by Markus Sabadello, Kyle Den Hartog, Christian Lundkvist, Cedric Franz, Alberto Elias, Andrew Hughes, John Jordan & Dmitri Zagidulin
+
+> The term DID Auth has been used in different ways and is currently not well-defined. We define DID Auth as a ceremony where an identity owner, with the help of various components such as web browsers, mobile devices, and other agents, proves to a relying party that they are in control of a DID. This means demonstrating control of the DID using the mechanism specified in the DID Document's "authentication" object. This could take place using a number of different data formats, protocols, and flows. DID Auth includes the ability to establish mutually authenticated communication channels and to authenticate to web sites and applications. Authorization, Verifiable Credentials, and Capabilities are built on top of DID Auth and are out of scope for this document. This paper gives on overview of the scope of DID Auth, supported protocols and flows, and the use of components of the DID Documents that are relevant to authentication, as well as formats for challenges and responses.
 
 ## [*Open Badges are Verifiable Credentials*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/open-badges-are-verifiable-credentials.pdf) [(Text)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/open-badges-are-verifiable-credentials.md)
 #### By Nate Otto & Kim Hamilton Duffy
