@@ -17,6 +17,11 @@ _This is a listing for the RWOT6 papers to date. [Several more](https://github.c
 
 > The Decentralized Identifiers specification editors and implementers spent some time at Rebooting the Web of Trust 6 processing the remaining issues in the issue tracker. This document summarizes the proposed resolutions that the group has put forward to resolve all of the DID specification issues that were submitted before 2018-03-05.
 
+## [*Introduction to DID Auth*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/did-auth.pdf) [(Text)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/did-auth.md)
+#### by Markus Sabadello, Kyle Den Hartog, Christian Lundkvist, Cedric Franz, Alberto Elias, Andrew Hughes, John Jordan & Dmitri Zagidulin
+
+> The term DID Auth has been used in different ways and is currently not well-defined. We define DID Auth as a ceremony where an identity owner, with the help of various components such as web browsers, mobile devices, and other agents, proves to a relying party that they are in control of a DID. This means demonstrating control of the DID using the mechanism specified in the DID Document's "authentication" object. This could take place using a number of different data formats, protocols, and flows. DID Auth includes the ability to establish mutually authenticated communication channels and to authenticate to web sites and applications. Authorization, Verifiable Credentials, and Capabilities are built on top of DID Auth and are out of scope for this document. This paper gives on overview of the scope of DID Auth, supported protocols and flows, and the use of components of the DID Documents that are relevant to authentication, as well as formats for challenges and responses.
+
 ## [*Exploring Sustainable Technology Commons using Appreciative Inquiry*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/sustainable-commons.pdf) [(Text)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/sustainable-commons.md)
 #### by Heather Vescent, Kaliya “Identity Woman” Young, Adrian Gropper, and Juan Caballero
 
