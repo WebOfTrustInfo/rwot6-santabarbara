@@ -47,6 +47,11 @@ The goal for each Rebooting the Web of Trust workshop is publication of three to
 
 > We identify use cases and requirements that connect threads of work happening in the Rebooting Web of Trust community around: educational achievement claims (particularly using the Open Badges vocabulary); use of decentralized identifiers (DIDs) within web services where educational claims circulate; and integrating blockchain-reliant verification layers. We illustrate each of these cases with a set of example documents and describe user stories for Open Badges ecosystem software in the roles of Issuer, Host/Backpack, Displayer, and Verifier that need to be implemented in order to enable the capabilities described.
 
+## [*SSI: A Roadmap for Adoption*](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/a-roadmap-for-ssi.pdf) [(Text)](https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/a-roadmap-for-ssi.md)
+#### By Moses Ma, Claire Rumore, Dan Gisolfi, Wes Kussmaul & Dan Greening (Senex Rex)
+
+> This document proposes the formation of a short-term team to develop consistent messaging for the Self-Sovereign Identity (SSI) market. It will target key stakeholders who would actively promote SSI adoption. The goal is to create an SSI market roadmap. This roadmap will help SSI leaders, standards bodies, developers, academics, media, and investors coordinate and clarify their messaging for the market, to accelerate the SSI adoption. 
+
 ## Complete Rebooting the Web of Trust Listing
 
 A different repository is available for each of the Rebooting the Web of Trust design workshops:
