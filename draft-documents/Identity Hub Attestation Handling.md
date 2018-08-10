@@ -18,11 +18,11 @@ In the digital identity space, Hubs let you securely store and share data. A Hub
 
 ## 2 Example Use Cases
 
-We use examples here to give guidance/suggestions for how attestations can be used with real world examples. The overall use case is a person, Alice who registers for College using that a process that includes using an attestation she possesses to prove she has received some required immunizations. After graduation, Alice requests an attestation from the College that she has graduated, and presents that attestation to her professional profile on a professional network.
+We use examples here to give guidance/suggestions for how attestations can be used with real-world examples. The overall use case is a person, Alice, who registers for College using a process that includes using an attestation she possesses to prove she has received some required immunizations. After graduation, Alice requests an attestation from the College that she has graduated, and presents that attestation to her professional profile on a professional network.
 
 #### Agents
 
-We use the term “User Agent” (UA) to refer to an app on a smartphone or other device that has access to DID-linked keys and the power to do things on behalf of a DID owner (Alice). This could also be referred to as a digital wallet. Similarly, we use the term “Enterprise Agent” (EA) to refer to the comparable component representing an Organization – e.g. a College or professional network. A UA and EA are conceptually the same, but while the UA is likely a personal device (laptop, tablet, phone), an EA is likely a service that processes requests based on business rules and data held in back end systems. Note that an EA might need input from a specific member of the organization to complete the processing of a request. In that case, the EA might contact that user through that person’s User Agent (although there are many other possibilities).
+We use the term “User Agent” (UA) to refer to an app on a smartphone or other device that has access to DID-linked keys and the power to do things on behalf of a DID owner (Alice). This could also be referred to as a digital wallet. Similarly, we use the term “Enterprise Agent” (EA) to refer to the comparable component representing an Organization – e.g. a College or professional network. A UA and EA are conceptually the same, but while the UA is likely a personal device (laptop, tablet, phone), an EA is likely a service that processes requests based on business rules and data held in back-end systems. Note that an EA might need input from a specific member of the organization to complete the processing of a request. In that case, the EA might contact that user through that person’s User Agent (although there are many other possibilities).
 
 #### Sites
 
@@ -30,9 +30,9 @@ In the examples below, “Sites” are assumed to be Web or Mobile Site – user
 
 #### Decentralized IDs (DIDs), Documents and Attestations
 
-Each of Alice's Decentralized Identifiers (DIDs) referenced in the scenarios is generated and held by her user agent (UA) and used for a specific purpose - for example her relationship with the College. Each of her DIDs are not necessarily correlated to any other identifiers that make up her identity. Per the [W3C DID Specification](https://w3c-ccg.github.io/did-spec/), associated with a DID is a DID Document that contains information about the public keys and service endpoints for that DID. Thus, given a DID and DID Document for another Identity, an entity has a mechanism to resolve and communicate with the Identity Owner of the DID. DIDs may be public and stored on a publicly available Distributed Ledger, with their associated DID Document found via the [DIF Universal Resolver](https://github.com/decentralized-identity/universal-resolver), or may be pairwise private DIDs, where two Identities directly exchange DIDs/DID Documents.
+Each of Alice's Decentralized Identifiers (DIDs) referenced in the scenarios is generated and held by her user agent (UA) and used for a specific purpose - for example her relationship with the College. Her DIDs are not necessarily correlated to any other identifiers that make up her identity. Per the [W3C DID Specification](https://w3c-ccg.github.io/did-spec/), a DID Document is associated with a DID  that contains information about the public keys and service endpoints for that DID. Thus, given a DID and DID Document for another Identity, an entity has a mechanism to resolve and communicate with the Identity Owner of the DID. DIDs may be public and stored on a publicly available Distributed Ledger, with their associated DID Document found via the [DIF Universal Resolver](https://github.com/decentralized-identity/universal-resolver), or may be pairwise private DIDs, where two Identities directly exchange DIDs/DID Documents.
   
-An attestation is something (such as a [Verifiable Credential](https://www.w3.org/TR/verifiable-claims-data-model/)) issued by an entity to a holder (often the subject of the attestation) so that the holder can prove they hold the attestation to others. In one of the examples below, for instance, Alice wants to receive a graduation attestation from the College so that they can present (prove) that attestation to a professional network.
+An attestation is something (such as a [Verifiable Credential](https://www.w3.org/TR/verifiable-claims-data-model/)) issued by an entity to a holder (often the subject of the attestation) so that the holder can prove  to others that they hold the attestation. In one of the examples below, for instance, Alice wants to receive a graduation attestation from the College so that she can present (prove) that attestation to a professional network.
 
 #### Interface Guidelines: Hubs, Agents and Identity Owners
 
@@ -44,14 +44,13 @@ Some basic guidelines are defined about Hubs, Agents, and their Identity Owners:
     
 -   Hubs generally have limited, generic functionality, and any decision making must be made at the Agent level via a user app/device (User Agents) or more automated business services (Enterprise Agents).
 
-For simplicity we show the Hub and Enterprise Agent as a single entity in the following scenarios. In typical implementations, those will be separate entities that communicate to accomplish their respective activities.
+For simplicity, we show the Hub and Enterprise Agent as a single entity in the following scenarios. In typical implementations, they will be separate entities that communicate to accomplish their respective activities.
 
-### 2.1 Alice links to an Entity
+### 2.1 Alice Links to an Entity
 
-In order to communicate a request for attestation to an entity (in our examples, Alice), will first need to establish a connection between her user agent and the entity she will interact with. This is necessary for all follow-on scenarios.
+In order to communicate a request for attestation to an entity (in our examples, Alice), a user will first need to establish a connection between her user agent and the entity she will interact with. This is necessary for all follow-on scenarios.
   
-Alice wants to transact with the entities described in the scenarios with the intent to receive or exchange attestations. First and foremost, the entity must verify that Alice is the owner of the decentralized identifier she claims. In order to find Alice’s user agent, we leverage the Universal Resolver (UR) to lookup Alice’s Decentralized Identifier (DID) to find her DID Document (DDO). The keys located in Alice's DDO are used to authenticate Alice’s ownership of the DID, and determine access to Alice’s hub and user agent.
-
+Alice wants to transact with the entities described in the scenarios with the intent to receive or exchange attestations. First and foremost, the entity must verify that Alice is the owner of the decentralized identifier she claims. In order to find Alice’s user agent, we leverage the Universal Resolver (UR) to lookup Alice’s Decentralized Identifier (DID) to find her DID Document (DDO). The keys located in Alice's DDO are used to authenticate Alice’s ownership of the DID and to determine access to Alice’s hub and user agent.
 
 ```sequence
 participant Universal Resolver as UR
@@ -76,7 +75,7 @@ EH-->ES: 10 DID Auth Complete
     1. Alice may have to use the Universal Resolver to access the DID Document associated with the DID.
     
 2.  The entity prompts for Alice to disclose a DID that represents her digital identity.
-    1. If  the website was accessed via a laptop/desktop, the website typically displays a QR Code for Alice to use her mobile wallet app to scan the QR. If the website was accessed via her mobile device, a protocol handler raises Alice's AU app.
+    1. If  the website was accessed via a laptop/desktop, the website typically displays a QR Code, and Alice uses her mobile wallet app to scan the QR. If the website was accessed via her mobile device, a protocol handler raises Alice's AU app.
 
 3.  Alice selects an existing DID or creates a new DID for this relationship and sends the DID to the Entity Site.
     
@@ -94,7 +93,7 @@ EH-->ES: 10 DID Auth Complete
     
 10.  The Entity Hub confirms the response and notifies the Entity Site with a successful login.
 
-#### 2.1.2 DIF Identity Hub 2FA
+#### 2.1.1 DIF Identity Hub 2FA
 
 A second identity linking scenario to consider is when Alice is registering with the site using a device that is not a UA,  yet she still wants to use her UA to establish the connection. In this case, Alice discloses a DID connected to her UA to the site, the site contacts the UA and the mobile device containing the UA displays a code for Alice to use. Alice enters the code into a form on the site, proving that she controls the DID.
 
@@ -129,13 +128,13 @@ AD-->ES: 8 Enters challenge code
     
 7.  Alice’s Hub passes the DID Auth challenge to Alice’s User Agent for signing.
     
-8.  Alice’s User Agent processes the challenge and displays on the mobile device a code expected by the Entity Site.
+8.  Alice’s User Agent processes the challenge and displays a code expected by the Entity Site on the mobile device.
     
-9.  Alice on her laptop enters the code and the Entity Site confirms the response, resulting in a successful login.
+9.  Alice enters the code on her laptop and the Entity Site confirms the response, resulting in a successful login.
 
-### 2.2 Alice must provide preconditional proof
+### 2.2 Alice Must Provide Preconditional Proof
 
-Alice is attempting to register for College and her DID is already linked to the College. In this example, for Alice to get admitted to the College, Alice must prove she previously has received appropriate immunizations.
+Alice is attempting to register for college and her DID is already linked to the College. In this example, for Alice to get admitted to the College, she must prove that she previously has received appropriate immunizations.
 
 #### Assumptions
 
@@ -149,13 +148,13 @@ participant College Site as CS
 participant Alice UA as AUA
 participant Alice Hub as AH
 
-AUA-->CS: 1 Trigger registration attestation request
+AUA-->CS: 1 Triggers registration attestation request
 CS-->AH: 2 Action: PreconditionsAttestationAction (Immunizations)
-AH-->AUA: 3 Prompt with preconditions
+AH-->AUA: 3 Prompts with preconditions
 AUA-->CH: 4 Action: PresentAttestationAction (Immunizations)
 CH-->AH: 5 Action: DeliverAttestationAction (Registered)
-AH-->AUA: 6 Accept Attestation?
-AUA-->AH: 7 Store approved attestation
+AH-->AUA: 6 Accepts Attestation?
+AUA-->AH: 7 Stores approved attestation
 ```
 
 1.  Alice initiates a Registration request on the College Site.
@@ -168,7 +167,7 @@ AUA-->AH: 7 Store approved attestation
     
 5.  The College EA processes the preconditions and sends a Registered Student attestation to Alice's Hub.
     
-6.  Alice accepts the request to accept/store the College registration attestation.
+6.  Alice accepts the request to accept/store the college registration attestation.
     
 7.  Alice’s Hub stores the Registered Student attestation and broadcasts it to her connected devices.
 
@@ -178,16 +177,15 @@ AUA-->AH: 7 Store approved attestation
 -   PresentAttestationAction
 -   DeliverAttestationAction
     
+### 2.3 Alice Obtains a Diploma Attestation
 
-### 2.3 Alice obtains a diploma attestation
-
-In this example, Alice has graduated from College and wants to acquire a digital diploma attestation.
+In this example, Alice has graduated from college and wants to acquire a digital diploma attestation.
 
 #### Assumptions
 
 -   Alice is linked to the College via her DID.
 -   Alice has an Identity Hub accessed via an application on her mobile device.
--   Alice has graduated from College
+-   Alice has graduated from College.
 
 ```sequence
 participant College Hub / EA as CH
@@ -196,13 +194,13 @@ participant Alice UA as AUA
 participant Alice Hub as AH
 
 AUA-->CS: 1 Triggers attestation request
-CS-->CH: 2 Determine available attestations
+CS-->CH: 2 Determines available attestations
 CH-->AH: 3 Action: OfferAttestationAction
-AH-->AUA: 4 Select from offered attestations
+AH-->AUA: 4 Selects from offered attestations
 AUA-->CH: 5 Action: RequestAttestationAction
-CH-->AH: 7 Action: DeliverAttestationAction
-AH-->AUA: 8 Accept Attestation?
-AUA-->AH: 9 Approved for storage
+CH-->AH: 6 Action: DeliverAttestationAction
+AH-->AUA: 7 Accepts Attestation?
+AUA-->AH: 8 Approved for storage
 ```
 
 1.  Alice initiates a request through the College website to obtain an attestation regarding her graduation.
@@ -227,10 +225,9 @@ Referenced Action Objects
 -   RequestAttestationAction
 -   DeliverAttestationAction
 
+### 2.4 Alice Shares Her Education Verification, and Future Updates, with a Professional Networking Site
 
-### 2.4 Alice shares her education verification, and future updates, with a professional networking site
-
-Alice has graduated from College, possesses an attestation from the College, and wants to share her existing and future education attestations with a professional networking site.
+Alice has graduated from college, possesses an attestation from the College, and wants to share her existing and future education attestations with a professional networking site.
 
 #### Assumptions
 
@@ -244,10 +241,10 @@ participant Prof. Site as LS
 participant Alice UA as AUA
 participant Alice Hub as AH
 
-AUA-->LS: 1 Trigger permission request
+AUA-->LS: 1 Triggers permission request
 LS-->AH: 2 Action: RequestPermissionAction
-AH-->AUA: 3 Prompt to grant permission
-AUA-->AH: 4 Generate permission and keys
+AH-->AUA: 3 Prompts to grant permission
+AUA-->AH: 4 Generates permission and keys
 AH-->LH: 5 Action: GrantPermissionAction
 LH-->LS: 6 Notice of permission grant
 LS-->AH: 7 RetrieveAttestationsAction
@@ -255,19 +252,18 @@ LS-->AH: 7 RetrieveAttestationsAction
 
 1.  Alice navigates to the professional network site and initiates the flow to grant access to her educational attestations.
 
-2.  The website sends a `RequestPermissionAction` to Alice’s hub.
+2.  The website sends a `RequestPermissionAction` to Alice’s Hub.
 
 3.  Alice’s Hub relays the request to Alice's UA, which prompts her to grant/deny permission.
     
 4.  Alice grants permission to access her current and future educational attestations by pushing a signed permission object and DID-specific keys to her Hub.
     
-5.  Alice’s Hub stores the keys she generated for the professional networking site, and relays a Action to the professional network's Hub to provide notice that their permission request has been granted.
+5.  Alice’s Hub stores the keys she generated for the professional networking site and relays an Action to the professional network's Hub to provide notice that their permission request has been granted.
 
-6. The Prof Site is notified that the permission has been granted.
+6. The professional networking site is notified that the permission has been granted.
 
 7.  At any time in the future, the professional networking site can retrieve Alice’s education credentials from Alice’s Hub, based on the permissions she provided and using the private key held by the professional networking site.
     1.  Should the permission later be removed, the Prof Site's ability to retrieve updated credentials will be removed. 
-
 
 Referenced Action Objects
 
@@ -275,8 +271,7 @@ Referenced Action Objects
 -   GrantPermissionAction
 -   RetrieveAttestationsAction
 
-
-### 2.5 Alice applies for job and refuses to provide references
+### 2.5 Alice Applies for a Job and Refuses to Provide References
 
 Alice is applying for a job and has connected with the HR department via her DID. Alice has already provided some basic attestations about her right to work, name, address, etc. But when she receives a request for her references Alice refuses/denies the request as by the time this request comes in Alice has already accepted a position somewhere else (for example).
 
@@ -293,27 +288,28 @@ participant Alice UA as AUA
 participant Alice Hub as AH
 
 LS-->AH: 1 Action: PreconditionsAttestationAction (References)
-AH-->AUA: 2 Prompt for reference disclosure
-AUA-->LH: 4 Action: DenyAttestationAction (Reason)
+AH-->AUA: 2 Prompts for reference disclosure
+AUA->AH: 3 Refuses reference disclosure
+AH-->LH: 4 Action: DenyAttestationAction (Reason)
 LH-->LS: 5 Notice of refusal
 ```
 
-1.  HR initiates a request for references via Alice’s Hub
+1.  HR initiates a request for references via Alice’s Hub.
     
 2.  Alice's Hub finds appropriate Attestations and provides them to Alice's User Agent.
     
-3.  For whatever reason, Alice refuses (via her agent) to provide references at this time
+3.  For whatever reason, Alice refuses (via her agent) to provide references at this time.
     
-4.  Alice’s Hub notifies HR Hub of the refusal (reason for refusal is optional)
+4.  Alice’s Hub notifies HR Hub of the refusal, with optional reason for refusal.
 
-5.  A notification is sent to HR with the refusal details (generic or specific to the scenario)
+5.  A notification is sent to HR with the refusal details (generic or specific to the scenario).
     
 #### Referenced Action Objects
 
 -   PreconditionAttestationAction
 -   DenyAttestionAction
 
-### 2.6 A bank sends Alice a contract that requires her DID signature, which she signs and delivers back to the bank.
+### 2.6 A Bank Sends Alice a Contract that Requires her DID signature, which She Signs and Delivers Back to the Bank.
 
 ```sequence
 participant App Hub / EA as LH
@@ -323,17 +319,16 @@ participant Alice Hub as AH
 
 LS-->AH: 1 Action: SignAttestationAction (Contract)
 AH-->AUA: 2 Prompt for signature
-AUA-->LH: 4 Action: DeliverAttestationAction (Contract)
-LH-->LS: 5 Notice of signing
+AUA-->LH: 3 Action: DeliverAttestationAction (Contract)
+LH-->LS: 4 Notice of signing
 ```
 
 #### Referenced Action Objects
 
 -   SignAttestionAction
 -   DeliverAttestationAction
- 
 
-### 2.7 The College determines Alice was issued a nursing certificate instead of her CS diploma, so they revoke the attestation and issue the correct one.
+### 2.7 The College Determines Alice Was Issued a Nursing Certificate Instead of Her CS diploma, so They Revoke the Attestation and Issue the Correct One.
 
 ```sequence
 participant App Hub / EA as LH
@@ -353,7 +348,7 @@ AUA-->AH: 5 Store accepted attestation
 -  RevokeAttestationAction
 -  DeliverAttestationAction
 
-### 2.8 Alice retracts data access permission from a professional networking site.
+### 2.8 Alice Retracts Data Access Permission from a Professional Networking Site.
 
 ```sequence
 participant Prof. Hub / EA as PH
@@ -372,7 +367,7 @@ Referenced Action Objects
 
 -  RetractPermissionAction
 
-### 2.9 Alice's College discovers they made a mistake on her diploma attestation, and sends her an amended attestation with the correct info.
+### 2.9 Alice's College Discovers they Made a Mistake on her Diploma Attestation, and Sends her an Amended Attestation with the Correct Info.
 
 ```sequence
 participant College Site as CS
@@ -390,7 +385,7 @@ AUA-->AH: 3 Replace old with new attestation
 
 ## 3 Action Objects
 
-Identity Hub attestation handling relies on the passage and recognition of common Action types that Hubs, User Agents, and consuming apps/services understand. In order to ensure that the flows related to attestations are precise and maximally descriptive of their intent, the Identity Hub spec will define its own Action objects for each of the relevant attestation actions. These objects are extensions of the Schema.org Action object, the schema origin of which shall be schema.identity.foundation. These objects are strictly a shared means of communicating and facilitating the various activities related to attestations, they do not infer or require a specific type of proof format or material be used within them.
+Identity Hub attestation handling relies on the passage and recognition of common Action types that Hubs, User Agents, and consuming apps/services understand. In order to ensure that the flows related to attestations are precise and maximally descriptive of their intent, the Identity Hub spec will define its own Action objects for each of the relevant attestation actions. These objects are extensions of the Schema.org Action object, the schema origin of which shall be schema.identity.foundation. These objects are strictly a shared means of communicating and facilitating the various activities related to attestations; they do not infer or require a specific type of proof format or material be used within them.
 
 Note that each Action returns only a status of whether the Action was successfully (or not) transmitted. The result of processing the request is conveyed to the caller via a subsequent Action.
 
@@ -479,7 +474,7 @@ Used by any party that delivers a finalized attestation to a target entity. This
 
 -   Linked attestation action ID
 -   Payload of the proof material
--   Format if the proof material
+-   Format of the proof material
 -   Time delivered
   
 ```json
@@ -552,8 +547,7 @@ The party that previously supplied an attestation sends a notice to the attestat
 
 ### 3.9 AmendAttestationAction
 
-Require past ID, optionally include previous attestation. This `Action` inherits from schema.org's `ReplaceAction`.
-
+Used to update an attestation. Requires past ID, optionally including previous attestation. This `Action` inherits from schema.org's `ReplaceAction`.
 
 -   Attestation ID
 -   Change delta of some kind
@@ -602,7 +596,7 @@ The party that allows a permission sends a notice to the requesting party to let
 
 ### 3.12 DenyPermissionAction
 
-The party evaluating the permission request does not grant the permission, and sends the requesting party a notice of the denial. This `Action` inherits from schema.org's `RejectAction`.
+The party evaluating the permission request does not grant the permission and sends the requesting party a notice of the denial. This `Action` inherits from schema.org's `RejectAction`.
 
 There is not currently an example of this action in the scenarios in Section 2 of this document.
 
@@ -654,7 +648,7 @@ Used by any party that has been granted permission access to a set of Attestatio
 
 - **DID**: Decentralized Identifier
 
-- **DID Auth**: Authentication of an Identity by verifying the Identities control of it's DID
+- **DID Auth**: Authentication of an Identity by verifying the Identity's control of its DID
 
 - **DID Document**:  The control document that specifies keys, service endpoints, and other basic details about a DID.
 
