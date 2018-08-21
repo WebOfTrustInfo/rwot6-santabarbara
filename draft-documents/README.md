@@ -91,8 +91,8 @@ This directory continues the drafts of the white papers and specs that are comin
    <tr>
      <td><b><i>Open Badge Are Verifiable Credentials</i></b></td>
     <td>Nate</td>
-    <td><a href="open-badges-are-verifiable-credentials.md">Draft</a></td>
-          <td>3/14</td>
+    <td><a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/open-badges-are-verifiable-credentials.pdf">Final</a></td>
+          <td>DONE</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -102,8 +102,8 @@ This directory continues the drafts of the white papers and specs that are comin
    <tr>
      <td><b><i>Roadmap: Let's Go Exponential</i></b></td>
     <td>Moses</td>
-    <td><a href="a-roadmap-for-ssi.md">Draft</a></td>
-          <td>June Query</td>
+    <td><a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/a-roadmap-for-ssi.pdf">Final</a></td>
+          <td>DONE</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -114,7 +114,7 @@ This directory continues the drafts of the white papers and specs that are comin
        <td><b><i>Six Truths About Biometrics</i></b></td>
     <td>Jack C.</td>
     <td><a href="Biometrics.md">Draft</a></td>
-                 <td>June Query</td>
+                 <td>Re-Queried (8/21/18)</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -125,7 +125,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>TLS-Flex</i></b></td>
     <td>Sam C.</td>
     <td><a href="TLS-Flex.md">Draft</a></td>
-              <td>3/20?</td>
+              <td>Re-Queried (8/21/18)</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -147,7 +147,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>Web of Trust: End to End</i></b></td>
     <td>Kim</td>
     <td></td>
-              <td>Queried</td>
+              <td>Re-Queried (8/21/18)</td>
   </tr>
   <tr>
     <td colspan=4>
