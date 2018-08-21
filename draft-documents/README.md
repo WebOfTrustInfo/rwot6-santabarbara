@@ -15,7 +15,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>Attribute-Based Credentials</i></b></td>
     <td>Nathan G.</td>
     <td></td>
-    <td>Queried</td>
+    <td>Re-Queried (8/21)</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -58,8 +58,8 @@ This directory continues the drafts of the white papers and specs that are comin
   <tr>
     <td><b><i>DID-Auth</i></b></td>
     <td>Markus</td>
-    <td><a href="did_auth_draft.md">Draft</a></td>
-    <td>June Query</td>
+    <td><a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/did-auth.pdf">Final</a></td>
+    <td>DONE</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -69,8 +69,8 @@ This directory continues the drafts of the white papers and specs that are comin
    <tr>
      <td><b><i>Identity Hubs</i></b></td>
     <td>Daniel</td>
-    <td><a href="Identity%20Hub%20Attestation%20Handling.md">Draft</a></td>
-     <td>June Query</td>
+    <td><a href="https://github.com/WebOfTrustInfo/rebooting-the-web-of-trust-spring2018/blob/master/final-documents/identity-hub-attestations.pdf">Final</a></td>
+     <td>DONE</td>
   </tr>
   <tr>
     <td colspan=4>
@@ -81,7 +81,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>Making DIDs Invisible: Petnames & Their Secure User Interfaces</i></b></td>
     <td>Chris W.</td>
      <td><a href="making-dids-invisible-with-petnames.md">Outline</a></td>
-         <td>Queried</td>
+         <td>Re-Queried (8/21/18)</td>
   </tr>
   <tr>
     <td colspan=4>
