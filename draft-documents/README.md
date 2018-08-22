@@ -147,7 +147,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>Web of Trust: End to End</i></b></td>
     <td>Kim</td>
     <td></td>
-              <td>Re-Queried (8/21/18)</td>
+              <td>CANCELED</td>
   </tr>
   <tr>
     <td colspan=4>
