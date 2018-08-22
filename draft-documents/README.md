@@ -81,7 +81,7 @@ This directory continues the drafts of the white papers and specs that are comin
     <td><b><i>Making DIDs Invisible: Petnames & Their Secure User Interfaces</i></b></td>
     <td>Chris W.</td>
      <td><a href="making-dids-invisible-with-petnames.md">Outline</a></td>
-         <td>Re-Queried (8/21/18)</td>
+         <td>Draft: 8/26/18</td>
   </tr>
   <tr>
     <td colspan=4>
