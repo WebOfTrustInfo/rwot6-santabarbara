@@ -114,7 +114,7 @@ This directory continues the drafts of the white papers and specs that are comin
        <td><b><i>Six Truths About Biometrics</i></b></td>
     <td>Jack C.</td>
     <td><a href="Biometrics.md">Draft</a></td>
-                 <td>Re-Queried (8/21/18)</td>
+                 <td>In Process (8/27/18)</td>
   </tr>
   <tr>
     <td colspan=4>
