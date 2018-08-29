@@ -113,7 +113,7 @@ She searches for "Ben" in her contact list:
 
 <!-- TODO: Insert search for Ben here -->
 
-The "local contacts" section shows **petnames** of people she knows,
+The "personal contacts" section shows **petnames** of people she knows,
 and "Ben Shapiro" is a research colleague of Dr. Nym's.
 The "network contacts" shows **edge names** published by entities
 Dr. Nym has stored locally as
