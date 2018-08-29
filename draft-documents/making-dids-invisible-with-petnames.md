@@ -98,6 +98,9 @@ Alyssa receives a phone call from 1-324-555-8953.
 However, when she checks her phone to answer it, she does not see
 the phone number itself, she sees "Mom", which is the petname she has
 bound locally to the phone number.
+
+<!-- TODO: Insert incoming phone call image here -->
+
 Alyssa answers the call and her mother, Dr. Nym, mentions that she's
 giving a special lecture on mathematics that she would like help
 organizing, and wonders if any of Alyssa's friends may be interested
@@ -105,9 +108,10 @@ in attending or assisting.
 Alyssa offers to help and suggests that her long-time friend Ben
 Bitdiddle may be interested in both attending and helping.
 
-
 Dr. Nym says goodbye to her daughter and hangs up the phone.
 She searches for "Ben" in her contact list:
+
+<!-- TODO: Insert search for Ben here -->
 
 The "local contacts" section shows **petnames** of people she knows,
 and "Ben Shapiro" is a research colleague of Dr. Nym's.
