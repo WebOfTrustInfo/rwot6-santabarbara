@@ -124,9 +124,12 @@ by Alyssa) she is confident this must be her daughter's friend.
 She clicks this entry and dials Ben.
 
 Ben hears an incoming call and sees that the caller is labeled
-"Alyssa ⇒ Jane Nym" and in smaller text "Campus Faculty ⇒ Dr. Nym".
+"Alyssa ⇒ Jane Nym" and in smaller text "Faculty ⇒ Dr. Nym".
+
+<!-- TODO: Insert incoming call from Dr. Nym here -->
+
 While Ben did not have Dr. Nym saved with a local petname, he
-has both Alyssa and the Campus Faculty directory saved as local
+has both Alyssa and the university's Faculty directory saved as local
 petnames, and from the both of those remembers that Alyssa's mother
 is named Jane Nym and that she is a professor on campus.
 Ben accepts the call and enthusiastically agrees to help Dr. Nym
@@ -136,12 +139,14 @@ enthusiastically states that while she will place an order for pizza,
 she would not have time to pick it up beforehand, and so help there
 would be greatly appreciated.
 
-
 Ben decides that since he is helping out that he should store
 Dr. Nym's contact information permanently in his address book.
 Ben checks the call history and sees that the first item says
 a call from "Alyssa ⇒ Jane Nym".
 He selects "Save Contact" from a menu.
+
+<!-- TODO: Menu with save contact picture -->
+
 On the edit screen that appears, a "local name" widget is immediately
 selected with a suggested entry of "Jane Nym" highlighted in such
 a way that if Ben were to begin typing he could override this text.
@@ -164,6 +169,8 @@ Returning to the recent calls page, he sees that the contact list's
 display has been updated to saying simply "Jane Nym" for the most
 recent call.
 
+<!-- TODO: The QR code thing seems like a good idea to represent
+       but seems like a bit too much work -->
 
 Meanwhile Dr. Nym is wasting no time in placing the order for the
 pizzas for the event.
@@ -180,7 +187,6 @@ establishment and paying for pizzas.
 She calls, pays, and tells the cashier who is taking the order that
 Ben will be the one picking up the pizzas and handling any additional
 details and supplies them with Ben's number.
-
 
 Time passes, and just hours before the event Ben gets an incoming
 phone call from a number he has not saved as a petname and for which

@@ -71,7 +71,7 @@
      
      (blank 0 5)
      (text "Network contacts:" (cons 'bold 'default))
-     (text "  ☎ Alyssa ⇒ Ben Bitdiddle"))
+     (text "  ☎ Alyssa ➞ Ben Bitdiddle"))
     10)))
 
 
@@ -96,6 +96,9 @@
    (vc-append
     (text "☎" null 25)
     (text "Alyssa ➞ Jane Nym" (cons 'bold 'default))
+    ;; TODO: Remove this?
+    (blank 0 2)
+    (text "Faculty ➞ Dr. Nym" (cons 'bold 'default) 10)
     (blank 0 10)
     (hc-append 5
                (text-button "accept" #:width 70)
