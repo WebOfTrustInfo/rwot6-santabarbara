@@ -2,7 +2,7 @@
 
 This repository contains documents related to RWOT6, the sixth Rebooting the Web of Trust design workshop, which ran in Santa Barbara, California, on March 6th to 8th, 2018. The goal of the workshop was to generate five technical white papers and/or proposals on topics decided by the group that would have the greatest impact on the future.
 
-_Please see the [Web of Trust Info website](http://www.weboftrust.info/) for more information about our community. Go to [Eventbrite](http://rwot6.eventbrite.com) to register for this event._
+_Please see the [Web of Trust Info website](http://www.weboftrust.info/) for more information about our community._
 
 ##  Topics & Advance Readings
 
