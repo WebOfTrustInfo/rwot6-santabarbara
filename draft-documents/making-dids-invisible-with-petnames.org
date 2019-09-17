@@ -3,6 +3,16 @@
 By Christopher Lemmer Webber, Mark S. Miller, Zarchary Larson, Kate Sills,
 and Eli Yaacoby
 
+#+BEGIN_QUOTE
+"What's the use of their having names," the Gnat said, "if they won t
+answer to them?"
+
+"No use to them," said Alice; "but it s useful to the people that name
+them, I suppose. If not, why do things have names at all?"
+
+  -- Through the Looking-Glass, and What Alice Found There
+#+END_QUOTE
+
 If we ever show a DID to a user we have failed.  We should always show
 a human readable name.  DIDs and tor .onion names give decentralized
 and globally unique names, but they are not human readable.  How can
