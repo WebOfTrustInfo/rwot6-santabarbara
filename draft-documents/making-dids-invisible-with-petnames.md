@@ -28,7 +28,7 @@ trademark offices, and decentralized systems such as Namecoin.
 > "What's the use of their having names," the Gnat said, "if they won't
 > answer to them?"
 >
-> "No use to them," said Alice; "but it'os useful to the people that name
+> "No use to them," said Alice; "but it's useful to the people that name
 > them, I suppose. If not, why do things have names at all?"
 >
 > &#x2013; Through the Looking-Glass, and What Alice Found There
