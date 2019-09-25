@@ -95,12 +95,23 @@
                                #:color "white")
      name-text)))
 
-(define incoming-call
+(define incoming-call-mom
   (cc-superimpose
    (filled-rectangle 185 225 #:color "white")
    (vc-append
     (text "☎" null 25)
-    (text "Alyssa ➞ Jane Nym" (cons 'bold 'default))
+    (text "Mom" (cons 'bold 'default) 14)
+    (blank 0 10)
+    (hc-append 5
+               (text-button "accept" #:width 70)
+               (text-button "decline" #:width 70)))))
+
+(define incoming-call-edge-names
+  (cc-superimpose
+   (filled-rectangle 185 225 #:color "white")
+   (vc-append
+    (text "☎" null 25)
+    (text "Alyssa ➞ Jane Nym" (cons 'bold 'default) 12)
     ;; TODO: Remove this?
     (blank 0 2)
     (text "Faculty ➞ Dr. Nym" (cons 'bold 'default) 10)
@@ -122,12 +133,12 @@
     #:exists 'replace))
 
 (define (write-images)
-  #;(write-image call-from-mom
-                 "call-from-mom")
+  (write-image incoming-call-mom
+               "incoming-call-mom")
   (write-image search-interface
-               "nym-searches-for-ben")
-  (write-image incoming-call
-               "call-from-dr-nym")
+               "search-interface")
+  (write-image incoming-call-edge-names
+               "incoming-call-edge-names")
   #;(write-image save-contact
                "save-contact")
 
