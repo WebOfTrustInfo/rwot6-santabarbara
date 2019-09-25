@@ -137,8 +137,3 @@
   (write-images)
   (printf "Wrote images to ~a" (path->string (write-dir)))
   (void))
-
-
-#;(call-with-output-file "/tmp/search-interface-medium.svg"
-    (lambda (p)
-      (write-bytes (convert (scale search-interface 1.5) 'svg-bytes) p)))
