@@ -129,6 +129,10 @@
 
   (call-with-output-file (build-path (write-dir) (format "~a.png" filename-base))
     (lambda (op)
+      (write-bytes (convert (scale pict scale-amt) 'png-bytes) op))
+    #:exists 'replace)
+  (call-with-output-file (build-path (write-dir) (format "~a.svg" filename-base))
+    (lambda (op)
       (write-bytes (convert (scale pict scale-amt) 'svg-bytes) op))
     #:exists 'replace))
 
