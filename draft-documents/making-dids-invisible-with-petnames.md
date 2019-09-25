@@ -106,6 +106,8 @@ However, when she checks her phone to answer it, she does not see
 the phone number itself, she sees "Mom", which is the petname she has
 bound locally to the phone number.
 
+![Incoming call from petname mockup](./petnames-pictures/incoming-call-mom.svg)
+
 <!-- TODO: Insert incoming phone call image here -->
 
 Alyssa answers the call and her mother, Dr. Nym, mentions that she's
@@ -118,7 +120,7 @@ Bitdiddle may be interested in both attending and helping.
 Dr. Nym says goodbye to her daughter and hangs up the phone.
 She searches for "Ben" in her contact list:
 
-<!-- TODO: Insert search for Ben here -->
+![Search interface mockup](./petnames-pictures/search-interface.svg)
 
 The "personal contacts" section shows **petnames** of people she knows,
 and "Ben Shapiro" is a research colleague of Dr. Nym's.
@@ -133,7 +135,7 @@ She clicks this entry and dials Ben.
 Ben hears an incoming call and sees that the caller is labeled
 "Alyssa ⇒ Jane Nym" and in smaller text "Faculty ⇒ Dr. Nym".
 
-<!-- TODO: Insert incoming call from Dr. Nym here -->
+![Incoming call from edge name mockup](./petnames-pictures/incoming-call-edge-names.svg)
 
 While Ben did not have Dr. Nym saved with a local petname, he
 has both Alyssa and the university's Faculty directory saved as local
