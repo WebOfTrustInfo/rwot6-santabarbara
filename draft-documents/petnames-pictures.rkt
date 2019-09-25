@@ -3,7 +3,11 @@
 (require pict
          images/icons/control images/icons/style
          images/icons/symbol
-         file/convertible)
+         file/convertible
+         racket/runtime-path)
+
+(define-runtime-path pwd
+  ".")
 
 (define phone-icon (text-icon "☎"))
 (define phone-text (text "☎" null 20))
@@ -33,13 +37,14 @@
 ;;  o corpdir => Megan Stanford LLC
 
 (define (filled-frame pct
+                      #:width [width (pict-width pct)]
+                      #:height [height (pict-height pct)]
                       #:color [color "white"]
                       #:draw-border? [draw-border? #t]
                       #:border-color [border-color #f]
                       #:border-width [border-width #f])
-  (cc-superimpose
-   (filled-rectangle (pict-width pct)
-                     (pict-height pct)
+  (ct-superimpose
+   (filled-rectangle width height
                      #:color color
                      #:draw-border? draw-border?
                      #:border-width border-width
@@ -51,7 +56,6 @@
    (inset
     (vl-append
      10
-     
      (hc-append 10
                 (text "Search: " (cons 'bold 'default))
                 (let ([name-text
@@ -72,7 +76,8 @@
      (blank 0 5)
      (text "Network contacts:" (cons 'bold 'default))
      (text "  ☎ Alyssa ➞ Ben Bitdiddle"))
-    10)))
+    10)
+   #:height 225))
 
 
 (define (text-button str #:width [width #f])
@@ -92,7 +97,7 @@
 
 (define incoming-call
   (cc-superimpose
-   (filled-rectangle 185 250 #:color "white")
+   (filled-rectangle 185 225 #:color "white")
    (vc-append
     (text "☎" null 25)
     (text "Alyssa ➞ Jane Nym" (cons 'bold 'default))
@@ -103,6 +108,36 @@
     (hc-append 5
                (text-button "accept" #:width 70)
                (text-button "decline" #:width 70)))))
+
+(define write-dir
+  (make-parameter (build-path pwd "petnames-pictures")))
+
+(define (write-image pict filename-base #:scale [scale-amt 1.5])
+  (unless (directory-exists? (write-dir))
+    (make-directory (write-dir)))
+
+  (call-with-output-file (build-path (write-dir) (format "~a.png" filename-base))
+    (lambda (op)
+      (write-bytes (convert (scale pict scale-amt) 'svg-bytes) op))
+    #:exists 'replace))
+
+(define (write-images)
+  #;(write-image call-from-mom
+                 "call-from-mom")
+  (write-image search-interface
+               "nym-searches-for-ben")
+  (write-image incoming-call
+               "call-from-dr-nym")
+  #;(write-image save-contact
+               "save-contact")
+
+  )
+
+(module+ main
+  (write-images)
+  (printf "Wrote images to ~a" (path->string (write-dir)))
+  (void))
+
 
 #;(call-with-output-file "/tmp/search-interface-medium.svg"
     (lambda (p)
