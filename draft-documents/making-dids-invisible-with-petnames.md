@@ -157,6 +157,9 @@ He selects "Save Contact" from a menu.
 On the edit screen that appears, a "local name" widget is immediately
 selected with a suggested entry of "Jane Nym" highlighted in such
 a way that if Ben were to begin typing he could override this text.
+
+<!-- TODO: Menu with select local name -->
+
 Ben decides this name is good enough&#x2026; since he knows Alyssa's mother
 on a personal basis through Alyssa, he is comfortable thinking about
 her as Jane Nym.
@@ -166,6 +169,9 @@ contacts" button.
 Once again Ben is presented with an editable field with the name
 "Jane Nym" preselected, but Ben decides to edit this edge name to
 be called "Dr. Nym".
+
+<!-- TODO: Menu with dr nym -->
+
 While Ben knows Dr. Nym on a first name basis in a personal context,
 Ben and Dr. Nym both work in an academic setting, and in such contexts
 he thinks it would be respectful for others to hear Dr. Nym referred
@@ -205,6 +211,9 @@ context (though there is no guarantee that "caller ID" provides the
 same intro name to others for this phone number), however since this
 is a contextual name and Ben's contact and phone applications do not
 want Ben to be confused, this renders as "? ⇒ Pizza Piano 2".
+
+<!-- TODO: intro name example -->
+
 The "?" is because this message comes from the local context of the
 application and otherwise is not rooted in a known entity from Ben's
 local trust network (ie, contacts).
