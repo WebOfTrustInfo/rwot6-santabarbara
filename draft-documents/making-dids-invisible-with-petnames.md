@@ -59,28 +59,28 @@ database to bidirectionally map human readable names to
 cryptographically secure names.
 The three types of names in a petname system are:
 
--   **petnames**: These are set locally by a user to map local meaning
-    to an external identifier.
-    For example, "Mom", "Uncle Bob", and "Pawnee Library".
--   **edge names**: Every entity in a petname system may act as its own
-    namespace, providing "paths" to names to other entities in the
-    system as a graph, and these provided names are called "edge names".
-    For example, "example.org" is an edge name in "dns ⇒ example.org",
-    and "Sarah Smith" is an edge name in "Uncle Bob ⇒ Sarah Smith".
-    We don't have to get rid of popular naming systems like DNS, but can
-    absorb them in such a way that they are on equal footing with any other
-    entity.
--   **proposed names**: These are names which are introduced within a
-    local context.
-    For example, email permits users to specify a name on its addressing
-    along with the email address.
-    If you get an email that is cc'ed to `Ben Bitdiddle <ben@example.org>`,
-    "Ben Bitdiddle" would be the proposed name.
-  -   **self-proposed names**
-      In some applications, such as in social network software, it is
-      possible to retrieve an entity's profile to see how that entity
-      would like itself to be referred to.  We call this a self-proposed
-      name.
+- **petnames**: These are set locally by a user to map local meaning
+  to an external identifier.
+  For example, "Mom", "Uncle Bob", and "Pawnee Library".
+- **edge names**: Every entity in a petname system may act as its own
+  namespace, providing "paths" to names to other entities in the
+  system as a graph, and these provided names are called "edge names".
+  For example, "example.org" is an edge name in "dns ⇒ example.org",
+  and "Sarah Smith" is an edge name in "Uncle Bob ⇒ Sarah Smith".
+  We don't have to get rid of popular naming systems like DNS, but can
+  absorb them in such a way that they are on equal footing with any other
+  entity.
+- **proposed names**: These are names which are introduced within a
+  local context.
+  For example, email permits users to specify a name on its addressing
+  along with the email address.
+  If you get an email that is cc'ed to `Ben Bitdiddle <ben@example.org>`,
+  "Ben Bitdiddle" would be the proposed name.
+   - **self-proposed names**
+     In some applications, such as in social network software, it is
+     possible to retrieve an entity's profile to see how that entity
+     would like itself to be referred to.  We call this a self-proposed
+     name.
 
 # Implementing petnames<a id="sec-2" name="sec-2"></a>
 
