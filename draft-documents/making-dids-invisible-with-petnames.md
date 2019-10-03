@@ -160,15 +160,13 @@ Ben checks the call history and sees that the first item says
 a call from "Alyssa ⇒ Jane Nym".
 He selects "Save Contact" from a menu.
 
-<!-- TODO: Menu with save contact picture -->
-
 On the edit screen that appears, a "local name" widget is immediately
 selected with a suggested entry of "Jane Nym" highlighted in such
 a way that if Ben were to begin typing he could override this text.
 
 <!-- TODO: Menu with select local name -->
 
-Ben decides this name is good enough&#x2026; since he knows Alyssa's mother
+Ben decides this name is good enough; since he knows Alyssa's mother
 on a personal basis through Alyssa, he is comfortable thinking about
 her as Jane Nym.
 Ben decides that he would also like to share this contact as an edge
@@ -189,9 +187,6 @@ established, Ben presses save.
 Returning to the recent calls page, he sees that the contact list's
 display has been updated to saying simply "Jane Nym" for the most
 recent call.
-
-<!-- TODO: The QR code thing seems like a good idea to represent
-       but seems like a bit too much work -->
 
 Meanwhile Dr. Nym is wasting no time in placing the order for the
 pizzas for the event.
