@@ -70,11 +70,17 @@ The three types of names in a petname system are:
     We don't have to get rid of popular naming systems like DNS, but can
     absorb them in such a way that they are on equal footing with any other
     entity.
--   **intro names**: These are names which are introduced within a local context.
+-   **proposed names**: These are names which are introduced within a
+    local context.
     For example, email permits users to specify a name on its addressing
     along with the email address.
     If you get an email that is cc'ed to `Ben Bitdiddle <ben@example.org>`,
-    "Ben Bitdiddle" would be the intro name.
+    "Ben Bitdiddle" would be the proposed name.
+  -   **self-proposed names**
+      In some applications, such as in social network software, it is
+      possible to retrieve an entity's profile to see how that entity
+      would like itself to be referred to.  We call this a self-proposed
+      name.
 
 # Implementing petnames<a id="sec-2" name="sec-2"></a>
 
@@ -208,20 +214,21 @@ phone call from a number he has not saved as a petname and for which
 none of his contacts have provided a petname (including that Ben does
 not have the same business directory Dr. Nym does as a contact
 either).
-"Caller ID" does provide an **intro name** of "Pizza Piano" for this
+"Caller ID" does provide an **proposed name** of "Pizza Piano" for this
 context (though there is no guarantee that "caller ID" provides the
-same intro name to others for this phone number), however since this
+same proposed name to others for this phone number), however since this
 is a contextual name and Ben's contact and phone applications do not
-want Ben to be confused, this renders as "? ⇒ Pizza Piano 2".
+want Ben to be confused, this renders as "Pizza Piano.2".
 
-<!-- TODO: intro name example -->
+<!-- TODO: proposed name example -->
 
-The "?" is because this message comes from the local context of the
-application and otherwise is not rooted in a known entity from Ben's
-local trust network (ie, contacts).
-"Pizza Piano" is the intro name, but Ben has already had contact with
+"Pizza Piano" is the proposed name, but Ben has already had contact with
 one of the other Pizza Piano franchise locations, and so the system
 distinctively marks this one as entry 2.
+Ben's petname system will automatically increment this number until it
+exceeds 9, at which case any new encounters with a proposed name of
+"Pizza Piano" will simply render as "Pizza Piano..."
+
 Ben answers the call; the pizza parlor employee merely wanted to let
 Ben know that they were all out of olives and wanted to know if another
 ingredient would be acceptable.
