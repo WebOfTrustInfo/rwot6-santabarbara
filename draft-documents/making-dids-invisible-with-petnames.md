@@ -1,4 +1,4 @@
-# Making DIDs Invisible: Petnames and their Secure User Interfaces
+# Petnames: A humane approach to secure, decentralized naming
 
 By Christopher Lemmer Webber, Mark S. Miller, Zachary Larson, Kate Sills,
 and Eli Yaacoby
