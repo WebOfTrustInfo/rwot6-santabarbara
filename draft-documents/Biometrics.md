@@ -82,22 +82,16 @@ Adopting self-sovereign principles for biometric data requires a new
 framework. This paper lays them out as six *principles* that are
 needed for the safe storage and usage of biometric data.
 
-### Principle 1: Biometrics Should Be Decentralized
+### Principle 1: Biometric Data Should Be Decentralized
 
 When biometrics for authentication were first developed, the only
 option to store the biometric data for comparison with the login data
 was in a centralized silo connected to the internet. As time has gone
 by, centralized silos have become more and more vulnerable, presenting
-irresistible targets for data thieves.  In function identity [^14]
-terms, centralized systems have one secure point for multiple records:
-
-![Alt](Biometric-diagrams/centralized.dot.svg)
-
-This presents a single point of failure and a large attack surface.
-In contrast, decentralization protects records individually and
-presents a small attack surface:
-
-![Alt](Biometric-diagrams/decentralized.dot.svg)
+irresistible targets for data thieves.  Centralized systems have one
+secure point for multiple records.  This presents a single point of
+failure and a large attack surface.  In contrast, decentralization
+protects records individually and presents a small attack surface.
 
 There are a number of cases where significant collections of very
 personal data have been hacked. In the United States, Equifax lost the
@@ -120,7 +114,7 @@ thought that there might be some role for the Blockchain for Biometrics.
 [//]: # (OPM - https://www.washingtonpost.com/news/federal-eye/wp/2015/07/09/hack-of-security-clearance-system-affected-21-5-million-people-federal-authorities-say/?utm\_term=.e5301c5c6f53)
 [//]: # (OPM - https://en.wikipedia.org/wiki/Office\_of\_Personnel\_Management\_data\_breach)
 
-### Principle 2: Biometrics Should Never Be Stored on a Blockchain
+### Principle 2: Biometric Data Should Never Be Stored on a Blockchain
 
 Blockchains are one of the most popular and well-tested decentralized
 tools for storing data on the internet. They have already become a prime
@@ -148,7 +142,7 @@ that blockchains can’t be used. They’re a great decentralized tool, and
 there are ways to use them than don’t store biometric data on the
 blockchain itself.
 
-### Principle 3: Biometrics Can Be Accessed *Via* a Blockchain
+### Principle 3: Biometric Data Can Be Accessed *Via* a Blockchain
 
 If you need to store biometric data, you can store a ***pointer*** to it
 on a blockchain but not the data itself. Biometric data always needs to
@@ -176,7 +170,7 @@ access even though the address is public.
 
 [//]: # (Additional Topic of Discussion: Offline First. How can we make this work when you’re offline without internet access, then sync up lately?)
 
-### Principle 4: Biometrics Should Be Under A User’s Control
+### Principle 4: Biometric Data Should Be Under A User’s Control
 
 When a user decides where to place his actual biometric data, he should
 ensure that it stays under his control: he should be the authority who
@@ -225,7 +219,7 @@ use it?*
 [//]: # (there’s already a body of property law need to respect the sovereignty of the data)
 [//]: # (cite DATA SOVEREIGNTY RULES)
 
-### Principle 5: Biometrics Traits Should Be Reliable
+### Principle 5: Biometric Traits Should Be Reliable
 
 Not just any biometrics will do the job. When choosing which biometrics
 will be stored and used, care should be taken to ensure that the
@@ -293,81 +287,6 @@ accepted.
 
 Systematic approaches can be actively aware of these challenges and
 compensate for them.
-
-### DID Auth flows with biometrics
-
-We illustrate several DID Auth examples using *biometric-based*
-identity credentials that reflect these six principles.  These
-examples are based on flows found in [^19].  In all cases, however,
-biometric authentication first requires enrollment (or registration)
-in which an Intial Biometric Vector (IBV) is collected and stored.  An
-IBV is a *template* and is independent of biometric modality:
-fingerprint, voice, face, etc. but contains data in standards-based or
-proprietary formats.  During subsequent authentication sessions, a
-Candidate Biometric Vector (CBV) is collected and "matched" against an
-enrolled IBV using methods specific to the biometric modality and
-format of the CBV and IBV.
-
-|                                   |IBV-CBV matched on mobile device|IBV-CBV matched on server|
-| ----------                        |-------                         |-------                  |
-|**IBV stored on the mobile device**|  A                             |   B                     |
-|**IBV stored on the server**       |  C                             |   D                     |
-
-We examine two protocols [^18], IEEE 2410-2017 (BOPS) and FIDO (UAF
-and WebAuthN), in which a public-private key pair is generated during
-enrollment and biometric authentication is only used to protect access
-to the private key.  Both protocols define standards for collecting
-and securing biometrics on mobile devices and negotiating with relying
-party servers.  We consider 4 uses cases (A,B,C and D) as a
-combination of (1) where biometric data is either stored on a mobile
-device or server and (2) where the authentication match occurs on the
-mobile device or server for both protocols.
-
-[//]: # (And we explain how it meets our 5 or 6 criteria)
-[//]: # (DID Auth: BOPS - enrollment/auth, FIDO UAF and WebAuthN flows)
-[//]: # (BOPS cloud agent - a personal agent)
-
-#### Enrollment
-
-The following sequence diagram generalizes DID-based biometric
-enrollment for all flows (A,B,C, D).  First, the subject is prompted
-to enroll via one or more biometric presentations (e.g., fingerprint,
-face, voice).  Depending on protocol and configuration, the mobile
-device or server generates a public-private key pair and reserves the
-IBV (step 1).  Next, the server generates a DID for the enrolled key
-pair and populates a corresponding DID Document with the public key on
-a given blockchain as per server configured DID methods.  The
-generated DID is associated with the public-private key pair and
-returned to the subject's mobile device.
-
-#### Biometric DID Auth Flow A: mobile store and mobile match
-
-In this flow, the IBV is stored on the mobile device, typically with
-the assistance of a TPM, such as iOS Secure Enclave.  This is a
-typical flow for hardware-specific biometrics, like TouchId and FaceID
-on iOS devices, where biometric data is never transmitted.
-
-#### Biometric DID Auth Flow B: mobile store and server match
-
-In this flow, the IBV is stored on the mobile device but is
-transmitted to a server for match along with a CBV.  This is a typical
-use case for *voice* biometrics where voice CBV samples
-
-#### Biometric DID Auth Flow C: server store and mobile match
-
-In this flow, the IBV is stored on the server and typically
-encrypted-at-rest (with the assistance of an optional HSM and/or an
-AFIS-compliant database.  Upon authentication, the IBV is transmitted
-to the mobile device for match along with a CBV.  This is a typical
-flow for *facial* biometrics in cases where
-
-#### Biometric DID Auth Flow D: server store and server match
-
-In this flow, the IBV is stored on the server and typically
-encrypted-at-rest (with the assistance of an optional HSM and/or an
-AFIS-compliant database.
-
-![Alt](Biometric-diagrams/bioEnrollment.sequence.svg)
 
 ### Conclusions
 
