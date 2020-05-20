@@ -2,6 +2,8 @@ did:erc725 method
 =================
 27th February 2018
 
+**Note: This DID method spec is outdated, since the underlying ERC725 (https://github.com/ethereum/EIPs/issues/725) and ERC734 (https://github.com/ethereum/EIPs/issues/734) have changed since this was written.**
+
 Markus Sabadello <<markus@danubetech.com>>,
 Fabian Vogelsteller <<fabian@ethereum.org>>,
 Peter Kolarov <<pkolarov@finid.me>>
