@@ -70,7 +70,7 @@
                    name-text)))
      (blank 0 10)
      (text "Personal contacts:" (cons 'bold 'default))
-     (text "  ☎ Ben Shapiro")
+     (text "  ☎ Ben Grossmeier")
      (text "  ☎ Benjamin Gonwick")
      
      (blank 0 5)

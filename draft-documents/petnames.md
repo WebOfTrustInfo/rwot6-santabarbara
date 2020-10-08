@@ -129,7 +129,7 @@ She searches for "Ben" in her contact list:
 ![Search interface mockup](./petnames-pictures/search-interface.svg)
 
 The "personal contacts" section shows **petnames** of people she knows,
-and "Ben Shapiro" is a research colleague of Dr. Nym's.
+and "Ben Grossmeier" is a research colleague of Dr. Nym's.
 The "network contacts" shows **edge names** published by entities
 Dr. Nym has stored locally as
 petnames.
