@@ -47,6 +47,7 @@ so there’s a value fear is that if the data is put online, it will
 inevitably be stolen and abused.
 
 There is the potential for disaster.
+[//]: # (AO: This is a quite worrisome but not a disaster in large-scale applications.)
 
 Despite this fear, biometric data already exists, and it’s already
 being recorded digitally and includes embedded devices [^16]. We need
