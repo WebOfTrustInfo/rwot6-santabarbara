@@ -285,7 +285,9 @@ suffer from False Rejection Rate (FRR) and False Acceptance Rate
 (FAR): the right users may be rejected and the wrong users may be
 accepted.
 
+
 Systematic approaches can be actively aware of these challenges and
+
 compensate for them.
 
 ### Conclusions
@@ -297,6 +299,26 @@ compensate for them.
 [//]: # (Biometrics is one of the ways to prove who you are - the naked man problem, refugee crisis)
 [//]: # (Biometrics include physical characteristics, embedded devices - can be ephemeral or permanent. We’ll use them, even though they’re ephemeral)
 [//]: # (It’s the third element of: What you have, what you know, and what you are)
+
+### Appendix
+
+1. Potentially related initiatives
+
+There are a number of initiatives, working groups, and protocols that could be relevant to self-sovereign biometrics at present or in 
+the near future,  whether as complimentary principles for implementation, potential workflows or mechanisms for implementation, or 
+sources of further guidance.
+
+These may include efforts such as:
+
+DID Auth[https://github.com/WebOfTrustInfo/rwot6-santabarbara/blob/master/final-documents/did-auth.md]
+Known Traveller Digital Identity[https://www.weforum.org/reports/the-known-traveller-unlocking-the-potential-of-digital-identity-for-secure-and-seamless-travel]
+NIST SOFA[https://pages.nist.gov/SOFA/SOFA.html]
+FIDO Alliance protocols
+
+Specific additional principles or best practices may be necessary to effectively preserve self sovereignty of biometrics in 
+implementations involving the systems above.Proposals such as the bridging of OpenID Connect and SSI protocols could also create new 
+paths for self-sovereign implementations of biometrics, and enable the use of new forms of strong authentication within privacy-
+preserving architectures.
 
 [//]: # (REFERENCES)
 
